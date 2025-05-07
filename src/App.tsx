@@ -8,7 +8,6 @@ import { useCalendar } from "./hooks/useCalendar"
 import Settings from "./components/Settings"
 import { downloadCsv } from "./download-csv"
 import { useSettingsStore } from "./stores/useSettings"
-import { env } from "./env"
 
 
 
@@ -28,7 +27,7 @@ export default function App() {
 
             <header>
 
-                <img src={env.ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
+                <img src={import.meta.env.VITE_ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
 
                 <h1>Arknights Pulls Calculator</h1>
 
@@ -77,7 +76,7 @@ export default function App() {
             <footer>
                 <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
                 <span>
-                    <img src={env.ASSETS_BASE_URL + "icons/closure_octocat.svg"} alt="github logo" />
+                    <img src={import.meta.env.VITE_ASSETS_BASE_URL + "icons/closure_octocat.svg"} alt="github logo" />
                     <a href="https://github.com/imivi/arknights-pulls-calculator" target="_blank" rel="noreferrer">source</a>
                 </span>
             </footer>

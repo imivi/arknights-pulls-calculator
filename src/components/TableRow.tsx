@@ -7,7 +7,7 @@ import ResourceBadge from "./ResourceBadge"
 
 import imageColors from "../data/image-colors.json"
 import { useClearedReruns } from "../hooks/useClearedReruns"
-import { env } from "../env"
+
 const colors = imageColors as unknown as Record<string, Colors>
 
 
@@ -130,7 +130,7 @@ function EventCell({ day, colors }: EventCellProps) {
             }
             {
                 day.event_id &&
-                <img className={s.bg} src={env.ASSETS_BASE_URL + `events/${day.event_id}.jpg`} alt={day.event_id} />
+                <img className={s.bg} src={import.meta.env.VITE_ASSETS_BASE_URL + `events/${day.event_id}.jpg`} alt={day.event_id} />
             }
         </td>
     )

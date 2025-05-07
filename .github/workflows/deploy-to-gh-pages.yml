@@ -40,6 +40,7 @@ jobs:
         run: pnpm run build
         env:
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          VITE_ASSETS_BASE_URL: https://imivi.github.io/arknights-pulls-calculator/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

@@ -4,7 +4,6 @@ import "dotenv/config"
 
 const envSchema = z.object({
     GOOGLE_SHEET_ID: z.string(),
-    ASSETS_BASE_URL: z.string().default("https://imivi.github.io/arknights-pulls-calculator/"),
 })
 
 

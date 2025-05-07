@@ -1,0 +1,34 @@
+.ResourceBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: .9em;
+    padding: .2em .4em;
+    border-radius: 1em;
+    height: 1em;
+    cursor: pointer;
+
+    &[data-resource=orundum] {
+        background-color: rgb(236, 205, 205);
+        color: brown;
+    }
+
+    &[data-resource=ticket] {
+        background-color: rgb(181, 220, 138);
+        color: rgb(60, 92, 4);
+    }
+
+    &[data-resource=op] {
+        background-color: rgb(245, 211, 158);
+        color: rgb(118, 82, 6);
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        line-height: 1.6em;
+        text-align: left;
+    }
+}

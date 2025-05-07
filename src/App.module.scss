@@ -1,0 +1,174 @@
+.App {
+
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: relative;
+        background-color: #f4f4f4;
+        top: 0;
+        font-weight: normal;
+        z-index: 9;
+
+        h1 {
+            font-family: "Inter", Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+            color: #1f69a6;
+            font-weight: normal;
+            letter-spacing: 0.01em;
+            margin: 10px;
+            margin-right: auto;
+        }
+
+        &>img {
+            max-height: 80px;
+            top: 0;
+            left: 0;
+            z-index: 1;
+
+            @media screen and (max-width: 600px) {
+                display: none;
+            }
+        }
+    }
+
+    .table_container {
+
+        thead {
+            position: sticky;
+            top: 0;
+        }
+    }
+
+    table {
+
+        border-collapse: collapse;
+        margin: 0 auto;
+        margin-bottom: 2vh;
+
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 3;
+
+            tr {
+                background-color: #eee;
+            }
+        }
+
+        th>span {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+        }
+
+        th,
+        td {
+            padding: .2em .4em;
+            position: relative;
+        }
+
+        th {
+            background-color: #eee;
+            border: 1px solid #ddd;
+            text-align: center;
+
+            &>span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            @media screen and (max-width: 600px) {
+                .caption {
+                    font-size: 0;
+                }
+            }
+        }
+
+        th:nth-child(6),
+        th:nth-child(7) {
+            text-align: left;
+        }
+
+        tr:nth-child(odd) td {
+            background-color: #f0f0f0;
+        }
+
+        td[data-column=event] {
+            max-width: 10rem;
+            overflow: hidden;
+            padding: 0;
+
+            &>label {
+                position: relative;
+                z-index: 1;
+                color: white;
+                background-color: rgba($color: white, $alpha: 0.8);
+                // text-shadow: 0 3px 10px rgba($color: black, $alpha: 0.1);
+                display: flex;
+                flex-direction: column;
+                // opacity: 0.5;
+
+                span {
+                    padding: .5em;
+                }
+            }
+        }
+
+        td[data-resource=orundum] {
+            color: brown;
+        }
+
+        td[data-resource=tickets] {
+            color: darkgreen;
+            text-align: left;
+        }
+
+        td[data-resource=op] {
+            color: coral;
+        }
+    }
+
+    footer {
+        background-color: #eee;
+        padding: 2vh 2vw;
+        display: grid;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+
+        span {
+            display: flex;
+            place-content: center;
+            place-items: center;
+            gap: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        img {
+            width: 30px;
+        }
+
+        &::after {
+            background-image: url("/bg/closure_pet.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 100px;
+            height: 100%;
+
+            z-index: 1;
+            content: "";
+            // outline: 1px solid brown;
+        }
+    }
+}

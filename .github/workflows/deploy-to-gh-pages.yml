@@ -36,8 +36,10 @@ jobs:
           version: 7
       - name: Install dependencies
         run: pnpm install
-      - name: Build
+      - name: build
         run: pnpm run build
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

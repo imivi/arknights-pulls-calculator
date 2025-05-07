@@ -38,10 +38,11 @@ jobs:
         run: pnpm install
       - name: (prebuild) fetch data from google sheets and generate image colors
         run: pnpm run prebuild
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
       - name: build
         run: pnpm run build
         env:
-          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
           VITE_ASSETS_BASE_URL: https://imivi.github.io/arknights-pulls-calculator/
       - name: Setup Pages
         uses: actions/configure-pages@v5

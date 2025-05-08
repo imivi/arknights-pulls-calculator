@@ -7,6 +7,10 @@
     border: none;
     padding: 0;
 
+    @media screen and (max-width:600px) {
+        justify-content: center;
+    }
+
     img {
         margin: 5px;
     }
@@ -21,7 +25,9 @@
     label {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         border-radius: 3px;
+        min-width: 7rem;
     }
 
     input {

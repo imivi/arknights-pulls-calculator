@@ -11,7 +11,7 @@
                     "source": "store"
                 },
                 {
-                    "description": "from login event",
+                    "description": "from special login event",
                     "value": 500,
                     "source": "login_event"
                 },
@@ -49,7 +49,7 @@
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from login event",
+                    "description": "from special login event",
                     "value": 500,
                     "source": "login_event"
                 },
@@ -75,7 +75,7 @@
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from login event",
+                    "description": "from special login event",
                     "value": 500,
                     "source": "login_event"
                 },
@@ -106,7 +106,7 @@
                     "source": "anni"
                 },
                 {
-                    "description": "from login event",
+                    "description": "from special login event",
                     "value": 500,
                     "source": "login_event"
                 },
@@ -132,7 +132,7 @@
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from login event",
+                    "description": "from special login event",
                     "value": 500,
                     "source": "login_event"
                 },
@@ -158,7 +158,7 @@
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from login event",
+                    "description": "from special login event",
                     "value": 500,
                     "source": "login_event"
                 },
@@ -184,7 +184,7 @@
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from login event",
+                    "description": "from special login event",
                     "value": 500,
                     "source": "login_event"
                 },
@@ -426,7 +426,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
@@ -1163,7 +1163,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
@@ -1854,7 +1854,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
@@ -2644,7 +2644,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
@@ -3356,7 +3356,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
@@ -4037,7 +4037,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
@@ -4808,7 +4808,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
@@ -5469,7 +5469,7 @@
             ],
             "tickets": [
                 {
-                    "description": "from login bonus",
+                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }

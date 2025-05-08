@@ -61,7 +61,6 @@ export class DailyResource {
     resourcesGained: ResourcesGained
     totalResources: Resources
 
-
     constructor(
         public readonly day: DateString,
         public readonly description: string | undefined,
@@ -70,14 +69,15 @@ export class DailyResource {
         resourcesGained: ResourcesGained,
         clearedReruns: string[],
     ) {
-        if (!f2p)
-            this.resourcesGained = resourcesGained
-        else
+        if (f2p) {
             this.resourcesGained = {
                 orundum: resourcesGained.orundum.filter(res => res.source !== "monthly_card"),
                 tickets: resourcesGained.tickets.filter(res => res.source !== "monthly_card"),
                 op: resourcesGained.op.filter(res => res.source !== "monthly_card"),
             }
+        }
+        else
+            this.resourcesGained = resourcesGained
 
         // Ignore OP sources from event stages if this event has been cleared before
         if (clearedReruns.length > 0 && this.resourcesGained.op.length > 0 && this.event_id) {

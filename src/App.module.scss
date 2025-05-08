@@ -17,7 +17,13 @@
             font-weight: normal;
             letter-spacing: 0.01em;
             margin: 10px;
+            text-align: center;
             margin-right: auto;
+
+            @media screen and (max-width:600px) {
+                text-align: center;
+                width: 100%;
+            }
         }
 
         &>img {
@@ -33,6 +39,8 @@
     }
 
     .table_container {
+        max-width: 100vw;
+        overflow: auto;
 
         thead {
             position: sticky;
@@ -155,7 +163,7 @@
         }
 
         &::after {
-            background-image: url("/bg/closure_pet.png");
+            background-image: url("/bg/lambda.png");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;

@@ -109,7 +109,7 @@ function EventCell({ day, colors }: EventCellProps) {
     const { clearedReruns, toggleClearedRerun } = useClearedReruns()
 
     return (
-        <td rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
+        <td className={s.row} rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
             {
                 day.description &&
                 <label style={eventNameStyle}>

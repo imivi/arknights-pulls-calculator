@@ -27,11 +27,11 @@ export default function App() {
 
             <header>
 
-                <img src={import.meta.env.VITE_ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
-
-                <h1>Arknights Pulls Calculator</h1>
-
-                <Settings />
+                <main>
+                    <img src={import.meta.env.VITE_ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
+                    <h1>Arknights Pulls Calculator</h1>
+                    <Settings />
+                </main>
 
             </header>
 

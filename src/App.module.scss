@@ -1,14 +1,20 @@
 .App {
 
     header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
         position: relative;
         background-color: #f4f4f4;
         top: 0;
         font-weight: normal;
         z-index: 9;
+
+        &>main {
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            margin: 0 auto;
+        }
 
         h1 {
             font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -26,7 +32,7 @@
             }
         }
 
-        &>img {
+        img {
             max-height: 80px;
             top: 0;
             left: 0;
@@ -40,7 +46,7 @@
 
     .table_container {
         // max-width: 100vw;
-        // overflow: auto;
+        overflow: auto;
 
         thead {
             position: sticky;

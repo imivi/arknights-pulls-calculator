@@ -39,8 +39,8 @@
     }
 
     .table_container {
-        max-width: 100vw;
-        overflow: auto;
+        // max-width: 100vw;
+        // overflow: auto;
 
         thead {
             position: sticky;
@@ -49,7 +49,7 @@
     }
 
     table {
-
+        // width: 100%;
         border-collapse: collapse;
         margin: 0 auto;
         margin-bottom: 2vh;

@@ -24,6 +24,7 @@ const rowSchema = z.object({
     "op:monthly_card": z.number().default(0),
     "tickets:login": z.number().default(0),
     "tickets:store": z.number().default(0),
+    "tickets:event_shop": z.number().default(0),
 })
 
 type Row = z.infer<typeof rowSchema>

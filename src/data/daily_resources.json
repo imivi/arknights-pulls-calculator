@@ -545,7 +545,13 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
             "op": [
                 {
                     "description": "from event stages",
@@ -882,7 +888,13 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
             "op": [
                 {
                     "description": "from event stages",
@@ -1252,7 +1264,13 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
             "op": [
                 {
                     "description": "from event stages",
@@ -2084,7 +2102,13 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
             "op": [
                 {
                     "description": "from event stages",
@@ -2799,7 +2823,13 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
             "op": [
                 {
                     "description": "from event stages",
@@ -3280,7 +3310,13 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
             "op": [
                 {
                     "description": "from event stages",
@@ -4358,9 +4394,19 @@
                     "description": "from store",
                     "value": 4,
                     "source": "store"
+                },
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
                 }
             ],
             "op": [
+                {
+                    "description": "from event stages",
+                    "value": 15,
+                    "source": "event_stages"
+                },
                 {
                     "description": "from monthly card",
                     "value": 6,
@@ -4589,7 +4635,13 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
@@ -4781,7 +4833,13 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 10,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {

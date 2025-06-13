@@ -1,4 +1,13 @@
+// $header-height: 6rem;
+
 .App {
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    @media screen and (max-width: 600px) {
+        // $header-height: 8rem;
+    }
 
     header {
         position: relative;
@@ -6,6 +15,8 @@
         top: 0;
         font-weight: normal;
         z-index: 9;
+
+        // height: $header-height;
 
         &>main {
             max-width: 1200px;
@@ -45,144 +56,159 @@
     }
 
     .table_container {
+        // opacity: 1;
         // max-width: 100vw;
-        overflow: auto;
+        // overflow: auto;
 
-        thead {
-            position: sticky;
-            top: 0;
-        }
+        overflow-y: auto;
+        height: 100%;
+        // max-height: calc(100vh - $header-height);
     }
 
-    table {
-        // width: 100%;
-        border-collapse: collapse;
-        margin: 0 auto;
-        margin-bottom: 2vh;
-
-        thead {
-            position: sticky;
-            top: 0;
-            z-index: 3;
-
-            tr {
-                background-color: #eee;
-            }
-        }
-
-        th>span {
-            display: flex;
-            align-items: center;
-            gap: .5em;
-        }
-
-        th,
-        td {
-            padding: .2em .4em;
-            position: relative;
-        }
+    thead {
+        position: sticky;
+        top: 0;
 
         th {
-            background-color: #eee;
-            border: 1px solid #ddd;
             text-align: center;
-
-            &>span {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            @media screen and (max-width: 600px) {
-                .caption {
-                    font-size: 0;
-                }
-            }
         }
+    }
+}
 
-        th:nth-child(6),
-        th:nth-child(7) {
-            text-align: left;
-        }
+table {
+    // width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 2vh;
 
-        tr:nth-child(odd) td {
-            background-color: #f0f0f0;
-        }
 
-        td[data-column=event] {
-            max-width: 10rem;
-            overflow: hidden;
-            padding: 0;
+    thead {
+        position: sticky;
+        top: 0;
+        z-index: 3;
 
-            &>label {
-                position: relative;
-                z-index: 1;
-                color: white;
-                background-color: rgba($color: white, $alpha: 0.8);
-                // text-shadow: 0 3px 10px rgba($color: black, $alpha: 0.1);
-                display: flex;
-                flex-direction: column;
-                // opacity: 0.5;
-
-                span {
-                    padding: .5em;
-                }
-            }
-        }
-
-        td[data-resource=orundum] {
-            color: brown;
-        }
-
-        td[data-resource=tickets] {
-            color: darkgreen;
-            text-align: left;
-        }
-
-        td[data-resource=op] {
-            color: coral;
+        tr {
+            background-color: #eee;
         }
     }
 
-    footer {
-        background-color: #eee;
-        padding: 2vh 2vw;
-        display: grid;
-        justify-content: center;
-        gap: 20px;
+    th>span {
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
+
+    th,
+    td {
+        padding: .2em .4em;
         position: relative;
+    }
 
-        span {
+    th {
+        background-color: #eee;
+        border: 1px solid #ddd;
+        text-align: center;
+
+        &>span {
             display: flex;
-            place-content: center;
-            place-items: center;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
         }
 
-        a {
-            text-decoration: none;
-            color: black;
+        @media screen and (max-width: 600px) {
+            .caption {
+                font-size: 0;
+            }
         }
+    }
 
-        img {
-            width: 30px;
-        }
+    th:nth-child(6),
+    th:nth-child(7) {
+        text-align: left;
+    }
 
-        &::after {
-            background-image: url("/bg/lambda.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+    tr:nth-child(odd) td {
+        background-color: #f0f0f0;
+    }
 
-            position: absolute;
-            top: 0;
-            left: 10px;
-            width: 100px;
-            height: 100%;
+    td[data-column=event] {
+        max-width: 10rem;
+        overflow: hidden;
+        padding: 0;
 
+        &>label {
+            position: relative;
             z-index: 1;
-            content: "";
-            // outline: 1px solid brown;
+            color: white;
+            background-color: rgba($color: white, $alpha: 0.8);
+            // text-shadow: 0 3px 10px rgba($color: black, $alpha: 0.1);
+            display: flex;
+            flex-direction: column;
+            // opacity: 0.5;
+
+            span {
+                padding: .5em;
+            }
         }
+    }
+
+    td[data-resource=orundum] {
+        color: brown;
+    }
+
+    td[data-resource=tickets] {
+        color: darkgreen;
+        text-align: left;
+    }
+
+    td[data-resource=op] {
+        color: coral;
+    }
+}
+
+footer {
+    // background-color: #eee;
+    // padding: 2vh 2vw;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+
+    button {
+        z-index: 2;
+    }
+
+    span {
+        display: flex;
+        place-content: center;
+        place-items: center;
+        gap: 12px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    img {
+        width: 30px;
+    }
+
+    &::after {
+        background-image: url("/bg/lambda.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        position: absolute;
+        top: 0;
+        left: 10px;
+        width: 100px;
+        height: 100%;
+
+        z-index: 1;
+        content: "";
+        // outline: 1px solid brown;
     }
 }

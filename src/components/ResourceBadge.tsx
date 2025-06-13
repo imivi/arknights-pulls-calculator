@@ -23,7 +23,7 @@ export default function ResourceBadge({ resource, value, tooltipId, children }: 
         >
             <Icon type={resource} size={20} />
             +{value}
-            <Tooltip id={tooltipId} >{children}</Tooltip>
+            <Tooltip id={tooltipId} style={{ zIndex: 9 }}>{children}</Tooltip>
         </div>
     )
 }

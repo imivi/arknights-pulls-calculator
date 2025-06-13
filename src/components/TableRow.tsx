@@ -7,6 +7,7 @@ import ResourceBadge from "./ResourceBadge"
 
 import imageColors from "../data/image-colors.json"
 import { useClearedReruns } from "../hooks/useClearedReruns"
+import { Tooltip } from "react-tooltip"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -27,6 +28,8 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
 
     const pullsWithoutOP = day.cumulativeResources.pullsWithoutOP()
     const pullsFromOP = day.cumulativeResources.opToPulls()
+
+    const tooltipId = "total-pulls-" + day.day
 
     return (
         <tr key={day.day}>
@@ -86,8 +89,15 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                 </div>
             </td>
 
-            <td style={rowStyle}>{pullsWithoutOP}</td>
-            <td style={rowStyle}>{pullsWithoutOP + pullsFromOP}</td>
+            <td className={s.align_right} style={rowStyle}>{pullsWithoutOP}</td>
+            <td className={s.align_right} style={rowStyle} data-tooltip-id={tooltipId}>
+                <Tooltip id={tooltipId} style={{ zIndex: 9 }} place="left">
+                    <span>Pulls from orundum: {pullsWithoutOP}</span>
+                    <br />
+                    <span>Pulls from OP: {pullsFromOP}</span>
+                </Tooltip>
+                {pullsWithoutOP + pullsFromOP}
+            </td>
         </tr>
     )
 }

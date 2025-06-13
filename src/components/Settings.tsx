@@ -48,9 +48,9 @@ export default function Settings() {
                 <Tooltip id="starting-op" content="Your current OP" />
             </label>
             <label data-resource="monthly_card" data-tooltip-id="monthly_card">
-                <Icon type="monthly_card" size={32} />
-                card
                 <input type="checkbox" checked={monthlyCard} onChange={(e) => setMonthlyCard(e.target.checked)} />
+                card
+                <Icon type="monthly_card" size={26} />
                 <Tooltip id="monthly_card" content="Monthly card" />
             </label>
 

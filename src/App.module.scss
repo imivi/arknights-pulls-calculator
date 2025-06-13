@@ -169,11 +169,27 @@ table {
 footer {
     // background-color: #eee;
     // padding: 2vh 2vw;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
     position: relative;
+    margin-bottom: 2vh;
+
+    .notes {
+        max-width: 30rem;
+        background-color: #fafafa;
+        padding: 1rem;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        box-shadow: 0 5px 10px rgba($color: black, $alpha: 0.1);
+
+        h2 {
+            margin: 0;
+            text-align: center;
+        }
+    }
 
     button {
         z-index: 2;

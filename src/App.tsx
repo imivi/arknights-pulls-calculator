@@ -76,6 +76,17 @@ export default function App() {
             </div>
 
             <footer>
+
+                <div className={s.notes}>
+                    <h2>Not included:</h2>
+                    <ul>
+                        <li>24 free pulls on each limited banner (every 3 months)</li>
+                        <li>Distinction Certificates (gold certs)</li>
+                        <li>Orundum from the Intelligence Certification Store (purple certs)</li>
+                        <li>Maintenance compensation and random gifts in the mail</li>
+                    </ul>
+                </div>
+
                 <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
                 <span>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "icons/closure_octocat.svg"} alt="github logo" />

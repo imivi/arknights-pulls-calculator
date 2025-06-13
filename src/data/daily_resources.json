@@ -1230,25 +1230,6 @@
     },
     {
         "day": "2025-06-20",
-        "resourcesGained": {
-            "orundum": [
-                {
-                    "description": "from monthly card",
-                    "value": 200,
-                    "source": "monthly_card"
-                },
-                {
-                    "description": "from daily missions",
-                    "value": 100,
-                    "source": "daily_missions"
-                }
-            ],
-            "tickets": [],
-            "op": []
-        }
-    },
-    {
-        "day": "2025-06-21",
         "description": "The Rides to Lake Silberneherze Rerun",
         "event_id": "silber",
         "resourcesGained": {
@@ -1278,6 +1259,27 @@
                     "source": "event_stages"
                 }
             ]
+        }
+    },
+    {
+        "day": "2025-06-21",
+        "description": "The Rides to Lake Silberneherze Rerun",
+        "event_id": "silber",
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "description": "from monthly card",
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "description": "from daily missions",
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
         }
     },
     {
@@ -1413,7 +1415,13 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
@@ -1434,13 +1442,7 @@
                 }
             ],
             "tickets": [],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 16,
-                    "source": "event_stages"
-                }
-            ]
+            "op": []
         }
     },
     {
@@ -1551,8 +1553,8 @@
     },
     {
         "day": "2025-07-03",
-        "description": "The Rides to Lake Silberneherze Rerun",
-        "event_id": "silber",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1566,14 +1568,26 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
-            "op": []
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 13,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
         "day": "2025-07-04",
-        "description": "The Rides to Lake Silberneherze Rerun",
-        "event_id": "silber",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1593,8 +1607,8 @@
     },
     {
         "day": "2025-07-05",
-        "description": "The Rides to Lake Silberneherze Rerun",
-        "event_id": "silber",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1614,6 +1628,8 @@
     },
     {
         "day": "2025-07-06",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1638,6 +1654,8 @@
     },
     {
         "day": "2025-07-07",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1657,6 +1675,8 @@
     },
     {
         "day": "2025-07-08",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1676,6 +1696,8 @@
     },
     {
         "day": "2025-07-09",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1700,6 +1722,8 @@
     },
     {
         "day": "2025-07-10",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1714,13 +1738,19 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 26,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
         "day": "2025-07-11",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1740,8 +1770,8 @@
     },
     {
         "day": "2025-07-12",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1761,8 +1791,8 @@
     },
     {
         "day": "2025-07-13",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1787,8 +1817,8 @@
     },
     {
         "day": "2025-07-14",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1808,8 +1838,8 @@
     },
     {
         "day": "2025-07-15",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1829,8 +1859,8 @@
     },
     {
         "day": "2025-07-16",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Here A People Sows Rerun",
+        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -1855,10 +1885,15 @@
     },
     {
         "day": "2025-07-17",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -1872,20 +1907,36 @@
             ],
             "tickets": [
                 {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                },
+                {
                     "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
             ],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 12,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
         "day": "2025-07-18",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -1903,10 +1954,15 @@
     },
     {
         "day": "2025-07-19",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -1924,14 +1980,19 @@
     },
     {
         "day": "2025-07-20",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
                 {
                     "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
+                },
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
                 },
                 {
                     "description": "from monthly card",
@@ -1950,10 +2011,15 @@
     },
     {
         "day": "2025-07-21",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -1971,10 +2037,15 @@
     },
     {
         "day": "2025-07-22",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -1992,10 +2063,15 @@
     },
     {
         "day": "2025-07-23",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from weekly missions",
                     "value": 500,
@@ -2018,10 +2094,15 @@
     },
     {
         "day": "2025-07-24",
-        "description": "Poly Vision Museum (date TBD)",
-        "event_id": "museum",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2034,13 +2115,26 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 26,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
         "day": "2025-07-25",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2058,8 +2152,15 @@
     },
     {
         "day": "2025-07-26",
+        "description": "Such is the Joy of Our Reunion (date TBD)",
+        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
+                {
+                    "description": "from fortune strip",
+                    "value": 500,
+                    "source": "fortune_strip"
+                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2102,20 +2203,8 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [
-                {
-                    "description": "from event shop",
-                    "value": 3,
-                    "source": "event_shop"
-                }
-            ],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 12,
-                    "source": "event_stages"
-                }
-            ]
+            "tickets": [],
+            "op": []
         }
     },
     {
@@ -2203,15 +2292,8 @@
     },
     {
         "day": "2025-07-31",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2229,15 +2311,8 @@
     },
     {
         "day": "2025-08-01",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2267,15 +2342,8 @@
     },
     {
         "day": "2025-08-02",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2293,51 +2361,12 @@
     },
     {
         "day": "2025-08-03",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
                 {
                     "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
-                },
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
-                {
-                    "description": "from monthly card",
-                    "value": 200,
-                    "source": "monthly_card"
-                },
-                {
-                    "description": "from daily missions",
-                    "value": 100,
-                    "source": "daily_missions"
-                }
-            ],
-            "tickets": [],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 26,
-                    "source": "event_stages"
-                }
-            ]
-        }
-    },
-    {
-        "day": "2025-08-04",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
-        "resourcesGained": {
-            "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
                 },
                 {
                     "description": "from monthly card",
@@ -2355,16 +2384,34 @@
         }
     },
     {
-        "day": "2025-08-05",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
+        "day": "2025-08-04",
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
+                    "description": "from monthly card",
+                    "value": 200,
+                    "source": "monthly_card"
                 },
+                {
+                    "description": "from daily missions",
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 18,
+                    "source": "event_stages"
+                }
+            ]
+        }
+    },
+    {
+        "day": "2025-08-05",
+        "resourcesGained": {
+            "orundum": [
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2382,15 +2429,8 @@
     },
     {
         "day": "2025-08-06",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
                 {
                     "description": "from weekly missions",
                     "value": 500,
@@ -2413,15 +2453,8 @@
     },
     {
         "day": "2025-08-07",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2439,15 +2472,8 @@
     },
     {
         "day": "2025-08-08",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2465,15 +2491,8 @@
     },
     {
         "day": "2025-08-09",
-        "description": "Such is the Joy of Our Reunion (date TBD)",
-        "event_id": "reunion",
         "resourcesGained": {
             "orundum": [
-                {
-                    "description": "from fortune strip",
-                    "value": 500,
-                    "source": "fortune_strip"
-                },
                 {
                     "description": "from monthly card",
                     "value": 200,
@@ -2593,13 +2612,7 @@
                 }
             ],
             "tickets": [],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 18,
-                    "source": "event_stages"
-                }
-            ]
+            "op": []
         }
     },
     {
@@ -2803,8 +2816,6 @@
     },
     {
         "day": "2025-08-24",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2823,26 +2834,12 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [
-                {
-                    "description": "from event shop",
-                    "value": 3,
-                    "source": "event_shop"
-                }
-            ],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 13,
-                    "source": "event_stages"
-                }
-            ]
+            "tickets": [],
+            "op": []
         }
     },
     {
         "day": "2025-08-25",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2862,8 +2859,6 @@
     },
     {
         "day": "2025-08-26",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2883,8 +2878,6 @@
     },
     {
         "day": "2025-08-27",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2909,8 +2902,6 @@
     },
     {
         "day": "2025-08-28",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2930,8 +2921,6 @@
     },
     {
         "day": "2025-08-29",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2951,8 +2940,6 @@
     },
     {
         "day": "2025-08-30",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2972,8 +2959,6 @@
     },
     {
         "day": "2025-08-31",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -2993,19 +2978,11 @@
                 }
             ],
             "tickets": [],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 26,
-                    "source": "event_stages"
-                }
-            ]
+            "op": []
         }
     },
     {
         "day": "2025-09-01",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -3037,8 +3014,6 @@
     },
     {
         "day": "2025-09-02",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -3058,8 +3033,6 @@
     },
     {
         "day": "2025-09-03",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -3084,8 +3057,6 @@
     },
     {
         "day": "2025-09-04",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -3105,8 +3076,6 @@
     },
     {
         "day": "2025-09-05",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -3126,8 +3095,6 @@
     },
     {
         "day": "2025-09-06",
-        "description": "Here A People Sows Rerun (date TBD)",
-        "event_id": "sows",
         "resourcesGained": {
             "orundum": [
                 {
@@ -3320,7 +3287,7 @@
             "op": [
                 {
                     "description": "from event stages",
-                    "value": 28,
+                    "value": 12,
                     "source": "event_stages"
                 }
             ]
@@ -3486,7 +3453,13 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
@@ -3714,7 +3687,7 @@
             "op": [
                 {
                     "description": "from event stages",
-                    "value": 38,
+                    "value": 41,
                     "source": "event_stages"
                 },
                 {

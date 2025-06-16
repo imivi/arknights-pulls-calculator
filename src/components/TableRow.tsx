@@ -31,6 +31,8 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
 
     const tooltipId = "total-pulls-" + day.day
 
+    const { dayOfMonth, month, weekDay } = getDateValues(day.day)
+
     return (
         <tr key={day.day}>
 
@@ -39,7 +41,12 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                 day={day}
             />
 
-            <td style={dayStyle}>{formatDate(day.day)}</td>
+            <td style={dayStyle} className={s.day_cell}>
+                <div className={s.date}>
+                    <span>{month} {dayOfMonth}</span>
+                    <small>{weekDay.toUpperCase()}</small>
+                </div>
+            </td>
 
             {/* <td>{day.rowSpan}</td> */}
 
@@ -119,7 +126,7 @@ function EventCell({ day, colors }: EventCellProps) {
     const { clearedReruns, toggleClearedRerun } = useClearedReruns()
 
     return (
-        <td className={s.row} rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
+        <td className={s.event_cell} rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
             {
                 day.description &&
                 <label style={eventNameStyle}>
@@ -167,11 +174,11 @@ function formatOrundum(n: number): string {
         return (n / 1000).toFixed(1) + "k"
 }
 
-function formatDate(date: DateString): string {
+function getDateValues(date: DateString) {
     const dateObj = new Date(date)
     const words = dateObj.toString()
-    const [_, month, number] = words.split(" ")
-    return `${month} ${number}`
+    const [weekDay, month, dayOfMonth] = words.split(" ")
+    return { weekDay, month, dayOfMonth }
 }
 
 function getImageColors(img: string | undefined): Colors | null {

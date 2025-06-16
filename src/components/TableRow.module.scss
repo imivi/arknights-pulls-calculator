@@ -1,6 +1,22 @@
-.row {
+.event_cell {
+
     label {
         color: inherit;
+    }
+}
+
+.day_cell {
+
+    .date {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: .1em;
+    }
+
+    small {
+        font-size: .7em;
+        font-family: monospace;
     }
 }
 

@@ -127,6 +127,10 @@ table {
         text-align: left;
     }
 
+    th:last-child {
+        text-align: center;
+    }
+
     tr:nth-child(odd) td {
         background-color: #f0f0f0;
     }

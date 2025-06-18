@@ -99,7 +99,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
             <td className={s.align_right} style={rowStyle}>{pullsWithoutOP}</td>
             <td className={s.align_right} style={rowStyle} data-tooltip-id={tooltipId}>
                 <Tooltip id={tooltipId} style={{ zIndex: 9 }} place="left">
-                    <span>Pulls from orundum: {pullsWithoutOP}</span>
+                    <span>Pulls from orundum + permits: {pullsWithoutOP}</span>
                     <br />
                     <span>Pulls from OP: {pullsFromOP}</span>
                 </Tooltip>

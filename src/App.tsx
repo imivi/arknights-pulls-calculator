@@ -57,7 +57,7 @@ export default function App() {
                                 <Icon type="ticket" size={26} />
                             </th>
                             <th><Icon type="plus_op" size={30} /></th>
-                            <th>note</th>
+                            <th></th>
                         </tr>
 
                     </thead>

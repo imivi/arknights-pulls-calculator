@@ -47,7 +47,7 @@ export default function App() {
                             <th rowSpan={2}><span><Icon type="ticket" size={30} /> <div className={s.caption}>HH Permits</div></span></th>
                             <th rowSpan={2}><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
 
-                            <th colSpan={2} className={s.text_center}>Pulls</th>
+                            <th colSpan={3} className={s.text_center}>Pulls</th>
 
                         </tr>
 
@@ -57,6 +57,7 @@ export default function App() {
                                 <Icon type="ticket" size={26} />
                             </th>
                             <th><Icon type="plus_op" size={30} /></th>
+                            <th>note</th>
                         </tr>
 
                     </thead>
@@ -65,7 +66,7 @@ export default function App() {
                         {
                             dailyResources.map((day, i) => (
                                 <TableRow
-                                    key={day.day}
+                                    key={day.dateString}
                                     day={day}
                                     rowIsEven={i % 2 === 0}
                                 />

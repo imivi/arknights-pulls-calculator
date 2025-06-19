@@ -53,7 +53,7 @@
             ]
         }
     },
-    "masses": {
+    "masses_lim": {
         "dark": {
             "hex": "#0f303b",
             "hsl": [
@@ -107,7 +107,7 @@
             ]
         }
     },
-    "reunion": {
+    "reunion_lim": {
         "dark": {
             "hex": "#732828",
             "hsl": [

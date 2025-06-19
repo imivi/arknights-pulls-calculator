@@ -16,14 +16,16 @@ export type ResourcesGained = {
     op: ResourceGained[]
 }
 
-export type DaysWithResources = {
+export type DayWithResources = {
     cumulativeResources: Resources
-    day: string
+    dateString: string
     rowSpan: number
     resourcesGained: ResourcesGained
     totalResources: Resources
     description: string | undefined
     event_id: string | undefined
+    eventDay: number // 0: no event; 1+: day N of event
+    freePulls: number
 }
 
 export class Resources {

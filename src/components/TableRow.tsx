@@ -2,7 +2,7 @@ import s from "./TableRow.module.scss"
 
 import { CSSProperties } from "react"
 import { Colors } from "../scripts/get-image-colors"
-import { DaysWithResources, ResourceGained, DateString } from "../types"
+import { DayWithResources, ResourceGained, DateString } from "../types"
 import ResourceBadge from "./ResourceBadge"
 
 import imageColors from "../data/image-colors.json"
@@ -14,7 +14,7 @@ const colors = imageColors as unknown as Record<string, Colors>
 
 
 type RowProps = {
-    day: DaysWithResources
+    day: DayWithResources
     rowIsEven: boolean
 }
 
@@ -29,12 +29,12 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
     const pullsWithoutOP = day.cumulativeResources.pullsWithoutOP()
     const pullsFromOP = day.cumulativeResources.opToPulls()
 
-    const tooltipId = "total-pulls-" + day.day
+    const tooltipId = "total-pulls-" + day.dateString
 
-    const { dayOfMonth, month, weekDay } = getDateValues(day.day)
+    const { dayOfMonth, month, weekDay } = getDateValues(day.dateString)
 
     return (
-        <tr key={day.day}>
+        <tr key={day.dateString}>
 
             <EventCell
                 colors={colors}
@@ -58,7 +58,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                         <ResourceBadge
                             resource="orundum"
                             value={day.totalResources.orundum}
-                            tooltipId={day.day + "-orundum"}
+                            tooltipId={day.dateString + "-orundum"}
                         >
                             <ResourcesGained sources={day.resourcesGained.orundum} />
                         </ResourceBadge>
@@ -73,7 +73,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                         <ResourceBadge
                             resource="ticket"
                             value={day.totalResources.tickets}
-                            tooltipId={day.day + "-tickets"}
+                            tooltipId={day.dateString + "-tickets"}
                         >
                             <ResourcesGained sources={day.resourcesGained.tickets} />
                         </ResourceBadge>
@@ -88,7 +88,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                         <ResourceBadge
                             resource="op"
                             value={day.totalResources.op}
-                            tooltipId={day.day + "-op"}
+                            tooltipId={day.dateString + "-op"}
                         >
                             <ResourcesGained sources={day.resourcesGained.op} />
                         </ResourceBadge>
@@ -105,13 +105,16 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                 </Tooltip>
                 {pullsWithoutOP + pullsFromOP}
             </td>
+            <td style={rowStyle}>
+                {day.freePulls > 0 && <small>+{day.freePulls} free</small>}
+            </td>
         </tr>
     )
 }
 
 
 type EventCellProps = {
-    day: DaysWithResources
+    day: DayWithResources
     colors: Colors | null
 }
 

@@ -1,4 +1,4 @@
-import { Resources, DateString, DailyResource, ResourceGained, ResourcesGained, DaysWithResources } from "./types"
+import { Resources, DateString, DailyResource, ResourceGained, ResourcesGained, DayWithResources } from "./types"
 
 export function getValidDates(dailyResources: DailyResource[]) {
     const allDates = new Set<string>()
@@ -24,20 +24,60 @@ function dateIsAfter(a: Date, b: Date): boolean {
 }
 
 
-export function getDaysWithResources(startingResources: Resources, days: DateString[], dailyResources: Record<string, DailyResource>): DaysWithResources[] {
-    const resourcesPerDay = []
+/** Calculate the cumulative resources for each day */
+export function getDaysWithResources(startingResources: Resources, days: DateString[], dailyResources: Record<string, DailyResource>): DayWithResources[] {
+    const resourcesPerDay: DayWithResources[] = []
+
     let prevResources = startingResources
+
     for (const day of days) {
         const cumulativeResources = calculateResourcesPerDay(day, prevResources, dailyResources)
         const event = dailyResources[day]
         resourcesPerDay.push({
             ...event,
             cumulativeResources,
-            day,
+            dateString: day,
             rowSpan: 0,
+            eventDay: 0,
+            freePulls: 0,
         })
         prevResources = cumulativeResources
     }
+
+    // Add event days
+    let eventDay = 0
+    for (let i = 1; i < resourcesPerDay.length; i++) {
+        const currentDay = resourcesPerDay[i]
+        const previousDay = resourcesPerDay[i - 1]
+
+        const firstDayOfEvent = currentDay.event_id && !previousDay.event_id
+        const nonFirstDayOfEvent = currentDay.event_id && (currentDay.event_id === previousDay.event_id)
+
+        if (firstDayOfEvent) {
+            eventDay = 1
+            currentDay.eventDay = eventDay
+        }
+
+        else if (nonFirstDayOfEvent) {
+            eventDay += 1
+            currentDay.eventDay = eventDay
+        }
+
+        else {
+            eventDay = 0
+        }
+    }
+
+    // Calculate free pulls
+    for (const day of resourcesPerDay) {
+        if (day.event_id?.endsWith("_lim")) {
+            if (day.eventDay === 1)
+                day.freePulls = 11
+            else if (day.eventDay <= 14)
+                day.freePulls = 1
+        }
+    }
+
     return resourcesPerDay
 }
 

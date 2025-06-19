@@ -1,6 +1,6 @@
 import { generateCsv, download, mkConfig } from "export-to-csv"
 
-import { DaysWithResources, ResourceGained } from "./types"
+import { DayWithResources, ResourceGained } from "./types"
 
 type CsvRow = {
     date: string
@@ -13,9 +13,10 @@ type CsvRow = {
     op_sources: string
     pulls_no_op: number
     pulls_with_op: number
+    free_pulls: number
 }
 
-export function downloadCsv(rows: DaysWithResources[]) {
+export function downloadCsv(rows: DayWithResources[]) {
 
     const csvRows: CsvRow[] = rows.map(day => {
 
@@ -24,7 +25,7 @@ export function downloadCsv(rows: DaysWithResources[]) {
         const op_sources = formatSources(day.resourcesGained.op)
 
         return {
-            date: day.day,
+            date: day.dateString,
             event: day.description,
 
             op: day.cumulativeResources.op,
@@ -36,6 +37,7 @@ export function downloadCsv(rows: DaysWithResources[]) {
 
             pulls_no_op: day.cumulativeResources.pullsWithoutOP(),
             pulls_with_op: day.cumulativeResources.pullsWithOP(),
+            free_pulls: day.freePulls,
         }
     })
 

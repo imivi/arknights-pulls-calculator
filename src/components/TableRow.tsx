@@ -8,7 +8,6 @@ import ResourceBadge from "./ResourceBadge"
 import imageColors from "../data/image-colors.json"
 import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Tooltip } from "react-tooltip"
-import Icon from "./Icon"
 
 const colors = imageColors as unknown as Record<string, Colors>
 

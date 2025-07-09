@@ -1,3 +1,39 @@
+tr.TableRow {
+    td[data-column=pulls-total] {
+        background-color: #e8eeef;
+        color: #255a84;
+        // padding: .2em .4em;
+        // border-radius: 1rem;
+        height: 100%;
+        text-align: center;
+
+        &[data-even=true] {
+            background-color: #cddce7;
+        }
+    }
+
+    td[data-column=pulls-no-op] {
+        padding-right: 0;
+    }
+
+    td[data-column=pulls-no-op],
+    td[data-column=pulls-op] {
+        font-size: .9em;
+    }
+
+    td[data-column=pulls-free]>* {
+        color: rgb(78, 61, 10);
+        background-color: rgb(243, 230, 202);
+        height: .8rem;
+        padding: .2rem;
+        border-radius: .6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
 .event_cell {
 
     label {

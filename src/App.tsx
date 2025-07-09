@@ -47,16 +47,18 @@ export default function App() {
                             <th rowSpan={2}><span><Icon type="ticket" size={30} /> <div className={s.caption}>HH Permits</div></span></th>
                             <th rowSpan={2}><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
 
-                            <th colSpan={3} className={s.text_center}>Pulls</th>
+                            <th colSpan={5} className={s.text_center}>Pulls</th>
 
                         </tr>
 
                         <tr>
+                            <th>total</th>
                             <th>
                                 <Icon type="orundum" size={26} />
                                 <Icon type="ticket" size={26} />
                             </th>
                             <th><Icon type="plus_op" size={30} /></th>
+                            <th></th>
                             <th></th>
                         </tr>
 

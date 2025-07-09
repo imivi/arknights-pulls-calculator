@@ -12,7 +12,7 @@ export function useStartingResources() {
 
     const resources = useMemo(() => {
         const { orundum, tickets, op } = startingResources
-        return new Resources(orundum, tickets, op)
+        return new Resources(orundum || 0, tickets || 0, op || 0)
     }, [startingResources])
 
     function setResource(res: Resource, value: number) {

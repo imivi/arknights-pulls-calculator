@@ -14,7 +14,7 @@ This is an online tool for Arknights players to calculate resource income and fu
 
 * If you have cleared a past event, check "already cleared" on the banner for the rerun (the OP from the rerun will be disregarded).
 
-* Scroll down to the banner you want to pull on, and check the last columns: these are the pulls you will have available with and without converting your OP (the rate is 0.3 pulls/OP).
+* Scroll down to the banner you want to pull on, and check the blue column: these are the pulls you will have available if you convert all of your OP (the rate is 0.3 pulls/OP). The next two columns list the pulls without converting OP and the additional pulls you get from the converted OP.
 
 ## NOT included in the calculations
 

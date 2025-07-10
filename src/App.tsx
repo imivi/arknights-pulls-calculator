@@ -90,6 +90,9 @@ export default function App() {
                 </div>
 
                 <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
+
+                <span>Feedback / suggestions? <a href="https://docs.google.com/forms/d/1OHmmz5OlnV6blkSeJUH_vLMn4XTCXbP3B1wlPHMFgVo/viewform" target="_blank" rel="noreferrer">Use this form</a> or open an issue on GitHub</span>
+
                 <span>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "icons/closure_octocat.svg"} alt="github logo" />
                     <a href="https://github.com/imivi/arknights-pulls-calculator" target="_blank" rel="noreferrer">source</a>

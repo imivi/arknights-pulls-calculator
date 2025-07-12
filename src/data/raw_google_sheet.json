@@ -4320,6 +4320,8 @@
     {
         "day": "2025-12-11",
         "weekday": 4,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4328,16 +4330,18 @@
         "orundum:daily_missions": 100,
         "orundum:weekly_missions": 500,
         "orundum:monthly_card": 200,
-        "op:event_stages": 0,
+        "op:event_stages": 29,
         "op:login_event": 0,
         "op:monthly_card": 0,
         "tickets:login": 0,
         "tickets:store": 0,
-        "tickets:event_shop": 0
+        "tickets:event_shop": 3
     },
     {
         "day": "2025-12-12",
         "weekday": 5,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4356,6 +4360,8 @@
     {
         "day": "2025-12-13",
         "weekday": 6,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4374,6 +4380,8 @@
     {
         "day": "2025-12-14",
         "weekday": 7,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4392,6 +4400,8 @@
     {
         "day": "2025-12-15",
         "weekday": 1,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 1800,
@@ -4410,6 +4420,8 @@
     {
         "day": "2025-12-16",
         "weekday": 2,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4428,6 +4440,8 @@
     {
         "day": "2025-12-17",
         "weekday": 3,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4446,6 +4460,8 @@
     {
         "day": "2025-12-18",
         "weekday": 4,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4464,6 +4480,8 @@
     {
         "day": "2025-12-19",
         "weekday": 5,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,
@@ -4482,6 +4500,8 @@
     {
         "day": "2025-12-20",
         "weekday": 6,
+        "event": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "orundum:login_event": 0,
         "orundum:fortune_strip": 0,
         "orundum:anni": 0,

@@ -82,11 +82,9 @@ export class DailyResource {
             this.resourcesGained = resourcesGained
 
         // Ignore OP sources from event stages if this event has been cleared before
-        if (clearedReruns.length > 0 && this.resourcesGained.op.length > 0 && this.event_id) {
-            const eventHasBeenClearedBefore = this.event_id && clearedReruns.includes(this.event_id)
-            if (eventHasBeenClearedBefore) {
-                this.resourcesGained.op = this.resourcesGained.op.filter(res => res.source !== "event_stages")
-            }
+        const eventHasBeenClearedBefore = this.event_id && clearedReruns.includes(this.event_id)
+        if (eventHasBeenClearedBefore) {
+            this.resourcesGained.op = this.resourcesGained.op.filter(res => res.source !== "event_stages")
         }
 
         this.totalResources = sumResources(this.resourcesGained)

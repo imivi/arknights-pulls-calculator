@@ -5397,6 +5397,8 @@
     },
     {
         "day": "2025-12-11",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5415,12 +5417,26 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
-            "op": []
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 29,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
         "day": "2025-12-12",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5440,6 +5456,8 @@
     },
     {
         "day": "2025-12-13",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5459,6 +5477,8 @@
     },
     {
         "day": "2025-12-14",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5478,6 +5498,8 @@
     },
     {
         "day": "2025-12-15",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5502,6 +5524,8 @@
     },
     {
         "day": "2025-12-16",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5521,6 +5545,8 @@
     },
     {
         "day": "2025-12-17",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5546,6 +5572,8 @@
     },
     {
         "day": "2025-12-18",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5570,6 +5598,8 @@
     },
     {
         "day": "2025-12-19",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {
@@ -5589,6 +5619,8 @@
     },
     {
         "day": "2025-12-20",
+        "description": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life",
         "resourcesGained": {
             "orundum": [
                 {

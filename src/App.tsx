@@ -51,7 +51,7 @@ export default function App() {
                         </tr>
 
                         <tr>
-                            <th>total</th>
+                            <th>Total</th>
                             <th>
                                 <Icon type="orundum" size={26} />
                                 <Icon type="ticket" size={26} />
@@ -79,6 +79,8 @@ export default function App() {
 
             <footer>
 
+                <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
+
                 <div className={s.notes}>
                     <h2>Not included:</h2>
                     <ul>
@@ -89,14 +91,13 @@ export default function App() {
                     </ul>
                 </div>
 
-                <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
+                <p>Feedback / suggestions? <a href="https://docs.google.com/forms/d/1OHmmz5OlnV6blkSeJUH_vLMn4XTCXbP3B1wlPHMFgVo/viewform" target="_blank" rel="noreferrer">Use this form</a> or open an issue on GitHub</p>
 
-                <span>Feedback / suggestions? <a href="https://docs.google.com/forms/d/1OHmmz5OlnV6blkSeJUH_vLMn4XTCXbP3B1wlPHMFgVo/viewform" target="_blank" rel="noreferrer">Use this form</a> or open an issue on GitHub</span>
-
-                <span>
+                <p>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "icons/closure_octocat.svg"} alt="github logo" />
-                    <a href="https://github.com/imivi/arknights-pulls-calculator" target="_blank" rel="noreferrer">source</a>
-                </span>
+                    <a href="https://github.com/imivi/arknights-pulls-calculator" target="_blank" rel="noreferrer">&nbsp;source</a>
+                </p>
+
             </footer>
 
         </main>

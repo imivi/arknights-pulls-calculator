@@ -71,6 +71,7 @@
 
         th {
             text-align: center;
+            vertical-align: bottom;
         }
     }
 }
@@ -180,10 +181,11 @@ footer {
     gap: 20px;
     position: relative;
     margin-bottom: 2vh;
+    line-height: 1.5em;
 
     .notes {
         max-width: 30rem;
-        background-color: #fafafa;
+        background-color: #f5f5f6c2;
         padding: 1rem;
         border-radius: 10px;
         border: 1px solid #ddd;
@@ -199,11 +201,15 @@ footer {
         z-index: 2;
     }
 
-    span {
-        display: flex;
-        place-content: center;
-        place-items: center;
-        gap: 12px;
+    // span {
+    //     display: flex;
+    //     place-content: center;
+    //     place-items: center;
+    //     gap: 12px;
+    // }
+
+    p {
+        margin: 10px;
     }
 
     a {
@@ -231,5 +237,7 @@ footer {
         z-index: 1;
         content: "";
         // outline: 1px solid brown;
+
+        z-index: -1;
     }
 }

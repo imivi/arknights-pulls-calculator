@@ -43,7 +43,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
 
             <td style={dayStyle} className={s.day_cell}>
                 <div className={s.date}>
-                    <span>{month} {dayOfMonth}</span>
+                    <span>{month}&nbsp;{dayOfMonth}</span>
                     <small>{weekDay.toUpperCase()}</small>
                 </div>
             </td>
@@ -64,11 +64,11 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                 {/* <Icon type="ticket" size={20} /> */}
             </td>
             <td className={s.align_right} data-column="pulls-op" style={rowStyle}>
-                + {pullsFromOP})
+                +&nbsp;{pullsFromOP})
                 {/* <Icon type="plus_op" size={20} /> */}
             </td>
             <td style={rowStyle} data-column="pulls-free">
-                {day.freePulls > 0 && <small>+{day.freePulls} free</small>}
+                {day.freePulls > 0 && <small>+{day.freePulls}&nbsp;free</small>}
             </td>
 
 

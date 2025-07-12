@@ -50,6 +50,11 @@
         color: inherit;
     }
 
+    label {
+        padding: 5px;
+        min-height: 1.5em;
+    }
+
     label:nth-child(1) {
         background-color: rgb(236, 205, 205);
         color: brown;
@@ -75,7 +80,6 @@
         input {
             width: 20px;
             height: 20px;
-            margin: 10px;
         }
     }
 }

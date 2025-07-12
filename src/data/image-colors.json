@@ -125,6 +125,24 @@
             ]
         }
     },
+    "path_of_life": {
+        "dark": {
+            "hex": "#1c5c69",
+            "hsl": [
+                190,
+                57,
+                26
+            ]
+        },
+        "light": {
+            "hex": "#94d5e4",
+            "hsl": [
+                191,
+                60,
+                74
+            ]
+        }
+    },
     "recombination": {
         "dark": {
             "hex": "#571f2e",

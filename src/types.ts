@@ -68,25 +68,23 @@ export class DailyResource {
         public readonly description: string | undefined,
         public readonly event_id: string | undefined,
         f2p: boolean,
-        resourcesGained: ResourcesGained,
+        resGained: ResourcesGained,
         clearedReruns: string[],
     ) {
         if (f2p) {
             this.resourcesGained = {
-                orundum: resourcesGained.orundum.filter(res => res.source !== "monthly_card"),
-                tickets: resourcesGained.tickets.filter(res => res.source !== "monthly_card"),
-                op: resourcesGained.op.filter(res => res.source !== "monthly_card"),
+                orundum: resGained.orundum.filter(res => res.source !== "monthly_card"),
+                tickets: resGained.tickets.filter(res => res.source !== "monthly_card"),
+                op: resGained.op.filter(res => res.source !== "monthly_card"),
             }
         }
         else
-            this.resourcesGained = resourcesGained
+            this.resourcesGained = resGained
 
         // Ignore OP sources from event stages if this event has been cleared before
-        if (clearedReruns.length > 0 && this.resourcesGained.op.length > 0 && this.event_id) {
-            const eventHasBeenClearedBefore = this.event_id && clearedReruns.includes(this.event_id)
-            if (eventHasBeenClearedBefore) {
-                this.resourcesGained.op = this.resourcesGained.op.filter(res => res.source !== "event_stages")
-            }
+        const eventHasBeenClearedBefore = this.event_id && clearedReruns.includes(this.event_id)
+        if (eventHasBeenClearedBefore) {
+            this.resourcesGained.op = this.resourcesGained.op.filter(res => res.source !== "event_stages")
         }
 
         this.totalResources = sumResources(this.resourcesGained)

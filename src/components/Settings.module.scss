@@ -8,8 +8,8 @@
     padding: 0;
 
     @media screen and (max-width:600px) {
-        justify-content: center;
-        align-items: center;
+        // justify-content: center;
+        // align-items: center;
         width: 100%;
     }
 
@@ -52,7 +52,6 @@
 
     label {
         padding: 5px;
-        min-height: 1.5em;
     }
 
     label:nth-child(1) {

@@ -17,6 +17,24 @@
             ]
         }
     },
+    "babel_rerun": {
+        "dark": {
+            "hex": "#542414",
+            "hsl": [
+                15,
+                61,
+                20
+            ]
+        },
+        "light": {
+            "hex": "#dfada3",
+            "hsl": [
+                10,
+                48,
+                75
+            ]
+        }
+    },
     "dissociative": {
         "dark": {
             "hex": "#6c142c",

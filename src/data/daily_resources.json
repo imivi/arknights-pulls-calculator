@@ -4034,6 +4034,8 @@
     },
     {
         "day": "2025-10-16",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4052,12 +4054,26 @@
                     "source": "daily_missions"
                 }
             ],
-            "tickets": [],
-            "op": []
+            "tickets": [
+                {
+                    "description": "from event shop",
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 39,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
         "day": "2025-10-17",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4083,6 +4099,8 @@
     },
     {
         "day": "2025-10-18",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4102,6 +4120,8 @@
     },
     {
         "day": "2025-10-19",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4121,6 +4141,8 @@
     },
     {
         "day": "2025-10-20",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4145,6 +4167,8 @@
     },
     {
         "day": "2025-10-21",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4164,6 +4188,8 @@
     },
     {
         "day": "2025-10-22",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4183,6 +4209,8 @@
     },
     {
         "day": "2025-10-23",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4207,6 +4235,8 @@
     },
     {
         "day": "2025-10-24",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {
@@ -4226,6 +4256,8 @@
     },
     {
         "day": "2025-10-25",
+        "description": "Babel Rerun (date TBD)",
+        "event_id": "babel_rerun",
         "resourcesGained": {
             "orundum": [
                 {

@@ -44,6 +44,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                 <div className={s.date}>
                     <span>{month}&nbsp;{dayOfMonth}</span>
                     <small>{weekDay.toUpperCase()}</small>
+                    {/* <small>{new Date(day.dateString).toUTCString()}</small> */}
                 </div>
             </td>
 
@@ -189,10 +190,14 @@ function formatOrundum(n: number): string {
 }
 
 function getDateValues(date: DateString) {
-    const dateObj = new Date(date)
-    const words = dateObj.toString()
-    const [weekDay, month, dayOfMonth] = words.split(" ")
-    return { weekDay, month, dayOfMonth }
+
+    const [weekDay, day, month] = new Date(date).toUTCString().split(" ")
+
+    return {
+        weekDay: weekDay.replace(",", ""),
+        dayOfMonth: day,
+        month,
+    }
 }
 
 function getImageColors(img: string | undefined): Colors | null {

@@ -7,7 +7,7 @@ export type DateString = string
 export type ResourceGained = {
     value: number
     description: string
-    source: string,
+    source: string
 }
 
 export type ResourcesGained = {
@@ -26,6 +26,7 @@ export type DayWithResources = {
     event_id: string | undefined
     eventDay: number // 0: no event; 1+: day N of event
     freePulls: number
+    freeMonthlyCard: boolean
 }
 
 export class Resources {
@@ -67,11 +68,12 @@ export class DailyResource {
         public readonly day: DateString,
         public readonly description: string | undefined,
         public readonly event_id: string | undefined,
+        public readonly freeMonthlyCard: boolean,
         f2p: boolean,
         resGained: ResourcesGained,
         clearedReruns: string[],
     ) {
-        if (f2p) {
+        if (f2p && !this.freeMonthlyCard) {
             this.resourcesGained = {
                 orundum: resGained.orundum.filter(res => res.source !== "monthly_card"),
                 tickets: resGained.tickets.filter(res => res.source !== "monthly_card"),

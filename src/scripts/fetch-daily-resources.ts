@@ -11,6 +11,7 @@ const rowSchema = z.object({
     "weekday": z.number(),
     "event": z.string().optional(),
     "event_id": z.string().optional(),
+    "free_monthly_card": z.number().default(0),
     "orundum:login_event": z.number().default(0),
     "orundum:fortune_strip": z.number().default(0),
     "orundum:anni": z.number().default(0),
@@ -67,6 +68,7 @@ function processRow(row: Row) {
         day: row.day,
         description: row.event,
         event_id: row.event_id,
+        free_monthly_card: row.free_monthly_card,
         resourcesGained: {
             orundum,
             tickets,

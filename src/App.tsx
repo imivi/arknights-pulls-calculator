@@ -51,7 +51,7 @@ export default function App() {
                         </tr>
 
                         <tr>
-                            <th>Total</th>
+                            <th>Total pulls</th>
                             <th>
                                 <Icon type="orundum" size={26} />
                                 <Icon type="ticket" size={26} />

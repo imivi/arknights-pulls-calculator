@@ -3,9 +3,18 @@ import { DailyResource } from "./types"
 
 
 export function getDailyResources(f2p: boolean, clearedReruns: string[]) {
-    const dailyEvents: Record<string, DailyResource> = {}
+    const dailyResources: Record<string, DailyResource> = {}
     for (const e of events) {
-        dailyEvents[e.day] = new DailyResource(e.day, e.description, e.event_id, f2p, { ...e.resourcesGained }, clearedReruns)
+        const freeMonthlyCard = e.free_monthly_card === 1
+        dailyResources[e.day] = new DailyResource(
+            e.day,
+            e.description,
+            e.event_id,
+            freeMonthlyCard,
+            f2p,
+            { ...e.resourcesGained }, // Create a new object
+            clearedReruns,
+        )
     }
-    return dailyEvents
+    return dailyResources
 }

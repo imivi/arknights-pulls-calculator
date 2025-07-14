@@ -42,24 +42,21 @@ export default function App() {
 
                     <thead>
                         <tr>
-                            <th rowSpan={2}>Event</th>
-                            <th rowSpan={2}>Date</th>
+                            <th>Event</th>
+                            <th>Date</th>
 
-                            <th colSpan={4} className={s.text_center}>Pulls</th>
-
-                            <th rowSpan={2}><span><Icon type="orundum" size={30} /> <div className={s.caption}>Orundum</div></span></th>
-                            <th rowSpan={2}><span><Icon type="ticket" size={30} /> <div className={s.caption}>HH Permits</div></span></th>
-                            <th rowSpan={2}><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
-                        </tr>
-
-                        <tr>
                             <th>Total pulls</th>
                             <th>
                                 <Icon type="orundum" size={26} />
                                 <Icon type="ticket" size={26} />
                             </th>
                             <th><Icon type="plus_op" size={30} /></th>
-                            <th></th>
+                            <th>{/*Column for free pulls*/}</th>
+
+                            <th><span><Icon type="orundum" size={30} /> <div className={s.caption}>Orundum</div></span></th>
+                            <th><span><Icon type="ticket" size={30} /> <div className={s.caption}>HH Permits</div></span></th>
+                            <th><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
+
                         </tr>
 
                     </thead>

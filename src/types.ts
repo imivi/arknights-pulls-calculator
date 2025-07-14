@@ -89,4 +89,9 @@ export class DailyResource {
 
         this.totalResources = sumResources(this.resourcesGained)
     }
+
+    clearResources() {
+        this.resourcesGained = { op: [], orundum: [], tickets: [] }
+        this.totalResources = new Resources()
+    }
 }

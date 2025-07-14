@@ -1,4 +1,5 @@
 tr.TableRow {
+
     td[data-column=pulls-total] {
         background-color: #e8eeef;
         color: #255a84;
@@ -43,16 +44,29 @@ tr.TableRow {
 
 .day_cell {
 
+    &[data-cleared=true] {
+        text-decoration: line-through;
+    }
+
     .date {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: .1em;
+        width: 100%;
     }
 
     small {
         font-size: .7em;
         font-family: monospace;
+    }
+
+    label[data-interactive=true] {
+        cursor: pointer;
+    }
+
+    input[type=checkbox] {
+        cursor: pointer;
     }
 }
 

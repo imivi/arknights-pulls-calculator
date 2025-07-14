@@ -41,8 +41,6 @@ export function downloadCsv(rows: DayWithResources[]) {
         }
     })
 
-    console.log(csvRows)
-
     const config = mkConfig({ useKeysAsHeaders: true, filename: "arknights_pulls.csv" })
 
     const csv = generateCsv(config)(csvRows)

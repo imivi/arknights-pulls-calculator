@@ -16,7 +16,8 @@ export function getValidDates(dailyResources: DailyResource[]) {
     // Remove all dates older than today
     const today = getLocalISODate()
     for (let i = 0; i < dates.length; i++) {
-        const isPastDate = today < dates[i]
+        const isPastDate = today <= dates[i]
+
         if (isPastDate) {
             return dates.slice(i)
         }
@@ -31,24 +32,36 @@ function getLocalISODate() {
 }
 
 /** Calculate the cumulative resources for each day */
-export function getDaysWithResources(startingResources: Resources, days: DateString[], dailyResources: Record<string, DailyResource>): DayWithResources[] {
+export function getDaysWithResources(startingResources: Resources, validDays: DateString[], dailyResources: Record<string, DailyResource>, ignoreFirstDayResources: boolean): DayWithResources[] {
     const resourcesPerDay: DayWithResources[] = []
 
     let prevResources = startingResources
 
-    for (const day of days) {
-        const cumulativeResources = calculateResourcesPerDay(day, prevResources, dailyResources)
-        const event = dailyResources[day]
+    validDays.forEach((dayString, i) => {
+
+        const firstDay = i === 0
+        const day = dailyResources[dayString]
+
+        if (firstDay && ignoreFirstDayResources) {
+            // console.log({ firstDay, ignoreFirstDayResources, day })
+            day.clearResources()
+        }
+
+        let cumulativeResources = calculateResourcesPerDay(dayString, prevResources, dailyResources)
+
         resourcesPerDay.push({
-            ...event,
+            event_id: day.event_id,
+            description: day.description,
+            resourcesGained: day.resourcesGained,
+            totalResources: day.totalResources,
             cumulativeResources,
-            dateString: day,
+            dateString: dayString,
             rowSpan: 0,
             eventDay: 0,
             freePulls: 0,
         })
         prevResources = cumulativeResources
-    }
+    })
 
     // Add event days
     let eventDay = 0

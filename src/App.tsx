@@ -8,6 +8,7 @@ import { useCalendar } from "./hooks/useCalendar"
 import Settings from "./components/Settings"
 import { downloadCsv } from "./download-csv"
 import { useSettingsStore } from "./stores/useSettings"
+import { useClearedTodayStore } from "./stores/useClearedTodayStore"
 
 
 
@@ -20,7 +21,8 @@ export default function App() {
     const f2p = !monthlyCard
 
     const { clearedReruns } = useClearedReruns()
-    const dailyResources = useCalendar(startingResources, f2p, clearedReruns)
+    const firstDayCleared = useClearedTodayStore(store => store.clearedToday)
+    const dailyResources = useCalendar(startingResources, f2p, clearedReruns, firstDayCleared)
 
     return (
         <main className={s.App}>
@@ -51,7 +53,7 @@ export default function App() {
                         </tr>
 
                         <tr>
-                            <th>Total</th>
+                            <th>Total pulls</th>
                             <th>
                                 <Icon type="orundum" size={26} />
                                 <Icon type="ticket" size={26} />
@@ -69,6 +71,7 @@ export default function App() {
                                     key={day.dateString}
                                     day={day}
                                     rowIsEven={i % 2 === 0}
+                                    isToday={i === 0}
                                 />
                             ))
                         }

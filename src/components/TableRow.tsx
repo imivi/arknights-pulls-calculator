@@ -7,6 +7,8 @@ import ResourceBadge from "./ResourceBadge"
 
 import imageColors from "../data/image-colors.json"
 import { useClearedReruns } from "../hooks/useClearedReruns"
+import { Tooltip } from "react-tooltip"
+import { useClearedTodayStore } from "../stores/useClearedTodayStore"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -15,10 +17,11 @@ const colors = imageColors as unknown as Record<string, Colors>
 type RowProps = {
     day: DayWithResources
     rowIsEven: boolean
+    isToday: boolean
 }
 
 
-export default function TableRow({ day, rowIsEven }: RowProps) {
+export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
     const colors = getImageColors(day.event_id)
 
@@ -32,6 +35,8 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
 
     const { dayOfMonth, month, weekDay } = getDateValues(day.dateString)
 
+    const { clearedToday, setClearedToday } = useClearedTodayStore()
+
     return (
         <tr className={s.TableRow}>
 
@@ -40,12 +45,26 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                 day={day}
             />
 
-            <td style={dayStyle} className={s.day_cell}>
-                <div className={s.date}>
-                    <span>{month}&nbsp;{dayOfMonth}</span>
-                    <small>{weekDay.toUpperCase()}</small>
+            <td style={dayStyle} className={s.day_cell} data-cleared={isToday && clearedToday}>
+                <span className={s.date}>
+                    <label data-interactive={isToday} htmlFor={isToday ? "checkbox-cleared-today" : ""}>{month}&nbsp;{dayOfMonth}</label>
                     {/* <small>{new Date(day.dateString).toUTCString()}</small> */}
-                </div>
+                    {
+                        isToday &&
+                        <>
+                            <input
+                                type="checkbox"
+                                name="checkbox-cleared-today"
+                                checked={clearedToday}
+                                id="checkbox-cleared-today"
+                                data-tooltip-id="checkbox-cleared-today"
+                                onChange={(e) => setClearedToday(e.target.checked)}
+                            />
+                            <Tooltip id="checkbox-cleared-today" style={{ zIndex: 9 }}>Already cleared</Tooltip>
+                        </>
+                    }
+                    {!isToday && <small>{weekDay.toUpperCase()}</small>}
+                </span>
             </td>
 
             {/* <td>{day.rowSpan}</td> */}

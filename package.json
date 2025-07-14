@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
     "export-to-csv": "^1.4.0",
     "normalize.css": "^8.0.1",
     "react": "^19.1.0",

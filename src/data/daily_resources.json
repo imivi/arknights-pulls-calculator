@@ -1587,7 +1587,7 @@
             "op": [
                 {
                     "description": "from event stages",
-                    "value": 13,
+                    "value": 39,
                     "source": "event_stages"
                 }
             ]
@@ -1747,13 +1747,7 @@
                 }
             ],
             "tickets": [],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 26,
-                    "source": "event_stages"
-                }
-            ]
+            "op": []
         }
     },
     {
@@ -1926,7 +1920,7 @@
             "op": [
                 {
                     "description": "from event stages",
-                    "value": 12,
+                    "value": 13,
                     "source": "event_stages"
                 }
             ]
@@ -2124,7 +2118,7 @@
             "op": [
                 {
                     "description": "from event stages",
-                    "value": 26,
+                    "value": 16,
                     "source": "event_stages"
                 }
             ]
@@ -2312,7 +2306,13 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 9,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
@@ -4605,7 +4605,13 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
@@ -4631,13 +4637,7 @@
                 }
             ],
             "tickets": [],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 16,
-                    "source": "event_stages"
-                }
-            ]
+            "op": []
         }
     },
     {
@@ -4796,7 +4796,13 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "description": "from event stages",
+                    "value": 10,
+                    "source": "event_stages"
+                }
+            ]
         }
     },
     {
@@ -4815,13 +4821,7 @@
                 }
             ],
             "tickets": [],
-            "op": [
-                {
-                    "description": "from event stages",
-                    "value": 10,
-                    "source": "event_stages"
-                }
-            ]
+            "op": []
         }
     },
     {

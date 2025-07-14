@@ -1,16 +1,23 @@
+import dayjs from "dayjs"
 import { Resources, DateString, DailyResource, ResourceGained, ResourcesGained, DayWithResources } from "./types"
 
+
 export function getValidDates(dailyResources: DailyResource[]) {
+
+    // Get all dates from calendar in YYYY-MM-DD format (no duplicates)
     const allDates = new Set<string>()
     for (const day of dailyResources) {
         allDates.add(day.day)
     }
 
+    // Sort the dates
     const dates = Array.from(allDates).sort()
 
-    const today = new Date()
+    // Remove all dates older than today
+    const today = getLocalISODate()
     for (let i = 0; i < dates.length; i++) {
-        if (dateIsAfter(today, new Date(dates[i]))) {
+        const isPastDate = today < dates[i]
+        if (isPastDate) {
             return dates.slice(i)
         }
     }
@@ -18,11 +25,10 @@ export function getValidDates(dailyResources: DailyResource[]) {
     throw new Error("No valid dates found!")
 }
 
-/** Returns true if date B is after date A */
-function dateIsAfter(a: Date, b: Date): boolean {
-    return b.getTime() > a.getTime()
+/** Get the CURRENT (not ISO) date in YYYY-MM-DD format */
+function getLocalISODate() {
+    return dayjs().format("YYYY-MM-DD")
 }
-
 
 /** Calculate the cumulative resources for each day */
 export function getDaysWithResources(startingResources: Resources, days: DateString[], dailyResources: Record<string, DailyResource>): DayWithResources[] {
@@ -81,15 +87,6 @@ export function getDaysWithResources(startingResources: Resources, days: DateStr
     return resourcesPerDay
 }
 
-
-export function getNextDays(days: number): DateString[] {
-    const dates = []
-    for (let i = 0; i < days; i++) {
-        const date = (new Date(Date.now() + (i + 2) * 24 * 60 * 60 * 1000))
-        dates.push(date.toISOString().slice(0, 10))
-    }
-    return dates
-}
 
 
 function calculateResourcesPerDay(day: DateString, previousDayResources: Resources, events: Record<string, DailyResource>): Resources {

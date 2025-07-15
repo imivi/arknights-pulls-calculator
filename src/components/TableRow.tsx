@@ -7,6 +7,7 @@ import ResourceBadge from "./ResourceBadge"
 
 import imageColors from "../data/image-colors.json"
 import { useClearedReruns } from "../hooks/useClearedReruns"
+import { useDarkModeStore } from "../stores/useDarkModeStore"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -32,8 +33,10 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
 
     const { dayOfMonth, month, weekDay } = getDateValues(day.dateString)
 
+    const { darkMode } = useDarkModeStore()
+
     return (
-        <tr className={s.TableRow}>
+        <tr className={s.TableRow} data-dark={darkMode} data-even={rowIsEven}>
 
             <EventCell
                 colors={colors}
@@ -50,7 +53,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
 
             {/* <td>{day.rowSpan}</td> */}
 
-            <td className={s.align_right} data-column="pulls-total" data-even={rowIsEven} style={rowStyle} data-tooltip-id={tooltipId}>
+            <td className={s.align_right} data-dark={darkMode} data-column="pulls-total" data-even={rowIsEven} style={rowStyle} data-tooltip-id={tooltipId}>
                 {pullsWithoutOP + pullsFromOP}
                 {/* <Tooltip id={tooltipId} style={{ zIndex: 9 }} place="left">
                     <span>Pulls from orundum + permits: {pullsWithoutOP}</span>
@@ -58,22 +61,22 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                     <span>Pulls from OP: {pullsFromOP}</span>
                 </Tooltip> */}
             </td>
-            <td className={s.align_right} data-column="pulls-no-op" style={rowStyle}>
+            <td className={s.align_right} data-dark={darkMode} data-column="pulls-no-op" style={rowStyle}>
                 ({pullsWithoutOP}
                 {/* <Icon type="orundum" size={20} /> */}
                 {/* <Icon type="ticket" size={20} /> */}
             </td>
-            <td className={s.align_right} data-column="pulls-op" style={rowStyle}>
+            <td className={s.align_right} data-dark={darkMode} data-column="pulls-op" style={rowStyle}>
                 +&nbsp;{pullsFromOP})
                 {/* <Icon type="plus_op" size={20} /> */}
             </td>
-            <td style={rowStyle} data-column="pulls-free">
-                {day.freePulls > 0 && <small>+{day.freePulls}&nbsp;free</small>}
+            <td style={rowStyle} data-dark={darkMode} data-column="pulls-free">
+                {day.freePulls > 0 && <small data-dark={darkMode}>+{day.freePulls}&nbsp;free</small>}
             </td>
 
 
 
-            <td data-resource="orundum" style={rowStyle}>
+            <td data-resource="orundum" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {formatOrundum(day.cumulativeResources.orundum)}
                     {
@@ -88,7 +91,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-resource="tickets" style={rowStyle}>
+            <td data-resource="tickets" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {day.cumulativeResources.tickets}
                     {
@@ -103,7 +106,7 @@ export default function TableRow({ day, rowIsEven }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-resource="op" style={rowStyle}>
+            <td data-resource="op" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {day.cumulativeResources.op}
                     {

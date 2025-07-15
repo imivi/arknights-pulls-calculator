@@ -8,6 +8,7 @@ import { useCalendar } from "./hooks/useCalendar"
 import Settings from "./components/Settings"
 import { downloadCsv } from "./download-csv"
 import { useSettingsStore } from "./stores/useSettings"
+import { useDarkModeStore } from "./stores/useDarkModeStore"
 
 
 
@@ -22,14 +23,16 @@ export default function App() {
     const { clearedReruns } = useClearedReruns()
     const dailyResources = useCalendar(startingResources, f2p, clearedReruns)
 
-    return (
-        <main className={s.App}>
+    const { darkMode, setDarkMode } = useDarkModeStore()
 
-            <header>
+    return (
+        <main className={s.App} data-dark={darkMode}>
+
+            <header data-dark={darkMode}>
 
                 <main>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
-                    <h1>Arknights Pulls Calculator</h1>
+                    <h1 data-dark={darkMode}>Arknights Pulls Calculator</h1>
                     <Settings />
                 </main>
 
@@ -38,7 +41,7 @@ export default function App() {
             <div className={s.table_container}>
                 <table>
 
-                    <thead>
+                    <thead data-dark={darkMode}>
                         <tr>
                             <th rowSpan={2}>Event</th>
                             <th rowSpan={2}>Date</th>
@@ -77,11 +80,11 @@ export default function App() {
 
             </div>
 
-            <footer>
+            <footer data-dark={darkMode}>
 
                 <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
 
-                <div className={s.notes}>
+                <div className={s.notes} data-dark={darkMode}>
                     <h2>Not included:</h2>
                     <ul>
                         <li>24 free pulls on each limited banner (every 3 months)</li>
@@ -97,6 +100,34 @@ export default function App() {
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "icons/closure_octocat.svg"} alt="github logo" />
                     <a href="https://github.com/imivi/arknights-pulls-calculator" target="_blank" rel="noreferrer">&nbsp;source</a>
                 </p>
+
+                <fieldset className={s.darkmode_toggle}>
+                    {/* <button disabled={!darkMode} data-active={darkMode} onClick={() => setDarkMode(false)}>Light</button>
+                    <button disabled={darkMode} data-active={darkMode} onClick={() => setDarkMode(true)}>Dark</button> */}
+
+                    <label data-active={!darkMode}>
+                        <input
+                            type="radio"
+                            name="light-mode"
+                            value="light"
+                            checked={!darkMode}
+                            onChange={e => setDarkMode(!e.target.checked)}
+                        />
+                        ☀️ Light
+                    </label>
+
+                    <label data-active={darkMode}>
+                        <input
+                            type="radio"
+                            name="dark-mode"
+                            value="dark"
+                            checked={darkMode}
+                            onChange={e => setDarkMode(e.target.checked)}
+                        />
+                        🌙 Dark
+                    </label>
+
+                </fieldset>
 
             </footer>
 

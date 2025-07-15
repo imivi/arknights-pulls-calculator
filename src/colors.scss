@@ -1,0 +1,69 @@
+// Window background and text
+$window-bg-light: white;
+$window-text-light: black;
+$window-bg-dark: #555;
+$window-text-dark: white;
+$window-link-light: dodgerblue;
+$window-link-dark: rgb(248, 189, 14);
+
+// Free pulls badge
+$badge-free-pulls-bg-light: rgb(243, 230, 202);
+$badge-free-pulls-bg-dark: rgb(202, 178, 129);
+$badge-free-pulls-text-light: rgb(78, 61, 10);
+$badge-free-pulls-text-dark: rgb(78, 61, 10);
+
+// Orundum badge
+$badge-orundum-bg-light: rgb(236, 205, 205);
+$badge-orundum-text-light: brown;
+$badge-orundum-bg-dark: rgb(100, 47, 47);
+$badge-orundum-text-dark: rgb(203, 196, 196);
+
+// HH permit badge
+$badge-ticket-bg-light: rgb(181, 220, 138);
+$badge-ticket-text-light: rgb(60, 92, 4);
+$badge-ticket-bg-dark: rgb(121, 163, 76);
+$badge-ticket-text-dark: rgb(60, 83, 21);
+
+// OP badge
+$badge-op-bg-light: rgb(236, 205, 205);
+$badge-op-text-light: rgb(132, 89, 20);
+$badge-op-bg-dark: rgb(216, 190, 170);
+$badge-op-text-dark: rgb(95, 74, 26);
+
+// Table header
+$table-header-bg-light: #f4f4f4;
+$table-header-bg-dark: #444;
+$table-header-border-dark: #333;
+$table-header-text-light: black;
+$table-header-text-dark: #ddd;
+$table-header-border-light: #ddd;
+
+// Table row
+$table-row-text-light: black;
+$table-row-text-dark: rgb(234, 237, 238);
+$table-row-bg-light: #f0f0f0;
+$table-row-bg-dark: rgba(0, 0, 0, 0.2);
+
+// Table cells - resources
+$table-cell-orundum-text-light: brown;
+$table-cell-orundum-text-dark: rgb(240, 211, 211);
+$table-cell-ticket-text-light: darkgreen;
+$table-cell-ticket-text-dark: rgb(150, 190, 86);
+$table-cell-op-text-light: coral;
+$table-cell-op-text-dark: rgb(224, 180, 121);
+
+// Table cell - total pulls
+$table-cell-pulls-bg-odd-light: #c4dbe0;
+$table-cell-pulls-bg-even-light: #deedef;
+$table-cell-pulls-text-light: #255a84;
+$table-cell-pulls-bg-odd-dark: rgb(28, 61, 76);
+$table-cell-pulls-bg-even-dark: rgb(42, 76, 92);
+$table-cell-pulls-text-dark: rgb(235, 237, 241);
+
+// Page footer
+$footer-text-light: black;
+$footer-bg-light: #f4f4f4;
+$footer-border-light: #ccc;
+$footer-text-dark: white;
+$footer-bg-dark: #444;
+$footer-border-dark: transparent;

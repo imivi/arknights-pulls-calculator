@@ -1,16 +1,39 @@
-// $header-height: 6rem;
+@use "./colors.scss";
 
 .App {
     overflow: hidden;
     display: grid;
     grid-template-rows: auto 1fr auto;
 
+    background-color: colors.$window-bg-light;
+    color: colors.$window-text-light;
+
+    &[data-dark=true] {
+        background-color: colors.$window-bg-dark;
+        color: colors.$window-text-dark;
+    }
+
+    a {
+        color: colors.$window-link-light;
+    }
+
+    &[data-dark=true] a {
+        color: colors.$window-link-dark;
+    }
+
     header {
         position: relative;
-        background-color: #f4f4f4;
         top: 0;
         font-weight: normal;
         z-index: 9;
+
+        background-color: colors.$table-header-bg-light;
+        color: colors.$table-header-text-light;
+
+        &[data-dark=true] {
+            background-color: colors.$table-header-bg-dark;
+            color: colors.$table-header-text-dark;
+        }
 
         &>main {
             max-width: 1200px;
@@ -35,12 +58,13 @@
         h1 {
             font-family: "Inter", Arial, Helvetica, sans-serif;
             font-size: 1.5rem;
-            color: #1f69a6;
             font-weight: normal;
             letter-spacing: 0.01em;
             margin: 10px;
             text-align: center;
             margin-right: auto;
+
+            // color: #1f69a6;
 
             @media screen and (max-width:600px) {
                 text-align: center;
@@ -55,178 +79,201 @@
         height: 100%;
     }
 
-    thead {
-        position: sticky;
-        top: 0;
+    table {
+        border-collapse: collapse;
+        margin: 2vh auto;
 
-        th {
-            text-align: center;
-            vertical-align: bottom;
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 3;
         }
-    }
-}
 
-table {
-    border-collapse: collapse;
-    margin: 0 auto;
-    margin-bottom: 2vh;
-
-
-    thead {
-        position: sticky;
-        top: 0;
-        z-index: 3;
-
-        tr {
-            background-color: #eee;
+        thead[data-dark=true] {
+            border: 1px solid colors.$table-header-border-dark;
         }
-    }
 
-    th>span {
-        display: flex;
-        align-items: center;
-        gap: .5em;
-    }
+        thead[data-dark=false] {
+            border: 1px solid colors.$table-header-border-light;
+        }
 
-    th,
-    td {
-        padding: .2em .4em;
-        position: relative;
-    }
+        thead[data-dark=true] th {
+            background-color: colors.$table-header-bg-dark;
+            color: colors.$table-header-text-dark;
+        }
 
-    th {
-        background-color: #eee;
-        border: 1px solid #ccc;
-        text-align: center;
+        thead[data-dark=false] th {
+            background-color: colors.$table-header-bg-light;
+            color: colors.$table-header-text-light;
+        }
 
-        &>span {
+        th>span {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: .5em;
         }
 
-        @media screen and (max-width: 600px) {
-            .caption {
-                font-size: 0;
-            }
-        }
-    }
-
-    th:nth-child(6),
-    th:nth-child(7) {
-        text-align: left;
-    }
-
-    th:last-child {
-        text-align: center;
-    }
-
-    tr:nth-child(odd) td {
-        background-color: #f0f0f0;
-    }
-
-    td[data-column=event] {
-        max-width: 10rem;
-        overflow: hidden;
-        padding: 0;
-
-        &>label {
+        th,
+        td {
+            padding: .2em .4em;
             position: relative;
-            z-index: 1;
-            color: white;
-            background-color: rgba($color: white, $alpha: 0.8);
-            // text-shadow: 0 3px 10px rgba($color: black, $alpha: 0.1);
-            display: flex;
-            flex-direction: column;
-            // opacity: 0.5;
+        }
 
-            span {
-                padding: .5em;
+        th {
+            vertical-align: bottom;
+            text-align: center;
+            padding: .4em;
+            // border: 1px solid #ccc;
+
+            &>span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            @media screen and (max-width: 600px) {
+                .caption {
+                    font-size: 0;
+                }
             }
         }
+
+        th:nth-child(6),
+        th:nth-child(7) {
+            text-align: left;
+        }
+
+        th:last-child {
+            text-align: center;
+        }
+
+        // tr:nth-child(odd) td {
+        //     background-color: #f0f0f0;
+        // }
+
+        td[data-column=event] {
+            max-width: 10rem;
+            overflow: hidden;
+            padding: 0;
+
+            &>label {
+                position: relative;
+                z-index: 1;
+                color: white;
+                background-color: rgba($color: white, $alpha: 0.8);
+                // text-shadow: 0 3px 10px rgba($color: black, $alpha: 0.1);
+                display: flex;
+                flex-direction: column;
+                // opacity: 0.5;
+
+                span {
+                    padding: .5em;
+                }
+            }
+        }
+
+
     }
 
-    td[data-resource=orundum] {
-        color: brown;
-    }
+    footer {
+        // background-color: #eee;
+        // padding: 2vh 2vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        margin-bottom: 2vh;
+        line-height: 1.5em;
 
-    td[data-resource=tickets] {
-        color: darkgreen;
-        text-align: left;
-    }
+        a {
+            text-decoration: none;
+        }
 
-    td[data-resource=op] {
-        color: coral;
+        .notes {
+            max-width: 30rem;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba($color: black, $alpha: 0.1);
+
+            &[data-dark=true] {
+                color: colors.$footer-text-dark;
+                background-color: colors.$footer-bg-dark;
+                border: 1px solid colors.$footer-border-dark;
+            }
+
+            &[data-dark=false] {
+                color: colors.$footer-text-light;
+                background-color: colors.$footer-bg-light;
+                border: 1px solid colors.$footer-border-light;
+            }
+
+            h2 {
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        button {
+            z-index: 2;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+        img {
+            width: 30px;
+        }
+
+        &::after {
+            background-image: url("/bg/lambda.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 100px;
+            height: 100%;
+
+            z-index: 1;
+            content: "";
+            // outline: 1px solid brown;
+
+            z-index: -1;
+        }
     }
 }
 
-footer {
-    // background-color: #eee;
-    // padding: 2vh 2vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    position: relative;
-    margin-bottom: 2vh;
-    line-height: 1.5em;
+.darkmode_toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
 
-    .notes {
-        max-width: 30rem;
-        background-color: #f5f5f6c2;
-        padding: 1rem;
-        border-radius: 10px;
-        border: 1px solid #ddd;
-        box-shadow: 0 5px 10px rgba($color: black, $alpha: 0.1);
-
-        h2 {
-            margin: 0;
-            text-align: center;
-        }
+    label {
+        cursor: pointer;
+        padding: .2em .4em;
+        border-radius: 5px;
     }
 
-    button {
-        z-index: 2;
+    label:hover {
+        background-color: rgba($color: black, $alpha: 0.1);
     }
 
-    // span {
-    //     display: flex;
-    //     place-content: center;
-    //     place-items: center;
-    //     gap: 12px;
-    // }
-
-    p {
-        margin: 10px;
+    label[data-active=true] {
+        background-color: rgba($color: black, $alpha: 0.15);
     }
 
-    a {
-        text-decoration: none;
-        color: #0c4c64;
-        border-bottom: 2px solid #abc1c9;
+    label[data-active=false] {
+        opacity: 0.8;
     }
 
-    img {
-        width: 30px;
-    }
-
-    &::after {
-        background-image: url("/bg/lambda.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        position: absolute;
-        top: 0;
-        left: 10px;
-        width: 100px;
-        height: 100%;
-
-        z-index: 1;
-        content: "";
-        // outline: 1px solid brown;
-
-        z-index: -1;
+    input[type=radio] {
+        visibility: hidden;
+        pointer-events: none;
+        width: 0;
     }
 }

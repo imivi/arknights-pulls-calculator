@@ -1,19 +1,18 @@
 import s from "./App.module.scss"
 
-import Icon from "./components/Icon"
-import { useStartingResources } from "./hooks/useStartingResources"
-import { useClearedReruns } from "./hooks/useClearedReruns"
-import TableRow from "./components/TableRow"
-import { useCalendar } from "./hooks/useCalendar"
-import Settings from "./components/Settings"
-import { downloadCsv } from "./download-csv"
-import { useSettingsStore } from "./stores/useSettings"
-import { useClearedTodayStore } from "./stores/useClearedTodayStore"
-
+import { downloadCsv } from "../download-csv"
+import { useCalendar } from "../hooks/useCalendar"
+import { useClearedReruns } from "../hooks/useClearedReruns"
+import { useStartingResources } from "../hooks/useStartingResources"
+import { useClearedTodayStore } from "../stores/useClearedTodayStore"
+import { useDarkModeStore } from "../stores/useDarkModeStore"
+import { useSettingsStore } from "../stores/useSettings"
+import Icon from "./Icon"
+import Settings from "./Settings"
+import TableRow from "./TableRow"
 
 
 export default function App() {
-
 
     const { startingResources } = useStartingResources()
 
@@ -24,14 +23,16 @@ export default function App() {
     const firstDayCleared = useClearedTodayStore(store => store.clearedToday)
     const dailyResources = useCalendar(startingResources, f2p, clearedReruns, firstDayCleared)
 
-    return (
-        <main className={s.App}>
+    const { darkMode, setDarkMode } = useDarkModeStore()
 
-            <header>
+    return (
+        <main className={s.App} data-dark={darkMode}>
+
+            <header data-dark={darkMode}>
 
                 <main>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
-                    <h1>Arknights Pulls Calculator</h1>
+                    <h1 data-dark={darkMode}>Arknights Pulls Calculator</h1>
                     <Settings />
                 </main>
 
@@ -40,22 +41,31 @@ export default function App() {
             <div className={s.table_container}>
                 <table>
 
-                    <thead>
+                    <thead data-dark={darkMode}>
                         <tr>
                             <th>Event</th>
                             <th>Date</th>
 
                             <th>Total pulls</th>
-                            <th>
-                                <Icon type="orundum" size={26} />
-                                <Icon type="ticket" size={26} />
+                            <th data-column="pulls-breakdown">
+                                <span>
+                                    <Icon type="orundum" size={26} />
+                                    <Icon type="ticket" size={26} />
+                                </span>
+                                <span>
+                                    <Icon type="plus_op" size={30} />
+                                </span>
                             </th>
-                            <th><Icon type="plus_op" size={30} /></th>
+
                             <th>{/*Column for free pulls*/}</th>
 
                             <th><span><Icon type="orundum" size={30} /> <div className={s.caption}>Orundum</div></span></th>
                             <th><span><Icon type="ticket" size={30} /> <div className={s.caption}>HH Permits</div></span></th>
                             <th><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
+
+                            <th>
+                                {/* Column for free monthly card */}
+                            </th>
 
                         </tr>
 
@@ -67,7 +77,7 @@ export default function App() {
                                 <TableRow
                                     key={day.dateString}
                                     day={day}
-                                    rowIsEven={i % 2 === 0}
+                                    rowIsEven={i % 2 !== 0}
                                     isToday={i === 0}
                                 />
                             ))
@@ -77,11 +87,11 @@ export default function App() {
 
             </div>
 
-            <footer>
+            <footer data-dark={darkMode}>
 
                 <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
 
-                <div className={s.notes}>
+                <div className={s.notes} data-dark={darkMode}>
                     <h2>Not included:</h2>
                     <ul>
                         <li>24 free pulls on each limited banner (every 3 months)</li>
@@ -98,9 +108,35 @@ export default function App() {
                     <a href="https://github.com/imivi/arknights-pulls-calculator" target="_blank" rel="noreferrer">&nbsp;source</a>
                 </p>
 
+                <fieldset className={s.darkmode_toggle}>
+
+                    <label data-active={!darkMode}>
+                        <input
+                            type="radio"
+                            name="light-mode"
+                            value="light"
+                            checked={!darkMode}
+                            onChange={e => setDarkMode(!e.target.checked)}
+                        />
+                        ☀️ Light
+                    </label>
+
+                    <label data-active={darkMode}>
+                        <input
+                            type="radio"
+                            name="dark-mode"
+                            value="dark"
+                            checked={darkMode}
+                            onChange={e => setDarkMode(e.target.checked)}
+                        />
+                        🌙 Dark
+                    </label>
+
+                </fieldset>
+
             </footer>
 
-        </main>
+        </main >
     )
 }
 

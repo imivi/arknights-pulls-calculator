@@ -1,3 +1,5 @@
+@use "../styles/colors.scss";
+
 .ResourceBadge {
     display: inline-flex;
     align-items: center;
@@ -9,19 +11,34 @@
     height: 1em;
     cursor: pointer;
 
-    &[data-resource=orundum] {
-        background-color: rgb(236, 205, 205);
-        color: brown;
+    &[data-resource=orundum][data-dark=false] {
+        background-color: colors.$badge-orundum-bg-light;
+        color: colors.$badge-orundum-text-light;
     }
 
-    &[data-resource=ticket] {
-        background-color: rgb(181, 220, 138);
-        color: rgb(60, 92, 4);
+    &[data-resource=orundum][data-dark=true] {
+        background-color: colors.$badge-orundum-bg-dark;
+        color: colors.$badge-orundum-text-dark;
     }
 
-    &[data-resource=op] {
-        background-color: rgb(245, 211, 158);
-        color: rgb(118, 82, 6);
+    &[data-resource=ticket][data-dark=false] {
+        background-color: colors.$badge-ticket-bg-light;
+        color: colors.$badge-ticket-text-light;
+    }
+
+    &[data-resource=ticket][data-dark=true] {
+        background-color: colors.$badge-ticket-bg-dark;
+        color: colors.$badge-ticket-text-dark;
+    }
+
+    &[data-resource=op][data-dark=false] {
+        background-color: colors.$badge-op-bg-light;
+        color: colors.$badge-op-text-light;
+    }
+
+    &[data-resource=op][data-dark=true] {
+        background-color: colors.$badge-op-bg-dark;
+        color: colors.$badge-op-text-dark;
     }
 
     ul {

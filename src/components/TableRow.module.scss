@@ -1,36 +1,212 @@
+@use "../styles/colors.scss";
+@use "../styles/table.scss" as table;
+
 tr.TableRow {
 
+    letter-spacing: 0.04em;
+
+    &[data-dark=false] {
+        color: colors.$table-row-text-light;
+    }
+
+    &[data-dark=true] {
+        color: colors.$table-row-text-dark;
+    }
+
+    &[data-even=true][data-dark=false] {
+        background-color: colors.$table-row-bg-light;
+    }
+
+    &[data-even=false][data-dark=true] {
+        background-color: colors.$table-row-bg-dark;
+    }
+
+    // Orundum cells
+    td[data-resource=orundum][data-dark=true] {
+        color: colors.$table-cell-orundum-text-dark;
+    }
+
+    td[data-resource=orundum][data-dark=false] {
+        color: colors.$table-cell-orundum-text-light;
+    }
+
+    // Ticket cells
+    td[data-resource=tickets][data-dark=true] {
+        color: colors.$table-cell-ticket-text-dark;
+    }
+
+    td[data-resource=tickets][data-dark=false] {
+        color: colors.$table-cell-ticket-text-light;
+    }
+
+    // OP cells
+    td[data-resource=op][data-dark=true] {
+        color: colors.$table-cell-op-text-dark;
+    }
+
+    td[data-resource=op][data-dark=true] {
+        color: colors.$table-cell-op-text-light;
+    }
+
+    // $border-radius: 15px;
+
+    // &,
+    // td:first-child {
+    //     border-top-left-radius: $border-radius;
+    //     border-bottom-left-radius: $border-radius;
+    // }
+
+    // &,
+    // td:last-child {
+    //     border-top-right-radius: $border-radius;
+    //     border-bottom-right-radius: $border-radius;
+    // }
+
     td[data-column=pulls-total] {
-        background-color: #e8eeef;
-        color: #255a84;
-        // padding: .2em .4em;
-        // border-radius: 1rem;
+
         height: 100%;
         text-align: center;
+        padding-right: 0;
 
-        &[data-even=true] {
-            background-color: #cddce7;
+        &>span {
+            padding: .2em .4em;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr;
+
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+
+            // Hide "pulls" on narrow screens
+            @media screen and (max-width:600px) {
+                grid-template-columns: 1fr 0;
+            }
+
+            &[data-dark=true][data-even=true] {
+                background-color: colors.$table-cell-pulls-bg-even-dark;
+                color: colors.$table-cell-pulls-text-dark;
+            }
+
+            &[data-dark=true][data-even=false] {
+                background-color: colors.$table-cell-pulls-bg-odd-dark;
+                color: colors.$table-cell-pulls-text-dark;
+            }
+
+            &[data-dark=false][data-even=true] {
+                background-color: colors.$table-cell-pulls-bg-even-light;
+                color: colors.$table-cell-pulls-text-light;
+            }
+
+            &[data-dark=false][data-even=false] {
+                background-color: colors.$table-cell-pulls-bg-odd-light;
+                color: colors.$table-cell-pulls-text-light;
+            }
+
+            small {
+                font-size: .8em;
+            }
         }
     }
 
-    td[data-column=pulls-no-op] {
-        padding-right: 0;
-    }
+    td[data-column=pulls-breakdown] {
+        // font-size: .9em;
+        padding-left: 0;
+        position: relative;
 
-    td[data-column=pulls-no-op],
-    td[data-column=pulls-op] {
-        font-size: .9em;
+        &>span {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            text-align: right;
+            font-size: .9em;
+
+            span {
+                padding: .3em .4em;
+            }
+
+            span[data-cell=pulls-from-orundum] {
+                border-left: 1px solid colors.$badge-breakdown-border-light;
+            }
+
+            span[data-cell=pulls-from-op] {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+            span[data-cell=pulls-from-orundum][data-dark=false] {
+                background-color: colors.$badge-breakdown-orundum-bg-light;
+            }
+
+            span[data-cell=pulls-from-op][data-dark=false] {
+                background-color: colors.$badge-breakdown-op-bg-light;
+                color: colors.$badge-breakdown-op-text-light;
+            }
+
+            span[data-cell=pulls-from-orundum][data-dark=true] {
+                background-color: colors.$badge-breakdown-orundum-bg-dark;
+            }
+
+            span[data-cell=pulls-from-op][data-dark=true] {
+                background-color: colors.$badge-breakdown-op-bg-dark;
+                color: colors.$badge-breakdown-op-text-dark;
+            }
+
+            .arrow_container {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(-50%);
+
+                // Triangle-shaped left arrow
+                &::after {
+                    content: "";
+                    width: .5em;
+                    height: .5em;
+                    z-index: 1;
+                    transform: rotate(45deg);
+                    background-color: colors.$badge-breakdown-orundum-bg-light;
+                    border-left: 1px solid colors.$badge-breakdown-border-light;
+                    border-bottom: 1px solid colors.$badge-breakdown-border-light;
+                }
+
+                &[data-dark=true]::after {
+                    background-color: colors.$badge-breakdown-orundum-bg-dark;
+                    border-left: 1px solid colors.$badge-breakdown-border-dark;
+                    border-bottom: 1px solid colors.$badge-breakdown-border-dark;
+                }
+            }
+        }
     }
 
     td[data-column=pulls-free]>* {
-        color: rgb(78, 61, 10);
-        background-color: rgb(243, 230, 202);
         height: .8rem;
         padding: .2rem;
         border-radius: .6rem;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        color: colors.$badge-free-pulls-text-light;
+        background-color: colors.$badge-free-pulls-bg-light;
+
+        &[data-dark=true] {
+            color: colors.$badge-free-pulls-text-dark;
+            background-color: colors.$badge-free-pulls-bg-dark;
+        }
+    }
+
+    td[data-column=monthly-card][data-dark=true] span {
+        background-color: rgba($color: white, $alpha: 0.8);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px;
     }
 }
 
@@ -43,9 +219,11 @@ tr.TableRow {
 }
 
 .day_cell {
+    position: relative;
+    z-index: 1;
 
-    &[data-cleared=true] {
-        text-decoration: line-through;
+    &[data-cleared=true] label {
+        opacity: 0.3;
     }
 
     .date {
@@ -93,6 +271,10 @@ img.bg {
     color: black;
     background-color: rgba($color: black, $alpha: 0.1);
     padding: .5em;
+}
+
+.align_left {
+    text-align: left;
 }
 
 .align_right {

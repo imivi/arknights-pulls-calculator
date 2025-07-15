@@ -23,7 +23,7 @@ export default function Settings() {
                     onChange={(e) => setResource("orundum", e.target.valueAsNumber)}
                     min={0}
                 />
-                <Tooltip id="starting-orundum" content="Your current orundum" />
+                <Tooltip id="starting-orundum" content="Your current orundum" defaultIsOpen={startingResources.orundum === 0} />
             </label>
 
             <label data-resource="starting-tickets" data-tooltip-id="starting-tickets">

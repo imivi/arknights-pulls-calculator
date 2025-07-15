@@ -59,6 +59,7 @@ export function getDaysWithResources(startingResources: Resources, validDays: Da
             rowSpan: 0,
             eventDay: 0,
             freePulls: 0,
+            freeMonthlyCard: day.freeMonthlyCard,
         })
         prevResources = cumulativeResources
     })

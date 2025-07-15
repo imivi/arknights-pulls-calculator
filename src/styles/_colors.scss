@@ -1,0 +1,79 @@
+// Window background and text
+$window-bg-light: white;
+$window-text-light: black;
+$window-bg-dark: #555;
+$window-text-dark: white;
+$window-link-light: dodgerblue;
+$window-link-dark: rgb(248, 189, 14);
+
+// Orundum badge
+$badge-orundum-bg-light: rgb(236, 205, 205);
+$badge-orundum-text-light: brown;
+$badge-orundum-bg-dark: rgb(129, 40, 34);
+$badge-orundum-text-dark: rgb(243, 240, 240);
+
+// HH permit badge
+$badge-ticket-bg-light: rgb(181, 220, 138);
+$badge-ticket-text-light: rgb(60, 92, 4);
+$badge-ticket-bg-dark: rgb(121, 163, 76);
+$badge-ticket-text-dark: rgb(60, 83, 21);
+
+// OP badge
+$badge-op-bg-light: rgb(238, 211, 194);
+$badge-op-text-light: rgb(132, 89, 20);
+$badge-op-bg-dark: #cab265;
+$badge-op-text-dark: rgb(77, 50, 15);
+
+// Table header
+$table-header-bg-light: #f4f4f4;
+$table-header-bg-dark: #444;
+$table-header-border-dark: #333;
+$table-header-text-light: black;
+$table-header-text-dark: #ddd;
+$table-header-border-light: #ddd;
+
+// Table row
+$table-row-text-light: black;
+$table-row-text-dark: rgb(234, 237, 238);
+$table-row-bg-light: #f0f0f0;
+$table-row-bg-dark: rgba(0, 0, 0, 0.2);
+
+// Table cells - resources
+$table-cell-orundum-text-light: brown;
+$table-cell-orundum-text-dark: rgb(240, 226, 226);
+$table-cell-ticket-text-light: darkgreen;
+$table-cell-ticket-text-dark: rgb(150, 190, 86);
+$table-cell-op-text-light: rgb(229, 188, 130);
+$table-cell-op-text-dark: rgb(224, 180, 121);
+
+// Table cell - total pulls
+$table-cell-pulls-bg-odd-light: #b6d1e8;
+$table-cell-pulls-bg-even-light: #bed2e2;
+$table-cell-pulls-text-light: #2c72ac;
+$table-cell-pulls-bg-odd-dark: rgb(40, 108, 140);
+$table-cell-pulls-bg-even-dark: rgb(46, 133, 173);
+$table-cell-pulls-text-dark: rgb(239, 242, 245);
+
+// Free pulls badge
+$badge-free-pulls-bg-light: rgb(202, 219, 243);
+$badge-free-pulls-bg-dark: rgb(46, 133, 173);
+$badge-free-pulls-text-light: rgb(10, 50, 78);
+$badge-free-pulls-text-dark: rgb(223, 230, 236);
+
+// Table cell - pulls breakdown (orundum/tickets + OP)
+$badge-breakdown-orundum-bg-light: rgb(245, 194, 194);
+$badge-breakdown-orundum-bg-dark: rgb(147, 51, 44);
+$badge-breakdown-op-bg-light: rgb(250, 211, 111);
+$badge-breakdown-op-bg-dark: #cab265;
+$badge-breakdown-op-text-light: black;
+$badge-breakdown-op-text-dark: rgb(93, 64, 11);
+$badge-breakdown-border-light: brown;
+$badge-breakdown-border-dark: brown;
+
+// Page footer
+$footer-text-light: black;
+$footer-bg-light: #f4f4f4;
+$footer-border-light: #ccc;
+$footer-text-dark: white;
+$footer-bg-dark: #444;
+$footer-border-dark: transparent;

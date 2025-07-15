@@ -9,9 +9,14 @@ import imageColors from "../data/image-colors.json"
 import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Tooltip } from "react-tooltip"
 import { useClearedTodayStore } from "../stores/useClearedTodayStore"
+import { useDarkModeStore } from "../stores/useDarkModeStore"
+import Icon from "./Icon"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
+
+
+const todayTooltipId = "tooltip-cleared-today"
 
 
 type RowProps = {
@@ -31,14 +36,18 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
     const pullsWithoutOP = day.cumulativeResources.pullsWithoutOP()
     const pullsFromOP = day.cumulativeResources.opToPulls()
 
-    const tooltipId = "total-pulls-" + day.dateString
+    const tooltipPullsTotal = "tooltip-pulls-total-" + day.dateString
+    const tooltipPullsOrundum = "tooltip-pulls-orundum-" + day.dateString
+    const tooltipPullsOP = "tooltip-pulls-op-" + day.dateString
+    const tooltipMonthlyCard = "tooltip-monthly-card-" + day.dateString
 
     const { dayOfMonth, month, weekDay } = getDateValues(day.dateString)
 
     const { clearedToday, setClearedToday } = useClearedTodayStore()
+    const { darkMode } = useDarkModeStore()
 
     return (
-        <tr className={s.TableRow}>
+        <tr className={s.TableRow} data-dark={darkMode} data-even={rowIsEven}>
 
             <EventCell
                 colors={colors}
@@ -47,52 +56,68 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
             <td style={dayStyle} className={s.day_cell} data-cleared={isToday && clearedToday}>
                 <span className={s.date}>
-                    <label data-interactive={isToday} htmlFor={isToday ? "checkbox-cleared-today" : ""}>{month}&nbsp;{dayOfMonth}</label>
-                    {/* <small>{new Date(day.dateString).toUTCString()}</small> */}
+
+                    <label
+                        data-interactive={isToday}
+                        htmlFor={isToday ? "checkbox-today-cleared" : ""}
+                    >
+                        {month}&nbsp;{dayOfMonth}
+                    </label>
                     {
                         isToday &&
                         <>
                             <input
                                 type="checkbox"
-                                name="checkbox-cleared-today"
+                                name={todayTooltipId}
                                 checked={clearedToday}
-                                id="checkbox-cleared-today"
-                                data-tooltip-id="checkbox-cleared-today"
+                                id="checkbox-today-cleared"
+                                data-tooltip-id={isToday ? todayTooltipId : ""}
                                 onChange={(e) => setClearedToday(e.target.checked)}
                             />
-                            <Tooltip id="checkbox-cleared-today" style={{ zIndex: 9 }}>Already cleared</Tooltip>
+                            <Tooltip id={todayTooltipId} style={{ zIndex: 9 }} place="right" defaultIsOpen={!clearedToday}>
+                                Already cleared?
+                            </Tooltip>
                         </>
                     }
                     {!isToday && <small>{weekDay.toUpperCase()}</small>}
                 </span>
             </td>
 
-            {/* <td>{day.rowSpan}</td> */}
-
-            <td className={s.align_right} data-column="pulls-total" data-even={rowIsEven} style={rowStyle} data-tooltip-id={tooltipId}>
-                {pullsWithoutOP + pullsFromOP}
-                {/* <Tooltip id={tooltipId} style={{ zIndex: 9 }} place="left">
-                    <span>Pulls from orundum + permits: {pullsWithoutOP}</span>
-                    <br />
-                    <span>Pulls from OP: {pullsFromOP}</span>
-                </Tooltip> */}
-            </td>
-            <td className={s.align_right} data-column="pulls-no-op" style={rowStyle}>
-                ({pullsWithoutOP}
-                {/* <Icon type="orundum" size={20} /> */}
-                {/* <Icon type="ticket" size={20} /> */}
-            </td>
-            <td className={s.align_right} data-column="pulls-op" style={rowStyle}>
-                +&nbsp;{pullsFromOP})
-                {/* <Icon type="plus_op" size={20} /> */}
-            </td>
-            <td style={rowStyle} data-column="pulls-free">
-                {day.freePulls > 0 && <small>+{day.freePulls}&nbsp;free</small>}
+            <td className={s.align_right} data-dark={darkMode} data-column="pulls-total" data-even={rowIsEven} style={rowStyle} data-tooltip-id={tooltipPullsTotal}>
+                <span data-dark={darkMode} data-even={rowIsEven}>
+                    <strong>{pullsWithoutOP + pullsFromOP}</strong>
+                    <small>pulls</small>
+                    <Tooltip id={tooltipPullsTotal} style={{ zIndex: 9 }} place="bottom">
+                        {pullsWithoutOP + pullsFromOP} pulls from orundum/tickets
+                        <br />
+                        and from converting {day.cumulativeResources.op} OP
+                    </Tooltip>
+                </span>
             </td>
 
+            <td data-dark={darkMode} data-column="pulls-breakdown" style={rowStyle}>
+                <span data-dark={darkMode}>
+                    <span data-dark={darkMode} data-cell="pulls-from-orundum" data-tooltip-id={tooltipPullsOrundum}>
+                        {pullsWithoutOP}
+                        <Tooltip id={tooltipPullsOrundum} style={{ zIndex: 9 }} place="bottom">
+                            {pullsWithoutOP} pulls from orundum/permits
+                        </Tooltip>
+                    </span>
+                    <span data-dark={darkMode} data-cell="pulls-from-op" className={s.align_left} data-tooltip-id={tooltipPullsOP}>
+                        + {pullsFromOP}
+                        <Tooltip id={tooltipPullsOP} style={{ zIndex: 9 }} place="bottom">
+                            {pullsFromOP} pulls from converting {day.cumulativeResources.op} OP
+                        </Tooltip>
+                    </span>
+                    <div className={s.arrow_container} data-dark={darkMode} />
+                </span>
+            </td>
 
+            <td style={rowStyle} data-dark={darkMode} data-column="pulls-free">
+                {day.freePulls > 0 && <small data-dark={darkMode}>+{day.freePulls}&nbsp;free</small>}
+            </td>
 
-            <td data-resource="orundum" style={rowStyle}>
+            <td data-resource="orundum" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {formatOrundum(day.cumulativeResources.orundum)}
                     {
@@ -107,7 +132,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-resource="tickets" style={rowStyle}>
+            <td data-resource="tickets" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {day.cumulativeResources.tickets}
                     {
@@ -122,7 +147,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-resource="op" style={rowStyle}>
+            <td data-resource="op" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {day.cumulativeResources.op}
                     {
@@ -138,6 +163,18 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 </div>
             </td>
 
+            <td data-column="monthly-card" data-dark={darkMode} style={rowStyle}>
+                {
+                    day.freeMonthlyCard &&
+                    <>
+                        <span data-tooltip-id={tooltipMonthlyCard}>
+                            <Icon type="monthly_card" size={20} /></span>
+                        <Tooltip id={tooltipMonthlyCard} style={{ zIndex: 9 }}>
+                            Free monthly card
+                        </Tooltip>
+                    </>
+                }
+            </td>
 
         </tr>
     )

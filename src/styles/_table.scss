@@ -1,0 +1,4 @@
+@mixin table-row {
+    display: grid;
+    grid-template-columns: 50px 5rem 5rem 5rem 4rem 10rem 10rem 10rem 5rem;
+}

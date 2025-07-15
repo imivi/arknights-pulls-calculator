@@ -6,11 +6,11 @@ import { DayWithResources, ResourceGained, DateString } from "../types"
 import ResourceBadge from "./ResourceBadge"
 
 import imageColors from "../data/image-colors.json"
-import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Tooltip } from "react-tooltip"
 import { useClearedTodayStore } from "../stores/useClearedTodayStore"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import Icon from "./Icon"
+import EventCell from "./EventCell"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -181,49 +181,6 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 }
 
 
-type EventCellProps = {
-    day: DayWithResources
-    colors: Colors | null
-}
-
-function EventCell({ day, colors }: EventCellProps) {
-
-    if (day.rowSpan === 0)
-        return null
-
-    const eventCellStyle = getEventCellStyle(colors)
-    const eventNameStyle = getEventNameStyle(colors)
-
-    const { clearedReruns, toggleClearedRerun } = useClearedReruns()
-
-    return (
-        <td className={s.event_cell} rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
-            {
-                day.description &&
-                <label style={eventNameStyle}>
-                    <span>{day.description}</span>
-                    {
-                        day.event_id &&
-                        day.description.toLowerCase().includes("rerun") &&
-                        <label className={s.already_cleared}>
-                            <input
-                                type="checkbox"
-                                checked={clearedReruns.includes(day.event_id)}
-                                onChange={() => toggleClearedRerun(day.event_id!)}
-                            />
-                            already cleared
-                        </label>
-                    }
-                </label>
-            }
-            {
-                day.event_id &&
-                <img className={s.bg} src={import.meta.env.VITE_ASSETS_BASE_URL + `events/${day.event_id}.jpg`} alt={day.event_id} />
-            }
-        </td>
-    )
-}
-
 
 function ResourcesGained({ sources }: { sources: ResourceGained[] }) {
     return (
@@ -265,18 +222,6 @@ function getImageColors(img: string | undefined): Colors | null {
 
 
 
-function getEventNameStyle(eventColors: Colors | null): CSSProperties {
-
-    if (!eventColors)
-        return {}
-
-    const [h, s, _] = eventColors?.light.hsl
-
-    return {
-        color: eventColors.dark.hex,
-        backgroundColor: `hsla(${h}, ${s}%, 90%, 0.8)`,
-    }
-}
 
 
 function getDayStyle(eventColors: Colors | null, rowIsEven: boolean): CSSProperties {
@@ -293,14 +238,3 @@ function getDayStyle(eventColors: Colors | null, rowIsEven: boolean): CSSPropert
 }
 
 
-function getEventCellStyle(colors: Colors | null): CSSProperties {
-
-    if (colors) {
-        return {
-            verticalAlign: "top",
-            border: "2px solid " + colors?.light.hex,
-        }
-    }
-
-    return {}
-}

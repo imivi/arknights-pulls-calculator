@@ -10,6 +10,7 @@ export function getDailyResources(f2p: boolean, clearedReruns: string[]) {
             e.day,
             e.description,
             e.event_id,
+            e.event_link,
             freeMonthlyCard,
             f2p,
             { ...e.resourcesGained }, // Create a new object

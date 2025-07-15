@@ -51,6 +51,7 @@ export function getDaysWithResources(startingResources: Resources, validDays: Da
 
         resourcesPerDay.push({
             event_id: day.event_id,
+            event_link: day.event_link,
             description: day.description,
             resourcesGained: day.resourcesGained,
             totalResources: day.totalResources,

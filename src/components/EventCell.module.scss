@@ -1,0 +1,50 @@
+.EventCell {
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    label {
+        color: inherit;
+        z-index: 1;
+    }
+
+    .event_title {
+        padding: .5em;
+
+        svg {
+            display: inline-block;
+        }
+
+        // Icon: external link
+        // &::after {
+        //     content: url("/icons/external-link.svg");
+        //     $size: 30px;
+        //     background-size: $size $size;
+        //     width: $size;
+        //     height: $size;
+        //     outline: 1px solid brown;
+        //     z-index: 1;
+        // }
+    }
+}
+
+img.bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.already_cleared {
+    display: flex;
+    gap: .3em;
+    cursor: pointer;
+    color: black;
+    background-color: rgba($color: black, $alpha: 0.1);
+    padding: .5em;
+}

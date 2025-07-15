@@ -73,6 +73,7 @@
         "day": "2025-07-17",
         "description": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
+        "event_link": "https://arknights.wiki.gg/wiki/Such_is_the_Joy_of_Our_Reunion#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [
@@ -817,6 +818,7 @@
         "day": "2025-08-14",
         "description": "See You Soon (date TBD)",
         "event_id": "soon",
+        "event_link": "https://arknights.wiki.gg/wiki/See_You_Soon#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [
@@ -1460,6 +1462,7 @@
         "day": "2025-09-11",
         "description": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
+        "event_link": "https://arknights.wiki.gg/wiki/When_Elegies_Are_Ashes#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [
@@ -1984,6 +1987,7 @@
         "day": "2025-10-02",
         "description": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
+        "event_link": "https://arknights.wiki.gg/wiki/Episode_15:_Dissociative_Recombination#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [
@@ -2318,6 +2322,7 @@
         "day": "2025-10-16",
         "description": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
+        "event_link": "https://arknights.wiki.gg/wiki/Babel_(event)/Rerun#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [
@@ -2656,6 +2661,7 @@
         "day": "2025-10-30",
         "description": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
+        "event_link": "https://arknights.wiki.gg/wiki/The_Masses'_Travels#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [
@@ -3406,6 +3412,7 @@
         "day": "2025-11-27",
         "description": "Act or Die (date TBD)",
         "event_id": "act_or_die",
+        "event_link": "https://arknights.wiki.gg/wiki/Act_or_Die#Headhunting",
         "free_monthly_card": 1,
         "resourcesGained": {
             "orundum": [
@@ -3769,6 +3776,7 @@
         "day": "2025-12-11",
         "description": "Path of Life Rerun (date TBD)",
         "event_id": "path_of_life",
+        "event_link": "https://arknights.wiki.gg/wiki/Path_of_Life/Rerun#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [
@@ -4132,6 +4140,7 @@
         "day": "2025-12-26",
         "description": "Fantasy in The Mirage (date TBD)",
         "event_id": "fantasy",
+        "event_link": "https://arknights.wiki.gg/wiki/Fantasy_in_The_Mirage#Headhunting",
         "free_monthly_card": 0,
         "resourcesGained": {
             "orundum": [

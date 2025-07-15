@@ -24,6 +24,7 @@ export type DayWithResources = {
     totalResources: Resources
     description: string | undefined
     event_id: string | undefined
+    event_link: string | undefined
     eventDay: number // 0: no event; 1+: day N of event
     freePulls: number
     freeMonthlyCard: boolean
@@ -68,6 +69,7 @@ export class DailyResource {
         public readonly day: DateString,
         public readonly description: string | undefined,
         public readonly event_id: string | undefined,
+        public readonly event_link: string | undefined,
         public readonly freeMonthlyCard: boolean,
         f2p: boolean,
         resGained: ResourcesGained,

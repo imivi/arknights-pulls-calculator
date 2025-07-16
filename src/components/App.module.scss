@@ -14,14 +14,6 @@
         color: colors.$window-text-dark;
     }
 
-    a {
-        color: colors.$window-link-light;
-    }
-
-    &[data-dark=true] a {
-        color: colors.$window-link-dark;
-    }
-
     header {
         position: relative;
         top: 0;
@@ -213,7 +205,11 @@
         line-height: 1.5em;
 
         a {
-            text-decoration: none;
+            color: colors.$window-link-light;
+        }
+
+        &[data-dark=true] a {
+            color: colors.$window-link-dark;
         }
 
         .notes {

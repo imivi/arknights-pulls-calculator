@@ -17,7 +17,7 @@ tr.TableRow {
         background-color: colors.$table-row-bg-light;
     }
 
-    &[data-even=false][data-dark=true] {
+    &[data-even=true][data-dark=true] {
         background-color: colors.$table-row-bg-dark;
     }
 

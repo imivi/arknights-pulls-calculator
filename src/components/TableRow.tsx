@@ -23,14 +23,17 @@ type RowProps = {
     day: DayWithResources
     rowIsEven: boolean
     isToday: boolean
+    firstLoad: boolean
 }
 
 
-export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
+export default function TableRow({ day, rowIsEven, isToday, firstLoad }: RowProps) {
 
     const colors = getImageColors(day.event_id)
 
-    const dayStyle = getDayStyle(colors, rowIsEven)
+    const darkMode = useDarkModeStore(store => store.darkMode)
+
+    const dayStyle = getDayStyle(colors, rowIsEven, darkMode)
     const rowStyle = day.rowSpan > 0 ? { backgroundColor: dayStyle.backgroundColor } : {}
 
     const pullsWithoutOP = day.cumulativeResources.pullsWithoutOP()
@@ -44,7 +47,6 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
     const { dayOfMonth, month, weekDay } = getDateValues(day.dateString)
 
     const { clearedToday, setClearedToday } = useClearedTodayStore()
-    const { darkMode } = useDarkModeStore()
 
     return (
         <tr className={s.TableRow} data-dark={darkMode} data-even={rowIsEven}>
@@ -74,7 +76,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                                 data-tooltip-id={isToday ? todayTooltipId : ""}
                                 onChange={(e) => setClearedToday(e.target.checked)}
                             />
-                            <Tooltip id={todayTooltipId} style={{ zIndex: 9 }} place="right" defaultIsOpen={!clearedToday}>
+                            <Tooltip id={todayTooltipId} style={{ zIndex: 9 }} place="right" defaultIsOpen={firstLoad && !clearedToday}>
                                 Already cleared?
                             </Tooltip>
                         </>
@@ -181,7 +183,6 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 }
 
 
-
 function ResourcesGained({ sources }: { sources: ResourceGained[] }) {
     return (
         <ul>
@@ -202,6 +203,7 @@ function formatOrundum(n: number): string {
         return (n / 1000).toFixed(1) + "k"
 }
 
+
 function getDateValues(date: DateString) {
 
     const [weekDay, day, month] = new Date(date).toUTCString().split(" ")
@@ -213,6 +215,7 @@ function getDateValues(date: DateString) {
     }
 }
 
+
 function getImageColors(img: string | undefined): Colors | null {
     if (img && (img in colors)) {
         return colors[img]
@@ -221,17 +224,14 @@ function getImageColors(img: string | undefined): Colors | null {
 }
 
 
-
-
-
-function getDayStyle(eventColors: Colors | null, rowIsEven: boolean): CSSProperties {
+function getDayStyle(eventColors: Colors | null, rowIsEven: boolean, darkMode: boolean): CSSProperties {
 
     if (eventColors?.light.hsl) {
         const [h, s, l] = eventColors?.light.hsl
-        const opacity = rowIsEven ? 0.4 : 0.6
+        const opacity = rowIsEven ? 0.4 : 0.7
         return {
             backgroundColor: `hsla(${h}, ${s}%, ${l}%, ${opacity})`, // example: hsla(219, 71%, 43%, 0.391)
-            color: eventColors?.dark.hex,
+            color: darkMode ? "#eee" : eventColors.dark.hex,
         }
     }
     return {}

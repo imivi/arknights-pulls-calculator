@@ -3,7 +3,6 @@ import { Vibrant } from "node-vibrant/node";
 import path from "path";
 
 
-// type HexColor = string
 export type Colors = {
     light: Color
     dark: Color

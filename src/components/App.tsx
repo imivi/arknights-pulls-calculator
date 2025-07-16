@@ -10,6 +10,7 @@ import { useSettingsStore } from "../stores/useSettings"
 import Icon from "./Icon"
 import Settings from "./Settings"
 import TableRow from "./TableRow"
+import { useFirstLoad } from "../hooks/useFirstLoad"
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
     const dailyResources = useCalendar(startingResources, f2p, clearedReruns, firstDayCleared)
 
     const { darkMode, setDarkMode } = useDarkModeStore()
+    const firstLoad = useFirstLoad()
 
     return (
         <main className={s.App} data-dark={darkMode}>
@@ -79,6 +81,7 @@ export default function App() {
                                     day={day}
                                     rowIsEven={i % 2 !== 0}
                                     isToday={i === 0}
+                                    firstLoad={firstLoad}
                                 />
                             ))
                         }

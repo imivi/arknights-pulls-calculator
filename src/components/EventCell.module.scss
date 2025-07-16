@@ -12,21 +12,11 @@
 
     .event_title {
         padding: .5em;
+        display: flex;
 
-        svg {
-            display: inline-block;
+        img {
+            opacity: 0.4;
         }
-
-        // Icon: external link
-        // &::after {
-        //     content: url("/icons/external-link.svg");
-        //     $size: 30px;
-        //     background-size: $size $size;
-        //     width: $size;
-        //     height: $size;
-        //     outline: 1px solid brown;
-        //     z-index: 1;
-        // }
     }
 }
 
@@ -47,4 +37,27 @@ img.bg {
     color: black;
     background-color: rgba($color: black, $alpha: 0.1);
     padding: .5em;
+}
+
+ul.Operators {
+    list-style: none;
+    margin: 0;
+
+    padding: 5px;
+    font-size: .9em;
+    display: grid;
+    gap: 5px;
+
+    li a {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 5px;
+        align-items: center;
+        color: inherit;
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
 }

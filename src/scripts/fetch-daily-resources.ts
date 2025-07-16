@@ -12,6 +12,7 @@ const rowSchema = z.object({
     "event": z.string().optional(),
     "event_id": z.string().optional(),
     "event_link": z.string().optional(),
+    "event_ops": z.string().default(""),
     "free_monthly_card": z.number().default(0),
     "orundum:login_event": z.number().default(0),
     "orundum:fortune_strip": z.number().default(0),
@@ -65,11 +66,14 @@ function processRow(row: Row) {
     const tickets = getResourceGained(row, "tickets")
     const op = getResourceGained(row, "op")
 
+    const event_ops = row.event_ops === "" ? [] : row.event_ops.split(",").map(s => s.trim())
+
     const result = {
         day: row.day,
         description: row.event,
         event_id: row.event_id,
         event_link: row.event_link,
+        event_ops,
         free_monthly_card: row.free_monthly_card,
         resourcesGained: {
             orundum,

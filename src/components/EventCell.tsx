@@ -1,8 +1,9 @@
+import s from "./EventCell.module.scss"
+
 import { CSSProperties } from "react"
 import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Colors } from "../scripts/get-image-colors"
 import { DayWithResources } from "../types"
-import s from "./EventCell.module.scss"
 import Icon from "./Icon"
 
 
@@ -28,7 +29,7 @@ export default function EventCell({ day, colors }: Props) {
                 <label style={eventNameStyle}>
                     {
                         day.event_link &&
-                        <a className={s.event_title} href={day.event_link} target="_blank">
+                        <a className={s.event_title} href={day.event_link} target="_blank" rel="noreferrer">
                             {day.description}
                             <Icon type="external-link" size={16} ext="svg" />
                         </a>
@@ -36,6 +37,10 @@ export default function EventCell({ day, colors }: Props) {
                     {
                         !day.event_link &&
                         <span className={s.event_title}>{day.description}</span>
+                    }
+                    {
+                        day.event_ops.length > 0 &&
+                        <Operators ops={day.event_ops} />
                     }
                     {
                         day.event_id &&
@@ -60,14 +65,20 @@ export default function EventCell({ day, colors }: Props) {
 }
 
 
-
-/** Render the event cell as a link, if a url is provided */
-// function LinkToEvent({ url, children }: { url?: string, children: ReactNode }) {
-//     if (url) {
-//         return <a href={url} target="_blank" rel="noreferrer">{children}</a>
-//     }
-//     return children
-// }
+function Operators({ ops }: { ops: string[] }) {
+    return (
+        <ul className={s.Operators}>
+            {ops.map(op => (
+                <li key={op}>
+                    <a href={"https://arknights.wiki.gg/wiki/" + op} target="_blank" rel="noreferrer">
+                        <img src={`/operators/${op}.webp`} alt={op} />
+                        {op.replaceAll("_", " ")}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    )
+}
 
 
 function getEventNameStyle(eventColors: Colors | null): CSSProperties {
@@ -82,6 +93,7 @@ function getEventNameStyle(eventColors: Colors | null): CSSProperties {
         backgroundColor: `hsla(${h}, ${s}%, 90%, 0.8)`,
     }
 }
+
 
 function getEventCellStyle(colors: Colors | null): CSSProperties {
 

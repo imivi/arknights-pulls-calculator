@@ -3,12 +3,12 @@ import s from "./EventCell.module.scss"
 import { CSSProperties } from "react"
 import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Colors } from "../scripts/get-image-colors"
-import { DayWithResources } from "../types"
 import Icon from "./Icon"
+import { Day } from "../day"
 
 
 type Props = {
-    day: DayWithResources
+    day: Day
     colors: Colors | null
 }
 
@@ -25,18 +25,18 @@ export default function EventCell({ day, colors }: Props) {
     return (
         <td className={s.EventCell} rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
             {
-                day.description &&
+                day.event_name &&
                 <label style={eventNameStyle}>
                     {
                         day.event_link &&
                         <a className={s.event_title} href={day.event_link} target="_blank" rel="noreferrer">
-                            {day.description}
+                            {day.event_name}
                             <Icon type="external-link" size={16} ext="svg" />
                         </a>
                     }
                     {
                         !day.event_link &&
-                        <span className={s.event_title}>{day.description}</span>
+                        <span className={s.event_title}>{day.event_name}</span>
                     }
                     {
                         day.event_ops.length > 0 &&
@@ -44,7 +44,7 @@ export default function EventCell({ day, colors }: Props) {
                     }
                     {
                         day.event_id &&
-                        day.description.toLowerCase().includes("rerun") &&
+                        day.event_name.toLowerCase().includes("rerun") &&
                         <label className={s.already_cleared}>
                             <input
                                 type="checkbox"
@@ -71,7 +71,7 @@ function Operators({ ops }: { ops: string[] }) {
             {ops.map(op => (
                 <li key={op}>
                     <a href={"https://arknights.wiki.gg/wiki/" + op} target="_blank" rel="noreferrer">
-                        <img src={`/operators/${op}.webp`} alt={op} />
+                        <img src={import.meta.env.VITE_ASSETS_BASE_URL + `operators/${op}.png`} alt={op} />
                         {op.replaceAll("_", " ")}
                     </a>
                 </li>

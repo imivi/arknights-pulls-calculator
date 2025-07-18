@@ -22,10 +22,9 @@ export default function App() {
 
     const { clearedReruns } = useClearedReruns()
     const firstDayCleared = useClearedTodayStore(store => store.clearedToday)
-    const dailyResources = useCalendar(startingResources, f2p, clearedReruns, firstDayCleared)
+    const days = useCalendar(f2p, firstDayCleared, clearedReruns, startingResources)
 
     const { darkMode, setDarkMode } = useDarkModeStore()
-    const firstLoad = useFirstLoad()
 
     return (
         <main className={s.App} data-dark={darkMode}>
@@ -39,6 +38,11 @@ export default function App() {
                 </main>
 
             </header>
+
+            <div className={s.tips} data-dark={darkMode}>
+                <img src={import.meta.env.VITE_ASSETS_BASE_URL + darkMode ? "icons/info_white.svg" : "icons/info_dark.svg"} alt="info icon" />
+                Tip: click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls!
+            </div>
 
             <div className={s.table_container}>
                 <table>
@@ -75,32 +79,42 @@ export default function App() {
 
                     <tbody>
                         {
-                            dailyResources.map((day, i) => (
+                            days.map((day, i) => (
                                 <TableRow
-                                    key={day.dateString}
+                                    key={day.date}
                                     day={day}
                                     rowIsEven={i % 2 !== 0}
                                     isToday={i === 0}
-                                    firstLoad={firstLoad}
                                 />
                             ))
                         }
                     </tbody>
+
                 </table>
 
             </div>
 
             <footer data-dark={darkMode}>
 
-                <button onClick={() => downloadCsv(dailyResources)}>Download table as CSV</button>
+                <button onClick={() => downloadCsv(days)}>Download table as CSV</button>
 
                 <div className={s.notes} data-dark={darkMode}>
-                    <h2>Not included:</h2>
+                    <h2>Not included</h2>
                     <ul>
-                        <li>24 free pulls on each limited banner (every 3 months)</li>
-                        <li>Distinction Certificates (gold certs)</li>
-                        <li>Orundum from the Intelligence Certification Store (purple certs)</li>
-                        <li>Maintenance compensation and random gifts in the mail</li>
+                        <li><strong>24 free pulls</strong> on each limited banner (every 3 months) are listed separately. They are excluded from the running total because they can&#39;t be saved.</li>
+                        <li><strong>Distinction Certificates</strong> (gold certs), mostly from recruitment and extra event welfare tokens, you can exchange 258 of them for 38 HH permits.</li>
+                        <li>Any orundum from the <strong>Intelligence Certification Store</strong> (purple certs) beyond the 2000 orundum added on each rerun. Note that this orundum does not expire after the rerun ends. Therefore, if you are a new player or you have not cleared past reruns, you can still purchase any remaining orundum.</li>
+                        <li>Maintenance compensation and random gifts in the mail.</li>
+                    </ul>
+
+                    <h2>Notes</h2>
+                    <ul>
+                        <li>
+                            2k orundum is added for every cleared rerun, obtained from
+                            the Intelligence Certification Store by spending purple certs.
+                            If you have not cleared all past reruns, you will be able to
+                            spend excess certificates to buy orundum from past reruns.
+                        </li>
                     </ul>
                 </div>
 

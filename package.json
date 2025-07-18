@@ -9,13 +9,16 @@
     "get-image-colors": "tsx src/scripts/get-image-colors.ts",
     "prebuild": "pnpm fetch-daily-resources && pnpm get-image-colors",
     "build": "tsc -b && vite build",
+    "cleanup": "ts-unused-exports ./tsconfig.app.json",
     "lint": "eslint .",
+    "test": "vitest",
     "preview": "vite preview"
   },
   "dependencies": {
     "dayjs": "^1.11.13",
     "export-to-csv": "^1.4.0",
     "normalize.css": "^8.0.1",
+    "radix-ui": "^1.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-tooltip": "^5.28.1",
@@ -36,10 +39,12 @@
     "node-vibrant": "^4.0.3",
     "public-google-sheets-parser": "^1.5.4",
     "sass": "^1.87.0",
+    "ts-unused-exports": "^11.0.1",
     "tsx": "^4.19.4",
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.31.1",
     "vite": "^6.3.4",
+    "vitest": "^3.2.4",
     "zod": "^3.24.3"
   }
 }

@@ -1,6 +1,7 @@
 @use "../styles/colors.scss";
 @use "../styles/table.scss" as table;
 
+
 tr.TableRow {
 
     letter-spacing: 0.04em;
@@ -67,12 +68,32 @@ tr.TableRow {
         height: 100%;
         text-align: center;
         padding-right: 0;
+        display: grid;
 
-        &>span {
+        .btn_content {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: inherit;
+            font-family: inherit;
+            padding: 0;
+            margin: 0;
+            color: inherit;
+
+            display: flex;
+            gap: 5px;
+            justify-content: space-between;
+            // justify-content: flex-end;
+            width: 100%;
+        }
+
+        .total_pulls {
             padding: .2em .4em;
             display: grid;
             align-items: center;
             grid-template-columns: 1fr 1fr;
+            width: 100%;
+            gap: .3em;
 
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
@@ -217,15 +238,19 @@ tr.TableRow {
     z-index: 1;
 
     &[data-cleared=true] label {
-        opacity: 0.3;
+        opacity: 0.5;
     }
 
     .date {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: .1em;
         width: 100%;
+        gap: .2em;
+
+        label {
+            cursor: pointer;
+        }
     }
 
     small {
@@ -255,4 +280,11 @@ tr.TableRow {
 
 .align_right {
     text-align: right;
+}
+
+.pulls_spent {
+    padding: .2em .4em;
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
 }

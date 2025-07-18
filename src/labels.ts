@@ -10,4 +10,6 @@ export const resourceLabels: Record<string, string> = {
     "weekly_missions": "from weekly missions",
     "monthly_card": "from monthly card",
     "event_shop": "from event shop",
+    "pulls": "from pulls",
+    "intel": "from intelligence certificate store",
 }

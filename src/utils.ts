@@ -1,13 +1,60 @@
 import dayjs from "dayjs"
-import { Resources, DateString, DailyResource, ResourceGained, ResourcesGained, DayWithResources } from "./types"
+import { BasicResources, ResourceGained } from "./types"
+import { PullCalculator } from "./pull-calculator"
+import { Resources } from "./resources"
 
 
-export function getValidDates(dailyResources: DailyResource[]) {
 
-    // Get all dates from calendar in YYYY-MM-DD format (no duplicates)
+/** Convert op into pulls but use any leftover orundum */
+export function convert_op_to_pulls(availableOrundum: number, availableOP: number) {
+    const equivalentOrundum = availableOrundum + availableOP * 180
+    const pulls = Math.floor(equivalentOrundum / 600)
+    const requiredOrundum = pulls * 600
+    const orundumToConvert = requiredOrundum - availableOrundum
+    const opToConvert = Math.ceil(orundumToConvert / 180)
+    const convertedOrundum = opToConvert * 180
+    const leftoverOrundumSpent = requiredOrundum - convertedOrundum
+
+    return {
+        pulls,
+        convertedOP: opToConvert,
+        leftoverOrundumSpent,
+    }
+}
+
+
+export function convertResourcesToPulls(res: BasicResources, useOP: boolean): number {
+    const calc = new PullCalculator(res).spendTickets().spendOrundum()
+
+    if (useOP)
+        calc.convertOP()
+
+    return calc.getPulls()
+}
+
+export function convertPullsToResources(startingResources: BasicResources, pulls: number): { spent: BasicResources, remaining: BasicResources } {
+
+    const calc = new PullCalculator(startingResources)
+    calc.spendTickets(pulls)
+    calc.spendOrundum(pulls - calc.getPulls())
+    calc.convertOP(pulls - calc.getPulls())
+
+    const resRemaining = calc.res
+    const resStart = new Resources(startingResources.orundum, startingResources.tickets, startingResources.op)
+    const resSpent = resStart.clone().subtract(resRemaining)
+
+    return {
+        spent: resSpent,
+        remaining: resRemaining,
+    }
+}
+
+export function getValidDates(days: string[]): string[] {
+
+    // Get all dates from calendar in YYYY-MM-DD format (remove duplicates)
     const allDates = new Set<string>()
-    for (const day of dailyResources) {
-        allDates.add(day.day)
+    for (const day of days) {
+        allDates.add(day)
     }
 
     // Sort the dates
@@ -26,141 +73,70 @@ export function getValidDates(dailyResources: DailyResource[]) {
     throw new Error("No valid dates found!")
 }
 
+
 /** Get the CURRENT (not ISO) date in YYYY-MM-DD format */
 function getLocalISODate() {
     return dayjs().format("YYYY-MM-DD")
 }
 
-/** Calculate the cumulative resources for each day */
-export function getDaysWithResources(startingResources: Resources, validDays: DateString[], dailyResources: Record<string, DailyResource>, ignoreFirstDayResources: boolean): DayWithResources[] {
-    const resourcesPerDay: DayWithResources[] = []
-
-    let prevResources = startingResources
-
-    validDays.forEach((dayString, i) => {
-
-        const firstDay = i === 0
-        const day = dailyResources[dayString]
-
-        if (firstDay && ignoreFirstDayResources) {
-            // console.log({ firstDay, ignoreFirstDayResources, day })
-            day.clearResources()
-        }
-
-        let cumulativeResources = calculateResourcesPerDay(dayString, prevResources, dailyResources)
-
-        resourcesPerDay.push({
-            event_id: day.event_id,
-            event_link: day.event_link,
-            event_ops: day.event_ops,
-            description: day.description,
-            resourcesGained: day.resourcesGained,
-            totalResources: day.totalResources,
-            cumulativeResources,
-            dateString: dayString,
-            rowSpan: 0,
-            eventDay: 0,
-            freePulls: 0,
-            freeMonthlyCard: day.freeMonthlyCard,
-        })
-        prevResources = cumulativeResources
-    })
-
-    // Add event days
-    let eventDay = 0
-    for (let i = 1; i < resourcesPerDay.length; i++) {
-        const currentDay = resourcesPerDay[i]
-        const previousDay = resourcesPerDay[i - 1]
-
-        const firstDayOfEvent = currentDay.event_id && !previousDay.event_id
-        const nonFirstDayOfEvent = currentDay.event_id && (currentDay.event_id === previousDay.event_id)
-
-        if (firstDayOfEvent) {
-            eventDay = 1
-            currentDay.eventDay = eventDay
-        }
-
-        else if (nonFirstDayOfEvent) {
-            eventDay += 1
-            currentDay.eventDay = eventDay
-        }
-
-        else {
-            eventDay = 0
-        }
-    }
-
-    // Calculate free pulls
-    for (const day of resourcesPerDay) {
-        if (day.event_id?.endsWith("_lim")) {
-            if (day.eventDay === 1)
-                day.freePulls = 11
-            else if (day.eventDay <= 14)
-                day.freePulls = 1
-        }
-    }
-
-    return resourcesPerDay
-}
-
-
-
-function calculateResourcesPerDay(day: DateString, previousDayResources: Resources, events: Record<string, DailyResource>): Resources {
-
-    const res = previousDayResources.clone()
-
-    if (day in events) {
-        res.add(events[day].totalResources)
-
-    }
-
-    return res
-}
-
 
 type Row = {
-    description: string | undefined
     event_id: string | undefined
     rowSpan: number
 }
-export function calculateRowSpan(rows: Row[]) {
 
+export function calculateRowSpan<T extends Row>(rows: T[]) {
+
+    // Get day count for each event
     const rowSpans: Record<string, number> = {}
 
     for (const row of rows) {
-        if (row.description) {
-            if (!(row.description in rowSpans)) {
-                rowSpans[row.description] = 0
+        if (row.event_id) {
+            if (!(row.event_id in rowSpans)) {
+                rowSpans[row.event_id] = 0
             }
-            rowSpans[row.description] += 1
+            rowSpans[row.event_id] += 1
         }
     }
 
+    // Set the rowspan of the first day of each event to the event days,
+    // set the other days to 0
     for (const row of rows) {
-        if (!row.description) {
+        if (!row.event_id) {
             row.rowSpan = 1
         }
-        else if (row.description in rowSpans) {
-            row.rowSpan = rowSpans[row.description]
-            rowSpans[row.description] = 0
+        else if (row.event_id in rowSpans) {
+            row.rowSpan = rowSpans[row.event_id]
+            rowSpans[row.event_id] = 0
         }
     }
+
+    return [...rows]
 }
 
 
 export function sum(resources: ResourceGained[]): number {
     let total = 0
     for (const res of resources) {
-        total += res.value
+        if (res.enabled)
+            total += res.value
     }
     return total
 }
 
-export function sumResources(res: ResourcesGained): Resources {
 
-    return new Resources(
-        sum(res.orundum),
-        sum(res.tickets),
-        sum(res.op),
-    )
+export function formatOrundum(n: number): string {
+    if (n > 0 && n < 1000)
+        return n.toFixed(0)
+    else
+        return (n / 1000).toFixed(1) + "k"
+}
+
+
+export function constrain(num: number, min: number, max: number) {
+    if (num > max)
+        return max
+    if (num < min)
+        return min
+    return num
 }

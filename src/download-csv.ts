@@ -1,6 +1,9 @@
 import { generateCsv, download, mkConfig } from "export-to-csv"
 
-import { DayWithResources, ResourceGained } from "./types"
+import { ResourceGained } from "./types"
+import { Day } from "./day"
+import { convertResourcesToPulls } from "./utils"
+import { resourceLabels } from "./labels"
 
 type CsvRow = {
     date: string
@@ -16,27 +19,30 @@ type CsvRow = {
     free_pulls: number
 }
 
-export function downloadCsv(rows: DayWithResources[]) {
+export function downloadCsv(rows: Day[]) {
 
     const csvRows: CsvRow[] = rows.map(day => {
 
-        const orundum_sources = formatSources(day.resourcesGained.orundum)
-        const tickets_sources = formatSources(day.resourcesGained.tickets)
-        const op_sources = formatSources(day.resourcesGained.op)
+        const orundum_sources = formatSources(day.resourcesInfo.orundum)
+        const tickets_sources = formatSources(day.resourcesInfo.tickets)
+        const op_sources = formatSources(day.resourcesInfo.op)
+
+        const pullsNoOP = convertResourcesToPulls(day.resourcesTotal, false)
+        const pulls = convertResourcesToPulls(day.resourcesTotal, true)
 
         return {
-            date: day.dateString,
-            event: day.description,
+            date: day.date,
+            event: day.event_name,
 
-            op: day.cumulativeResources.op,
+            op: day.resourcesTotal.op,
             op_sources,
-            orundum: day.cumulativeResources.orundum,
+            orundum: day.resourcesTotal.orundum,
             orundum_sources,
-            tickets: day.cumulativeResources.tickets,
+            tickets: day.resourcesTotal.tickets,
             tickets_sources,
 
-            pulls_no_op: day.cumulativeResources.pullsWithoutOP(),
-            pulls_with_op: day.cumulativeResources.pullsWithOP(),
+            pulls_no_op: pullsNoOP,
+            pulls_with_op: pulls,
             free_pulls: day.freePulls,
         }
     })
@@ -50,7 +56,7 @@ export function downloadCsv(rows: DayWithResources[]) {
 
 function formatSources(res: ResourceGained[]): string {
     const lines = res.map(source => (
-        `${source.value} ${source.description}`
+        `${source.value} ${resourceLabels[source.source]}`
     ))
     return lines.join("\n")
 }

@@ -20,7 +20,7 @@ This is an online tool for Arknights players to calculate resource income and fu
 
 * **24 free pulls** on each limited banner (every 3 months) are listed separately. They are excluded from the running total because they can't be saved.
 * **Distinction Certificates** (gold certs), mostly from recruitment and extra event welfare tokens, you can exchange 258 of them for 38 HH permits.
-* Orundum from the **Intelligence Certification Store** (purple certs). You get it from reruns if you bought furniture pieces during the original run.
+* Any orundum from the **Intelligence Certification Store** (purple certs) beyond the 2000 orundum added on each rerun. Note that this orundum does not expire after the rerun ends. Therefore, if you are a new player or you have not cleared past reruns, you can still purchase any remaining orundum.
 * Maintenance compensation and random gifts in the mail.
 
 ## Assumptions

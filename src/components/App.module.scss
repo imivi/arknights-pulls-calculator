@@ -4,6 +4,7 @@
 .App {
     overflow: hidden;
     display: grid;
+    row-gap: 3vh;
     grid-template-rows: auto 1fr auto;
 
     background-color: colors.$window-bg-light;
@@ -14,11 +15,50 @@
         color: colors.$window-text-dark;
     }
 
+    .tips {
+        padding: 10px;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 3px rgba($color: black, $alpha: 0.2);
+        display: flex;
+        gap: .5em;
+        align-items: center;
+
+        background-color: colors.$table-header-bg-light;
+
+        &[data-dark=true] {
+            background-color: colors.$table-header-bg-dark;
+        }
+
+        // Style the tip bold like the pull counter
+        strong {
+            padding: .2em .4em;
+            border-radius: 5px;
+
+            &[data-dark=true] {
+                background-color: colors.$table-cell-pulls-bg-even-dark;
+                color: colors.$table-cell-pulls-text-dark;
+            }
+
+            &[data-dark=false] {
+                background-color: colors.$table-cell-pulls-bg-even-light;
+                color: colors.$table-cell-pulls-text-light;
+            }
+        }
+
+        img {
+            width: 24px;
+            height: 24px;
+            opacity: 0.5;
+        }
+    }
+
     header {
         position: relative;
         top: 0;
         font-weight: normal;
         z-index: 9;
+        box-shadow: 0 0 5px rgba($color: black, $alpha: 0.2);
 
         background-color: colors.$table-header-bg-light;
         color: colors.$table-header-text-light;
@@ -74,7 +114,7 @@
 
     table {
         border-collapse: collapse;
-        margin: 2vh auto;
+        margin: 0 auto;
 
         thead {
             position: sticky;
@@ -204,6 +244,15 @@
         margin-bottom: 2vh;
         line-height: 1.5em;
 
+        ul {
+            text-align: justify;
+            margin-right: 2em;
+        }
+
+        li {
+            margin-bottom: .5em;
+        }
+
         a {
             color: colors.$window-link-light;
         }
@@ -216,18 +265,18 @@
             max-width: 30rem;
             padding: 1rem;
             border-radius: 10px;
-            box-shadow: 0 5px 10px rgba($color: black, $alpha: 0.1);
+            box-shadow: 0 4px 4px rgba($color: black, $alpha: 0.2);
 
             &[data-dark=true] {
                 color: colors.$footer-text-dark;
                 background-color: colors.$footer-bg-dark;
-                border: 1px solid colors.$footer-border-dark;
+                // border: 1px solid colors.$footer-border-dark;
             }
 
             &[data-dark=false] {
                 color: colors.$footer-text-light;
                 background-color: colors.$footer-bg-light;
-                border: 1px solid colors.$footer-border-light;
+                // border: 1px solid colors.$footer-border-light;
             }
 
             h2 {

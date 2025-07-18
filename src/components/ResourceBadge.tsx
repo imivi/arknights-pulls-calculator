@@ -4,6 +4,7 @@ import { ReactNode } from "react"
 import { Tooltip } from 'react-tooltip'
 import Icon from "./Icon"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
+import { formatOrundum } from "../utils"
 
 
 type Resource = "orundum" | "op" | "ticket"
@@ -27,7 +28,8 @@ export default function ResourceBadge({ resource, value, tooltipId, children }: 
             data-dark={darkMode}
         >
             <Icon type={resource} size={20} />
-            +{value}
+            {value > 0 && "+"}
+            {Math.abs(value) >= 10_000 ? formatOrundum(value) : value}
             <Tooltip id={tooltipId} style={{ zIndex: 9 }}>{children}</Tooltip>
         </div>
     )

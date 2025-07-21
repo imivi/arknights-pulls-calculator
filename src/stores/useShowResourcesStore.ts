@@ -8,8 +8,13 @@ type Store = {
 }
 
 export const useShowResourcesStore = create(persist<Store>((set) => ({
-    showResources: false,
+    showResources: isMobile(),
     setShowResources: (showResources) => set({ showResources }),
 }),
     { name: "show_resources" },
 ))
+
+
+function isMobile(): boolean {
+    return window.innerWidth < 600
+}

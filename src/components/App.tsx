@@ -44,7 +44,7 @@ export default function App() {
             <div className={s.message_box} data-dark={darkMode}>
                 <label>
                     <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
-                    &nbsp;Show resources per day
+                    &nbsp;Show resource total
                 </label>
                 <small>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + darkMode ? "icons/info_white.svg" : "icons/info_dark.svg"} alt="info icon" />

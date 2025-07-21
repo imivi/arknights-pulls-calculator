@@ -8,9 +8,9 @@
     padding: 0;
 
     @media screen and (max-width:600px) {
-        // justify-content: center;
-        // align-items: center;
-        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 10px auto;
     }
 
     img {

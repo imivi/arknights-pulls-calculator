@@ -10,6 +10,7 @@ import { useSettingsStore } from "../stores/useSettings"
 import Icon from "./Icon"
 import Settings from "./Settings"
 import TableRow from "./TableRow"
+import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 
 
 export default function App() {
@@ -25,6 +26,8 @@ export default function App() {
 
     const { darkMode, setDarkMode } = useDarkModeStore()
 
+    const { showResources, setShowResources } = useShowResourcesStore()
+
     return (
         <main className={s.App} data-dark={darkMode}>
 
@@ -38,9 +41,15 @@ export default function App() {
 
             </header>
 
-            <div className={s.tips} data-dark={darkMode}>
-                <img src={import.meta.env.VITE_ASSETS_BASE_URL + darkMode ? "icons/info_white.svg" : "icons/info_dark.svg"} alt="info icon" />
-                Tip: click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls!
+            <div className={s.message_box} data-dark={darkMode}>
+                <label>
+                    <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
+                    &nbsp;Show resources per day
+                </label>
+                <small>
+                    <img src={import.meta.env.VITE_ASSETS_BASE_URL + darkMode ? "icons/info_white.svg" : "icons/info_dark.svg"} alt="info icon" />
+                    Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls
+                </small>
             </div>
 
             <div className={s.table_container}>
@@ -64,9 +73,9 @@ export default function App() {
 
                             <th>{/*Column for free pulls*/}</th>
 
-                            <th><span><Icon type="orundum" size={30} /> <div className={s.caption}>Orundum</div></span></th>
-                            <th><span><Icon type="ticket" size={30} /> <div className={s.caption}>HH Permits</div></span></th>
-                            <th><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
+                            <th data-show-global={showResources}><span><Icon type="orundum" size={30} /> <div className={s.caption}>Orundum</div></span></th>
+                            <th data-show-global={showResources}><span><Icon type="ticket" size={30} /> <div className={s.caption}>HH Permits</div></span></th>
+                            <th data-show-global={showResources}><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
 
                             <th>
                                 {/* Column for free monthly card */}

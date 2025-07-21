@@ -64,69 +64,10 @@ tr.TableRow {
     // }
 
     td[data-column=pulls-total] {
-
         height: 100%;
         text-align: center;
         padding-right: 0;
         display: grid;
-
-        .btn_content {
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: inherit;
-            font-family: inherit;
-            padding: 0;
-            margin: 0;
-            color: inherit;
-
-            display: flex;
-            gap: 5px;
-            justify-content: space-between;
-            // justify-content: flex-end;
-            width: 100%;
-        }
-
-        .total_pulls {
-            padding: .2em .4em;
-            display: grid;
-            align-items: center;
-            grid-template-columns: 1fr 1fr;
-            width: 100%;
-            gap: .3em;
-
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-
-            // Hide "pulls" on narrow screens
-            @media screen and (max-width:600px) {
-                grid-template-columns: 1fr 0;
-            }
-
-            &[data-dark=true][data-even=true] {
-                background-color: colors.$table-cell-pulls-bg-even-dark;
-                color: colors.$table-cell-pulls-text-dark;
-            }
-
-            &[data-dark=true][data-even=false] {
-                background-color: colors.$table-cell-pulls-bg-odd-dark;
-                color: colors.$table-cell-pulls-text-dark;
-            }
-
-            &[data-dark=false][data-even=true] {
-                background-color: colors.$table-cell-pulls-bg-even-light;
-                color: colors.$table-cell-pulls-text-light;
-            }
-
-            &[data-dark=false][data-even=false] {
-                background-color: colors.$table-cell-pulls-bg-odd-light;
-                color: colors.$table-cell-pulls-text-light;
-            }
-
-            small {
-                font-size: .8em;
-            }
-        }
     }
 
     td[data-column=pulls-breakdown] {
@@ -135,12 +76,22 @@ tr.TableRow {
         position: relative;
 
         &>span {
+            // display: grid;
+            // justify-content: flex-start;
+            // align-items: flex-start;
+            // height: 100%;
+            // outline: 2px solid orange;
+            vertical-align: top;
+        }
+
+        .pulls_breakdown {
             display: grid;
             grid-template-columns: 1fr 1fr;
             justify-content: center;
             align-items: center;
             text-align: right;
             font-size: .9em;
+            vertical-align: top;
 
             span {
                 padding: .3em .4em;
@@ -280,11 +231,4 @@ tr.TableRow {
 
 .align_right {
     text-align: right;
-}
-
-.pulls_spent {
-    padding: .2em .4em;
-    background-color: brown;
-    color: white;
-    border-radius: 5px;
 }

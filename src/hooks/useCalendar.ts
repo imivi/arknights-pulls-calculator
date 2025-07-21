@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { getValidDates, calculateRowSpan } from "../utils"
-import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable } from "../days-utils"
+import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, toggleFirstDayResources } from "../days-utils"
 import { Resources } from "../resources"
 import { useResourcesSpentStore } from "../stores/useResourcesSpentStore"
 
@@ -23,9 +23,7 @@ export function useCalendar(f2p: boolean, ignoreFirstDayResources: boolean, clea
 
     // Ignore first day resources
     days = useMemo(() => {
-        if (ignoreFirstDayResources && days.length > 0)
-            days[0].resourcesToday.set(0, 0, 0)
-        return [...days]
+        return toggleFirstDayResources(days, !ignoreFirstDayResources)
     }, [ignoreFirstDayResources, days])
 
     // Ignore certain resources for F2P and reruns

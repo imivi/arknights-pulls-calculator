@@ -244,3 +244,15 @@ export function addFreePulls<T extends Item>(days: T[]) {
 
     return [...days]
 }
+
+export function toggleFirstDayResources(days: Day[], enabled: boolean): Day[] {
+    if (days.length === 0)
+        return days
+
+    for (const res of ["orundum", "tickets", "op"] as const) {
+        for (const info of days[0].resourcesInfo[res]) {
+            info.enabled = enabled
+        }
+    }
+    return [...days]
+}

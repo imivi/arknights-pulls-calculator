@@ -10,10 +10,11 @@ import { useClearedTodayStore } from "../stores/useClearedTodayStore"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import Icon from "./Icon"
 import EventCell from "./EventCell"
-import PullsMenu from "./PullsMenu"
 import { Day } from "../day"
 import { resourceLabels } from "../labels"
 import { formatOrundum } from "../utils"
+import PullCount from "./PullCount"
+import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -38,10 +39,6 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
     const dayStyle = getDayStyle(colors, rowIsEven, darkMode)
     const rowStyle = day.rowSpan > 0 ? { backgroundColor: dayStyle.backgroundColor } : {}
 
-    const pullsWithOP = day.pullsAvailable
-    const pullsWithoutOP = day.pullsAvailableWithoutOP
-    const pullsFromOP = day.pullsAvailableFromOP
-
     const tooltipPullsTotal = "tooltip-pulls-total-" + day.date
     const tooltipPullsOrundum = "tooltip-pulls-orundum-" + day.date
     const tooltipPullsOP = "tooltip-pulls-op-" + day.date
@@ -50,6 +47,8 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
     const { dayOfMonth, month, weekDay } = getDateValues(day.date)
 
     const { clearedToday, setClearedToday } = useClearedTodayStore()
+
+    const { showResources } = useShowResourcesStore()
 
     return (
         <tr className={s.TableRow} data-dark={darkMode} data-even={rowIsEven}>
@@ -93,37 +92,26 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
             </td>
 
             <td className={s.align_right} data-dark={darkMode} data-column="pulls-total" data-even={rowIsEven} style={rowStyle} data-tooltip-id={tooltipPullsTotal}>
-                <PullsMenu day={day} maxPulls={pullsWithOP}>
-                    <div className={s.btn_content}>
-                        {
-                            day.pullsSpent > 0 &&
-                            <span className={s.pulls_spent}>
-                                &nbsp;-{day.pullsSpent}
-                            </span>
-                        }
-                        <span className={s.total_pulls} data-dark={darkMode} data-even={rowIsEven}>
-                            <strong>{pullsWithOP.toFixed()}</strong>
-                            <small>pulls</small>
-                        </span>
-                    </div>
-                </PullsMenu>
+                <PullCount day={day} even={rowIsEven} />
             </td>
 
             <td data-dark={darkMode} data-column="pulls-breakdown" style={rowStyle}>
-                <span data-dark={darkMode}>
-                    <span data-dark={darkMode} data-cell="pulls-from-orundum" data-tooltip-id={tooltipPullsOrundum}>
-                        {pullsWithoutOP.toFixed()}
-                        <Tooltip id={tooltipPullsOrundum} style={{ zIndex: 9 }} place="bottom">
-                            {pullsWithoutOP.toFixed()} pulls from orundum/permits
-                        </Tooltip>
+                <span>
+                    <span data-dark={darkMode} className={s.pulls_breakdown}>
+                        <span data-dark={darkMode} data-cell="pulls-from-orundum" data-tooltip-id={tooltipPullsOrundum}>
+                            {day.pullsAvailableWithoutOP.toFixed()}
+                            <Tooltip id={tooltipPullsOrundum} style={{ zIndex: 9 }} place="bottom">
+                                {day.pullsAvailableWithoutOP.toFixed()} pulls from orundum/permits
+                            </Tooltip>
+                        </span>
+                        <span data-dark={darkMode} data-cell="pulls-from-op" className={s.align_left} data-tooltip-id={tooltipPullsOP}>
+                            +&nbsp;{day.pullsAvailableFromOP.toFixed()}
+                            <Tooltip id={tooltipPullsOP} style={{ zIndex: 9 }} place="bottom">
+                                {(day.pullsAvailableFromOP).toFixed()} pulls from converting {day.resourcesTotal.op} OP
+                            </Tooltip>
+                        </span>
+                        <div className={s.arrow_container} data-dark={darkMode} />
                     </span>
-                    <span data-dark={darkMode} data-cell="pulls-from-op" className={s.align_left} data-tooltip-id={tooltipPullsOP}>
-                        +&nbsp;{pullsFromOP.toFixed()}
-                        <Tooltip id={tooltipPullsOP} style={{ zIndex: 9 }} place="bottom">
-                            {(pullsFromOP).toFixed()} pulls from converting {day.resourcesTotal.op} OP
-                        </Tooltip>
-                    </span>
-                    <div className={s.arrow_container} data-dark={darkMode} />
                 </span>
             </td>
 
@@ -131,7 +119,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 {day.freePulls > 0 && <small data-dark={darkMode}>+{day.freePulls}&nbsp;free</small>}
             </td>
 
-            <td data-resource="orundum" data-dark={darkMode} style={rowStyle}>
+            <td data-show-global={showResources} data-resource="orundum" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {formatOrundum(day.resourcesTotal.orundum)}
                     {
@@ -149,7 +137,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-resource="tickets" data-dark={darkMode} style={rowStyle}>
+            <td data-show-global={showResources} data-resource="tickets" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {day.resourcesTotal.tickets}
                     {
@@ -167,7 +155,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-resource="op" data-dark={darkMode} style={rowStyle}>
+            <td data-show-global={showResources} data-resource="op" data-dark={darkMode} style={rowStyle}>
                 <div className={s.resources}>
                     {day.resourcesTotal.op.toFixed()}
                     {

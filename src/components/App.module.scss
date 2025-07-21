@@ -4,7 +4,7 @@
 .App {
     overflow: hidden;
     display: grid;
-    row-gap: 3vh;
+    row-gap: max(1vh, 20px);
     grid-template-rows: auto 1fr auto;
 
     background-color: colors.$window-bg-light;
@@ -15,19 +15,32 @@
         color: colors.$window-text-dark;
     }
 
-    .tips {
-        padding: 10px;
+    .message_box {
+        padding: 20px;
         margin: 0 auto;
         border-radius: 5px;
         box-shadow: 0 2px 3px rgba($color: black, $alpha: 0.2);
-        display: flex;
         gap: .5em;
+        display: grid;
         align-items: center;
+        justify-content: center;
+        gap: 20px;
 
         background-color: colors.$table-header-bg-light;
 
         &[data-dark=true] {
             background-color: colors.$table-header-bg-dark;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        small {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+            font-size: .9em;
         }
 
         // Style the tip bold like the pull counter

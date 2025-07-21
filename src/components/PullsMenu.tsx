@@ -1,6 +1,6 @@
 import s from "./PullsMenu.module.scss"
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { Popover } from "radix-ui";
 import { useResourcesSpentStore } from "../stores/useResourcesSpentStore";
 import { Day } from "../day";
@@ -17,6 +17,8 @@ type Props = {
 }
 
 export default function PullsMenu({ day, maxPulls, children }: Props) {
+
+    const [showPullMenu, setShowPullMenu] = useState(false)
 
     const { resourcesSpent, setResourcesSpent } = useResourcesSpentStore()
     const [inputValue, setInputValue] = useState(0)
@@ -50,7 +52,7 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
     const { darkMode } = useDarkModeStore()
 
     return (
-        <Popover.Root>
+        <Popover.Root open={showPullMenu} onOpenChange={(open) => setShowPullMenu(open)} >
             <Popover.Trigger asChild>
                 <button className={s.btn_open_menu} aria-label="Update dimensions">
                     {children}
@@ -60,69 +62,69 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                 <Popover.Content className={s.Content} sideOffset={5}>
                     <Popover.Arrow className={s.Arrow} />
 
-                    <main data-dark={darkMode}>
+                    <form onSubmit={e => { e.preventDefault(); spendPulls(); setShowPullMenu(false); console.log("spend pulls", day.date, resourcesSpent[day.date]) }}>
+                        <main data-dark={darkMode}>
 
-                        <label>
-                            Spend
-                            <input
-                                type="number"
-                                value={inputValue}
-                                onChange={e => setInputValue(constrain(e.target.valueAsNumber, 0, maxPulls))}
-                                style={{ maxWidth: 60 }}
-                                min={0}
-                                max={maxPulls}
-                            />
-                            / {maxPulls} pulls
-                        </label>
-                        <fieldset>
-                            <button onClick={() => setInputValue(0)}>0</button>
-                            <button onClick={() => increment(-1)}>-1</button>
-                            <button onClick={() => increment(+1)}>+1</button>
-                            <button onClick={() => increment(-10)}>-10</button>
-                            <button onClick={() => increment(+10)}>+10</button>
-                        </fieldset>
-                        <fieldset>
-                            <button onClick={() => setInputValue(day.pullsAvailableWithoutOP)}>Max, no OP ({day.pullsAvailableWithoutOP})</button>
-                            <button onClick={() => setInputValue(maxPulls)}>Max ({maxPulls})</button>
-                        </fieldset>
+                            <label>
+                                Spend
+                                <input
+                                    type="number"
+                                    value={inputValue}
+                                    onChange={e => setInputValue(constrain(e.target.valueAsNumber, 0, maxPulls))}
+                                    style={{ maxWidth: 60 }}
+                                    min={0}
+                                    max={maxPulls}
+                                />
+                                / {maxPulls} pulls
+                            </label>
+                            <fieldset>
+                                <button type="button" onClick={() => setInputValue(0)}>0</button>
+                                <button type="button" onClick={() => increment(-1)}>-1</button>
+                                <button type="button" onClick={() => increment(+1)}>+1</button>
+                                <button type="button" onClick={() => increment(-10)}>-10</button>
+                                <button type="button" onClick={() => increment(+10)}>+10</button>
+                            </fieldset>
+                            <fieldset>
+                                <button type="button" onClick={() => setInputValue(day.pullsAvailableWithoutOP)}>Max, no OP ({day.pullsAvailableWithoutOP})</button>
+                                <button type="button" onClick={() => setInputValue(maxPulls)}>Max ({maxPulls})</button>
+                            </fieldset>
 
-                        {
-                            inputValue > 0 &&
-                            <ul>
-                                {
-                                    resourcesTotal.tickets > 0 &&
-                                    <li><Icon type="ticket" size={20} /> {resources.spent.tickets} / {resourcesTotal.tickets}</li>
-                                }
-                                {
-                                    resources.spent.orundum > 0 &&
-                                    <li><Icon type="orundum" size={20} /> {resources.spent.orundum} / {resourcesTotal.orundum}</li>
-                                }
-                                {
-                                    resources.spent.op > 0 &&
-                                    <li>
-                                        <Icon type="op" size={20} />
-                                        {resources.spent.op} / {resourcesTotal.op}
-                                        →
-                                        <Icon type="orundum" size={20} />
-                                        {resources.spent.op * 180}
-                                    </li>
-                                }
-                            </ul>
-                        }
+                            {
+                                inputValue > 0 &&
+                                <ul>
+                                    {
+                                        resourcesTotal.tickets > 0 &&
+                                        <li><Icon type="ticket" size={20} /> {resources.spent.tickets} / {resourcesTotal.tickets}</li>
+                                    }
+                                    {
+                                        resources.spent.orundum > 0 &&
+                                        <li><Icon type="orundum" size={20} /> {resources.spent.orundum} / {resourcesTotal.orundum}</li>
+                                    }
+                                    {
+                                        resources.spent.op > 0 &&
+                                        <li>
+                                            <Icon type="op" size={20} />
+                                            {resources.spent.op} / {resourcesTotal.op}
+                                            →
+                                            <Icon type="orundum" size={20} />
+                                            {resources.spent.op * 180}
+                                        </li>
+                                    }
+                                </ul>
+                            }
 
-                    </main>
+                        </main>
 
-                    {/* <pre>{JSON.stringify({ res: day.resourcesTotal, inputValue, resourcesSpent: resources.spent }, null, 4)}</pre> */}
-                    {/* <pre>{JSON.stringify({ inputValue, resourcesTotal, resources }, null, 4)}</pre> */}
+                        <footer>
+                            <Popover.Close aria-label="Close" type="button">
+                                cancel
+                            </Popover.Close>
+                            <Popover.Close aria-label="Confirm" onClick={spendPulls} type="submit">
+                                OK
+                            </Popover.Close>
+                        </footer>
 
-                    <footer>
-                        <Popover.Close aria-label="Close">
-                            cancel
-                        </Popover.Close>
-                        <Popover.Close aria-label="Confirm" onClick={spendPulls}>
-                            OK
-                        </Popover.Close>
-                    </footer>
+                    </form>
                 </Popover.Content>
             </Popover.Portal>
         </Popover.Root>

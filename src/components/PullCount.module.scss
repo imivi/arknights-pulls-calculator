@@ -1,0 +1,76 @@
+@use "../styles/colors.scss";
+@use "../styles/table.scss" as table;
+
+.PullCount {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    // justify-content: flex-end;
+    width: 100%;
+}
+
+.pulls_available {
+    padding: .2em .5em;
+    padding-right: .8em;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    gap: .3em;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    opacity: 0.9;
+    transition: opacity 50ms;
+
+    &:hover {
+        opacity: 1;
+        transition: opacity 50ms;
+    }
+
+    &:active {
+        opacity: .8;
+        transition: opacity 50ms;
+    }
+
+    &[data-dark=true][data-even=true] {
+        background-color: colors.$table-cell-pulls-bg-even-dark;
+        color: colors.$table-cell-pulls-text-dark;
+    }
+
+    &[data-dark=true][data-even=false] {
+        background-color: colors.$table-cell-pulls-bg-odd-dark;
+        color: colors.$table-cell-pulls-text-dark;
+    }
+
+    &[data-dark=false][data-even=true] {
+        background-color: colors.$table-cell-pulls-bg-even-light;
+        color: colors.$table-cell-pulls-text-light;
+    }
+
+    &[data-dark=false][data-even=false] {
+        background-color: colors.$table-cell-pulls-bg-odd-light;
+        color: colors.$table-cell-pulls-text-light;
+    }
+
+
+    small {
+        font-size: .8em;
+    }
+}
+
+.pulls_spent {
+    padding: .2em .4em;
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+}

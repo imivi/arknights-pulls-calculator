@@ -26,3 +26,7 @@ pre {
     background-color: #eee;
     color: #333;
 }
+
+[data-show-global=false] {
+    display: none;
+}

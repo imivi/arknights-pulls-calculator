@@ -1,6 +1,6 @@
 import s from "./PullsMenu.module.scss"
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Popover } from "radix-ui";
 import { useResourcesSpentStore } from "../stores/useResourcesSpentStore";
 import { Day } from "../day";

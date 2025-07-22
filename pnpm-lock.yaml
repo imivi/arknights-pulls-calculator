@@ -14,9 +14,15 @@ importers:
       export-to-csv:
         specifier: ^1.4.0
         version: 1.4.0
+      node-vibrant:
+        specifier: ^4.0.3
+        version: 4.0.3
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
+      public-google-sheets-parser:
+        specifier: ^1.5.4
+        version: 1.5.4
       radix-ui:
         specifier: ^1.4.2
         version: 1.4.2(@types/react-dom@19.1.3(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -29,6 +35,9 @@ importers:
       react-tooltip:
         specifier: ^5.28.1
         version: 5.28.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      zod:
+        specifier: ^4.0.5
+        version: 4.0.5
       zustand:
         specifier: ^5.0.4
         version: 5.0.4(@types/react@19.1.2)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
@@ -36,9 +45,6 @@ importers:
       '@eslint/js':
         specifier: ^9.26.0
         version: 9.26.0
-      '@types/get-image-colors':
-        specifier: ^4.0.5
-        version: 4.0.5
       '@types/node':
         specifier: ^22.15.3
         version: 22.15.3
@@ -66,12 +72,6 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.0.0
-      node-vibrant:
-        specifier: ^4.0.3
-        version: 4.0.3
-      public-google-sheets-parser:
-        specifier: ^1.5.4
-        version: 1.5.4
       sass:
         specifier: ^1.87.0
         version: 1.87.0
@@ -93,9 +93,6 @@ importers:
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@22.15.3)(sass@1.87.0)(tsx@4.19.4)
-      zod:
-        specifier: ^3.24.3
-        version: 3.24.3
 
 packages:
 
@@ -1382,17 +1379,11 @@ packages:
   '@types/chai@5.2.2':
     resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
 
-  '@types/chroma-js@3.1.1':
-    resolution: {integrity: sha512-SFCr4edNkZ1bGaLzGz7rgR1bRzVX4MmMxwsIa3/Bh6ose8v+hRpneoizHv0KChdjxaXyjRtaMq7sCuZSzPomQA==}
-
   '@types/deep-eql@4.0.2':
     resolution: {integrity: sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==}
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
-
-  '@types/get-image-colors@4.0.5':
-    resolution: {integrity: sha512-4d3eLaB8Hz+KpGwkqZx/AO2Omvp5lFbAV5z6MqLV3bUQR1tHLsIbbLgESOS+/APrtad8oDg7BzQbE/hAzrOUHA==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -1403,8 +1394,8 @@ packages:
   '@types/node@16.9.1':
     resolution: {integrity: sha512-QpLcX9ZSsq3YYUUnD3nFDY8H7wctAhQj/TFKL8Ya8v5fMm3CFXxo8zStsLAl780ltoYoo1WvKUVGBQK+1ifr7g==}
 
-  '@types/node@18.19.87':
-    resolution: {integrity: sha512-OIAAu6ypnVZHmsHCeJ+7CCSub38QNBS9uceMQeg7K5Ur0Jr+wG9wEOEvvMbhp09pxD5czIUy/jND7s7Tb6Nw7A==}
+  '@types/node@18.19.120':
+    resolution: {integrity: sha512-WtCGHFXnVI8WHLxDAt5TbnCM4eSE+nI0QN2NJtwzcgMhht2eNz6V9evJrk+lwC8bCY8OWV5Ym8Jz7ZEyGnKnMA==}
 
   '@types/node@22.15.3':
     resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
@@ -2772,6 +2763,9 @@ packages:
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
+  zod@4.0.5:
+    resolution: {integrity: sha512-/5UuuRPStvHXu7RS+gmvRf4NXrNxpSllGwDnCBcJZtQsKrviYXm54yDGV2KYNLT5kq0lHGcl7lqWJLgSaG+tgA==}
+
   zustand@5.0.4:
     resolution: {integrity: sha512-39VFTN5InDtMd28ZhjLyuTnlytDr9HfwO512Ai4I8ZABCoyAj4F1+sr7sD1jP/+p7k77Iko0Pb5NhgBFDCX0kQ==}
     engines: {node: '>=12.20.0'}
@@ -4074,16 +4068,9 @@ snapshots:
     dependencies:
       '@types/deep-eql': 4.0.2
 
-  '@types/chroma-js@3.1.1': {}
-
   '@types/deep-eql@4.0.2': {}
 
   '@types/estree@1.0.7': {}
-
-  '@types/get-image-colors@4.0.5':
-    dependencies:
-      '@types/chroma-js': 3.1.1
-      '@types/node': 22.15.3
 
   '@types/json-schema@7.0.15': {}
 
@@ -4091,7 +4078,7 @@ snapshots:
 
   '@types/node@16.9.1': {}
 
-  '@types/node@18.19.87':
+  '@types/node@18.19.120':
     dependencies:
       undici-types: 5.26.5
 
@@ -4938,7 +4925,7 @@ snapshots:
 
   node-vibrant@4.0.3:
     dependencies:
-      '@types/node': 18.19.87
+      '@types/node': 18.19.120
       '@vibrant/core': 4.0.0
       '@vibrant/generator-default': 4.0.3
       '@vibrant/image-browser': 4.0.0
@@ -5561,6 +5548,8 @@ snapshots:
       zod: 3.24.3
 
   zod@3.24.3: {}
+
+  zod@4.0.5: {}
 
   zustand@5.0.4(@types/react@19.1.2)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0)):
     optionalDependencies:

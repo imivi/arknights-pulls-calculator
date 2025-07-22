@@ -27,4 +27,5 @@ This is an online tool for Arknights players to calculate resource income and fu
 
 * Weekly annihilation reward (1800 orundum) received on Monday.
 * 4 HH permits bought from the store (green certs) on the 1st day of the month.
+* During limited events, fortune strips award 580 orundum daily on average.
 * Weekly missions completed on Thursday (500 orundum).

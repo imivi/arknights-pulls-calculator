@@ -2,8 +2,7 @@ import PublicGoogleSheetsParser from 'public-google-sheets-parser'
 import fs from "fs"
 import z from "zod"
 import { env } from '../env'
-import { ResourceGained } from '../types'
-import { resourceLabels } from '../labels'
+import { addEventDays, addFreePulls } from '../days-utils'
 
 
 const rowSchema = z.object({
@@ -22,6 +21,7 @@ const rowSchema = z.object({
     "orundum:daily_missions": z.number().default(0),
     "orundum:weekly_missions": z.number().default(0),
     "orundum:monthly_card": z.number().default(0),
+    "orundum:intel": z.number().default(0),
     "op:event_stages": z.number().default(0),
     "op:login_event": z.number().default(0),
     "op:monthly_card": z.number().default(0),
@@ -33,6 +33,12 @@ const rowSchema = z.object({
 type Row = z.infer<typeof rowSchema>
 
 const rowsSchema = z.array(rowSchema)
+
+
+type ResourceGained = {
+    value: number,
+    source: string // e.g. "login_event"
+}
 
 function getResourceGained(row: Row, resource: "orundum" | "tickets" | "op"): ResourceGained[] {
     const resources: ResourceGained[] = []
@@ -46,10 +52,10 @@ function getResourceGained(row: Row, resource: "orundum" | "tickets" | "op"): Re
         if (res !== resource)
             continue
 
-        const label = resourceLabels[source]
+        // const label = resourceLabels[source]
         // console.log(key, value, label, source)
         resources.push({
-            description: label,
+            // description: label,
             value: value as number,
             source,
         })
@@ -69,24 +75,31 @@ function processRow(row: Row) {
     const event_ops = row.event_ops === "" ? [] : row.event_ops.split(",").map(s => s.trim())
 
     const result = {
-        day: row.day,
-        description: row.event,
+        date: row.day,
+        event_name: row.event,
         event_id: row.event_id,
         event_link: row.event_link,
         event_ops,
-        free_monthly_card: row.free_monthly_card,
+        free_monthly_card: row.free_monthly_card === 1,
         resourcesGained: {
             orundum,
             tickets,
             op,
         },
+
+        // To be calculated later
+        eventDay: 0,
+        freePulls: 0,
     }
 
     return result
 }
 
 function processRows(rows: Row[]) {
-    return rows.map(row => processRow(row))
+    const days = rows.map(row => processRow(row))
+    addEventDays(days)
+    addFreePulls(days)
+    return days
 }
 
 
@@ -104,8 +117,7 @@ async function fetchDailyResources() {
     const googleSheetId = env.GOOGLE_SHEET_ID
     const rows = await fetchRows(googleSheetId)
     fs.writeFileSync("src/data/raw_google_sheet.json", JSON.stringify(rows, null, 4), { encoding: "utf-8" })
-    const events = processRows(rows)
-    return events
+    return processRows(rows)
 }
 
 async function main() {

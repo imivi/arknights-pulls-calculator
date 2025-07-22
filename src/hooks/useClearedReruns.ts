@@ -8,7 +8,7 @@ export function useClearedReruns() {
     function toggleClearedRerun(eventId: string) {
 
         if (clearedReruns.includes(eventId))
-            setClearedReruns(clearedReruns.filter(event => event !== eventId))
+            setClearedReruns([...clearedReruns.filter(event => event !== eventId)])
         else
             setClearedReruns([...clearedReruns, eventId])
     }

@@ -1,0 +1,116 @@
+@use "../styles/colors.scss";
+
+.Footer {
+    // background-color: #eee;
+    // padding: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    margin-bottom: 2vh;
+    line-height: 1.5em;
+
+    ul {
+        text-align: justify;
+        margin-right: 2em;
+    }
+
+    li {
+        margin-bottom: .5em;
+    }
+
+    a {
+        color: colors.$window-link-light;
+    }
+
+    &[data-dark=true] a {
+        color: colors.$window-link-dark;
+    }
+
+    .notes {
+        max-width: 30rem;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba($color: black, $alpha: 0.2);
+
+        &[data-dark=true] {
+            color: colors.$footer-text-dark;
+            background-color: colors.$footer-bg-dark;
+            // border: 1px solid colors.$footer-border-dark;
+        }
+
+        &[data-dark=false] {
+            color: colors.$footer-text-light;
+            background-color: colors.$footer-bg-light;
+            // border: 1px solid colors.$footer-border-light;
+        }
+
+        h2 {
+            margin: 0;
+            text-align: center;
+        }
+    }
+
+    button {
+        z-index: 2;
+    }
+
+    p {
+        margin: 10px;
+    }
+
+    img {
+        width: 30px;
+    }
+
+    &::after {
+        background-image: url("/bg/lambda.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        position: absolute;
+        top: 0;
+        left: 10px;
+        width: 100px;
+        height: 100%;
+
+        z-index: 1;
+        content: "";
+        // outline: 1px solid brown;
+
+        z-index: -1;
+    }
+}
+
+.darkmode_toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+
+    label {
+        cursor: pointer;
+        padding: .2em .4em;
+        border-radius: 5px;
+    }
+
+    label:hover {
+        background-color: rgba($color: black, $alpha: 0.1);
+    }
+
+    label[data-active=true] {
+        background-color: rgba($color: black, $alpha: 0.15);
+    }
+
+    label[data-active=false] {
+        opacity: 0.8;
+    }
+
+    input[type=radio] {
+        visibility: hidden;
+        pointer-events: none;
+        width: 0;
+    }
+}

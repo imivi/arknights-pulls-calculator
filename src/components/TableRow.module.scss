@@ -1,6 +1,7 @@
 @use "../styles/colors.scss";
 @use "../styles/table.scss" as table;
 
+
 tr.TableRow {
 
     letter-spacing: 0.04em;
@@ -63,49 +64,10 @@ tr.TableRow {
     // }
 
     td[data-column=pulls-total] {
-
         height: 100%;
         text-align: center;
         padding-right: 0;
-
-        &>span {
-            padding: .2em .4em;
-            display: grid;
-            align-items: center;
-            grid-template-columns: 1fr 1fr;
-
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-
-            // Hide "pulls" on narrow screens
-            @media screen and (max-width:600px) {
-                grid-template-columns: 1fr 0;
-            }
-
-            &[data-dark=true][data-even=true] {
-                background-color: colors.$table-cell-pulls-bg-even-dark;
-                color: colors.$table-cell-pulls-text-dark;
-            }
-
-            &[data-dark=true][data-even=false] {
-                background-color: colors.$table-cell-pulls-bg-odd-dark;
-                color: colors.$table-cell-pulls-text-dark;
-            }
-
-            &[data-dark=false][data-even=true] {
-                background-color: colors.$table-cell-pulls-bg-even-light;
-                color: colors.$table-cell-pulls-text-light;
-            }
-
-            &[data-dark=false][data-even=false] {
-                background-color: colors.$table-cell-pulls-bg-odd-light;
-                color: colors.$table-cell-pulls-text-light;
-            }
-
-            small {
-                font-size: .8em;
-            }
-        }
+        display: grid;
     }
 
     td[data-column=pulls-breakdown] {
@@ -114,12 +76,22 @@ tr.TableRow {
         position: relative;
 
         &>span {
+            // display: grid;
+            // justify-content: flex-start;
+            // align-items: flex-start;
+            // height: 100%;
+            // outline: 2px solid orange;
+            vertical-align: top;
+        }
+
+        .pulls_breakdown {
             display: grid;
             grid-template-columns: 1fr 1fr;
             justify-content: center;
             align-items: center;
             text-align: right;
             font-size: .9em;
+            vertical-align: top;
 
             span {
                 padding: .3em .4em;
@@ -217,15 +189,19 @@ tr.TableRow {
     z-index: 1;
 
     &[data-cleared=true] label {
-        opacity: 0.3;
+        opacity: 0.5;
     }
 
     .date {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: .1em;
         width: 100%;
+        gap: .2em;
+
+        label {
+            cursor: pointer;
+        }
     }
 
     small {

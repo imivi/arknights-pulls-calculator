@@ -143,7 +143,7 @@
             ]
         }
     },
-    "path_of_life": {
+    "path_of_life_rerun": {
         "dark": {
             "hex": "#1c5c69",
             "hsl": [

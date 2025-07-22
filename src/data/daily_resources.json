@@ -1,329 +1,311 @@
 [
     {
-        "day": "2025-07-14",
+        "date": "2025-07-14",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from new annihilation",
                     "value": 1500,
                     "source": "new_anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-07-15",
+        "date": "2025-07-15",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-07-16",
+        "date": "2025-07-16",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-07-17",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-17",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_link": "https://arknights.wiki.gg/wiki/Such_is_the_Joy_of_Our_Reunion#Headhunting",
         "event_ops": [
             "Yu",
             "Blaze_the_Igniting_Spark"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from event shop",
                     "value": 3,
                     "source": "event_shop"
                 },
                 {
-                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
             ],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 13,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 11
     },
     {
-        "day": "2025-07-18",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-18",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-19",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-19",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-20",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-20",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-21",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-21",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-22",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-22",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-23",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-23",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-24",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-24",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -331,204 +313,195 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 16,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 8,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-25",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-25",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 9,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-26",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-26",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 10,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-27",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-27",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 11,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-28",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-28",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 12,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-29",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-29",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 13,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-30",
-        "description": "Such is the Joy of Our Reunion",
+        "date": "2025-07-30",
+        "event_name": "Such is the Joy of Our Reunion",
         "event_id": "reunion_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 14,
+        "freePulls": 1
     },
     {
-        "day": "2025-07-31",
+        "date": "2025-07-31",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -536,341 +509,333 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 9,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-01",
+        "date": "2025-08-01",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from store",
                     "value": 600,
                     "source": "store"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from store",
                     "value": 4,
                     "source": "store"
                 }
             ],
             "op": [
                 {
-                    "description": "from monthly card",
                     "value": 6,
                     "source": "monthly_card"
                 }
             ]
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-02",
+        "date": "2025-08-02",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-03",
+        "date": "2025-08-03",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-04",
+        "date": "2025-08-04",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-05",
+        "date": "2025-08-05",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-06",
+        "date": "2025-08-06",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-07",
+        "date": "2025-08-07",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-08",
+        "date": "2025-08-08",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-09",
+        "date": "2025-08-09",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-10",
+        "date": "2025-08-10",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-11",
+        "date": "2025-08-11",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-12",
+        "date": "2025-08-12",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-13",
+        "date": "2025-08-13",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-14",
-        "description": "See You Soon (date TBD)",
+        "date": "2025-08-14",
+        "event_name": "See You Soon (date TBD)",
         "event_id": "soon",
         "event_link": "https://arknights.wiki.gg/wiki/See_You_Soon#Headhunting",
         "event_ops": [
             "Entelechia"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -878,867 +843,848 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 18,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-15",
-        "description": "See You Soon (date TBD)",
+        "date": "2025-08-15",
+        "event_name": "See You Soon (date TBD)",
         "event_id": "soon",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-16",
-        "description": "See You Soon (date TBD)",
+        "date": "2025-08-16",
+        "event_name": "See You Soon (date TBD)",
         "event_id": "soon",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-17",
-        "description": "See You Soon (date TBD)",
+        "date": "2025-08-17",
+        "event_name": "See You Soon (date TBD)",
         "event_id": "soon",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
             ],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-18",
-        "description": "See You Soon (date TBD)",
+        "date": "2025-08-18",
+        "event_name": "See You Soon (date TBD)",
         "event_id": "soon",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-19",
-        "description": "See You Soon (date TBD)",
+        "date": "2025-08-19",
+        "event_name": "See You Soon (date TBD)",
         "event_id": "soon",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-20",
-        "description": "See You Soon (date TBD)",
+        "date": "2025-08-20",
+        "event_name": "See You Soon (date TBD)",
         "event_id": "soon",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-21",
+        "date": "2025-08-21",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-22",
+        "date": "2025-08-22",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-23",
+        "date": "2025-08-23",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-24",
+        "date": "2025-08-24",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-25",
+        "date": "2025-08-25",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-26",
+        "date": "2025-08-26",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-27",
+        "date": "2025-08-27",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-28",
+        "date": "2025-08-28",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-29",
+        "date": "2025-08-29",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-30",
+        "date": "2025-08-30",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-08-31",
+        "date": "2025-08-31",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-01",
+        "date": "2025-09-01",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from store",
                     "value": 600,
                     "source": "store"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from store",
                     "value": 4,
                     "source": "store"
                 }
             ],
             "op": [
                 {
-                    "description": "from monthly card",
                     "value": 6,
                     "source": "monthly_card"
                 }
             ]
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-02",
+        "date": "2025-09-02",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-03",
+        "date": "2025-09-03",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-04",
+        "date": "2025-09-04",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-05",
+        "date": "2025-09-05",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-06",
+        "date": "2025-09-06",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-07",
+        "date": "2025-09-07",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-08",
+        "date": "2025-09-08",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-09",
+        "date": "2025-09-09",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-10",
+        "date": "2025-09-10",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-11",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-11",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_link": "https://arknights.wiki.gg/wiki/When_Elegies_Are_Ashes#Headhunting",
         "event_ops": [
             "Necrass"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from event shop",
                     "value": 3,
                     "source": "event_shop"
                 }
             ],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 12,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-12",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-12",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-13",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-13",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-14",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-14",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-15",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-15",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from new annihilation",
                     "value": 1500,
                     "source": "new_anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-16",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-16",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-17",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-17",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
             ],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-18",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-18",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -1746,353 +1692,345 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 16,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 8,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-19",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-19",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 9,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-20",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-20",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 10,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-21",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-21",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 11,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-22",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-22",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 12,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-23",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-23",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 13,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-24",
-        "description": "When Elegies Are Ashes (date TBD)",
+        "date": "2025-09-24",
+        "event_name": "When Elegies Are Ashes (date TBD)",
         "event_id": "elegies",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 14,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-25",
+        "date": "2025-09-25",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-26",
+        "date": "2025-09-26",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-27",
+        "date": "2025-09-27",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-28",
+        "date": "2025-09-28",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-29",
+        "date": "2025-09-29",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-09-30",
+        "date": "2025-09-30",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-01",
+        "date": "2025-10-01",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from store",
                     "value": 600,
                     "source": "store"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from store",
                     "value": 4,
                     "source": "store"
                 }
             ],
             "op": [
                 {
-                    "description": "from monthly card",
                     "value": 6,
                     "source": "monthly_card"
                 }
             ]
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-02",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-02",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_link": "https://arknights.wiki.gg/wiki/Episode_15:_Dissociative_Recombination#Headhunting",
         "event_ops": [
             "Mon3tr"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -2100,946 +2038,923 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 41,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-03",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-03",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-04",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-04",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-05",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-05",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-06",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-06",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-07",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-07",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-08",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-08",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-09",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-09",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 8,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-10",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-10",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 9,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-11",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-11",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 10,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-12",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-12",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 11,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-13",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-13",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 12,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-14",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-14",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 13,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-15",
-        "description": "Ep15: Dissociative Recombination (date TBD)",
+        "date": "2025-10-15",
+        "event_name": "Ep15: Dissociative Recombination (date TBD)",
         "event_id": "dissociative",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 14,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-16",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-16",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_link": "https://arknights.wiki.gg/wiki/Babel_(event)/Rerun#Headhunting",
         "event_ops": [
             "Ascalon"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from event shop",
                     "value": 3,
                     "source": "event_shop"
                 }
             ],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 39,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-17",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-17",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
             ],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-18",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-18",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-19",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-19",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-20",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-20",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-21",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-21",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-22",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-22",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-23",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-23",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 8,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-24",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-24",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 9,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-25",
-        "description": "Babel Rerun (date TBD)",
+        "date": "2025-10-25",
+        "event_name": "Babel Rerun (date TBD)",
         "event_id": "babel_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 10,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-26",
+        "date": "2025-10-26",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-27",
+        "date": "2025-10-27",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-28",
+        "date": "2025-10-28",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-29",
+        "date": "2025-10-29",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-10-30",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-10-30",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_link": "https://arknights.wiki.gg/wiki/The_Masses'_Travels#Headhunting",
         "event_ops": [
             "Exusiai_the_New_Covenant",
             "Lemuen"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from event shop",
                     "value": 3,
                     "source": "event_shop"
                 }
             ],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 15,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 11
     },
     {
-        "day": "2025-10-31",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-10-31",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-01",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-01",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from store",
                     "value": 600,
                     "source": "store"
                 },
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from store",
                     "value": 4,
                     "source": "store"
                 }
             ],
             "op": [
                 {
-                    "description": "from monthly card",
                     "value": 6,
                     "source": "monthly_card"
                 }
             ]
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-02",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-02",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-03",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-03",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-04",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-04",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-05",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-05",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-06",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-06",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -3047,204 +2962,195 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 16,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 8,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-07",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-07",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 9,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-08",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-08",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 10,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-09",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-09",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 11,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-10",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-10",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 12,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-11",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-11",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 13,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-12",
-        "description": "The Masses' Travels (date TBD)",
+        "date": "2025-11-12",
+        "event_name": "The Masses' Travels (date TBD)",
         "event_id": "masses_lim",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from fortune strip",
-                    "value": 583,
+                    "value": 580,
                     "source": "fortune_strip"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 14,
+        "freePulls": 1
     },
     {
-        "day": "2025-11-13",
+        "date": "2025-11-13",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -3252,535 +3158,521 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 10,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-14",
+        "date": "2025-11-14",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-15",
+        "date": "2025-11-15",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-16",
+        "date": "2025-11-16",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-17",
+        "date": "2025-11-17",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from new annihilation",
                     "value": 1500,
                     "source": "new_anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
             ],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-18",
+        "date": "2025-11-18",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-19",
+        "date": "2025-11-19",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-20",
+        "date": "2025-11-20",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-21",
+        "date": "2025-11-21",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-22",
+        "date": "2025-11-22",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-23",
+        "date": "2025-11-23",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-24",
+        "date": "2025-11-24",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-25",
+        "date": "2025-11-25",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-26",
+        "date": "2025-11-26",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-27",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-11-27",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_link": "https://arknights.wiki.gg/wiki/Act_or_Die#Headhunting",
         "event_ops": [
             "Tragodia"
         ],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from event shop",
                     "value": 3,
                     "source": "event_shop"
                 }
             ],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 12,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-28",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-11-28",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-29",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-11-29",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 0
     },
     {
-        "day": "2025-11-30",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-11-30",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 1,
+        "free_monthly_card": true,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-01",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-01",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from store",
                     "value": 600,
                     "source": "store"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from store",
                     "value": 4,
                     "source": "store"
                 }
             ],
             "op": [
                 {
-                    "description": "from monthly card",
                     "value": 6,
                     "source": "monthly_card"
                 }
             ]
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-02",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-02",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-03",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-03",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-04",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-04",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
@@ -3788,681 +3680,676 @@
             "tickets": [],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 16,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 8,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-05",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-05",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 9,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-06",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-06",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 10,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-07",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-07",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 11,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-08",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-08",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 12,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-09",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-09",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 13,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-10",
-        "description": "Act or Die (date TBD)",
+        "date": "2025-12-10",
+        "event_name": "Act or Die (date TBD)",
         "event_id": "act_or_die",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 14,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-11",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-11",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_link": "https://arknights.wiki.gg/wiki/Path_of_Life/Rerun#Headhunting",
         "event_ops": [
             "Ulpianus"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from event shop",
                     "value": 3,
                     "source": "event_shop"
                 }
             ],
             "op": [
                 {
-                    "description": "from event stages",
                     "value": 29,
                     "source": "event_stages"
                 }
             ]
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-12",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-12",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-13",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-13",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-14",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-14",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-15",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-15",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-16",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-16",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-17",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-17",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [
                 {
-                    "description": "from daily login",
                     "value": 1,
                     "source": "login"
                 }
             ],
             "op": []
-        }
+        },
+        "eventDay": 7,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-18",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-18",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 8,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-19",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-19",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 9,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-20",
-        "description": "Path of Life Rerun (date TBD)",
-        "event_id": "path_of_life",
+        "date": "2025-12-20",
+        "event_name": "Path of Life Rerun (date TBD)",
+        "event_id": "path_of_life_rerun",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 10,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-21",
+        "date": "2025-12-21",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-22",
+        "date": "2025-12-22",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-23",
+        "date": "2025-12-23",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-24",
+        "date": "2025-12-24",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-25",
+        "date": "2025-12-25",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly missions",
                     "value": 500,
                     "source": "weekly_missions"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 0,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-26",
-        "description": "Fantasy in The Mirage (date TBD)",
+        "date": "2025-12-26",
+        "event_name": "Fantasy in The Mirage (date TBD)",
         "event_id": "fantasy",
         "event_link": "https://arknights.wiki.gg/wiki/Fantasy_in_The_Mirage#Headhunting",
         "event_ops": [
             "Leizi_the_Thunderbringer"
         ],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 1,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-27",
-        "description": "Fantasy in The Mirage (date TBD)",
+        "date": "2025-12-27",
+        "event_name": "Fantasy in The Mirage (date TBD)",
         "event_id": "fantasy",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 2,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-28",
-        "description": "Fantasy in The Mirage (date TBD)",
+        "date": "2025-12-28",
+        "event_name": "Fantasy in The Mirage (date TBD)",
         "event_id": "fantasy",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 3,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-29",
-        "description": "Fantasy in The Mirage (date TBD)",
+        "date": "2025-12-29",
+        "event_name": "Fantasy in The Mirage (date TBD)",
         "event_id": "fantasy",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from weekly annihilation",
                     "value": 1800,
                     "source": "anni"
                 },
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 4,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-30",
-        "description": "Fantasy in The Mirage (date TBD)",
+        "date": "2025-12-30",
+        "event_name": "Fantasy in The Mirage (date TBD)",
         "event_id": "fantasy",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 5,
+        "freePulls": 0
     },
     {
-        "day": "2025-12-31",
-        "description": "Fantasy in The Mirage (date TBD)",
+        "date": "2025-12-31",
+        "event_name": "Fantasy in The Mirage (date TBD)",
         "event_id": "fantasy",
         "event_ops": [],
-        "free_monthly_card": 0,
+        "free_monthly_card": false,
         "resourcesGained": {
             "orundum": [
                 {
-                    "description": "from monthly card",
                     "value": 200,
                     "source": "monthly_card"
                 },
                 {
-                    "description": "from daily missions",
                     "value": 100,
                     "source": "daily_missions"
                 }
             ],
             "tickets": [],
             "op": []
-        }
+        },
+        "eventDay": 6,
+        "freePulls": 0
     }
 ]

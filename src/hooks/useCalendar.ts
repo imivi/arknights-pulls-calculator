@@ -1,26 +1,61 @@
 import { useMemo } from "react"
-import { getDailyResources } from "../daily-resources"
-import { getValidDates, getDaysWithResources, calculateRowSpan } from "../utils"
-import { Resources } from "../types"
+import { getValidDates, calculateRowSpan } from "../utils"
+import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, toggleFirstDayResources } from "../days-utils"
+import { Resources } from "../resources"
+import { useResourcesSpentStore } from "../stores/useResourcesSpentStore"
 
 
-export function useCalendar(startingResources: Resources, f2p: boolean, clearedReruns: string[], ignoreFirstDayResources: boolean) {
+export function useCalendar(f2p: boolean, ignoreFirstDayResources: boolean, clearedReruns: string[], startingResources: Resources) {
 
-    // 1. Calculate resources gained every day
-    const dailyResources = useMemo(() => getDailyResources(f2p, clearedReruns), [f2p, clearedReruns, ignoreFirstDayResources])
+    // Create day objects from imported json with daily resources
+    let days = useMemo(getDays, [])
 
-    // 2. Get valid dates
-    const dates = useMemo(() => getValidDates(Object.values(dailyResources)), [dailyResources])
+    // Get valid dates (today or future dates)
+    const validDates = useMemo(() => new Set(getValidDates(days.map(day => day.date))), [days])
 
-    // 3. Calculate cumulative resources and other information for each day
-    const daysWithResources = useMemo(() => {
-        return getDaysWithResources(startingResources, dates, dailyResources, ignoreFirstDayResources)
-    }, [startingResources, dates, ignoreFirstDayResources])
+    // Filter out days with past dates
+    days = useMemo(() => {
+        return days.filter(day => validDates.has(day.date))
+    }, [validDates, days,])
 
-    // 4. Calculate row span of each event description
-    useMemo(() => {
-        calculateRowSpan(daysWithResources)
-    }, [daysWithResources])
+    // Calculate row spans (for event cells) (must be done after excluding past dates)
+    days = useMemo(() => calculateRowSpan(days), [days])
 
-    return daysWithResources
+    // Ignore first day resources
+    days = useMemo(() => {
+        return toggleFirstDayResources(days, !ignoreFirstDayResources)
+    }, [ignoreFirstDayResources, days])
+
+    // Ignore certain resources for F2P and reruns
+    days = useMemo(() => {
+        return filterGainedResources(days, f2p, clearedReruns)
+    }, [days, f2p, clearedReruns])
+
+    // Subtract resources based on pulls spent (add negative resource values)
+    const { resourcesSpent } = useResourcesSpentStore()
+    days = useMemo(() => {
+        return deductResourcesSpent(days, resourcesSpent)
+    }, [days, resourcesSpent])
+
+    // Add information on spent pulls
+    days = useMemo(() => {
+        return calculateSpentPulls(days, resourcesSpent)
+    }, [days, resourcesSpent])
+
+    // Add resources gained each day (not cumulative)
+    days = useMemo(() => {
+        return calculateDailyResources(days)
+    }, [days])
+
+    // Calculate cumulative resources
+    days = useMemo(() => {
+        return calculateCumulativeResources(days, startingResources)
+    }, [days, startingResources])
+
+    // Calculate pulls available for each day
+    days = useMemo(() => {
+        return calculatePullsAvailable(days)
+    }, [days])
+
+    return days
 }

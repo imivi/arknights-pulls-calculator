@@ -161,7 +161,7 @@ export default function App() {
 
             </footer>
 
-            <script defer src="https://analytics.imivi.dev/script.js" data-website-id={process.env.VITE_UMAMI_WEBSITE_ID}></script>
+            <script defer src={process.env.VITE_UMAMI_SCRIPT} data-website-id={process.env.VITE_UMAMI_WEBSITE_ID}></script>
 
         </main >
     )

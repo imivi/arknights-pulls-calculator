@@ -10,5 +10,6 @@ import App from './components/App'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
+    <script defer src={import.meta.env.VITE_UMAMI_SCRIPT} data-website-id={import.meta.env.VITE_UMAMI_WEBSITE_ID}></script>
   </StrictMode>,
 )

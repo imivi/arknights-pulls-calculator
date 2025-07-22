@@ -55,8 +55,6 @@ export default function App() {
 
             <Footer days={days} />
 
-            <script defer src={import.meta.env.VITE_UMAMI_SCRIPT} data-website-id={import.meta.env.VITE_UMAMI_WEBSITE_ID}></script>
-
         </main >
     )
 }

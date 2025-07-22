@@ -8,7 +8,7 @@ export type Colors = {
     dark: Color
 }
 
-type Color = {
+export type Color = {
     hex: string
     hsl: [number, number, number]
 }

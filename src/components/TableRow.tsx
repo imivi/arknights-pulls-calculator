@@ -1,6 +1,5 @@
 import s from "./TableRow.module.scss"
 
-import { CSSProperties } from "react"
 import { Colors } from "../scripts/get-image-colors"
 import { ResourceGained } from "../types"
 import ResourceBadge from "./ResourceBadge"
@@ -36,9 +35,6 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
     const darkMode = useDarkModeStore(store => store.darkMode)
 
-    const dayStyle = getDayStyle(colors, rowIsEven, darkMode)
-    const rowStyle = day.rowSpan > 0 ? { backgroundColor: dayStyle.backgroundColor } : {}
-
     const tooltipPullsTotal = "tooltip-pulls-total-" + day.date
     const tooltipPullsOrundum = "tooltip-pulls-orundum-" + day.date
     const tooltipPullsOP = "tooltip-pulls-op-" + day.date
@@ -58,7 +54,13 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 day={day}
             />
 
-            <td style={dayStyle} className={s.day_cell} data-cleared={isToday && clearedToday}>
+            <td
+                data-event-id={day.event_id}
+                data-dark={darkMode}
+                data-even={rowIsEven}
+                className={s.day_cell}
+                data-cleared={isToday && clearedToday}
+            >
 
                 <span className={s.date} data-interactive={isToday}>
                     {
@@ -91,11 +93,23 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
             </td>
 
-            <td className={s.align_right} data-dark={darkMode} data-column="pulls-total" data-even={rowIsEven} style={rowStyle} data-tooltip-id={tooltipPullsTotal}>
+            <td
+                className={s.align_right}
+                data-column="pulls-total"
+                data-tooltip-id={tooltipPullsTotal}
+                data-dark={darkMode}
+                data-event-id={day.rowSpan > 0 ? day.event_id : ""}
+                data-even={rowIsEven}
+            >
                 <PullCount day={day} even={rowIsEven} />
             </td>
 
-            <td data-dark={darkMode} data-column="pulls-breakdown" style={rowStyle}>
+            <td
+                data-column="pulls-breakdown"
+                data-dark={darkMode}
+                data-event-id={day.rowSpan > 0 ? day.event_id : ""}
+                data-even={rowIsEven}
+            >
                 <span>
                     <span data-dark={darkMode} className={s.pulls_breakdown}>
                         <span data-dark={darkMode} data-cell="pulls-from-orundum" data-tooltip-id={tooltipPullsOrundum}>
@@ -115,11 +129,22 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 </span>
             </td>
 
-            <td style={rowStyle} data-dark={darkMode} data-column="pulls-free">
+            <td
+                data-column="pulls-free"
+                data-dark={darkMode}
+                data-event-id={day.rowSpan > 0 ? day.event_id : ""}
+                data-even={rowIsEven}
+            >
                 {day.freePulls > 0 && <small data-dark={darkMode}>+{day.freePulls}&nbsp;free</small>}
             </td>
 
-            <td data-show-global={showResources} data-resource="orundum" data-dark={darkMode} style={rowStyle}>
+            <td
+                data-show-global={showResources}
+                data-resource="orundum"
+                data-dark={darkMode}
+                data-event-id={day.rowSpan > 0 ? day.event_id : ""}
+                data-even={rowIsEven}
+            >
                 <div className={s.resources}>
                     {formatOrundum(day.resourcesTotal.orundum)}
                     {
@@ -137,7 +162,13 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-show-global={showResources} data-resource="tickets" data-dark={darkMode} style={rowStyle}>
+            <td
+                data-show-global={showResources}
+                data-resource="tickets"
+                data-dark={darkMode}
+                data-event-id={day.rowSpan > 0 ? day.event_id : ""}
+                data-even={rowIsEven}
+            >
                 <div className={s.resources}>
                     {day.resourcesTotal.tickets}
                     {
@@ -155,7 +186,13 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                     }
                 </div>
             </td>
-            <td data-show-global={showResources} data-resource="op" data-dark={darkMode} style={rowStyle}>
+            <td
+                data-show-global={showResources}
+                data-resource="op"
+                data-dark={darkMode}
+                data-event-id={day.rowSpan > 0 ? day.event_id : ""}
+                data-even={rowIsEven}
+            >
                 <div className={s.resources}>
                     {day.resourcesTotal.op.toFixed()}
                     {
@@ -174,7 +211,12 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 </div>
             </td>
 
-            <td data-column="monthly-card" data-dark={darkMode} style={rowStyle}>
+            <td
+                data-column="monthly-card"
+                data-dark={darkMode}
+                data-event-id={day.rowSpan > 0 ? day.event_id : ""}
+                data-even={rowIsEven}
+            >
                 {
                     day.free_monthly_card &&
                     <>
@@ -208,8 +250,6 @@ function ResourcesGained({ resources }: { resources: ResourceGained[] }) {
 }
 
 
-
-
 function getDateValues(date: string) {
 
     const [weekDay, day, month] = new Date(date).toUTCString().split(" ")
@@ -227,18 +267,4 @@ function getImageColors(img: string | undefined): Colors | null {
         return colors[img]
     }
     return null
-}
-
-
-function getDayStyle(eventColors: Colors | null, rowIsEven: boolean, darkMode: boolean): CSSProperties {
-
-    if (eventColors?.light.hsl) {
-        const [h, s, l] = eventColors?.light.hsl
-        const opacity = rowIsEven ? 0.4 : 0.7
-        return {
-            backgroundColor: `hsla(${h}, ${s}%, ${l}%, ${opacity})`, // example: hsla(219, 71%, 43%, 0.391)
-            color: darkMode ? "#eee" : eventColors.dark.hex,
-        }
-    }
-    return {}
 }

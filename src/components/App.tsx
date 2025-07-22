@@ -46,7 +46,7 @@ export default function App() {
                     &nbsp;Show resource total
                 </label>
                 <small>
-                    <img src={import.meta.env.VITE_ASSETS_BASE_URL + darkMode ? "icons/info_white.svg" : "icons/info_dark.svg"} alt="info icon" />
+                    <img src={import.meta.env.VITE_ASSETS_BASE_URL + (darkMode ? "icons/info_white.svg" : "icons/info_black.svg")} alt="info icon" />
                     Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls
                 </small>
             </div>

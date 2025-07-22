@@ -1,4 +1,5 @@
 import "normalize.css"
+import "./styles/global_row_styles.scss"
 import './styles/globals.scss'
 import "./fonts/Inter.ttf"
 

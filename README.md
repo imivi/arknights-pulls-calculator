@@ -8,13 +8,17 @@
 
 This is an online tool for Arknights players to calculate resource income and future available pulls.
 
+<img src="https://github.com/imivi/arknights-pulls-calculator/blob/main/docs/screenshot.jpg" alt="Screenshot">
+
 ## How do I use it?
 
 * Enter your current resources at the top (orundum, HH permits, OP, monthly card).
 
-* If you have cleared a past event, check "already cleared" on the banner for the rerun (the OP from the rerun will be disregarded).
+* If you have cleared a past event, check "already cleared" on the banner for the rerun (the OP from the rerun will be disregarded), but 2000 orundum will be added from the Intelligence Certification Store.
 
-* Scroll down to the banner you want to pull on, and check the blue column: these are the pulls you will have available if you convert all of your OP (the rate is 0.3 pulls/OP). The next two columns list the pulls without converting OP and the additional pulls you get from the converted OP.
+* Scroll down to the banner you want to pull on, and check the blue column: these are the pulls you will have available **if you convert all of your OP** (the rate is 0.3 pulls/OP). The next two columns list the pulls **without converting OP** and the additional pulls you get from the converted OP.
+
+* You can click on a pull count to **spend pulls**. The resources spent will be automatically calculated and deducted.
 
 ## NOT included in the calculations
 
@@ -27,5 +31,5 @@ This is an online tool for Arknights players to calculate resource income and fu
 
 * Weekly annihilation reward (1800 orundum) received on Monday.
 * 4 HH permits bought from the store (green certs) on the 1st day of the month.
-* During limited events, fortune strips award 580 orundum daily on average.
 * Weekly missions completed on Thursday (500 orundum).
+* During limited events, fortune strips award 580 orundum daily on average.

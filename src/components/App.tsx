@@ -6,9 +6,7 @@ import { useStartingResources } from "../hooks/useStartingResources"
 import { useClearedTodayStore } from "../stores/useClearedTodayStore"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import { useSettingsStore } from "../stores/useSettings"
-import Icon from "./Icon"
 import Settings from "./Settings"
-import TableRow from "./TableRow"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Footer from "./Footer"
 import Table from "./Table"
@@ -57,7 +55,7 @@ export default function App() {
 
             <Footer days={days} />
 
-            <script defer src={import.meta.env.VITE_UMAMI_SCRIPT} data-website-id={import.meta.env.VITE_UMAMI_WEBSITE_ID}></script>
+            {/* <script defer src={import.meta.env.VITE_UMAMI_SCRIPT} data-website-id={import.meta.env.VITE_UMAMI_WEBSITE_ID}></script> */}
 
         </main >
     )

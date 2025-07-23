@@ -1,22 +1,16 @@
 import s from "./Footer.module.scss"
 
-import { downloadCsv } from "../download-csv"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
-import { Day } from "../day"
 
 
-type Props = {
-    days: Day[]
-}
+type Props = {}
 
-export default function Footer({ days }: Props) {
+export default function Footer({ }: Props) {
 
     const { darkMode, setDarkMode } = useDarkModeStore()
 
     return (
         <footer className={s.Footer} data-dark={darkMode}>
-
-            <button onClick={() => downloadCsv(days)}>Download table as CSV</button>
 
             <div className={s.notes} data-dark={darkMode}>
                 <h2>Not included</h2>

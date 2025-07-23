@@ -10,6 +10,9 @@ import Settings from "./Settings"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Footer from "./Footer"
 import Table from "./Table"
+import Chart from "./Chart"
+import { downloadCsv } from "../download-csv"
+import { useState } from "react"
 
 
 export default function App() {
@@ -27,6 +30,8 @@ export default function App() {
 
     const { showResources, setShowResources } = useShowResourcesStore()
 
+    const [showChart, setShowChart] = useState(true)
+
     return (
         <main className={s.App} data-dark={darkMode}>
 
@@ -43,7 +48,7 @@ export default function App() {
             <div className={s.message_box} data-dark={darkMode}>
                 <label>
                     <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
-                    &nbsp;Show resource total
+                    &nbsp;Show resources
                 </label>
                 <small>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + (darkMode ? "icons/info_white.svg" : "icons/info_black.svg")} alt="info icon" />
@@ -53,7 +58,16 @@ export default function App() {
 
             <Table days={days} />
 
-            <Footer days={days} />
+            <button data-dark={darkMode} onClick={() => downloadCsv(days)}>Download table (.csv)</button>
+
+            <button data-dark={darkMode} onClick={() => setShowChart(!showChart)}>
+                {showChart ? "⏷" : "⏵"}&nbsp;
+                {showChart ? "Hide chart" : "Show chart"}
+            </button>
+
+            <Chart days={days} show={showChart} />
+
+            <Footer />
 
         </main >
     )

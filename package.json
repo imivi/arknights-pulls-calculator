@@ -16,6 +16,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nivo/bar": "^0.99.0",
+    "@nivo/core": "^0.99.0",
+    "@nivo/line": "^0.99.0",
     "dayjs": "^1.11.13",
     "export-to-csv": "^1.4.0",
     "node-vibrant": "^4.0.3",

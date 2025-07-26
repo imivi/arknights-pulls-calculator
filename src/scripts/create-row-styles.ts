@@ -6,12 +6,12 @@ type Hex = string
 type HSLA = [number, number, number, number]
 
 
-export type Colors = {
+type Colors = {
     light: Color
     dark: Color
 }
 
-export type Color = {
+type Color = {
     hex: string
     hsl: number[]
 }

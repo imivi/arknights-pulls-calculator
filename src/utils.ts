@@ -5,24 +5,6 @@ import { Resources } from "./resources"
 
 
 
-/** Convert op into pulls but use any leftover orundum */
-export function convert_op_to_pulls(availableOrundum: number, availableOP: number) {
-    const equivalentOrundum = availableOrundum + availableOP * 180
-    const pulls = Math.floor(equivalentOrundum / 600)
-    const requiredOrundum = pulls * 600
-    const orundumToConvert = requiredOrundum - availableOrundum
-    const opToConvert = Math.ceil(orundumToConvert / 180)
-    const convertedOrundum = opToConvert * 180
-    const leftoverOrundumSpent = requiredOrundum - convertedOrundum
-
-    return {
-        pulls,
-        convertedOP: opToConvert,
-        leftoverOrundumSpent,
-    }
-}
-
-
 export function convertResourcesToPulls(res: BasicResources, useOP: boolean): number {
     const calc = new PullCalculator(res).spendTickets().spendOrundum()
 

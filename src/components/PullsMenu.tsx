@@ -1,4 +1,5 @@
 import s from "./PullsMenu.module.scss"
+import buttonStyle from "./Button.module.scss"
 
 import { ReactNode, useEffect, useState } from "react";
 import { Popover } from "radix-ui";
@@ -116,10 +117,10 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                         </main>
 
                         <footer>
-                            <Popover.Close aria-label="Close" type="button">
+                            <Popover.Close aria-label="Close" type="button" className={buttonStyle.Button}>
                                 cancel
                             </Popover.Close>
-                            <Popover.Close aria-label="Confirm" onClick={spendPulls} type="submit">
+                            <Popover.Close aria-label="Confirm" onClick={spendPulls} type="submit" className={buttonStyle.Button}>
                                 OK
                             </Popover.Close>
                         </footer>
@@ -127,6 +128,6 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                     </form>
                 </Popover.Content>
             </Popover.Portal>
-        </Popover.Root>
+        </Popover.Root >
     )
 }

@@ -1,5 +1,6 @@
 @use "../styles/colors.scss";
 
+
 .App {
     overflow: hidden;
     display: grid;
@@ -13,135 +14,115 @@
         background-color: colors.$window-bg-dark;
         color: colors.$window-text-dark;
     }
+}
 
-    &>button {
-        color: inherit;
-        margin: 0 auto;
-        background: none;
-        border: none;
-        padding: .2em .4em;
-        background-color: rgba($color: black, $alpha: 0.05);
-        border-radius: 3px;
-        border: 1px solid rgba($color: black, $alpha: 0.1);
-        box-shadow: 0 2px 2px rgba($color: black, $alpha: 0.1);
+.message_box {
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba($color: black, $alpha: 0.2);
+    gap: .5em;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    background-color: colors.$table-header-bg-light;
+
+    &[data-dark=true] {
+        background-color: colors.$table-header-bg-dark;
+    }
+
+    label {
         cursor: pointer;
+    }
+
+    small {
         display: flex;
         align-items: center;
-
-        // &[data-dark=true] {}
-
-        &:hover {
-            background-color: rgba($color: black, $alpha: 0.03);
-        }
-
-        &:active {
-            background-color: rgba($color: black, $alpha: 0.07);
-        }
-    }
-
-    .message_box {
-        padding: 20px;
-        margin: 0 auto;
-        border-radius: 5px;
-        box-shadow: 0 2px 3px rgba($color: black, $alpha: 0.2);
         gap: .5em;
-        display: grid;
+        font-size: .9em;
+    }
+
+    // Style the bold text like the pull counter
+    strong {
+        padding: .2em .4em;
+        border-radius: 5px;
+
+        &[data-dark=true] {
+            background-color: colors.$table-cell-pulls-bg-even-dark;
+            color: colors.$table-cell-pulls-text-dark;
+        }
+
+        &[data-dark=false] {
+            background-color: colors.$table-cell-pulls-bg-even-light;
+            color: colors.$table-cell-pulls-text-light;
+        }
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.5;
+    }
+}
+
+header {
+    position: relative;
+    top: 0;
+    font-weight: normal;
+    z-index: 9;
+    box-shadow: 0 0 5px rgba($color: black, $alpha: 0.2);
+
+    background-color: colors.$table-header-bg-light;
+    color: colors.$table-header-text-light;
+
+    &[data-dark=true] {
+        background-color: colors.$table-header-bg-dark;
+        color: colors.$table-header-text-dark;
+    }
+
+    &>main {
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
-        gap: 20px;
-
-        background-color: colors.$table-header-bg-light;
-
-        &[data-dark=true] {
-            background-color: colors.$table-header-bg-dark;
-        }
-
-        label {
-            cursor: pointer;
-        }
-
-        small {
-            display: flex;
-            align-items: center;
-            gap: .5em;
-            font-size: .9em;
-        }
-
-        // Style the bold text like the pull counter
-        strong {
-            padding: .2em .4em;
-            border-radius: 5px;
-
-            &[data-dark=true] {
-                background-color: colors.$table-cell-pulls-bg-even-dark;
-                color: colors.$table-cell-pulls-text-dark;
-            }
-
-            &[data-dark=false] {
-                background-color: colors.$table-cell-pulls-bg-even-light;
-                color: colors.$table-cell-pulls-text-light;
-            }
-        }
-
-        img {
-            width: 20px;
-            height: 20px;
-            opacity: 0.5;
-        }
-    }
-
-    header {
         position: relative;
-        top: 0;
-        font-weight: normal;
-        z-index: 9;
-        box-shadow: 0 0 5px rgba($color: black, $alpha: 0.2);
+        margin: 0 auto;
 
-        background-color: colors.$table-header-bg-light;
-        color: colors.$table-header-text-light;
+        &>img {
+            max-height: 80px;
+            top: 0;
+            left: 0;
+            z-index: 1;
 
-        &[data-dark=true] {
-            background-color: colors.$table-header-bg-dark;
-            color: colors.$table-header-text-dark;
-        }
-
-        &>main {
-            max-width: 1200px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            position: relative;
-            margin: 0 auto;
-
-            &>img {
-                max-height: 80px;
-                top: 0;
-                left: 0;
-                z-index: 1;
-
-                @media screen and (max-width: 600px) {
-                    display: none;
-                }
+            @media screen and (max-width: 600px) {
+                display: none;
             }
         }
-
-        h1 {
-            font-family: "Inter", Arial, Helvetica, sans-serif;
-            font-size: 1.5rem;
-            font-weight: normal;
-            letter-spacing: 0.01em;
-            margin: 10px;
-            text-align: center;
-            margin-right: auto;
-
-            // color: #1f69a6;
-
-            @media screen and (max-width:600px) {
-                text-align: center;
-                width: 100%;
-            }
-        }
-
     }
 
+    h1 {
+        font-family: "Inter", Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: 0.01em;
+        margin: 10px;
+        text-align: center;
+        margin-right: auto;
+
+        // color: #1f69a6;
+
+        @media screen and (max-width:600px) {
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+.buttons {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }

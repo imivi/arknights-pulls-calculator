@@ -14,6 +14,7 @@ import Chart from "./Chart"
 import { downloadCsv } from "../download-csv"
 import { useState } from "react"
 import { FaChevronDown, FaChevronRight, FaDownload, FaInfoCircle } from "react-icons/fa"
+import Button from "./Button"
 
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
 
     const { showResources, setShowResources } = useShowResourcesStore()
 
-    const [showChart, setShowChart] = useState(true)
+    const [showChart, setShowChart] = useState(window.innerWidth > 600)
 
     return (
         <main className={s.App} data-dark={darkMode}>
@@ -59,15 +60,17 @@ export default function App() {
 
             <Table days={days} />
 
-            <button data-dark={darkMode} onClick={() => downloadCsv(days)}>
-                <FaDownload />&nbsp;
-                Download table (.csv)
-            </button>
+            <div className={s.buttons}>
+                <Button onClick={() => downloadCsv(days)}>
+                    <FaDownload />&nbsp;
+                    Download table (.csv)
+                </Button>
 
-            <button data-dark={darkMode} onClick={() => setShowChart(!showChart)}>
-                {showChart ? <FaChevronDown /> : <FaChevronRight />}&nbsp;
-                {showChart ? "Hide chart" : "Show chart"}
-            </button>
+                <Button onClick={() => setShowChart(!showChart)}>
+                    {showChart ? <FaChevronDown /> : <FaChevronRight />}&nbsp;
+                    {showChart ? "Hide chart" : "Show chart"}
+                </Button>
+            </div>
 
             <Chart days={days} show={showChart} />
 

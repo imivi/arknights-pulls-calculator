@@ -71,7 +71,7 @@ function Operators({ ops }: { ops: string[] }) {
             {ops.map(op => (
                 <li key={op}>
                     <a href={"https://arknights.wiki.gg/wiki/" + op} target="_blank" rel="noreferrer">
-                        <img src={import.meta.env.VITE_ASSETS_BASE_URL + `operators/${op}.png`} alt={op} />
+                        <img src={import.meta.env.VITE_ASSETS_BASE_URL + `operators/${op}.webp`} alt={op} />
                         {op.replaceAll("_", " ")}
                     </a>
                 </li>

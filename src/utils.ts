@@ -108,7 +108,7 @@ export function sum(resources: ResourceGained[]): number {
 
 
 export function formatOrundum(n: number): string {
-    if (n > 0 && n < 1000)
+    if (n >= 0 && n < 1000)
         return n.toFixed(0)
     else
         return (n / 1000).toFixed(1) + "k"

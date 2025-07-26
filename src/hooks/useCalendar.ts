@@ -21,15 +21,15 @@ export function useCalendar(f2p: boolean, ignoreFirstDayResources: boolean, clea
     // Calculate row spans (for event cells) (must be done after excluding past dates)
     days = useMemo(() => calculateRowSpan(days), [days])
 
-    // Ignore first day resources
-    days = useMemo(() => {
-        return toggleFirstDayResources(days, !ignoreFirstDayResources)
-    }, [ignoreFirstDayResources, days])
-
     // Ignore certain resources for F2P and reruns
     days = useMemo(() => {
         return filterGainedResources(days, f2p, clearedReruns)
     }, [days, f2p, clearedReruns])
+
+    // Ignore first day resources
+    days = useMemo(() => {
+        return toggleFirstDayResources(days, !ignoreFirstDayResources)
+    }, [ignoreFirstDayResources, days])
 
     // Subtract resources based on pulls spent (add negative resource values)
     const { resourcesSpent } = useResourcesSpentStore()

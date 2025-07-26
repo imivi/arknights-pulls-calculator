@@ -13,6 +13,7 @@ import Table from "./Table"
 import Chart from "./Chart"
 import { downloadCsv } from "../download-csv"
 import { useState } from "react"
+import { FaChevronDown, FaChevronRight, FaDownload, FaInfoCircle } from "react-icons/fa"
 
 
 export default function App() {
@@ -51,17 +52,20 @@ export default function App() {
                     &nbsp;Show resources
                 </label>
                 <small>
-                    <img src={import.meta.env.VITE_ASSETS_BASE_URL + (darkMode ? "icons/info_white.svg" : "icons/info_black.svg")} alt="info icon" />
+                    <FaInfoCircle size={18} />
                     Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls
                 </small>
             </div>
 
             <Table days={days} />
 
-            <button data-dark={darkMode} onClick={() => downloadCsv(days)}>Download table (.csv)</button>
+            <button data-dark={darkMode} onClick={() => downloadCsv(days)}>
+                <FaDownload />&nbsp;
+                Download table (.csv)
+            </button>
 
             <button data-dark={darkMode} onClick={() => setShowChart(!showChart)}>
-                {showChart ? "⏷" : "⏵"}&nbsp;
+                {showChart ? <FaChevronDown /> : <FaChevronRight />}&nbsp;
                 {showChart ? "Hide chart" : "Show chart"}
             </button>
 

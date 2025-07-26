@@ -3,8 +3,8 @@ import s from "./EventCell.module.scss"
 import { CSSProperties } from "react"
 import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Colors } from "../scripts/get-image-colors"
-import Icon from "./Icon"
 import { Day } from "../day"
+import { FaArrowUpRightFromSquare } from "react-icons/fa6"
 
 
 type Props = {
@@ -31,7 +31,7 @@ export default function EventCell({ day, colors }: Props) {
                         day.event_link &&
                         <a className={s.event_title} href={day.event_link} target="_blank" rel="noreferrer">
                             {day.event_name}
-                            <Icon type="external-link" size={16} ext="svg" />
+                            <FaArrowUpRightFromSquare size={12} />
                         </a>
                     }
                     {

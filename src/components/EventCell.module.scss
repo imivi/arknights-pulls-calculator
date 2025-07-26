@@ -10,13 +10,10 @@
         z-index: 1;
     }
 
-    .event_title {
+    a.event_title {
         padding: .5em;
-        display: flex;
-
-        img {
-            opacity: 0.4;
-        }
+        display: grid;
+        grid-template-columns: 1fr auto;
     }
 }
 

@@ -14,15 +14,17 @@ export function getDays(): Day[] {
         const tickets = day.resourcesGained.tickets.map(res => ({ ...res, enabled: true }))
         const op = day.resourcesGained.op.map(res => ({ ...res, enabled: true }))
 
+        const free_monthly_card = day.resourcesGained.orundum.findIndex(res => res.source === "free_monthly_card") >= 0
+
         return {
             date: day.date,
             event_id: day.event_id,
             event_link: day.event_link,
             event_name: day.event_name,
             event_ops: day.event_ops,
-            free_monthly_card: day.free_monthly_card,
             eventDay: day.eventDay,
             freePulls: day.freePulls,
+            free_monthly_card,
 
             // To be calculated later
             rowSpan: 0,
@@ -161,15 +163,15 @@ export function filterGainedResources(days: Day[], f2p: boolean, clearedReruns: 
     for (const day of days) {
 
         // (F2P) Ignore resources from monthly card
-        const ignoreMonthlyCardResources = f2p && !day.free_monthly_card
+        const includeMonthlyCardResources = !f2p
 
         day.resourcesInfo.orundum.forEach(res => {
             if (res.source === "monthly_card")
-                res.enabled = !ignoreMonthlyCardResources
+                res.enabled = includeMonthlyCardResources
         })
         day.resourcesInfo.op.forEach(res => {
             if (res.source === "monthly_card")
-                res.enabled = !ignoreMonthlyCardResources
+                res.enabled = includeMonthlyCardResources
         })
 
         // (Reruns) If this event has been cleared before...

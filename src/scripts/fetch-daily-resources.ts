@@ -13,7 +13,6 @@ const rowSchema = z.object({
     "event_id": z.string().optional(),
     "event_link": z.string().optional(),
     "event_ops": z.string().default(""),
-    "free_monthly_card": z.number().default(0),
     "orundum:login_event": z.number().default(0),
     "orundum:fortune_strip": z.number().default(0),
     "orundum:anni": z.number().default(0),
@@ -22,6 +21,7 @@ const rowSchema = z.object({
     "orundum:daily_missions": z.number().default(0),
     "orundum:weekly_missions": z.number().default(0),
     "orundum:monthly_card": z.number().default(0),
+    "orundum:free_monthly_card": z.number().default(0),
     "orundum:intel": z.number().default(0),
     "op:event_stages": z.number().default(0),
     "op:login_event": z.number().default(0),
@@ -81,7 +81,6 @@ function processRow(row: Row) {
         event_id: row.event_id,
         event_link: row.event_link,
         event_ops,
-        free_monthly_card: row.free_monthly_card === 1,
         resourcesGained: {
             orundum,
             tickets,

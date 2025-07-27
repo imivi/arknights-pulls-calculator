@@ -6,5 +6,3 @@ export const dataPaths = {
     eventImages: env.WORKDIR + "public/events",
     imageColors: env.WORKDIR + "src/data/image-colors.json",
 }
-
-console.info("Using data paths:", dataPaths)

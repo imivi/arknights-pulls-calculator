@@ -3,6 +3,7 @@ import fs from "fs"
 import z from "zod"
 import { env } from '../env'
 import { addEventDays, addFreePulls } from '../utils/prebuild-utils'
+import { dataPaths } from './data-paths'
 
 
 const rowSchema = z.object({
@@ -116,13 +117,13 @@ async function fetchRows(googleSheetId: string) {
 async function fetchDailyResources() {
     const googleSheetId = env.GOOGLE_SHEET_ID
     const rows = await fetchRows(googleSheetId)
-    fs.writeFileSync("src/data/raw_google_sheet.json", JSON.stringify(rows, null, 4), { encoding: "utf-8" })
+    fs.writeFileSync(dataPaths.rawGoogleSheet, JSON.stringify(rows, null, 4), { encoding: "utf-8" })
     return processRows(rows)
 }
 
 async function main() {
     const events = await fetchDailyResources()
-    fs.writeFileSync("src/data/daily_resources.json", JSON.stringify(events, null, 4), { encoding: "utf-8" })
+    fs.writeFileSync(dataPaths.dailyResources, JSON.stringify(events, null, 4), { encoding: "utf-8" })
 }
 
 main()

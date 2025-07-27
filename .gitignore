@@ -25,4 +25,4 @@ dist-ssr
 
 untracked
 .env
-src/data/*
+src/data/*.json

@@ -4,6 +4,7 @@ import "dotenv/config"
 
 const envSchema = z.object({
     GOOGLE_SHEET_ID: z.string(),
+    WORKDIR: z.string(),
 })
 
 

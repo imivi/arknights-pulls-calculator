@@ -1,6 +1,7 @@
 import fs from "fs"
 import { Vibrant } from "node-vibrant/node";
 import path from "path";
+import { dataPaths } from "./data-paths";
 
 
 export type Colors = {
@@ -39,7 +40,7 @@ function formatHsl(values: [number, number, number]): [number, number, number] {
 
 function getImagePaths() {
     const paths = fs
-        .readdirSync("public/events")
+        .readdirSync(dataPaths.eventImages)
         .filter(filename => filename.endsWith(".jpg"))
         .map(filename => path.join("public", "events", filename))
     return paths
@@ -54,7 +55,7 @@ async function getColors() {
         colors[name] = await getImageColor(imagePath)
     }
 
-    fs.writeFileSync("src/data/image-colors.json", JSON.stringify(colors, null, 4), { encoding: "utf-8" })
+    fs.writeFileSync(dataPaths.imageColors, JSON.stringify(colors, null, 4), { encoding: "utf-8" })
 }
 
 getColors()

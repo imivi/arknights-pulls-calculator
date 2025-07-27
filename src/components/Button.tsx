@@ -1,7 +1,7 @@
 import s from "./Button.module.scss"
 
 import { useDarkModeStore } from "../stores/useDarkModeStore"
-import { HTMLAttributes } from "React"
+import { HTMLAttributes } from "react"
 
 
 export default function Button(props: HTMLAttributes<HTMLButtonElement>) {

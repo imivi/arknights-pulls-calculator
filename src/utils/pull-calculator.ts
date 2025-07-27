@@ -1,4 +1,4 @@
-import { BasicResources } from "./types"
+import { BasicResources } from "../types"
 
 
 export class PullCalculator {

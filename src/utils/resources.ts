@@ -1,5 +1,5 @@
 import { PullCalculator } from "./pull-calculator"
-import { BasicResources } from "./types"
+import { BasicResources } from "../types"
 
 
 export class Resources {

@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { useSettingsStore } from "../stores/useSettings"
-import { Resources } from "../resources"
+import { Resources } from "../utils/resources"
 
 
 

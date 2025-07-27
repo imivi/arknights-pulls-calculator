@@ -1,4 +1,4 @@
-import { Resources } from "./resources"
+import { Resources } from "./utils/resources"
 import { ResourceGained } from "./types"
 
 

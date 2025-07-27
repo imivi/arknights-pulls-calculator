@@ -2,7 +2,7 @@ import PublicGoogleSheetsParser from 'public-google-sheets-parser'
 import fs from "fs"
 import z from "zod"
 import { env } from '../env'
-import { addEventDays, addFreePulls } from '../days-utils'
+import { addEventDays, addFreePulls } from '../utils/prebuild-utils'
 
 
 const rowSchema = z.object({

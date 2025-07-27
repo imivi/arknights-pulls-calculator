@@ -1,8 +1,8 @@
 import { generateCsv, download, mkConfig } from "export-to-csv"
 
-import { ResourceGained } from "./types"
-import { Day } from "./day"
-import { resourceLabels } from "./labels"
+import { ResourceGained } from "../types"
+import { Day } from "../day"
+import { resourceLabels } from "../labels"
 
 
 export function downloadCsv(rows: Day[]) {

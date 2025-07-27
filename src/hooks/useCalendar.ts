@@ -1,7 +1,7 @@
 import { useMemo } from "react"
-import { getValidDates, calculateRowSpan } from "../utils"
-import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, toggleFirstDayResources } from "../days-utils"
-import { Resources } from "../resources"
+import { getValidDates, calculateRowSpan } from "../utils/utils"
+import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, toggleFirstDayResources } from "../utils/days-utils"
+import { Resources } from "../utils/resources"
 import { useResourcesSpentStore } from "../stores/useResourcesSpentStore"
 
 

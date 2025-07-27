@@ -11,7 +11,7 @@ import Icon from "./Icon"
 import EventCell from "./EventCell"
 import { Day } from "../day"
 import { resourceLabels } from "../labels"
-import { formatOrundum } from "../utils"
+import { formatOrundum } from "../utils/utils"
 import PullCount from "./PullCount"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 

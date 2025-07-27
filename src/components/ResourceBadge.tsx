@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 import { Tooltip } from 'react-tooltip'
 import Icon from "./Icon"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
-import { formatOrundum } from "../utils"
+import { formatOrundum } from "../utils/utils"
 
 
 type Resource = "orundum" | "op" | "ticket"

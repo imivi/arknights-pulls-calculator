@@ -1,5 +1,5 @@
 import dayjs from "dayjs"
-import { BasicResources, ResourceGained } from "./types"
+import { BasicResources, ResourceGained } from "../types"
 import { PullCalculator } from "./pull-calculator"
 import { Resources } from "./resources"
 

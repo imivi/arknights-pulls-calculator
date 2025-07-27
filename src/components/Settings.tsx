@@ -27,7 +27,7 @@ export default function Settings() {
             </label>
 
             <label data-resource="starting-tickets" data-tooltip-id="starting-tickets">
-                <Icon type="ticket" size={32} />
+                <Icon type="tickets" size={32} />
                 <input
                     type="number"
                     value={startingResources.tickets}

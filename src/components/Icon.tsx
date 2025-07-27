@@ -1,4 +1,4 @@
-type Resource = "orundum" | "op" | "ticket" | "monthly_card" | "no_op" | "plus_op"
+type Resource = "orundum" | "op" | "tickets" | "monthly_card" | "no_op" | "plus_op"
 
 type Props = {
     type: Resource

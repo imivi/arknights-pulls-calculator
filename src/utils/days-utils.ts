@@ -3,13 +3,14 @@ import { Resources } from "./resources"
 import { BasicResources } from "../types"
 import { Day } from "../day"
 import { convertResourcesToPulls, sum } from "./utils"
+import { AllUserResources } from "../stores/useUserResourcesStore"
 
 
 export function getDays(): Day[] {
 
     const days: Day[] = daysData.map(day => {
 
-        // Add toggles for OP/orundum from reruns
+        // Include toggles for OP/orundum from reruns ("enabled" field)
         const orundum = day.resourcesGained.orundum.map(res => ({ ...res, enabled: true }))
         const tickets = day.resourcesGained.tickets.map(res => ({ ...res, enabled: true }))
         const op = day.resourcesGained.op.map(res => ({ ...res, enabled: true }))
@@ -32,11 +33,11 @@ export function getDays(): Day[] {
             pullsAvailable: 0,
             pullsAvailableFromOP: 0,
             pullsAvailableWithoutOP: 0,
-            resourcesInfo: {
-                orundum,
-                tickets,
-                op,
-            },
+
+            resourcesInfoDefault: { orundum, tickets, op }, // Resources that come from the google sheet values
+            resourcesFromPulls: { orundum: [], tickets: [], op: [] }, // Resources deducted from pulling
+            resourcesFromCustomSources: { orundum: [], tickets: [], op: [] }, // Resources gained/added manually by the user
+
             resourcesToday: new Resources(), // Depends on "f2p" and "monthly_card"
             resourcesTotal: new Resources(),
             resourcesSpendable: new Resources(),
@@ -79,6 +80,8 @@ export function calculateSpentPulls(days: Day[], resourcesSpent: Record<string, 
 
 export function deductResourcesSpent(days: Day[], resourcesSpent: Record<string, BasicResources>) {
 
+    const resources = ["orundum", "tickets", "op"] as const
+
     days.forEach((today, i) => {
 
         if (i === days.length - 1)
@@ -92,29 +95,49 @@ export function deductResourcesSpent(days: Day[], resourcesSpent: Record<string,
         const resourcesToDeduct = resourcesSpent[today.date]
 
         const source = "pulls"
-        // const description = resourceLabels[source]
 
         // Update information on resources spent
-        for (const res of ["orundum", "tickets", "op"] as const) {
+        for (const res of resources) {
 
             const amount = resourcesToDeduct[res]
 
-            const oldResInfo = tomorrow.resourcesInfo[res].filter(info => info.source !== source)
+            // Add info about spent resources
+            tomorrow.resourcesFromPulls[res] = [
+                { source, value: -amount, enabled: true },
+            ]
+        }
+    })
 
-            // Remove info about spent resources
-            if (amount === 0) {
-                tomorrow.resourcesInfo[res] = [...oldResInfo]
-                tomorrow.resourcesSpent[res] = 0
-            }
+    return [...days]
+}
 
-            // Or add info about spent resources
-            else if (amount > 0) {
-                tomorrow.resourcesInfo[res] = [
-                    ...oldResInfo,
-                    { source, value: -amount, enabled: true },
-                ]
-                tomorrow.resourcesSpent[res] = amount
-            }
+export function applyUserResources(days: Day[], userResources: AllUserResources) {
+
+    const resources = ["orundum", "tickets", "op"] as const
+
+    days.forEach(today => {
+
+        if (!(today.date in userResources))
+            return
+
+        const userRes = userResources[today.date]
+
+        // Update information on resources spent (orundum not supported)
+        for (const res of resources) {
+
+            if (!(res in userRes))
+                continue
+
+            const { value, description } = userRes[res]
+
+            // Replace previous information
+            today.resourcesFromCustomSources[res] = [
+                {
+                    source: description,
+                    value,
+                    enabled: true,
+                }
+            ]
         }
     })
 
@@ -125,9 +148,9 @@ export function deductResourcesSpent(days: Day[], resourcesSpent: Record<string,
 export function calculateDailyResources(days: Day[]) {
 
     for (const day of days) {
-        const orundum = sum(day.resourcesInfo.orundum)
-        const tickets = sum(day.resourcesInfo.tickets)
-        const op = sum(day.resourcesInfo.op)
+        const orundum = sum(day.resourcesInfoDefault.orundum) + sum(day.resourcesFromPulls.orundum) + sum(day.resourcesFromCustomSources.orundum)
+        const tickets = sum(day.resourcesInfoDefault.tickets) + sum(day.resourcesFromPulls.tickets) + sum(day.resourcesFromCustomSources.tickets)
+        const op = sum(day.resourcesInfoDefault.op) + sum(day.resourcesFromPulls.op) + sum(day.resourcesFromCustomSources.op)
         day.resourcesToday.set(orundum, tickets, op)
     }
 
@@ -141,15 +164,10 @@ export function calculateCumulativeResources(days: Day[], startingResources: Res
     days.forEach((day, i) => {
         if (i === 0) {
             day.resourcesTotal = day.resourcesToday.clone().add(startingResources)
-            // day.resourcesToday.add({ op: 0, orundum: 1, tickets: 0 })
-            // day.resourcesTotal = day.resourcesToday.clone()
-            // console.log({ i, day, startingResources, res: day.resourcesToday })
-            // day.resourcesSpendable = day.resourcesTotal.clone()
         }
         else {
             const totalResourcesYesterday = days[i - 1].resourcesTotal
             day.resourcesTotal = new Resources().add(day.resourcesToday).add(totalResourcesYesterday)
-            // day.resourcesSpendable.set(0, 0, 0).add(totalResourcesYesterday).add(day.resourcesToday).subtract(day.resourcesSpent)
         }
     })
 
@@ -165,11 +183,11 @@ export function filterGainedResources(days: Day[], f2p: boolean, clearedReruns: 
         // (F2P) Ignore resources from monthly card
         const includeMonthlyCardResources = !f2p
 
-        day.resourcesInfo.orundum.forEach(res => {
+        day.resourcesInfoDefault.orundum.forEach(res => {
             if (res.source === "monthly_card")
                 res.enabled = includeMonthlyCardResources
         })
-        day.resourcesInfo.op.forEach(res => {
+        day.resourcesInfoDefault.op.forEach(res => {
             if (res.source === "monthly_card")
                 res.enabled = includeMonthlyCardResources
         })
@@ -179,13 +197,13 @@ export function filterGainedResources(days: Day[], f2p: boolean, clearedReruns: 
 
         // ...ignore OP sources from event stages...
         // day.resourcesInfo.op = [...day.resourcesInfo.op.filter(res => res.source !== "event_stages")]
-        day.resourcesInfo.op.forEach(res => {
+        day.resourcesInfoDefault.op.forEach(res => {
             if (res.source === "event_stages")
                 res.enabled = !eventHasBeenClearedBefore
         })
 
         // ...and add orundum from purple certs (2k orundum per rerun)
-        day.resourcesInfo.orundum.forEach(res => {
+        day.resourcesInfoDefault.orundum.forEach(res => {
             if (res.source === "intel")
                 res.enabled = eventHasBeenClearedBefore
         })
@@ -200,7 +218,7 @@ export function toggleFirstDayResources(days: Day[], enabled: boolean): Day[] {
         return days
 
     for (const res of ["orundum", "tickets", "op"] as const) {
-        for (const info of days[0].resourcesInfo[res]) {
+        for (const info of days[0].resourcesInfoDefault[res]) {
             info.enabled = enabled
         }
     }

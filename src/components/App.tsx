@@ -15,6 +15,8 @@ import { downloadCsv } from "../utils/download-csv"
 import { useState } from "react"
 import { FaChevronDown, FaChevronRight, FaDownload, FaInfoCircle } from "react-icons/fa"
 import Button from "./Button"
+import Icon from "./Icon"
+import ResourceBadge from "./ResourceBadge"
 
 
 export default function App() {
@@ -59,7 +61,21 @@ export default function App() {
                         <li>Click on the first date to claim today's resources</li>
                         {
                             showResources &&
-                            <li>Click or hover over a resource indicator for additional information</li>
+                            <>
+                                <li>Click or hover over any resource badge
+                                    <ResourceBadge resource="orundum" tooltipId="" />
+                                    <ResourceBadge resource="tickets" tooltipId="" />
+                                    <ResourceBadge resource="op" tooltipId="" />
+                                    for additional information
+                                </li>
+                                <li>
+                                    Click on any
+                                    <Icon type="orundum" size={24} />
+                                    <Icon type="tickets" size={26} />
+                                    <Icon type="op" size={20} />
+                                    count to spend or gain resources
+                                </li>
+                            </>
                         }
                     </ul>
                 </div>

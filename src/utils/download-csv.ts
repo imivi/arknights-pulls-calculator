@@ -9,9 +9,9 @@ export function downloadCsv(rows: Day[]) {
 
     const csvRows = rows.map(day => {
 
-        const orundum_sources = formatSources(day.resourcesInfo.orundum)
-        const tickets_sources = formatSources(day.resourcesInfo.tickets)
-        const op_sources = formatSources(day.resourcesInfo.op)
+        const orundum_sources = formatSources(day.resourcesInfoDefault.orundum)
+        const tickets_sources = formatSources(day.resourcesInfoDefault.tickets)
+        const op_sources = formatSources(day.resourcesInfoDefault.op)
 
         const { date, event_name, free_monthly_card } = day
 

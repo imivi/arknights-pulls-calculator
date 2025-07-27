@@ -1,7 +1,7 @@
 import s from "./TableRow.module.scss"
 
 import { Colors } from "../scripts/get-image-colors"
-import { ResourceGained } from "../types"
+import { Resource, ResourceGained } from "../types"
 import ResourceBadge from "./ResourceBadge"
 import imageColors from "../data/image-colors.json"
 import { Tooltip } from "react-tooltip"
@@ -14,6 +14,8 @@ import { resourceLabels } from "../labels"
 import { formatOrundum } from "../utils/utils"
 import PullCount from "./PullCount"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
+import ResourceMenu from "./ResourceMenu"
+import { useMemo } from "react"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -40,7 +42,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
     const tooltipPullsOP = "tooltip-pulls-op-" + day.date
     const tooltipMonthlyCard = "tooltip-monthly-card-" + day.date
 
-    const { dayOfMonth, month, weekDay } = getDateValues(day.date)
+    const { dayOfMonth, month, weekDay } = useMemo(() => getDateValues(day.date), [day.date])
 
     const { clearedToday, setClearedToday } = useClearedTodayStore()
 
@@ -146,20 +148,10 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-even={rowIsEven}
             >
                 <div className={s.resources}>
-                    {formatOrundum(day.resourcesTotal.orundum)}
-                    {
-                        day.resourcesInfo.orundum.length > 0 &&
-                        day.resourcesToday.orundum !== 0 &&
-                        <ResourceBadge
-                            resource="orundum"
-                            value={day.resourcesToday.orundum}
-                            tooltipId={day.date + "-orundum"}
-                        >
-                            <ResourcesGained
-                                resources={day.resourcesInfo.orundum}
-                            />
-                        </ResourceBadge>
-                    }
+                    <ResourceMenu date={day.date} resource="orundum">
+                        {formatOrundum(day.resourcesTotal.orundum)}
+                    </ResourceMenu>
+                    <ResourceBadgeWithTooltip day={day} resource="orundum" />
                 </div>
             </td>
             <td
@@ -170,20 +162,10 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-even={rowIsEven}
             >
                 <div className={s.resources}>
-                    {day.resourcesTotal.tickets}
-                    {
-                        day.resourcesInfo.tickets.length > 0 &&
-                        day.resourcesToday.tickets !== 0 &&
-                        <ResourceBadge
-                            resource="ticket"
-                            value={day.resourcesToday.tickets}
-                            tooltipId={day.date + "-tickets"}
-                        >
-                            <ResourcesGained
-                                resources={day.resourcesInfo.tickets}
-                            />
-                        </ResourceBadge>
-                    }
+                    <ResourceMenu date={day.date} resource="tickets">
+                        {day.resourcesTotal.tickets.toFixed()}
+                    </ResourceMenu>
+                    <ResourceBadgeWithTooltip day={day} resource="tickets" />
                 </div>
             </td>
             <td
@@ -194,20 +176,10 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-even={rowIsEven}
             >
                 <div className={s.resources}>
-                    {day.resourcesTotal.op.toFixed()}
-                    {
-                        day.resourcesInfo.op.length > 0 &&
-                        day.resourcesToday.op !== 0 &&
-                        <ResourceBadge
-                            resource="op"
-                            value={day.resourcesToday.op}
-                            tooltipId={day.date + "-op"}
-                        >
-                            <ResourcesGained
-                                resources={day.resourcesInfo.op}
-                            />
-                        </ResourceBadge>
-                    }
+                    <ResourceMenu date={day.date} resource="op">
+                        {day.resourcesTotal.op.toFixed()}
+                    </ResourceMenu>
+                    <ResourceBadgeWithTooltip day={day} resource="op" />
                 </div>
             </td>
 
@@ -234,6 +206,31 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 }
 
 
+
+
+function ResourceBadgeWithTooltip({ day, resource }: { day: Day, resource: Resource }) {
+
+    const infoToShow = [
+        ...day.resourcesInfoDefault[resource],
+        ...day.resourcesFromPulls[resource],
+        ...day.resourcesFromCustomSources[resource],
+    ].filter(item => item.enabled && item.value !== 0)
+
+    if (infoToShow.length === 0)
+        return null
+
+    return (
+        <ResourceBadge
+            resource={resource}
+            value={day.resourcesToday[resource]}
+            tooltipId={day.date + "-" + resource}
+        >
+            <ResourcesGained resources={infoToShow} />
+        </ResourceBadge>
+    )
+}
+
+
 function ResourcesGained({ resources }: { resources: ResourceGained[] }) {
 
     const items = resources.filter(resource => resource.value !== 0 && resource.enabled)
@@ -242,7 +239,7 @@ function ResourcesGained({ resources }: { resources: ResourceGained[] }) {
         <ul>
             {
                 items.map((item, i) => (
-                    <li key={i}>{`${item.value} ${resourceLabels[item.source]}`}</li>
+                    <li key={i}>{`${item.value} ${resourceLabels[item.source] || item.source}`}</li>
                 ))
             }
         </ul>

@@ -21,12 +21,12 @@
         color: colors.$badge-orundum-text-dark;
     }
 
-    &[data-resource=ticket][data-dark=false] {
+    &[data-resource=tickets][data-dark=false] {
         background-color: colors.$badge-ticket-bg-light;
         color: colors.$badge-ticket-text-light;
     }
 
-    &[data-resource=ticket][data-dark=true] {
+    &[data-resource=tickets][data-dark=true] {
         background-color: colors.$badge-ticket-bg-dark;
         color: colors.$badge-ticket-text-dark;
     }

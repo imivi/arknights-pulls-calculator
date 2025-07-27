@@ -1,3 +1,6 @@
+export type Resource = "orundum" | "tickets" | "op"
+
+
 export type BasicResources = {
     orundum: number
     tickets: number

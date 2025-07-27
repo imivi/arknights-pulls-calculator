@@ -51,6 +51,14 @@
         padding: 0;
         margin: 0;
         line-height: 1.5em;
+        display: grid;
+        row-gap: .5em;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: .5em;
     }
 
     // Style the bold text like the pull counter
@@ -67,12 +75,6 @@
             background-color: colors.$table-cell-pulls-bg-even-light;
             color: colors.$table-cell-pulls-text-light;
         }
-    }
-
-    img {
-        width: 20px;
-        height: 20px;
-        opacity: 0.5;
     }
 }
 

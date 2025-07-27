@@ -64,7 +64,7 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                 <Popover.Content className={s.Content} sideOffset={5}>
                     <Popover.Arrow className={s.Arrow} />
 
-                    <form onSubmit={e => { e.preventDefault(); spendPulls(); setShowPullMenu(false); console.log("spend pulls", day.date, resourcesSpent[day.date]) }}>
+                    <form onSubmit={e => { e.preventDefault(); spendPulls(); setShowPullMenu(false) }}>
                         <main data-dark={darkMode}>
 
                             <label>
@@ -97,7 +97,7 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                                 <ul>
                                     {
                                         resourcesTotal.tickets > 0 &&
-                                        <li><Icon type="ticket" size={20} /> {resources.spent.tickets} / {resourcesTotal.tickets}</li>
+                                        <li><Icon type="tickets" size={20} /> {resources.spent.tickets} / {resourcesTotal.tickets}</li>
                                     }
                                     {
                                         resources.spent.orundum > 0 &&

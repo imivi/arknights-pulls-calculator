@@ -20,7 +20,11 @@ export type Day = {
     resourcesTotal: Resources
 
     /** Every source of orundum/tickets/op with amount gained today */
-    resourcesInfo: { orundum: ResourceGained[], tickets: ResourceGained[], op: ResourceGained[] }
+    resourcesInfoDefault: { orundum: ResourceGained[], tickets: ResourceGained[], op: ResourceGained[] }
+
+    /** Resources (orundum/tickets/op) spent or gained from pulls or other user-defined sources */
+    resourcesFromPulls: { orundum: ResourceGained[], tickets: ResourceGained[], op: ResourceGained[] }
+    resourcesFromCustomSources: { orundum: ResourceGained[], tickets: ResourceGained[], op: ResourceGained[] }
 
     pullsSpent: number
     rowSpan: number

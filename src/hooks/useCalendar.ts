@@ -1,8 +1,9 @@
 import { useMemo } from "react"
 import { getValidDates, calculateRowSpan } from "../utils/utils"
-import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, toggleFirstDayResources } from "../utils/days-utils"
+import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, toggleFirstDayResources, applyUserResources } from "../utils/days-utils"
 import { Resources } from "../utils/resources"
 import { useResourcesSpentStore } from "../stores/useResourcesSpentStore"
+import { useUserResourcesStore } from "../stores/useUserResourcesStore"
 
 
 export function useCalendar(f2p: boolean, ignoreFirstDayResources: boolean, clearedReruns: string[], startingResources: Resources) {
@@ -36,6 +37,12 @@ export function useCalendar(f2p: boolean, ignoreFirstDayResources: boolean, clea
     days = useMemo(() => {
         return deductResourcesSpent(days, resourcesSpent)
     }, [days, resourcesSpent])
+
+    // Add or subtract resources based on custom user data
+    const { userResources } = useUserResourcesStore()
+    days = useMemo(() => {
+        return applyUserResources(days, userResources)
+    }, [days, userResources])
 
     // Add information on spent pulls
     days = useMemo(() => {

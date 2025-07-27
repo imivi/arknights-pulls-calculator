@@ -7,30 +7,38 @@ import { useDarkModeStore } from "../stores/useDarkModeStore"
 import { formatOrundum } from "../utils/utils"
 
 
-type Resource = "orundum" | "op" | "ticket"
+type Resource = "orundum" | "op" | "tickets"
 
 type Props = {
     resource: Resource
-    value: number
-    tooltipId: string
-    children: ReactNode
+    value?: number
+    tooltipId?: string
+    children?: ReactNode
 }
 
 export default function ResourceBadge({ resource, value, tooltipId, children }: Props) {
 
     const { darkMode } = useDarkModeStore()
 
+    function getLabel() {
+        if (value) {
+            const prefix = value > 0 ? "+" : ""
+            const text = Math.abs(value) >= 10_000 ? formatOrundum(value) : value.toString()
+            return prefix + text
+        }
+        return value
+    }
+
     return (
         <div
             className={s.ResourceBadge}
             data-resource={resource}
-            data-tooltip-id={tooltipId}
+            data-tooltip-id={tooltipId || ""}
             data-dark={darkMode}
         >
             <Icon type={resource} size={20} />
-            {value > 0 && "+"}
-            {Math.abs(value) >= 10_000 ? formatOrundum(value) : value}
-            <Tooltip id={tooltipId} style={{ zIndex: 9 }}>{children}</Tooltip>
+            {getLabel()}
+            {children && <Tooltip id={tooltipId} style={{ zIndex: 9 }}>{children}</Tooltip>}
         </div>
     )
 }

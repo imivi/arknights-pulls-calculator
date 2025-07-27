@@ -4,11 +4,45 @@ button.btn_open_menu {
     border: none;
     background: none;
     margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
     font-size: inherit;
     font-family: inherit;
+
+    border-radius: 5px;
+    cursor: pointer;
+
+    &[data-active=false][data-dark=true]:hover {
+        background-color: rgba($color: white, $alpha: 0.2);
+    }
+
+    &[data-active=false][data-dark=false]:hover {
+        background-color: rgba($color: black, $alpha: 0.1);
+    }
+
+    &[data-active=true][data-resource=orundum] {
+        color: rgb(103, 14, 10);
+        background-color: rgba(236, 191, 184, 0.8);
+    }
+
+    &[data-active=true][data-resource=op] {
+        color: rgb(100, 93, 0);
+        // background-color: rgba(230, 227, 173, 0.8);
+        background-color: #ece0a9;
+    }
+
+    &[data-active=true][data-resource=tickets] {
+        color: darkgreen;
+        background-color: rgba(189, 230, 173, 0.8);
+    }
+
+    &[data-active=false][data-dark=true] {
+        color: inherit;
+    }
+
+    &[data-active=true][data-dark=true] {
+        color: black;
+    }
 }
 
 .Content {
@@ -43,10 +77,9 @@ button.btn_open_menu {
 
     fieldset {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        flex-wrap: wrap;
         gap: 5px;
-
-        $radius: 4px;
 
         button {
             min-width: 2.5em;
@@ -57,6 +90,18 @@ button.btn_open_menu {
         display: flex;
         align-items: center;
         gap: .2em;
+
+        &[data-resource=orundum] {
+            color: rgb(185, 51, 51);
+        }
+
+        &[data-resource=tickets] {
+            color: rgb(19, 116, 17);
+        }
+
+        &[data-resource=op] {
+            color: rgb(163, 117, 19);
+        }
     }
 
     input[type=number] {
@@ -86,6 +131,15 @@ button.btn_open_menu {
         display: none;
     }
 
+    input[type=text] {
+        border: none;
+        font-family: inherit;
+        font-size: inherit;
+        background-color: rgba($color: black, $alpha: 0.05);
+        padding: .5em .6em;
+        vertical-align: top;
+    }
+
     footer {
         display: flex;
         gap: 5px;
@@ -93,6 +147,13 @@ button.btn_open_menu {
         align-items: center;
         padding: 10px;
         background-color: rgba($color: black, $alpha: 0.05);
+    }
+
+    &:focus {
+        box-shadow:
+            hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+            hsl(206 22% 7% / 20%) 0px 10px 20px -15px,
+            0 0 0 2px var(--violet-7);
     }
 
     &[data-state="open"][data-side="top"] {

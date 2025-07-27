@@ -52,10 +52,17 @@ export default function App() {
                     <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
                     &nbsp;Show resources
                 </label>
-                <small>
+                <div className={s.tips}>
                     <FaInfoCircle size={18} />
-                    Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls
-                </small>
+                    <ul>
+                        <li>Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls</li>
+                        <li>Click on the first date to claim today's resources</li>
+                        {
+                            showResources &&
+                            <li>Click or hover over a resource indicator for additional information</li>
+                        }
+                    </ul>
+                </div>
             </div>
 
             <Table days={days} />
@@ -75,6 +82,7 @@ export default function App() {
             <Chart days={days} show={showChart} />
 
             <Footer />
+
 
         </main >
     )

@@ -43,36 +43,14 @@ button.btn_open_menu {
 
     fieldset {
         display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        justify-content: space-between;
         gap: 5px;
 
         $radius: 4px;
 
-        // button {
-        //     border-radius: 0;
-        //     background-color: rgba($color: black, $alpha: 0.1);
-        //     border: 1px solid rgba($color: black, $alpha: 0.1);
-        //     transition: 50ms;
-        //     cursor: pointer;
-        //     min-width: 2.5em;
-        //     padding: .2em .4em;
-        //     border-radius: $radius;
-        //     height: 1.4rem;
-        //     border-radius: .7rem;
-        //     display: flex;
-        //     align-items: center;
-        // }
-
-        // button:hover {
-        //     background-color: rgba($color: black, $alpha: 0.05);
-        //     transition: 50ms;
-        // }
-
-        // button:active {
-        //     background-color: rgba($color: black, $alpha: 0.15);
-        //     transition: 50ms;
-        // }
+        button {
+            min-width: 2.5em;
+        }
     }
 
     label {

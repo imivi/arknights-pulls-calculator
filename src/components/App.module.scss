@@ -35,13 +35,22 @@
 
     label {
         cursor: pointer;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px;
     }
 
-    small {
-        display: flex;
-        align-items: center;
-        gap: .5em;
-        font-size: .9em;
+    .tips {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1.5em;
     }
 
     // Style the bold text like the pull counter

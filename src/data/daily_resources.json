@@ -4228,7 +4228,12 @@
                 }
             ],
             "tickets": [],
-            "op": []
+            "op": [
+                {
+                    "value": 10,
+                    "source": "event_stages"
+                }
+            ]
         },
         "eventDay": 1,
         "freePulls": 0

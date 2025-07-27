@@ -3683,7 +3683,7 @@
         "orundum:weekly_missions": 0,
         "orundum:monthly_card": 200,
         "orundum:intel": 0,
-        "op:event_stages": 0,
+        "op:event_stages": 10,
         "op:login_event": 0,
         "op:monthly_card": 0,
         "tickets:login": 0,

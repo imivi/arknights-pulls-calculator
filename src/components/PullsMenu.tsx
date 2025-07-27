@@ -8,6 +8,7 @@ import { Day } from "../day";
 import { constrain, convertPullsToResources, convertResourcesToPulls } from "../utils";
 import Icon from "./Icon";
 import { useDarkModeStore } from "../stores/useDarkModeStore";
+import Button from "./Button";
 
 
 
@@ -55,7 +56,7 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
     return (
         <Popover.Root open={showPullMenu} onOpenChange={(open) => setShowPullMenu(open)} >
             <Popover.Trigger asChild>
-                <button className={s.btn_open_menu} aria-label="Update dimensions">
+                <button className={s.btn_open_menu} aria-label="Spend pulls">
                     {children}
                 </button>
             </Popover.Trigger>
@@ -68,6 +69,7 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
 
                             <label>
                                 Spend
+                                &nbsp;
                                 <input
                                     type="number"
                                     value={inputValue}
@@ -79,15 +81,15 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                                 / {maxPulls} pulls
                             </label>
                             <fieldset>
-                                <button type="button" onClick={() => setInputValue(0)}>0</button>
-                                <button type="button" onClick={() => increment(-1)}>-1</button>
-                                <button type="button" onClick={() => increment(+1)}>+1</button>
-                                <button type="button" onClick={() => increment(-10)}>-10</button>
-                                <button type="button" onClick={() => increment(+10)}>+10</button>
+                                <Button onClick={() => setInputValue(0)}>0</Button>
+                                <Button onClick={() => increment(-1)}>-1</Button>
+                                <Button onClick={() => increment(+1)}>+1</Button>
+                                <Button onClick={() => increment(-10)}>-10</Button>
+                                <Button onClick={() => increment(+10)}>+10</Button>
                             </fieldset>
                             <fieldset>
-                                <button type="button" onClick={() => setInputValue(day.pullsAvailableWithoutOP)}>Max, no OP ({day.pullsAvailableWithoutOP})</button>
-                                <button type="button" onClick={() => setInputValue(maxPulls)}>Max ({maxPulls})</button>
+                                <Button onClick={() => setInputValue(day.pullsAvailableWithoutOP)}>Max, no OP ({day.pullsAvailableWithoutOP})</Button>
+                                <Button onClick={() => setInputValue(maxPulls)}>Max ({maxPulls})</Button>
                             </fieldset>
 
                             {

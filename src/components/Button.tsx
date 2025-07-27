@@ -7,6 +7,6 @@ import { HTMLAttributes } from "react"
 export default function Button(props: HTMLAttributes<HTMLButtonElement>) {
     const darkMode = useDarkModeStore(store => store.darkMode)
     return (
-        <button className={s.Button} data-dark={darkMode} {...props} />
+        <button className={s.Button} data-dark={darkMode} type="button" {...props} />
     )
 }

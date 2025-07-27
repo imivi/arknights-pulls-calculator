@@ -43,46 +43,36 @@ button.btn_open_menu {
 
     fieldset {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
         gap: 5px;
 
         $radius: 4px;
 
-        button {
-            border-radius: 0;
-            background-color: rgba($color: black, $alpha: 0.1);
-            border: 1px solid rgba($color: black, $alpha: 0.1);
-            transition: 50ms;
-            cursor: pointer;
-            min-width: 2.5em;
-            padding: .2em .4em;
-            border-radius: $radius;
-            height: 1.4rem;
-            border-radius: .7rem;
-            display: flex;
-            align-items: center;
-        }
+        // button {
+        //     border-radius: 0;
+        //     background-color: rgba($color: black, $alpha: 0.1);
+        //     border: 1px solid rgba($color: black, $alpha: 0.1);
+        //     transition: 50ms;
+        //     cursor: pointer;
+        //     min-width: 2.5em;
+        //     padding: .2em .4em;
+        //     border-radius: $radius;
+        //     height: 1.4rem;
+        //     border-radius: .7rem;
+        //     display: flex;
+        //     align-items: center;
+        // }
 
-        button:hover {
-            background-color: rgba($color: black, $alpha: 0.05);
-            transition: 50ms;
-        }
+        // button:hover {
+        //     background-color: rgba($color: black, $alpha: 0.05);
+        //     transition: 50ms;
+        // }
 
-        button:active {
-            background-color: rgba($color: black, $alpha: 0.15);
-            transition: 50ms;
-        }
-
-        //     button:first-child {
-        //         border-top-left-radius: $radius;
-        //         border-bottom-left-radius: $radius;
-        //     }
-
-        //     button:last-child {
-        //         border-top-right-radius: $radius;
-        //         border-bottom-right-radius: $radius;
-        //     }
+        // button:active {
+        //     background-color: rgba($color: black, $alpha: 0.15);
+        //     transition: 50ms;
+        // }
     }
 
     label {
@@ -96,7 +86,7 @@ button.btn_open_menu {
         border: 1px solid rgba($color: black, $alpha: 0.1);
         padding: .2em .4em;
         text-align: right;
-        width: 2em;
+        min-width: 2em;
         border-radius: 5px;
     }
 
@@ -127,17 +117,6 @@ button.btn_open_menu {
         background-color: rgba($color: black, $alpha: 0.05);
     }
 
-    // border-radius: 4px;
-    // padding: 20px;
-    // width: 260px;
-    // background-color: white;
-    // box-shadow:
-    //     hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    //     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-    // animation-duration: 400ms;
-    // animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    // will-change: transform, opacity;
-
     &:focus {
         box-shadow:
             hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
@@ -164,29 +143,6 @@ button.btn_open_menu {
 
 .Arrow {
     fill: white;
-}
-
-.Close {
-    // all: unset;
-    // font-family: inherit;
-    // border-radius: 100%;
-    // height: 25px;
-    // width: 25px;
-    // display: inline-flex;
-    // align-items: center;
-    // justify-content: center;
-    // color: var(--violet-11);
-    // position: absolute;
-    // top: 5px;
-    // right: 5px;
-
-    // &:hover {
-    //     background-color: var(--violet-4);
-    // }
-
-    // &:focus {
-    //     box-shadow: 0 0 0 2px var(--violet-7);
-    // }
 }
 
 .IconButton {

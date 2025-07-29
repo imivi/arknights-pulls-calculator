@@ -1,7 +1,7 @@
 import s from "./ResourceMenu.module.scss"
 import buttonStyle from "./Button.module.scss"
 
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Popover } from "radix-ui";
 import Icon from "./Icon";
 import { useDarkModeStore } from "../stores/useDarkModeStore";
@@ -9,6 +9,8 @@ import Button from "./Button";
 import { useUserResources } from "../hooks/useUserResources";
 import { UserResource } from "../stores/useUserResourcesStore";
 import { Resource } from "../types";
+import { formatOrundum } from "../utils/utils";
+import { Day } from "../day";
 
 
 
@@ -21,19 +23,21 @@ const allValueShortcuts = {
 
 
 type Props = {
+    day: Day
     resource: Resource
-    date: string
-    children: ReactNode
 }
 
-export default function ResourceMenu({ date, resource, children }: Props) {
+export default function ResourceMenu({ day, resource }: Props) {
+
+    const { date } = day
 
     const [showMenu, setShowMenu] = useState(false)
 
-    const [amount, setAmount] = useState(0)
+    const [amount, setAmount] = useState<string | number>(0)
+    const amountAsNumber = Number(amount) || 0
     const [description, setDescription] = useState("")
 
-    const { userResources, setResource } = useUserResources()
+    const { userResources, setResource, deleteResource } = useUserResources()
 
     const isActive = (date in userResources) && (resource in userResources[date]) && userResources[date][resource].value !== 0
 
@@ -57,8 +61,11 @@ export default function ResourceMenu({ date, resource, children }: Props) {
     }, [showMenu])
 
     function onSubmit() {
-        setResource(date, resource, amount, description)
         setShowMenu(false)
+        if (amount === 0 && description === "")
+            deleteResource(date, resource)
+        else
+            setResource(date, resource, amountAsNumber, description)
     }
 
     const { darkMode } = useDarkModeStore()
@@ -71,11 +78,17 @@ export default function ResourceMenu({ date, resource, children }: Props) {
                 <button
                     className={s.btn_open_menu}
                     aria-label="Spend or gain resources"
-                    data-resource={resource}
-                    data-dark={darkMode}
-                    data-active={isActive}
                 >
-                    {children}
+                    {isActive && <span className={s.custom_user_resources}>
+                        {amountAsNumber > 0 && "+"}{amount}
+                    </span>}
+
+                    <span className={s.resource_count} data-resource={resource} data-dark={darkMode} data-active={isActive}>
+                        {resource === "orundum" && formatOrundum(day.resourcesTotal.orundum)}
+                        {resource === "tickets" && day.resourcesTotal.tickets.toFixed()}
+                        {resource === "op" && day.resourcesTotal.op.toFixed()}
+                    </span>
+
                 </button>
             </Popover.Trigger>
             <Popover.Portal>
@@ -92,7 +105,7 @@ export default function ResourceMenu({ date, resource, children }: Props) {
                                 <input
                                     type="number"
                                     value={amount}
-                                    onChange={e => setAmount(e.target.valueAsNumber)}
+                                    onChange={e => setAmount(e.target.value)}
                                     style={{ maxWidth: 60 }}
                                 />
                                 <Icon type={resource} size={22} />
@@ -101,7 +114,7 @@ export default function ResourceMenu({ date, resource, children }: Props) {
                                 {
                                     valueShortcuts.length > 0 &&
                                     valueShortcuts.map(value => (
-                                        <Button key={value} onClick={() => setAmount(value)}>{value}</Button>
+                                        <Button type="button" key={value} onClick={() => setAmount(value)}>{value}</Button>
                                     ))
                                 }
                             </fieldset>

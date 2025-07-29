@@ -11,7 +11,6 @@ import Icon from "./Icon"
 import EventCell from "./EventCell"
 import { Day } from "../day"
 import { resourceLabels } from "../labels"
-import { formatOrundum } from "../utils/utils"
 import PullCount from "./PullCount"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import ResourceMenu from "./ResourceMenu"
@@ -80,6 +79,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                         data-interactive={isToday}
                         data-tooltip-id={isToday ? todayTooltipId : ""}
                         htmlFor={isToday ? "checkbox-today-cleared" : ""}
+                        title={JSON.stringify(day, null, 4)}
                     >
                         {month}&nbsp;{dayOfMonth}&nbsp;
                         <small>{weekDay.toUpperCase()}</small>
@@ -148,9 +148,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-even={rowIsEven}
             >
                 <div className={s.resources}>
-                    <ResourceMenu date={day.date} resource="orundum">
-                        {formatOrundum(day.resourcesTotal.orundum)}
-                    </ResourceMenu>
+                    <ResourceMenu day={day} resource="orundum" />
                     <ResourceBadgeWithTooltip day={day} resource="orundum" />
                 </div>
             </td>
@@ -162,9 +160,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-even={rowIsEven}
             >
                 <div className={s.resources}>
-                    <ResourceMenu date={day.date} resource="tickets">
-                        {day.resourcesTotal.tickets.toFixed()}
-                    </ResourceMenu>
+                    <ResourceMenu day={day} resource="tickets" />
                     <ResourceBadgeWithTooltip day={day} resource="tickets" />
                 </div>
             </td>
@@ -176,9 +172,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-even={rowIsEven}
             >
                 <div className={s.resources}>
-                    <ResourceMenu date={day.date} resource="op">
-                        {day.resourcesTotal.op.toFixed()}
-                    </ResourceMenu>
+                    <ResourceMenu day={day} resource="op" />
                     <ResourceBadgeWithTooltip day={day} resource="op" />
                 </div>
             </td>
@@ -189,22 +183,23 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-event-id={day.rowSpan > 0 ? day.event_id : ""}
                 data-even={rowIsEven}
             >
-                {
-                    day.free_monthly_card &&
-                    <>
-                        <span data-tooltip-id={tooltipMonthlyCard}>
-                            <Icon type="monthly_card" size={20} /></span>
-                        <Tooltip id={tooltipMonthlyCard} style={{ zIndex: 9 }}>
-                            Free monthly card
-                        </Tooltip>
-                    </>
-                }
+                <div className={s.icons}>
+                    {
+                        day.free_monthly_card &&
+                        <>
+                            <span data-tooltip-id={tooltipMonthlyCard}>
+                                <Icon type="monthly_card" size={20} /></span>
+                            <Tooltip id={tooltipMonthlyCard} style={{ zIndex: 9 }}>
+                                Free monthly card
+                            </Tooltip>
+                        </>
+                    }
+                </div>
             </td>
 
         </tr>
     )
 }
-
 
 
 

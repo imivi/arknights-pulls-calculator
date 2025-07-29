@@ -65,9 +65,7 @@ tr.TableRow {
 
     td[data-column=pulls-total] {
         height: 100%;
-        text-align: center;
         padding-right: 0;
-        display: grid;
     }
 
     td[data-column=pulls-breakdown] {
@@ -172,6 +170,27 @@ tr.TableRow {
         }
     }
 
+    .icons {
+        display: flex;
+        gap: 5px;
+    }
+
+    td[data-column=monthly-card] {
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: .5em;
+            line-height: 1.5em;
+
+            li {
+                display: flex;
+                gap: .5em;
+            }
+        }
+    }
+
     td[data-column=monthly-card][data-dark=true] span {
         background-color: rgba($color: white, $alpha: 0.8);
         border-radius: 50%;
@@ -219,6 +238,7 @@ tr.TableRow {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     text-align: right;
+    align-items: center;
 }
 
 .align_left {

@@ -9,8 +9,25 @@ button.btn_open_menu {
     font-size: inherit;
     font-family: inherit;
 
+    cursor: pointer;
+    color: inherit;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.custom_user_resources {
+    padding: .2em .4em;
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.resource_count {
     border-radius: 5px;
     cursor: pointer;
+    padding: .2em .4em;
 
     &[data-active=false][data-dark=true]:hover {
         background-color: rgba($color: white, $alpha: 0.2);

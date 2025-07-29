@@ -125,19 +125,21 @@ export function applyUserResources(days: Day[], userResources: AllUserResources)
         // Update information on resources spent (orundum not supported)
         for (const res of resources) {
 
-            if (!(res in userRes))
-                continue
+            if (!(res in userRes)) {
+                today.resourcesFromCustomSources[res] = []
+            }
+            else {
+                const { value, description } = userRes[res]
 
-            const { value, description } = userRes[res]
-
-            // Replace previous information
-            today.resourcesFromCustomSources[res] = [
-                {
-                    source: description,
-                    value,
-                    enabled: true,
-                }
-            ]
+                // Replace previous information
+                today.resourcesFromCustomSources[res] = [
+                    {
+                        source: description,
+                        value,
+                        enabled: value !== 0,
+                    }
+                ]
+            }
         }
     })
 

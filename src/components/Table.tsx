@@ -42,7 +42,7 @@ export default function Table({ days }: Props) {
                         <th data-show-global={showResources}><span><Icon type="op" size={30} /> <div className={s.caption}>OP</div></span></th>
 
                         <th>
-                            {/* Column for free monthly card */}
+                            {/* Column for free monthly card and custom resource spending icon */}
                         </th>
 
                     </tr>

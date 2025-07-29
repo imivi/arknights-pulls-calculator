@@ -1,15 +1,15 @@
 @use "../styles/colors.scss";
 
 .ResourceBadge {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    justify-content: space-between;
-
     font-size: .9em;
-    padding: .2em .4em;
+    padding: 0 .4em;
     border-radius: 1em;
-    height: 1em;
+    min-height: 1.6em;
     cursor: pointer;
+    text-align: center;
 
     &[data-resource=orundum][data-dark=false] {
         background-color: colors.$badge-orundum-bg-light;

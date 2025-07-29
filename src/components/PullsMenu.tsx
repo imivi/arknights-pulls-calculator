@@ -81,15 +81,15 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                                 / {maxPulls} pulls
                             </label>
                             <fieldset>
-                                <Button onClick={() => setInputValue(0)}>0</Button>
-                                <Button onClick={() => increment(-1)}>-1</Button>
-                                <Button onClick={() => increment(+1)}>+1</Button>
-                                <Button onClick={() => increment(-10)}>-10</Button>
-                                <Button onClick={() => increment(+10)}>+10</Button>
+                                <Button type="button" onClick={() => setInputValue(0)}>0</Button>
+                                <Button type="button" onClick={() => increment(-1)}>-1</Button>
+                                <Button type="button" onClick={() => increment(+1)}>+1</Button>
+                                <Button type="button" onClick={() => increment(-10)}>-10</Button>
+                                <Button type="button" onClick={() => increment(+10)}>+10</Button>
                             </fieldset>
                             <fieldset>
-                                <Button onClick={() => setInputValue(day.pullsAvailableWithoutOP)}>Max, no OP ({day.pullsAvailableWithoutOP})</Button>
-                                <Button onClick={() => setInputValue(maxPulls)}>Max ({maxPulls})</Button>
+                                <Button type="button" onClick={() => setInputValue(day.pullsAvailableWithoutOP)}>Max, no OP ({day.pullsAvailableWithoutOP})</Button>
+                                <Button type="button" onClick={() => setInputValue(maxPulls)}>Max ({maxPulls})</Button>
                             </fieldset>
 
                             {

@@ -4,13 +4,36 @@ import { Tooltip } from "react-tooltip"
 import Icon from "./Icon"
 import { useSettingsStore } from "../stores/useSettings"
 import { useStartingResources } from "../hooks/useStartingResources"
+import { useRef, useState } from "react"
+import { BasicResources, Resource } from "../types"
 
+
+
+const INPUT_DEBOUNCE_MS = 500
 
 
 export default function Settings() {
 
     const { monthlyCard, setMonthlyCard, startingResources } = useSettingsStore()
     const { setResource } = useStartingResources()
+
+    // On first page load, load the resource values from localstorage (zustand store)
+    const [inputValues, setInputValues] = useState<BasicResources>(startingResources)
+
+    const timeoutIdRef = useRef(0)
+
+    // Immediately update displayed input values,
+    // then wait some time before updating the global store values
+    function setInputValue(res: Resource, value: number) {
+        setInputValues({
+            ...inputValues,
+            [res]: value,
+        })
+        window.clearTimeout(timeoutIdRef.current)
+        timeoutIdRef.current = window.setTimeout(() => {
+            setResource(res, value)
+        }, INPUT_DEBOUNCE_MS)
+    }
 
     return (
         <fieldset className={s.Settings}>
@@ -19,8 +42,8 @@ export default function Settings() {
                 <Icon type="orundum" size={32} />
                 <input
                     type="number"
-                    value={startingResources.orundum}
-                    onChange={(e) => setResource("orundum", e.target.valueAsNumber)}
+                    value={inputValues.orundum}
+                    onChange={(e) => setInputValue("orundum", e.target.valueAsNumber)}
                     min={0}
                 />
                 <Tooltip id="starting-orundum" content="Your current orundum" defaultIsOpen={startingResources.orundum === 0} />
@@ -30,8 +53,8 @@ export default function Settings() {
                 <Icon type="tickets" size={32} />
                 <input
                     type="number"
-                    value={startingResources.tickets}
-                    onChange={(e) => setResource("tickets", e.target.valueAsNumber)}
+                    value={inputValues.tickets}
+                    onChange={(e) => setInputValue("tickets", e.target.valueAsNumber)}
                     min={0}
                 />
                 <Tooltip id="starting-tickets" content="Your current HH permits" />
@@ -41,8 +64,8 @@ export default function Settings() {
                 <Icon type="op" size={32} />
                 <input
                     type="number"
-                    value={startingResources.op}
-                    onChange={(e) => setResource("op", e.target.valueAsNumber)}
+                    value={inputValues.op}
+                    onChange={(e) => setInputValue("op", e.target.valueAsNumber)}
                     min={0}
                 />
                 <Tooltip id="starting-op" content="Your current OP" />

@@ -1,16 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { BasicResources } from "../types";
 
 
-type Resources = {
-    orundum: number
-    tickets: number
-    op: number
-}
 
 type Store = {
-    startingResources: Resources
-    setStartingResources: (res: Resources) => void
+    startingResources: BasicResources
+    setStartingResources: (res: BasicResources) => void
     monthlyCard: boolean
     setMonthlyCard: (enabled: boolean) => void
 
@@ -25,7 +21,7 @@ export const useSettingsStore = create(persist<Store>((set) => ({
         op: 0,
         tickets: 0,
     },
-    setStartingResources: (res: Resources) => set({ startingResources: res }),
+    setStartingResources: (res: BasicResources) => set({ startingResources: res }),
 
 }),
     { name: "settings" },

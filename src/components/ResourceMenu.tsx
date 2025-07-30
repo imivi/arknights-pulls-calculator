@@ -33,13 +33,15 @@ export default function ResourceMenu({ day, resource }: Props) {
 
     const [showMenu, setShowMenu] = useState(false)
 
-    const [amount, setAmount] = useState<string | number>(0)
-    const amountAsNumber = Number(amount) || 0
+    const [inputValue, setInputValue] = useState<string | number>(0)
+    const amountAsNumber = Number(inputValue) || 0
     const [description, setDescription] = useState("")
 
     const { userResources, setResource, deleteResource } = useUserResources()
 
     const isActive = (date in userResources) && (resource in userResources[date]) && userResources[date][resource].value !== 0
+
+    const amount = isActive ? userResources[date][resource].value : 0
 
     function getResources(): UserResource {
         if (date in userResources && resource in userResources[date]) {
@@ -55,14 +57,14 @@ export default function ResourceMenu({ day, resource }: Props) {
     useEffect(() => {
         if (showMenu) {
             const res = getResources()
-            setAmount(res.value)
+            setInputValue(res.value)
             setDescription(res.description)
         }
     }, [showMenu])
 
     function onSubmit() {
         setShowMenu(false)
-        if (amount === 0 && description === "")
+        if (inputValue === 0 && description === "")
             deleteResource(date, resource)
         else
             setResource(date, resource, amountAsNumber, description)
@@ -80,7 +82,7 @@ export default function ResourceMenu({ day, resource }: Props) {
                     aria-label="Spend or gain resources"
                 >
                     {isActive && <span className={s.custom_user_resources}>
-                        {amountAsNumber > 0 && "+"}{amount}
+                        {amount > 0 && "+"}{amount}
                     </span>}
 
                     <span className={s.resource_count} data-resource={resource} data-dark={darkMode} data-active={isActive}>
@@ -104,8 +106,8 @@ export default function ResourceMenu({ day, resource }: Props) {
                                 &nbsp;
                                 <input
                                     type="number"
-                                    value={amount}
-                                    onChange={e => setAmount(e.target.value)}
+                                    value={inputValue}
+                                    onChange={e => setInputValue(e.target.value)}
                                     style={{ maxWidth: 60 }}
                                 />
                                 <Icon type={resource} size={22} />
@@ -114,7 +116,7 @@ export default function ResourceMenu({ day, resource }: Props) {
                                 {
                                     valueShortcuts.length > 0 &&
                                     valueShortcuts.map(value => (
-                                        <Button type="button" key={value} onClick={() => setAmount(value)}>{value}</Button>
+                                        <Button type="button" key={value} onClick={() => setInputValue(value)}>{value}</Button>
                                     ))
                                 }
                             </fieldset>

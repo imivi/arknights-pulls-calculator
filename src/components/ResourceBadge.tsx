@@ -42,3 +42,20 @@ export default function ResourceBadge({ resource, value, tooltipId, children }: 
         </div>
     )
 }
+
+
+export function IconOnlyResourceBadge({ resource }: Props) {
+
+    const { darkMode } = useDarkModeStore()
+
+    return (
+        <div
+            className={s.ResourceBadge}
+            data-resource={resource}
+            data-dark={darkMode}
+            style={{ display: "inline-flex", margin: 2 }}
+        >
+            <Icon type={resource} size={20} />
+        </div>
+    )
+}

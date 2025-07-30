@@ -13,10 +13,10 @@ import Table from "./Table"
 import Chart from "./Chart"
 import { downloadCsv } from "../utils/download-csv"
 import { useState } from "react"
-import { FaChevronDown, FaChevronRight, FaDownload, FaInfoCircle } from "react-icons/fa"
+import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-icons/fa"
 import Button from "./Button"
 import Icon from "./Icon"
-import ResourceBadge from "./ResourceBadge"
+import { IconOnlyResourceBadge } from "./ResourceBadge"
 
 
 export default function App() {
@@ -49,36 +49,36 @@ export default function App() {
 
             </header>
 
+            <fieldset className={s.message_box} data-dark={darkMode}>
+                <legend>
+                    <FaInfoCircle size={16} />&nbsp;tips
+                </legend>
+                <ul>
+                    <li>Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls</li>
+                    <li>Click on today's date to claim resources</li>
+                    {
+                        showResources &&
+                        <>
+                            <li>Click or hover over any resource badge
+                                <IconOnlyResourceBadge resource="orundum" />
+                                <IconOnlyResourceBadge resource="tickets" />
+                                <IconOnlyResourceBadge resource="op" />
+                                for additional information
+                            </li>
+                            <li>Click on any resource count to spend or gain resources</li>
+                        </>
+                    }
+                </ul>
+            </fieldset>
+
             <div className={s.message_box} data-dark={darkMode}>
                 <label>
                     <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
                     &nbsp;Show resources
+                    <Icon type="orundum" size={24} />
+                    <Icon type="tickets" size={24} />
+                    <Icon type="op" size={24} />
                 </label>
-                <div className={s.tips}>
-                    <FaInfoCircle size={18} />
-                    <ul>
-                        <li>Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls</li>
-                        <li>Click on the first date to claim today's resources</li>
-                        {
-                            showResources &&
-                            <>
-                                <li>Click or hover over any resource badge
-                                    <ResourceBadge resource="orundum" tooltipId="" />
-                                    <ResourceBadge resource="tickets" tooltipId="" />
-                                    <ResourceBadge resource="op" tooltipId="" />
-                                    for additional information
-                                </li>
-                                <li>
-                                    Click on any
-                                    <Icon type="orundum" size={24} />
-                                    <Icon type="tickets" size={26} />
-                                    <Icon type="op" size={20} />
-                                    count to spend or gain resources
-                                </li>
-                            </>
-                        }
-                    </ul>
-                </div>
             </div>
 
             <Table days={days} />
@@ -90,7 +90,7 @@ export default function App() {
                 </Button>
 
                 <Button onClick={() => setShowChart(!showChart)}>
-                    {showChart ? <FaChevronDown /> : <FaChevronRight />}&nbsp;
+                    {showChart ? <FaChevronUp /> : <FaChevronRight />}&nbsp;
                     {showChart ? "Hide chart" : "Show chart"}
                 </Button>
             </div>

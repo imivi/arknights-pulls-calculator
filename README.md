@@ -27,9 +27,38 @@ This is an online tool for Arknights players to calculate resource income and fu
 * Any orundum from the **Intelligence Certification Store** (purple certs) beyond the 2000 orundum added on each rerun. Note that this orundum does not expire after the rerun ends. Therefore, if you are a new player or you have not cleared past reruns, you can still purchase any remaining orundum.
 * Maintenance compensation and random gifts in the mail.
 
+Note that you can add or deduct resources (orundum/permits/OP) at any date. Simply click on the resource total, and enter the amount gained or spent.
+
+## Included in the calculations
+
+|Resource|Sources|
+|-|-|
+|**Orundum**| Daily missions, weekly missions, monthly card (200/day), weekly annihilation (1800 orundum), new annihilation (every ~2 month), store (600/month), fortune strips during limited events (580 orundum/day), purple certs (2k orundum/rerun)|
+|**HH permits**|login reward (1 on the 17th), store (4 permits/month), event shop (usually 3 permits)|
+|**OP**|Event stages, login event, monthly card (6/month)|
+
 ## Assumptions
 
 * Weekly annihilation reward (1800 orundum) received on Monday.
 * 4 HH permits bought from the store (green certs) on the 1st day of the month.
 * Weekly missions completed on Thursday (500 orundum).
-* During limited events, fortune strips award 580 orundum daily on average.
+* During limited events, fortune strips award ~580 orundum daily on average [according to my simulation](
+https://github.com/imivi/arknights-pulls-calculator/blob/main/fortune_strips_simulation.py)
+
+## FAQ
+
+> I don't convert OP into pulls, I just want to know how many pulls I can get from tickets and orundum.
+
+Just ignore the blue column. The next column (red) lists the pulls you get from spending tickets and orundum.
+
+> I plan on buying HH permits with gold certs. How do I track it?
+
+The calculator does not track gold cert income because it's highly variable between players. However you can manually add HH permits by clicking on the permit count on any date.
+
+> I'm a whale and I plan on buying OP from packs. How do I track it?
+
+Click on the OP count (any date), and enter a positive value.
+
+> I plan on buying skins with OP. How do I track it?
+
+Click on the OP count (any date), and enter a negative value.

@@ -177,52 +177,53 @@ export function calculateCumulativeResources(days: Day[], startingResources: Res
 }
 
 
-/** Ignore certain resources for F2P and reruns, and add orundum from purple certs for reruns */
-export function filterGainedResources(days: Day[], f2p: boolean, clearedReruns: string[]) {
 
-    for (const day of days) {
+/** Ignore certain resources for F2P and reruns,
+ *  and add orundum from purple certs for reruns.
+ *  Also ignore all resources for the first today
+ *  if it was marked as cleared.
+ */
+export function filterGainedResources(days: Day[], f2p: boolean, clearedReruns: string[], firstDayEnabled: boolean) {
+
+    days.forEach((day, i) => {
+
+        const enableToday = i > 0 || firstDayEnabled
 
         // (F2P) Ignore resources from monthly card
         const includeMonthlyCardResources = !f2p
 
-        day.resourcesInfoDefault.orundum.forEach(res => {
-            if (res.source === "monthly_card")
-                res.enabled = includeMonthlyCardResources
-        })
-        day.resourcesInfoDefault.op.forEach(res => {
-            if (res.source === "monthly_card")
-                res.enabled = includeMonthlyCardResources
-        })
-
         // (Reruns) If this event has been cleared before...
         const eventHasBeenClearedBefore = !!day.event_id && clearedReruns.includes(day.event_id)
 
-        // ...ignore OP sources from event stages...
-        // day.resourcesInfo.op = [...day.resourcesInfo.op.filter(res => res.source !== "event_stages")]
-        day.resourcesInfoDefault.op.forEach(res => {
-            if (res.source === "event_stages")
-                res.enabled = !eventHasBeenClearedBefore
-        })
-
-        // ...and add orundum from purple certs (2k orundum per rerun)
+        // (F2P) Ignore orundum from monthly card
         day.resourcesInfoDefault.orundum.forEach(res => {
-            if (res.source === "intel")
-                res.enabled = eventHasBeenClearedBefore
+            if (res.source === "monthly_card")
+                res.enabled = includeMonthlyCardResources && enableToday
+            // Add orundum from purple certs (2k orundum per rerun)
+            else if (res.source === "intel")
+                res.enabled = eventHasBeenClearedBefore && enableToday
+            else
+                res.enabled = enableToday
         })
-    }
 
-    return [...days]
-}
+        day.resourcesInfoDefault.op.forEach(res => {
+            // (F2P) Ignore OP from monthly card
+            if (res.source === "monthly_card")
+                res.enabled = includeMonthlyCardResources && enableToday
+            // Ignore OP sources from event stages...
+            else if (res.source === "event_stages")
+                res.enabled = !eventHasBeenClearedBefore && enableToday
+            else
+                res.enabled = enableToday
+        })
 
-
-export function toggleFirstDayResources(days: Day[], enabled: boolean): Day[] {
-    if (days.length === 0)
-        return days
-
-    for (const res of ["orundum", "tickets", "op"] as const) {
-        for (const info of days[0].resourcesInfoDefault[res]) {
-            info.enabled = enabled
+        // Disable tickets on the first day
+        if (!firstDayEnabled) {
+            day.resourcesInfoDefault.tickets.forEach(res => {
+                res.enabled = firstDayEnabled
+            })
         }
-    }
+    })
+
     return [...days]
 }

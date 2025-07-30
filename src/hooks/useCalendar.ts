@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { getValidDates, calculateRowSpan } from "../utils/utils"
-import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, toggleFirstDayResources, applyUserResources } from "../utils/days-utils"
+import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, applyUserResources } from "../utils/days-utils"
 import { Resources } from "../utils/resources"
 import { useResourcesSpentStore } from "../stores/useResourcesSpentStore"
 import { useUserResourcesStore } from "../stores/useUserResourcesStore"
@@ -23,14 +23,10 @@ export function useCalendar(f2p: boolean, ignoreFirstDayResources: boolean, clea
     days = useMemo(() => calculateRowSpan(days), [days])
 
     // Ignore certain resources for F2P and reruns
+    // and ignore first day resources
     days = useMemo(() => {
-        return filterGainedResources(days, f2p, clearedReruns)
-    }, [days, f2p, clearedReruns])
-
-    // Ignore first day resources
-    days = useMemo(() => {
-        return toggleFirstDayResources(days, !ignoreFirstDayResources)
-    }, [ignoreFirstDayResources, days])
+        return filterGainedResources(days, f2p, clearedReruns, !ignoreFirstDayResources)
+    }, [days, f2p, clearedReruns, ignoreFirstDayResources])
 
     // Subtract resources based on pulls spent (add negative resource values)
     const { resourcesSpent } = useResourcesSpentStore()

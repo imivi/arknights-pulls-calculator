@@ -1,0 +1,7 @@
+img.Icon {
+    object-fit: contain;
+
+    &[data-inline=true] {
+        display: inline-block;
+    }
+}

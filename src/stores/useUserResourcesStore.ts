@@ -7,7 +7,7 @@ export type UserResource = {
     description: string
 }
 
-export type UserResources = {
+type UserResources = {
     orundum: UserResource
     tickets: UserResource
     op: UserResource

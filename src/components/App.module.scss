@@ -17,7 +17,7 @@
 }
 
 .message_box {
-    padding: 20px;
+    padding: 10px 20px;
     margin: 0 auto;
     border-radius: 5px;
     box-shadow: 0 2px 3px rgba($color: black, $alpha: 0.2);
@@ -27,6 +27,8 @@
     justify-content: center;
     gap: 20px;
 
+    width: min(26rem, 90vw);
+
     background-color: colors.$table-header-bg-light;
 
     &[data-dark=true] {
@@ -35,9 +37,14 @@
 
     label {
         cursor: pointer;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 10px;
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
+
+    legend {
+        display: flex;
+        align-items: center;
     }
 
     .tips {
@@ -47,8 +54,9 @@
     }
 
     ul {
-        list-style: none;
+        list-style: disc;
         padding: 0;
+        padding-left: 1em;
         margin: 0;
         line-height: 1.5em;
         display: grid;
@@ -56,9 +64,9 @@
     }
 
     li {
-        display: flex;
-        align-items: center;
-        gap: .5em;
+        // display: flex;
+        // align-items: center;
+        // gap: .5em;
     }
 
     // Style the bold text like the pull counter

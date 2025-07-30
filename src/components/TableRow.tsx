@@ -79,7 +79,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                         data-interactive={isToday}
                         data-tooltip-id={isToday ? todayTooltipId : ""}
                         htmlFor={isToday ? "checkbox-today-cleared" : ""}
-                        title={JSON.stringify(day, null, 4)}
+                    // title={JSON.stringify(day, null, 4)}
                     >
                         {month}&nbsp;{dayOfMonth}&nbsp;
                         <small>{weekDay.toUpperCase()}</small>

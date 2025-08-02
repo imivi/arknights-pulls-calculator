@@ -1,7 +1,7 @@
 import s from "./Chart.module.scss"
 
 import { useMemo } from "react"
-import { Day } from "../day"
+import { Day } from "../types"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import { type LineSeries, ResponsiveLine } from '@nivo/line'
 
@@ -114,7 +114,7 @@ function getData(days: Day[]) {
         labels.push(label)
         totalPulls.push({
             x: i,
-            y: day.pullsAvailable,
+            y: day.pullsAvailableTotal,
             label,
         })
         totalPullsWithoutOP.push({

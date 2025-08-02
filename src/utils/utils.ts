@@ -4,7 +4,6 @@ import { PullCalculator } from "./pull-calculator"
 import { Resources } from "./resources"
 
 
-
 export function convertResourcesToPulls(res: BasicResources, useOP: boolean): number {
     const calc = new PullCalculator(res).spendTickets().spendOrundum()
 
@@ -100,8 +99,7 @@ export function calculateRowSpan<T extends Row>(rows: T[]) {
 export function sum(resources: ResourceGained[]): number {
     let total = 0
     for (const res of resources) {
-        if (res.enabled)
-            total += res.value
+        total += res.value
     }
     return total
 }

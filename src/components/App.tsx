@@ -1,12 +1,8 @@
 import s from "./App.module.scss"
 
 import { useCalendar } from "../hooks/useCalendar"
-import { useClearedReruns } from "../hooks/useClearedReruns"
-import { useStartingResources } from "../hooks/useStartingResources"
-import { useClearedTodayStore } from "../stores/useClearedTodayStore"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
-import { useSettingsStore } from "../stores/useSettings"
-import Settings from "./Settings"
+import Settings from "./StartingResources"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Footer from "./Footer"
 import Table from "./Table"
@@ -17,18 +13,16 @@ import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-ico
 import Button from "./Button"
 import Icon from "./Icon"
 import { IconOnlyResourceBadge } from "./ResourceBadge"
+import DebugCalendar from "./DebugCalendar"
+import { migrateLocalStorage } from "../migrate-local-storage"
+
 
 
 export default function App() {
 
-    const { startingResources } = useStartingResources()
+    migrateLocalStorage()
 
-    const { monthlyCard } = useSettingsStore()
-    const f2p = !monthlyCard
-
-    const { clearedReruns } = useClearedReruns()
-    const firstDayCleared = useClearedTodayStore(store => store.clearedToday)
-    const days = useCalendar(f2p, firstDayCleared, clearedReruns, startingResources)
+    const days = useCalendar()
 
     const { darkMode } = useDarkModeStore()
 
@@ -36,10 +30,13 @@ export default function App() {
 
     const [showChart, setShowChart] = useState(window.innerWidth > 600)
 
+    // const settings = useSettings()
+    // return <pre>{JSON.stringify({ settings, days }, null, 4)}</pre>
+
     return (
         <main className={s.App} data-dark={darkMode}>
 
-            <header data-dark={darkMode}>
+            <header className={s.Header} data-dark={darkMode}>
 
                 <main>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
@@ -99,6 +96,7 @@ export default function App() {
 
             <Footer />
 
+            {import.meta.env.DEV && <DebugCalendar days={days} />}
 
         </main >
     )

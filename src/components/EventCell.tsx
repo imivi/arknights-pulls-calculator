@@ -3,7 +3,7 @@ import s from "./EventCell.module.scss"
 import { CSSProperties } from "react"
 import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Colors } from "../scripts/get-image-colors"
-import { Day } from "../day"
+import { Day } from "../types"
 import { FaArrowUpRightFromSquare } from "react-icons/fa6"
 
 

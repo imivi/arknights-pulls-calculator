@@ -3,7 +3,7 @@ import fs from "fs"
 import z from "zod"
 import { env } from '../env'
 import { addEventDays, addFreePulls } from '../utils/prebuild-utils'
-import { dataPaths } from './data-paths'
+import { dataPaths } from '../data-paths'
 
 
 const rowSchema = z.object({

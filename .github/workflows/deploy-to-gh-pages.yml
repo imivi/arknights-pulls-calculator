@@ -40,13 +40,10 @@ jobs:
         run: pnpm run prebuild
         env:
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
-          WORKDIR: "/home/runner/work/arknights-pulls-calculator/arknights-pulls-calculator/"
       - name: build
         run: pnpm run build
         env:
           VITE_ASSETS_BASE_URL: https://imivi.github.io/arknights-pulls-calculator/
-          VITE_UMAMI_SCRIPT: https://analytics.imivi.dev/script.js
-          VITE_UMAMI_WEBSITE_ID: 01d71fe3-df58-4797-a2c3-72e39c5138e4
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

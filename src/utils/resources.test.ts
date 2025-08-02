@@ -1,5 +1,6 @@
 import { test, expect } from "vitest"
 import { Resources } from "./resources"
+import { convertResourcesToPulls } from "./utils"
 
 
 test("Convert to pulls (no OP)", () => {
@@ -8,7 +9,7 @@ test("Convert to pulls (no OP)", () => {
     //                        ^100   +10 +30 pulls
     const expectedPulls = Math.floor(res.tickets + res.orundum / 600)
 
-    expect(res.convertToPullsNoOP()).toBe(expectedPulls)
+    expect(convertResourcesToPulls(res, false)).toBe(expectedPulls)
 })
 
 test("Convert to pulls (incl. OP)", () => {
@@ -17,7 +18,7 @@ test("Convert to pulls (incl. OP)", () => {
     //                        ^100   +10 +30 pulls
     const expectedPulls = Math.floor(res.tickets + res.orundum / 600 + res.op * 180 / 600)
 
-    expect(res.convertToPulls()).toBe(expectedPulls)
+    expect(convertResourcesToPulls(res, true)).toBe(expectedPulls)
 })
 
 

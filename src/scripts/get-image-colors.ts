@@ -1,7 +1,7 @@
 import fs from "fs"
-import { Vibrant } from "node-vibrant/node";
-import path from "path";
-import { dataPaths } from "./data-paths";
+import { Vibrant } from "node-vibrant/node"
+import path from "path"
+import { dataPaths } from "../data-paths"
 
 
 export type Colors = {

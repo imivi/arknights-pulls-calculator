@@ -3,52 +3,60 @@ import buttonStyle from "./Button.module.scss"
 
 import { ReactNode, useEffect, useState } from "react";
 import { Popover } from "radix-ui";
-import { useResourcesSpentStore } from "../stores/useResourcesSpentStore";
-import { Day } from "../day";
-import { constrain, convertPullsToResources, convertResourcesToPulls } from "../utils/utils";
+import { Day } from "../types";
+import { constrain, convertPullsToResources, formatOrundum } from "../utils/utils";
 import Icon from "./Icon";
 import { useDarkModeStore } from "../stores/useDarkModeStore";
 import Button from "./Button";
+import { useSpendablePullsStore } from "../stores/useSpendablePullsStore";
 
 
 
 type Props = {
     day: Day
-    maxPulls: number
     children: ReactNode
 }
 
-export default function PullsMenu({ day, maxPulls, children }: Props) {
+export default function PullsMenu({ day, children }: Props) {
 
     const [showPullMenu, setShowPullMenu] = useState(false)
 
-    const { resourcesSpent, setResourcesSpent } = useResourcesSpentStore()
-    const [inputValue, setInputValue] = useState(0)
-    const { resourcesTotal } = day
+    const { spendablePulls, setSpendablePulls } = useSpendablePullsStore()
+    const spendablePullsToday = day.date in spendablePulls ? spendablePulls[day.date] : 0
 
-    const resources = convertPullsToResources(resourcesTotal, inputValue)
+    const [inputValue, setInputValue] = useState("0")
+    const inputValueAsNumber = Number(inputValue) || 0
+    const { cumulativeSpendableResources } = day
 
-    // Make sure the input value is always showing the spent pulls
-    // (calculated from the spent resources)
+    const maxSpendablePulls = Math.min(inputValueAsNumber, day.pullsAvailableTotal)
+    const { spent: resourcesSpent } = convertPullsToResources(cumulativeSpendableResources, maxSpendablePulls)
+
+    // Make sure the input value is always showing the spendable pulls
     useEffect(() => {
-        if (day.date in resourcesSpent) {
-            const pullsSpent = convertResourcesToPulls(resourcesSpent[day.date], true)
-            setInputValue(pullsSpent)
-        }
-        else {
-            setInputValue(0)
-        }
-    }, [])
+        setInputValue(spendablePullsToday.toFixed())
+    }, [showPullMenu])
 
     function increment(n: number) {
-        setInputValue(constrain(inputValue + n, 0, maxPulls) || 0)
+        setInputValue(constrain(inputValueAsNumber + n, 0, day.pullsAvailableTotal).toFixed())
     }
 
     function spendPulls() {
-        setResourcesSpent({
-            ...resourcesSpent,
-            [day.date]: resources.spent,
+        setSpendablePulls({
+            ...spendablePulls,
+            [day.date]: inputValueAsNumber,
         })
+    }
+
+    function reset() {
+        setSpendablePulls({
+            ...spendablePulls,
+            [day.date]: 0,
+        })
+    }
+
+    function onSubmit() {
+        spendPulls()
+        setShowPullMenu(false)
     }
 
     const { darkMode } = useDarkModeStore()
@@ -64,7 +72,7 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                 <Popover.Content className={s.Content} sideOffset={5}>
                     <Popover.Arrow className={s.Arrow} />
 
-                    <form onSubmit={e => { e.preventDefault(); spendPulls(); setShowPullMenu(false) }}>
+                    <form onSubmit={e => { e.preventDefault(); onSubmit() }}>
                         <main data-dark={darkMode}>
 
                             <label>
@@ -73,44 +81,45 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                                 <input
                                     type="number"
                                     value={inputValue}
-                                    onChange={e => setInputValue(constrain(e.target.valueAsNumber, 0, maxPulls))}
+                                    onChange={(e) => setInputValue(e.target.value)}
                                     style={{ maxWidth: 60 }}
                                     min={0}
-                                    max={maxPulls}
+                                    max={day.pullsAvailableTotal}
                                 />
-                                / {maxPulls} pulls
+                                / {day.pullsAvailableTotal} pulls
                             </label>
+
                             <fieldset>
-                                <Button type="button" onClick={() => setInputValue(0)}>0</Button>
+                                <Button type="button" onClick={() => setInputValue("0")}>0</Button>
                                 <Button type="button" onClick={() => increment(-1)}>-1</Button>
                                 <Button type="button" onClick={() => increment(+1)}>+1</Button>
                                 <Button type="button" onClick={() => increment(-10)}>-10</Button>
                                 <Button type="button" onClick={() => increment(+10)}>+10</Button>
                             </fieldset>
                             <fieldset>
-                                <Button type="button" onClick={() => setInputValue(day.pullsAvailableWithoutOP)}>Max, no OP ({day.pullsAvailableWithoutOP})</Button>
-                                <Button type="button" onClick={() => setInputValue(maxPulls)}>Max ({maxPulls})</Button>
+                                <Button type="button" onClick={() => setInputValue(day.pullsAvailableWithoutOP.toFixed())}>Max, no OP ({day.pullsAvailableWithoutOP})</Button>
+                                <Button type="button" onClick={() => setInputValue(day.pullsAvailableTotal.toFixed())}>Max ({day.pullsAvailableTotal})</Button>
                             </fieldset>
 
                             {
-                                inputValue > 0 &&
+                                inputValueAsNumber > 0 &&
                                 <ul>
                                     {
-                                        resourcesTotal.tickets > 0 &&
-                                        <li><Icon type="tickets" size={20} /> {resources.spent.tickets} / {resourcesTotal.tickets}</li>
+                                        cumulativeSpendableResources.tickets > 0 &&
+                                        <li><Icon type="tickets" size={20} /> {resourcesSpent.tickets} / {cumulativeSpendableResources.tickets}</li>
                                     }
                                     {
-                                        resources.spent.orundum > 0 &&
-                                        <li><Icon type="orundum" size={20} /> {resources.spent.orundum} / {resourcesTotal.orundum}</li>
+                                        resourcesSpent.orundum > 0 &&
+                                        <li><Icon type="orundum" size={20} /> {formatOrundum(resourcesSpent.orundum)} / {formatOrundum(cumulativeSpendableResources.orundum)}</li>
                                     }
                                     {
-                                        resources.spent.op > 0 &&
+                                        resourcesSpent.op > 0 &&
                                         <li>
                                             <Icon type="op" size={20} />
-                                            {resources.spent.op} / {resourcesTotal.op}
+                                            {resourcesSpent.op} / {cumulativeSpendableResources.op}
                                             →
                                             <Icon type="orundum" size={20} />
-                                            {resources.spent.op * 180}
+                                            {resourcesSpent.op * 180}
                                         </li>
                                     }
                                 </ul>
@@ -119,8 +128,14 @@ export default function PullsMenu({ day, maxPulls, children }: Props) {
                         </main>
 
                         <footer>
+                            {
+                                day.spendablePulls > 0 &&
+                                <Popover.Close aria-label="Reset" onClick={reset} type="button" className={buttonStyle.Button}>
+                                    Don't pull
+                                </Popover.Close>
+                            }
                             <Popover.Close aria-label="Close" type="button" className={buttonStyle.Button}>
-                                cancel
+                                Close
                             </Popover.Close>
                             <Popover.Close aria-label="Confirm" onClick={spendPulls} type="submit" className={buttonStyle.Button}>
                                 OK

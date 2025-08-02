@@ -5,7 +5,7 @@ export const resourceLabels: Record<string, string> = {
     "new_anni": "from new annihilation",
     "store": "from store",
     "event_stages": "from event stages",
-    "login": "from daily login",
+    "login": "from login rewards",
     "daily_missions": "from daily missions",
     "weekly_missions": "from weekly missions",
     "monthly_card": "from monthly card",

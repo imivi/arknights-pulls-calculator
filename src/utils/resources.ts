@@ -5,7 +5,6 @@ import { BasicResources } from "../types"
 export class Resources {
 
     static PULL_TO_ORUNDUM_CONVERSION_RATE = 600
-    // static OP_TO_PULL_CONVERSION_RATE = 0.3
     static OP_TO_ORUNDUM_CONVERSION_RATE = 180
 
     constructor(public orundum = 0, public tickets = 0, public op = 0) { }
@@ -31,18 +30,11 @@ export class Resources {
         return this
     }
 
-    /** Convert all resources into pulls */
-    convertToPulls() {
-        const calculator = new PullCalculator(this)
-        const pulls = calculator.spendTickets().spendOrundum().convertOP().getPulls()
-        return pulls
-    }
-
-    /** Convert all tickets and orundum into pulls */
-    convertToPullsNoOP() {
-        const calculator = new PullCalculator(this)
-        const pulls = calculator.spendTickets().spendOrundum().getPulls()
-        return pulls
+    copyFrom(res: BasicResources) {
+        this.orundum = res.orundum
+        this.tickets = res.tickets
+        this.op = res.op
+        return this
     }
 
     convertToPullsUpTo(maxPulls: number) {

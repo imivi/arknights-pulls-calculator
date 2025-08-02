@@ -10,7 +10,8 @@ import { useUserResources } from "../hooks/useUserResources";
 import { UserResource } from "../stores/useUserResourcesStore";
 import { Resource } from "../types";
 import { formatOrundum } from "../utils/utils";
-import { Day } from "../day";
+import { Day } from "../types";
+import { Tooltip } from "react-tooltip";
 
 
 
@@ -74,6 +75,8 @@ export default function ResourceMenu({ day, resource }: Props) {
 
     const valueShortcuts = allValueShortcuts[resource]
 
+    const btnTooltipId = `add-resource-${resource}-${day.date}`
+
     return (
         <Popover.Root open={showMenu} onOpenChange={(open) => setShowMenu(open)} >
             <Popover.Trigger asChild>
@@ -85,11 +88,18 @@ export default function ResourceMenu({ day, resource }: Props) {
                         {amount > 0 && "+"}{amount}
                     </span>}
 
-                    <span className={s.resource_count} data-resource={resource} data-dark={darkMode} data-active={isActive}>
-                        {resource === "orundum" && formatOrundum(day.resourcesTotal.orundum)}
-                        {resource === "tickets" && day.resourcesTotal.tickets.toFixed()}
-                        {resource === "op" && day.resourcesTotal.op.toFixed()}
+                    <span
+                        className={s.resource_count}
+                        data-resource={resource}
+                        data-dark={darkMode}
+                        data-active={isActive}
+                        data-tooltip-id={btnTooltipId}
+                    >
+                        {resource === "orundum" && formatOrundum(day.cumulativeResources.orundum)}
+                        {resource === "tickets" && day.cumulativeResources.tickets.toFixed()}
+                        {resource === "op" && day.cumulativeResources.op.toFixed()}
                     </span>
+                    <Tooltip id={btnTooltipId}>Click to add or deduct {resource}</Tooltip>
 
                 </button>
             </Popover.Trigger>

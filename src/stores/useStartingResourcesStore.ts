@@ -12,7 +12,7 @@ type Store = {
 
 }
 
-export const useSettingsStore = create(persist<Store>((set) => ({
+export const useStartingResourcesStore = create(persist<Store>((set) => ({
     monthlyCard: false,
     setMonthlyCard: (monthlyCard: boolean) => set({ monthlyCard }),
 

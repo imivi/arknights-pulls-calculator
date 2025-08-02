@@ -1,64 +1,37 @@
 import { useMemo } from "react"
 import { getValidDates, calculateRowSpan } from "../utils/utils"
-import { getDays, filterGainedResources, calculateDailyResources, calculateCumulativeResources, deductResourcesSpent, calculateSpentPulls, calculatePullsAvailable, applyUserResources } from "../utils/days-utils"
-import { Resources } from "../utils/resources"
-import { useResourcesSpentStore } from "../stores/useResourcesSpentStore"
-import { useUserResourcesStore } from "../stores/useUserResourcesStore"
+import { useSettings } from "./useSettings"
+import { getDays, addUserData, calculateDailyTotals } from "../utils/days-utils"
 
 
-export function useCalendar(f2p: boolean, ignoreFirstDayResources: boolean, clearedReruns: string[], startingResources: Resources) {
+export function useCalendar() {
 
-    // Create day objects from imported json with daily resources
-    let days = useMemo(getDays, [])
+    const settings = useSettings()
 
-    // Get valid dates (today or future dates)
-    const validDates = useMemo(() => new Set(getValidDates(days.map(day => day.date))), [days])
+    // Get base days values (this is done only once on page load)
+    const defaultDays = useMemo(() => {
 
-    // Filter out days with past dates
-    days = useMemo(() => {
-        return days.filter(day => validDates.has(day.date))
-    }, [validDates, days,])
+        // Create day objects from imported json with daily resources
+        let days = getDays()
 
-    // Calculate row spans (for event cells) (must be done after excluding past dates)
-    days = useMemo(() => calculateRowSpan(days), [days])
+        // Get valid dates (today or future dates)
+        const validDates = new Set(getValidDates(days.map(day => day.date)))
 
-    // Ignore certain resources for F2P and reruns
-    // and ignore first day resources
-    days = useMemo(() => {
-        return filterGainedResources(days, f2p, clearedReruns, !ignoreFirstDayResources)
-    }, [days, f2p, clearedReruns, ignoreFirstDayResources])
+        // Filter out days with past dates
+        days = days.filter(day => validDates.has(day.date))
 
-    // Subtract resources based on pulls spent (add negative resource values)
-    const { resourcesSpent } = useResourcesSpentStore()
-    days = useMemo(() => {
-        return deductResourcesSpent(days, resourcesSpent)
-    }, [days, resourcesSpent])
+        // Calculate row spans (for event cells) (must be done after excluding past dates)
+        days = calculateRowSpan(days)
+        return days
+    }, [])
 
-    // Add or subtract resources based on custom user data
-    const { userResources } = useUserResourcesStore()
-    days = useMemo(() => {
-        return applyUserResources(days, userResources)
-    }, [days, userResources])
+    // console.log(defaultDays)
 
-    // Add information on spent pulls
-    days = useMemo(() => {
-        return calculateSpentPulls(days, resourcesSpent)
-    }, [days, resourcesSpent])
-
-    // Add resources gained each day (not cumulative)
-    days = useMemo(() => {
-        return calculateDailyResources(days)
-    }, [days])
-
-    // Calculate cumulative resources
-    days = useMemo(() => {
-        return calculateCumulativeResources(days, startingResources)
-    }, [days, startingResources])
-
-    // Calculate pulls available for each day
-    days = useMemo(() => {
-        return calculatePullsAvailable(days)
-    }, [days])
+    // Add user data and calculate cumulative resources, available/spent pulls, etc
+    const days = useMemo(() => {
+        const daysWithUserData = addUserData(defaultDays, settings)
+        return calculateDailyTotals(daysWithUserData, settings)
+    }, [defaultDays, settings])
 
     return days
 }

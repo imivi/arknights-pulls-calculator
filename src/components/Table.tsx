@@ -1,4 +1,4 @@
-import { Day } from "../day"
+import { Day } from "../types"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Icon from "./Icon"

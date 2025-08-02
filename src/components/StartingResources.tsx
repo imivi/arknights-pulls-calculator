@@ -1,20 +1,20 @@
-import s from "./Settings.module.scss"
+import s from "./StartingResources.module.scss"
 
 import { Tooltip } from "react-tooltip"
 import Icon from "./Icon"
-import { useSettingsStore } from "../stores/useSettings"
+import { useStartingResourcesStore } from "../stores/useStartingResourcesStore"
 import { useStartingResources } from "../hooks/useStartingResources"
 import { useRef, useState } from "react"
 import { BasicResources, Resource } from "../types"
 
 
 
-const INPUT_DEBOUNCE_MS = 500
+const INPUT_DEBOUNCE_MS = 800
 
 
-export default function Settings() {
+export default function StartingResources() {
 
-    const { monthlyCard, setMonthlyCard, startingResources } = useSettingsStore()
+    const { monthlyCard, setMonthlyCard, startingResources } = useStartingResourcesStore()
     const { setResource } = useStartingResources()
 
     // On first page load, load the resource values from localstorage (zustand store)
@@ -36,7 +36,7 @@ export default function Settings() {
     }
 
     return (
-        <fieldset className={s.Settings}>
+        <fieldset className={s.StartingResources}>
 
             <label data-resource="starting-orundum" data-tooltip-id="starting-orundum">
                 <Icon type="orundum" size={32} />

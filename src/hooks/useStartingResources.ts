@@ -1,6 +1,6 @@
 import { useMemo } from "react"
-import { useSettingsStore } from "../stores/useSettings"
 import { Resources } from "../utils/resources"
+import { useStartingResourcesStore } from "../stores/useStartingResourcesStore"
 
 
 
@@ -8,7 +8,7 @@ type Resource = "orundum" | "op" | "tickets"
 
 export function useStartingResources() {
 
-    const { startingResources, setStartingResources } = useSettingsStore()
+    const { startingResources, setStartingResources } = useStartingResourcesStore()
 
     const resources = useMemo(() => {
         const { orundum, tickets, op } = startingResources

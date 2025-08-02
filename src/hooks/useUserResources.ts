@@ -8,7 +8,6 @@ export function useUserResources() {
     const { userResources, setUserResources } = useUserResourcesStore()
 
     function setResource(date: string, resource: Resource, value: number, description: string) {
-        console.log("setResource")
 
         const newUserResources: AllUserResources = {
             ...userResources,
@@ -33,7 +32,6 @@ export function useUserResources() {
             delete newUserResources[date]
 
         setUserResources(newUserResources)
-        console.log("deleteResource - new:", newUserResources)
     }
 
     return {

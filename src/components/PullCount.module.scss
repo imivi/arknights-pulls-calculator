@@ -73,4 +73,11 @@
     background-color: brown;
     color: white;
     border-radius: 5px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    &[data-warning-too-many-pulls=true] {
+        background-color: brown;
+    }
 }

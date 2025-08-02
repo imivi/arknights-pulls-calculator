@@ -9,7 +9,7 @@ import { useClearedTodayStore } from "../stores/useClearedTodayStore"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import Icon from "./Icon"
 import EventCell from "./EventCell"
-import { Day } from "../day"
+import { Day } from "../types"
 import { resourceLabels } from "../labels"
 import PullCount from "./PullCount"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
@@ -123,7 +123,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                         <span data-dark={darkMode} data-cell="pulls-from-op" className={s.align_left} data-tooltip-id={tooltipPullsOP}>
                             +&nbsp;{day.pullsAvailableFromOP.toFixed()}
                             <Tooltip id={tooltipPullsOP} style={{ zIndex: 9 }} place="bottom">
-                                {(day.pullsAvailableFromOP).toFixed()} pulls from converting {day.resourcesTotal.op} OP
+                                {(day.pullsAvailableFromOP).toFixed()} pulls from converting {day.cumulativeResources.op} OP
                             </Tooltip>
                         </span>
                         <div className={s.arrow_container} data-dark={darkMode} />
@@ -205,11 +205,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
 function ResourceBadgeWithTooltip({ day, resource }: { day: Day, resource: Resource }) {
 
-    const infoToShow = [
-        ...day.resourcesInfoDefault[resource],
-        ...day.resourcesFromPulls[resource],
-        ...day.resourcesFromCustomSources[resource],
-    ].filter(item => item.enabled && item.value !== 0)
+    const infoToShow = day.activeResourcesInfo[resource]//.filter(item => item.value !== 0)
 
     if (infoToShow.length === 0)
         return null
@@ -217,7 +213,7 @@ function ResourceBadgeWithTooltip({ day, resource }: { day: Day, resource: Resou
     return (
         <ResourceBadge
             resource={resource}
-            value={day.resourcesToday[resource]}
+            value={day.resourcesGainedToday[resource]}
             tooltipId={day.date + "-" + resource}
         >
             <ResourcesGained resources={infoToShow} />
@@ -228,7 +224,7 @@ function ResourceBadgeWithTooltip({ day, resource }: { day: Day, resource: Resou
 
 function ResourcesGained({ resources }: { resources: ResourceGained[] }) {
 
-    const items = resources.filter(resource => resource.value !== 0 && resource.enabled)
+    const items = resources.filter(resource => resource.value !== 0)
 
     return (
         <ul>

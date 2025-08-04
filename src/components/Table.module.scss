@@ -116,7 +116,7 @@
                 flex-direction: column;
                 // opacity: 0.5;
 
-                span {
+                &>span {
                     padding: .5em;
                 }
             }

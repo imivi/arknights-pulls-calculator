@@ -5,6 +5,7 @@ import { useClearedReruns } from "../hooks/useClearedReruns"
 import { Colors } from "../scripts/get-image-colors"
 import { Day } from "../types"
 import { FaArrowUpRightFromSquare } from "react-icons/fa6"
+import { FaExclamationTriangle } from "react-icons/fa"
 
 
 type Props = {
@@ -22,6 +23,9 @@ export default function EventCell({ day, colors }: Props) {
     const eventCellStyle = getEventCellStyle(colors)
     const eventNameStyle = getEventNameStyle(colors)
 
+    const eventName = day.event_name?.replace("(date TBD)", "").trim()
+    const dateTBD = !!day.event_name?.includes("(date TBD)")
+
     return (
         <td className={s.EventCell} rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
             {
@@ -30,7 +34,10 @@ export default function EventCell({ day, colors }: Props) {
                     {
                         day.event_link &&
                         <a className={s.event_title} href={day.event_link} target="_blank" rel="noreferrer">
-                            {day.event_name}
+                            <span>
+                                {eventName}
+                                {dateTBD && <DateTBD borderColor={colors?.dark.hex!} />}
+                            </span>
                             <FaArrowUpRightFromSquare size={12} />
                         </a>
                     }
@@ -105,4 +112,13 @@ function getEventCellStyle(colors: Colors | null): CSSProperties {
     }
 
     return {}
+}
+
+
+function DateTBD({ borderColor }: { borderColor: string }) {
+    return (
+        <small className={s.DateTBD} style={{ borderColor }}>
+            <FaExclamationTriangle size={14} /> Date TBD
+        </small>
+    )
 }

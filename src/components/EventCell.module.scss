@@ -14,7 +14,26 @@
         padding: .5em;
         display: grid;
         grid-template-columns: 1fr auto;
+
+        &>span {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: .3em;
+        }
     }
+}
+
+.DateTBD {
+    display: flex;
+    padding: .2em;
+    font-size: .8em;
+    gap: .3em;
+    align-items: center;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0.8;
 }
 
 img.bg {

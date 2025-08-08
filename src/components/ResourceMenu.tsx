@@ -126,7 +126,7 @@ export default function ResourceMenu({ day, resource }: Props) {
                                 {
                                     valueShortcuts.length > 0 &&
                                     valueShortcuts.map(value => (
-                                        <Button type="button" key={value} onClick={() => setInputValue(value)}>{value}</Button>
+                                        <Button type="button" dark={false} key={value} onClick={() => setInputValue(value)}>{value}</Button>
                                     ))
                                 }
                             </fieldset>

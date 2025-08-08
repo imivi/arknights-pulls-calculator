@@ -1,5 +1,6 @@
 .Button {
-    color: inherit;
+    color: #444;
+
     background: none;
     border: none;
     padding: .2em .4em;
@@ -14,10 +15,27 @@
     background-color: rgba($color: black, $alpha: 0.05);
 
     &:hover {
+        color: black;
         background-color: rgba($color: black, $alpha: 0.03);
     }
 
     &:active {
+        color: black;
         background-color: rgba($color: black, $alpha: 0.07);
+    }
+
+    &[data-dark=true] {
+        color: #eee;
+        background-color: rgba($color: black, $alpha: 0.2);
+
+        &:hover {
+            color: white;
+            background-color: rgba($color: black, $alpha: 0.15);
+        }
+
+        &:active {
+            color: white;
+            background-color: rgba($color: black, $alpha: 0.3);
+        }
     }
 }

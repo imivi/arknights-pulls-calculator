@@ -4,9 +4,13 @@ import { useDarkModeStore } from "../stores/useDarkModeStore"
 import { type ButtonHTMLAttributes } from "react"
 
 
-export default function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-    const darkMode = useDarkModeStore(store => store.darkMode)
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+    dark?: boolean
+}
+
+export default function Button(props: Props) {
+    const dark = props.dark ?? useDarkModeStore(store => store.darkMode)
     return (
-        <button className={s.Button} data-dark={darkMode} {...props} />
+        <button className={s.Button} data-dark={dark} {...props} />
     )
 }

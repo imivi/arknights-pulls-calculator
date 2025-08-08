@@ -33,7 +33,7 @@ export default function Chart({ days, show }: Props) {
                             }
                         }
                     }}
-                    curve="monotoneX"
+                    curve="natural"
                     data={data}
                     margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
                     colors={["#4090dcff", "#e9b546ff"]}

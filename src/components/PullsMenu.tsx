@@ -90,15 +90,15 @@ export default function PullsMenu({ day, children }: Props) {
                             </label>
 
                             <fieldset>
-                                <Button type="button" onClick={() => setInputValue("0")}>0</Button>
-                                <Button type="button" onClick={() => increment(-1)}>-1</Button>
-                                <Button type="button" onClick={() => increment(+1)}>+1</Button>
-                                <Button type="button" onClick={() => increment(-10)}>-10</Button>
-                                <Button type="button" onClick={() => increment(+10)}>+10</Button>
+                                <Button type="button" dark={false} onClick={() => setInputValue("0")}>0</Button>
+                                <Button type="button" dark={false} onClick={() => increment(-1)}>-1</Button>
+                                <Button type="button" dark={false} onClick={() => increment(+1)}>+1</Button>
+                                <Button type="button" dark={false} onClick={() => increment(-10)}>-10</Button>
+                                <Button type="button" dark={false} onClick={() => increment(+10)}>+10</Button>
                             </fieldset>
                             <fieldset>
-                                <Button type="button" onClick={() => setInputValue(day.pullsAvailableWithoutOP.toFixed())}>Max, no OP ({day.pullsAvailableWithoutOP})</Button>
-                                <Button type="button" onClick={() => setInputValue(day.pullsAvailableTotal.toFixed())}>Max ({day.pullsAvailableTotal})</Button>
+                                <Button type="button" dark={false} onClick={() => setInputValue(day.pullsAvailableWithoutOP.toFixed())}>Max, no OP ({day.pullsAvailableWithoutOP})</Button>
+                                <Button type="button" dark={false} onClick={() => setInputValue(day.pullsAvailableTotal.toFixed())}>Max ({day.pullsAvailableTotal})</Button>
                             </fieldset>
 
                             {

@@ -2,9 +2,9 @@ import s from "./ResourceBadge.module.scss"
 
 import { ReactNode } from "react"
 import { Tooltip } from 'react-tooltip'
-import Icon from "./Icon"
-import { useDarkModeStore } from "../stores/useDarkModeStore"
-import { formatOrundum } from "../utils/utils"
+import Icon from "./../Icon"
+import { useDarkModeStore } from "../../stores/useDarkModeStore"
+import { formatOrundum } from "../../utils/utils"
 
 
 type Resource = "orundum" | "op" | "tickets"

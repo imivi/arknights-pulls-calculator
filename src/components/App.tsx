@@ -5,16 +5,17 @@ import { useDarkModeStore } from "../stores/useDarkModeStore"
 import Settings from "./StartingResources"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Footer from "./Footer"
-import Table from "./Table"
 import Chart from "./Chart"
 import { downloadCsv } from "../utils/download-csv"
 import { useState } from "react"
 import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-icons/fa"
 import Button from "./Button"
 import Icon from "./Icon"
-import { IconOnlyResourceBadge } from "./ResourceBadge"
 import DebugCalendar from "./DebugCalendar"
 import { migrateLocalStorage } from "../migrate-local-storage"
+import { FaGear } from "react-icons/fa6"
+import { IconOnlyResourceBadge } from "./table/ResourceBadge"
+import Table from "./table/Table"
 
 
 
@@ -68,7 +69,10 @@ export default function App() {
                 </ul>
             </fieldset>
 
-            <div className={s.message_box} data-dark={darkMode}>
+            <fieldset className={s.message_box} data-dark={darkMode}>
+                <legend>
+                    <FaGear size={16} />&nbsp;settings
+                </legend>
                 <label>
                     <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
                     &nbsp;Show resources
@@ -76,7 +80,8 @@ export default function App() {
                     <Icon type="tickets" size={24} />
                     <Icon type="op" size={24} />
                 </label>
-            </div>
+                <Button>Customize resource income</Button>
+            </fieldset>
 
             <Table days={days} />
 

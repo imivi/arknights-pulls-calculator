@@ -1,11 +1,11 @@
 import s from "./PullCount.module.scss"
 
-import { Day } from "../types"
-import { useDarkModeStore } from "../stores/useDarkModeStore"
-import PullsMenu from "./PullsMenu"
-import { useSpendablePullsStore } from "../stores/useSpendablePullsStore"
+import { Day } from "../../types"
+import { useDarkModeStore } from "../../stores/useDarkModeStore"
+import { useSpendablePullsStore } from "../../stores/useSpendablePullsStore"
 import { Tooltip } from "react-tooltip"
 import { FaExclamationTriangle } from "react-icons/fa"
+import PullsMenu from "../menus/PullsMenu"
 
 
 type Props = {

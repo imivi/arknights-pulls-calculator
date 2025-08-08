@@ -1,17 +1,16 @@
 import s from "./ResourceMenu.module.scss"
-import buttonStyle from "./Button.module.scss"
+import buttonStyle from "../Button.module.scss"
 
 import { useEffect, useState } from "react";
 import { Popover } from "radix-ui";
-import Icon from "./Icon";
-import { useDarkModeStore } from "../stores/useDarkModeStore";
-import Button from "./Button";
-import { useUserResources } from "../hooks/useUserResources";
-import { UserResource } from "../stores/useUserResourcesStore";
-import { Resource } from "../types";
-import { formatOrundum } from "../utils/utils";
-import { Day } from "../types";
 import { Tooltip } from "react-tooltip";
+import { useUserResources } from "../../hooks/useUserResources";
+import { useDarkModeStore } from "../../stores/useDarkModeStore";
+import { UserResource } from "../../stores/useUserResourcesStore";
+import { Day, Resource } from "../../types";
+import { formatOrundum } from "../../utils/utils";
+import Button from "../Button";
+import Icon from "../Icon";
 
 
 

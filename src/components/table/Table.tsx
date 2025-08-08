@@ -1,7 +1,7 @@
-import { Day } from "../types"
-import { useDarkModeStore } from "../stores/useDarkModeStore"
-import { useShowResourcesStore } from "../stores/useShowResourcesStore"
-import Icon from "./Icon"
+import { useDarkModeStore } from "../../stores/useDarkModeStore"
+import { useShowResourcesStore } from "../../stores/useShowResourcesStore"
+import { Day } from "../../types"
+import Icon from "../Icon"
 import s from "./Table.module.scss"
 import TableRow from "./TableRow"
 

@@ -6,6 +6,17 @@ import { convertPullsToResources, convertResourcesToPulls, sum } from "./utils"
 
 export function getDays(): BaseValues[] {
 
+    // Add data on event ops for every day of each event (instead of just the first day)
+    // Maps the event_id with the list of event ops
+    const allEventOps: Record<string, string[]> = {}
+    for (const day of daysData) {
+        if (day.event_id && day.event_ops.length > 0) {
+            allEventOps[day.event_id] = day.event_ops
+        }
+    }
+
+    // console.log(allEventOps)
+
     const days: BaseValues[] = daysData.map(day => {
 
         const orundum = day.resourcesGained.orundum.map(res => ({ ...res }))
@@ -14,12 +25,14 @@ export function getDays(): BaseValues[] {
 
         const free_monthly_card = day.resourcesGained.orundum.findIndex(res => res.source === "free_monthly_card") >= 0
 
+        const event_ops = (day.event_id && day.event_id in allEventOps) ? allEventOps[day.event_id] : []
+
         return {
             date: day.date,
             event_id: day.event_id,
             event_link: day.event_link,
             event_name: day.event_name,
-            event_ops: day.event_ops,
+            event_ops,
             eventDay: day.eventDay,
             freePulls: day.freePulls,
             free_monthly_card,

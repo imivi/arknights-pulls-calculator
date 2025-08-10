@@ -25,8 +25,6 @@ export function useCalendar() {
         return days
     }, [])
 
-    // console.log(defaultDays)
-
     // Add user data and calculate cumulative resources, available/spent pulls, etc
     const days = useMemo(() => {
         const daysWithUserData = addUserData(defaultDays, settings)

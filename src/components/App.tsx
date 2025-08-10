@@ -80,7 +80,7 @@ export default function App() {
                     <Icon type="tickets" size={24} />
                     <Icon type="op" size={24} />
                 </label>
-                <Button>Customize resource income</Button>
+                {/* <Button>Customize resource income</Button> */}
             </fieldset>
 
             <Table days={days} />

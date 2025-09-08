@@ -45,6 +45,11 @@ export function addFreePulls<T extends Item>(days: T[]) {
             else if (today.eventDay <= 14)
                 today.freePulls = 1
         }
+
+        const isCollabEvent = !!today.event_id && today.event_id.endsWith("_collab")
+        if (isCollabEvent && (today.eventDay === 1 || today.eventDay === 8)) {
+            today.freePulls = 10
+        }
     })
 
     return [...days]

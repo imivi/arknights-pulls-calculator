@@ -12,7 +12,6 @@ import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-ico
 import Button from "./Button"
 import Icon from "./Icon"
 import DebugCalendar from "./DebugCalendar"
-import { migrateLocalStorage } from "../migrate-local-storage"
 import { FaGear } from "react-icons/fa6"
 import { IconOnlyResourceBadge } from "./table/ResourceBadge"
 import Table from "./table/Table"
@@ -21,8 +20,6 @@ import Table from "./table/Table"
 
 export default function App() {
 
-    migrateLocalStorage()
-
     const days = useCalendar()
 
     const { darkMode } = useDarkModeStore()
@@ -30,9 +27,6 @@ export default function App() {
     const { showResources, setShowResources } = useShowResourcesStore()
 
     const [showChart, setShowChart] = useState(window.innerWidth > 600)
-
-    // const settings = useSettings()
-    // return <pre>{JSON.stringify({ settings, days }, null, 4)}</pre>
 
     return (
         <main className={s.App} data-dark={darkMode}>

@@ -102,7 +102,7 @@ export default function PullsMenu({ day, children }: Props) {
                             </fieldset>
 
                             {
-                                inputValueAsNumber > 0 &&
+                                inputValueAsNumber >= 0 &&
                                 <ul>
                                     {
                                         cumulativeSpendableResources.tickets > 0 &&
@@ -119,9 +119,24 @@ export default function PullsMenu({ day, children }: Props) {
                                             {resourcesSpent.op} / {cumulativeSpendableResources.op}
                                             →
                                             <Icon type="orundum" size={20} />
-                                            {resourcesSpent.op * 180}
+                                            {formatOrundum(resourcesSpent.op * 180)}
                                         </li>
                                     }
+
+
+                                    {
+                                        cumulativeSpendableResources.tickets === 0 &&
+                                        <li data-active={false}><Icon type="tickets" size={20} /> -</li>
+                                    }
+                                    {
+                                        resourcesSpent.orundum === 0 &&
+                                        <li data-active={false}><Icon type="orundum" size={20} /> -</li>
+                                    }
+                                    {
+                                        resourcesSpent.op === 0 &&
+                                        <li data-active={false}><Icon type="op" size={20} /> -</li>
+                                    }
+
                                 </ul>
                             }
 

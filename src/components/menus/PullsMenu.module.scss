@@ -86,6 +86,16 @@ button.btn_open_menu {
         display: none;
     }
 
+    li {
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
+
+    li[data-active=false] {
+        opacity: 0.4;
+    }
+
     footer {
         display: flex;
         gap: 5px;

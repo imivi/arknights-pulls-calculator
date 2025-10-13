@@ -9,6 +9,11 @@ import { Day } from "../../types";
 import { convertPullsToResources, constrain, formatOrundum } from "../../utils/utils";
 import Button from "../Button";
 import Icon from "../Icon";
+import { getPullOdds } from "../../utils/get-pull-odds";
+
+
+type BannerType = "debut" | "limited" | "none"
+
 
 
 
@@ -30,6 +35,12 @@ export default function PullsMenu({ day, children }: Props) {
 
     const maxSpendablePulls = Math.min(inputValueAsNumber, day.pullsAvailableTotal)
     const { spent: resourcesSpent } = convertPullsToResources(cumulativeSpendableResources, maxSpendablePulls)
+
+    const bannerType = getBannerType(day)
+
+    let pullOdds: Record<string, number> = {}
+    if (bannerType !== "none")
+        pullOdds = getPullOdds(inputValueAsNumber, bannerType)
 
     // Make sure the input value is always showing the spendable pulls
     useEffect(() => {
@@ -140,6 +151,20 @@ export default function PullsMenu({ day, children }: Props) {
                                 </ul>
                             }
 
+                            {
+                                Object.keys(pullOdds).length > 0 &&
+                                <table className={s.pull_odds}>
+                                    <tbody>
+                                        {Object.entries(pullOdds).map(([key, chance]) => (
+                                            <tr key={key}>
+                                                <td>{key}</td>
+                                                <td>{Math.round(chance)} %</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            }
+
                         </main>
 
                         <footer>
@@ -162,4 +187,14 @@ export default function PullsMenu({ day, children }: Props) {
             </Popover.Portal>
         </Popover.Root >
     )
+}
+
+
+
+function getBannerType(day: Day): BannerType {
+    if (!day.event_id || day.event_ops.length === 0)
+        return "none"
+    if (day.event_id.endsWith("lim"))
+        return "limited"
+    return "debut"
 }

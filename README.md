@@ -20,6 +20,8 @@ This is an online tool for Arknights players to calculate resource income and fu
 
 * You can click on a pull count to **spend pulls**. The resources spent will be automatically calculated and deducted.
 
+* When spending pulls, the chance of pulling the rate-up operator(s) is shown. The data comes from [Krooster's headhunting calculator](https://www.krooster.com/tools/rateup).
+
 ## NOT included in the calculations
 
 * **24 free pulls** on each limited banner (every 3 months) are listed separately. They are excluded from the running total because they can't be saved.

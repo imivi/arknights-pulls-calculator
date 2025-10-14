@@ -122,7 +122,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                         <span data-dark={darkMode} data-cell="pulls-from-op" className={s.align_left} data-tooltip-id={tooltipPullsOP}>
                             +&nbsp;{day.pullsAvailableFromOP.toFixed()}
                             <Tooltip id={tooltipPullsOP} style={{ zIndex: 9 }} place="bottom">
-                                {(day.pullsAvailableFromOP).toFixed()} pulls from converting {day.cumulativeResources.op} OP
+                                {(day.pullsAvailableFromOP).toFixed()} pulls from converting up to {day.cumulativeResources.op} OP
                             </Tooltip>
                         </span>
                         <div className={s.arrow_container} data-dark={darkMode} />

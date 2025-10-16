@@ -14,6 +14,7 @@ import { useShowResourcesStore } from "../../stores/useShowResourcesStore"
 import { Day, Resource, ResourceGained } from "../../types"
 import Icon from "../Icon"
 import ResourceMenu from "../menus/ResourceMenu"
+import Stripes from "./Stripes"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -46,6 +47,8 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
     const { showResources } = useShowResourcesStore()
 
+    const dateTBD = !!day.event_name?.includes("(date TBD)")
+
     return (
         <tr className={s.TableRow} data-dark={darkMode} data-even={rowIsEven}>
 
@@ -55,14 +58,17 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
             />
 
             <td
+                className={s.day_cell}
                 data-event-id={day.event_id}
                 data-dark={darkMode}
                 data-even={rowIsEven}
-                className={s.day_cell}
                 data-cleared={isToday && clearedToday}
             >
 
                 <span className={s.date} data-interactive={isToday}>
+
+                    {dateTBD && <Stripes color={colors?.dark.hex!} />}
+
                     {
                         isToday &&
                         <input

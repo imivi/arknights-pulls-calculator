@@ -1,0 +1,9 @@
+.Stripes {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.15;
+    z-index: -1;
+    // background: linear-gradient(black 0%, black 50%, transparent 50%, transparent 100%);
+    transform: rotate(-45deg) scale(2);
+}

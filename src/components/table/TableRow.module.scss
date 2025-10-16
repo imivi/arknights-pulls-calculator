@@ -206,6 +206,7 @@ tr.TableRow {
 .day_cell {
     position: relative;
     z-index: 1;
+    overflow: hidden;
 
     &[data-cleared=true] label {
         opacity: 0.5;

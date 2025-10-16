@@ -31,6 +31,7 @@ export default function EventCell({ day, colors }: Props) {
             {
                 day.event_name &&
                 <label style={eventNameStyle}>
+
                     {
                         day.event_link &&
                         <a className={s.event_title} href={day.event_link} target="_blank" rel="noreferrer">

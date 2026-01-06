@@ -15,8 +15,6 @@ export function getDays(): BaseValues[] {
         }
     }
 
-    // console.log(allEventOps)
-
     const days: BaseValues[] = daysData.map(day => {
 
         const orundum = day.resourcesGained.orundum.map(res => ({ ...res }))
@@ -46,144 +44,12 @@ export function getDays(): BaseValues[] {
             // pullsAvailableWithoutOP: 0,
 
             defaultResourcesInfo: { orundum, tickets, op }, // Resources that come from the google sheet values
-            // resourcesFromPulls: { orundum: [], tickets: [], op: [] }, // Resources deducted from pulling
-            // resourcesFromCustomSources: { orundum: [], tickets: [], op: [] }, // Resources gained/added manually by the user
-
-            // resourcesToday: new Resources(), // Depends on "f2p" and "monthly_card"
-            // resourcesTotal: new Resources(),
-            // resourcesSpendable: new Resources(),
-            // resourcesSpent: new Resources(),
         }
     })
 
     return [...days]
 }
 
-
-// export function calculatePullsAvailable(days: Day[]) {
-
-//     for (const day of days) {
-//         day.pullsAvailable = convertResourcesToPulls(day.resourcesTotal, true)
-//         day.pullsAvailableWithoutOP = convertResourcesToPulls(day.resourcesTotal, false)
-//         day.pullsAvailableFromOP = day.pullsAvailable - day.pullsAvailableWithoutOP
-//     }
-
-//     return [...days]
-// }
-
-
-// export function calculateSpentPulls(days: Day[], resourcesSpent: Record<string, BasicResources>) {
-//     for (const day of days) {
-//         if (day.date in resourcesSpent) {
-//             day.pullsSpent = convertResourcesToPulls(resourcesSpent[day.date], true)
-//             const { op, orundum, tickets } = resourcesSpent[day.date]
-//             day.resourcesSpent.set(orundum, tickets, op)
-//         }
-//         else {
-//             day.pullsSpent = 0
-//             day.resourcesSpent.set(0, 0, 0)
-//         }
-
-//     }
-//     return [...days]
-// }
-
-
-// export function deductResourcesSpent(days: Day[], resourcesSpent: Record<string, BasicResources>) {
-
-//     const resources = ["orundum", "tickets", "op"] as const
-
-//     days.forEach((today, i) => {
-
-//         if (i === days.length - 1)
-//             return
-
-//         const tomorrow = days[i + 1]
-
-//         if (!(today.date in resourcesSpent))
-//             return
-
-//         const resourcesToDeduct = resourcesSpent[today.date]
-
-//         const source = "pulls"
-
-//         // Update information on resources spent
-//         for (const res of resources) {
-
-//             const amount = resourcesToDeduct[res]
-
-//             // Add info about spent resources
-//             tomorrow.resourcesFromPulls[res] = [
-//                 { source, value: -amount, enabled: true },
-//             ]
-//         }
-//     })
-
-//     return [...days]
-// }
-
-// export function applyUserResources(days: (BaseValues)[], userResources: AllUserResources) {
-
-//     days.forEach(today => {
-
-//         if (!(today.date in userResources))
-//             return
-
-//         const userRes = userResources[today.date]
-
-//         // Update information on resources spent (orundum not supported)
-//         for (const res of resources) {
-
-//             if (!(res in userRes)) {
-//                 today.resourcesFromCustomSources[res] = []
-//             }
-//             else {
-//                 const { value, description } = userRes[res]
-
-//                 // Replace previous information
-//                 today.resourcesFromCustomSources[res] = [
-//                     {
-//                         source: description,
-//                         value,
-//                         enabled: value !== 0,
-//                     }
-//                 ]
-//             }
-//         }
-//     })
-
-//     return [...days]
-// }
-
-/** Calculate all resources gained each day (not cumulative) */
-// export function calculateDailyResources(days: Day[]) {
-
-//     for (const day of days) {
-//         const orundum = sum(day.resourcesInfoDefault.orundum) + sum(day.resourcesFromPulls.orundum) + sum(day.resourcesFromCustomSources.orundum)
-//         const tickets = sum(day.resourcesInfoDefault.tickets) + sum(day.resourcesFromPulls.tickets) + sum(day.resourcesFromCustomSources.tickets)
-//         const op = sum(day.resourcesInfoDefault.op) + sum(day.resourcesFromPulls.op) + sum(day.resourcesFromCustomSources.op)
-//         day.resourcesToday.set(orundum, tickets, op)
-//     }
-
-//     return [...days]
-// }
-
-
-/** Calculate all resources gained each day (not cumulative) */
-// export function calculateCumulativeResources(days: Day[], startingResources: Resources) {
-
-//     days.forEach((day, i) => {
-//         if (i === 0) {
-//             day.resourcesTotal = day.resourcesToday.clone().add(startingResources)
-//         }
-//         else {
-//             const totalResourcesYesterday = days[i - 1].resourcesTotal
-//             day.resourcesTotal = new Resources().add(day.resourcesToday).add(totalResourcesYesterday)
-//         }
-//     })
-
-//     return [...days]
-// }
 
 
 

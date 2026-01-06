@@ -23,10 +23,6 @@ export function downloadCsv(rows: Day[]) {
             pulls_spent: day.pullsSpent,
             event_ops: day.event_ops.join("; "),
 
-            // resources_spent_orundum: day.resourcesSpent.orundum,
-            // resources_spent_tickets: day.resourcesSpent.tickets,
-            // resources_spent_op: day.resourcesSpent.op,
-
             resources_gained_orundum: day.resourcesGainedToday.orundum,
             resources_gained_tickets: day.resourcesGainedToday.tickets,
             resources_gained_op: day.resourcesGainedToday.op,

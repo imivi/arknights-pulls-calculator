@@ -45,7 +45,20 @@ function checkDailyResources() {
         }
     })
 
+    // Make sure that all reruns have orundum from intelligence certificates ("orundum:intel"),
+    // and non-reruns have no orundum from intelligence certificates
+    for (const day of days) {
+        const isRerun = day.event_id?.endsWith("rerun")
+        const orundumFromIntelCerts = day.resourcesGained.orundum.find(res => res.source === "intel")?.value || 0
+
+        if (!isRerun && orundumFromIntelCerts > 0)
+            throw Error(`Non-rerun has orundum from intel certs: event ${day.event_id}, ${orundumFromIntelCerts} orundum`)
+
+        if (isRerun && day.eventDay === 1 && orundumFromIntelCerts === 0)
+            throw Error(`Rerun has no orundum from intel certs: event ${day.event_id}`)
+    }
 
 }
 
 checkDailyResources()
+console.info("✅ Spreadsheet data validated successfully")

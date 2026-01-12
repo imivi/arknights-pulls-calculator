@@ -106,7 +106,7 @@ function processRows(rows: Row[]) {
 
 async function fetchRows(googleSheetId: string) {
     const parser = new PublicGoogleSheetsParser(googleSheetId, {
-        useFormattedDate: false,
+        useFormattedDate: true,
     })
     const rows = await parser.parse()
     return rowsSchema.parse(rows)

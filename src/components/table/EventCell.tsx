@@ -1,6 +1,6 @@
 import s from "./EventCell.module.scss"
 
-import { CSSProperties } from "react"
+import { CSSProperties, ReactNode } from "react"
 import { useClearedReruns } from "../../hooks/useClearedReruns"
 import { Colors } from "../../scripts/get-image-colors"
 import { Day } from "../../types"
@@ -26,6 +26,10 @@ export default function EventCell({ day, colors }: Props) {
     const eventName = day.event_name?.replace("(date TBD)", "").trim()
     const dateTBD = !!day.event_name?.includes("(date TBD)")
 
+    const isRerun = !!day.event_id?.endsWith("_rerun")
+    const isLimited = !!day.event_id?.includes("_lim")
+    const noBanner = isRerun && isLimited
+
     return (
         <td className={s.EventCell} rowSpan={day.rowSpan} style={eventCellStyle} data-column="event">
             {
@@ -37,7 +41,8 @@ export default function EventCell({ day, colors }: Props) {
                         <a className={s.event_title} href={day.event_link} target="_blank" rel="noreferrer">
                             <span>
                                 {eventName}
-                                {dateTBD && <DateTBD borderColor={colors?.dark.hex!} />}
+                                {dateTBD && <WarningBox borderColor={colors?.dark.hex!} >Date TBD</WarningBox>}
+                                {noBanner && <WarningBox borderColor={colors?.dark.hex!}>No banner</WarningBox>}
                             </span>
                             <FaArrowUpRightFromSquare size={12} />
                         </a>
@@ -116,10 +121,11 @@ function getEventCellStyle(colors: Colors | null): CSSProperties {
 }
 
 
-function DateTBD({ borderColor }: { borderColor: string }) {
+
+function WarningBox({ borderColor, children }: { borderColor: string, children: ReactNode }) {
     return (
-        <small className={s.DateTBD} style={{ borderColor }}>
-            <FaExclamationTriangle size={14} /> Date TBD
+        <small className={s.InfoBox} style={{ borderColor }}>
+            <FaExclamationTriangle size={14} /> {children}
         </small>
     )
 }

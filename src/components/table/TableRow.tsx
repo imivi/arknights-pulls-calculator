@@ -8,13 +8,14 @@ import PullCount from "./PullCount"
 import { useMemo } from "react"
 import { Colors } from "../../scripts/get-image-colors"
 import { resourceLabels } from "../../labels"
-import { useClearedTodayStore } from "../../stores/useClearedTodayStore"
+import { useDayClearedStore } from "../../stores/useDayClearedStore"
 import { useDarkModeStore } from "../../stores/useDarkModeStore"
 import { useShowResourcesStore } from "../../stores/useShowResourcesStore"
 import { Day, Resource, ResourceGained } from "../../types"
 import Icon from "../Icon"
 import ResourceMenu from "../menus/ResourceMenu"
 import Stripes from "./Stripes"
+import { TODAY } from "../../utils/utils"
 
 const colors = imageColors as unknown as Record<string, Colors>
 
@@ -30,6 +31,7 @@ type RowProps = {
 }
 
 
+
 export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
     const colors = getImageColors(day.event_id)
@@ -43,7 +45,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
 
     const { dayOfMonth, month, weekDay } = useMemo(() => getDateValues(day.date), [day.date])
 
-    const { clearedToday, setClearedToday } = useClearedTodayStore()
+    const { dayCleared, setDayCleared } = useDayClearedStore()
 
     const { showResources } = useShowResourcesStore()
 
@@ -62,7 +64,7 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                 data-event-id={day.event_id}
                 data-dark={darkMode}
                 data-even={rowIsEven}
-                data-cleared={isToday && clearedToday}
+                data-cleared={isToday && dayCleared}
             >
 
                 <span className={s.date} data-interactive={isToday}>
@@ -74,9 +76,9 @@ export default function TableRow({ day, rowIsEven, isToday }: RowProps) {
                         <input
                             type="checkbox"
                             name={todayTooltipId}
-                            checked={clearedToday}
+                            checked={dayCleared === TODAY}
                             id="checkbox-today-cleared"
-                            onChange={(e) => setClearedToday(e.target.checked)}
+                            onChange={() => setDayCleared(dayCleared ? null : TODAY)}
                         />
                     }
 

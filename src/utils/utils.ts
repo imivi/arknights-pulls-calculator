@@ -120,3 +120,12 @@ export function constrain(num: number, min: number, max: number) {
         return min
     return num
 }
+
+
+/** Returns the current day in YYYY-MM-DD format */
+export function today(): string {
+    return dayjs().format('YYYY-MM-DD')
+}
+
+
+export const TODAY = today()

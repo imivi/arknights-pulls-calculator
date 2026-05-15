@@ -58,4 +58,32 @@ async function getColors() {
     fs.writeFileSync(dataPaths.imageColors, JSON.stringify(colors, null, 4), { encoding: "utf-8" })
 }
 
+
+type ImageColors = {
+    color_dark_hex: string
+    color_dark_hue: number
+    color_dark_sat: number
+    color_dark_light: number
+    color_light_hex: string
+    color_light_hue: number
+    color_light_sat: number
+    color_light_light: number
+}
+
+/** Extract colors (dark & light) from an image */
+export async function getEventImageColors(event_id: string): Promise<ImageColors> {
+    const imagePath = path.join(dataPaths.eventImages, event_id + ".jpg")
+    const colors = await getImageColor(imagePath)
+    return {
+        color_dark_hex: colors.dark.hex,
+        color_dark_hue: colors.dark.hsl[0],
+        color_dark_sat: colors.dark.hsl[1],
+        color_dark_light: colors.dark.hsl[2],
+        color_light_hex: colors.light.hex,
+        color_light_hue: colors.light.hsl[0],
+        color_light_sat: colors.light.hsl[1],
+        color_light_light: colors.light.hsl[2],
+    }
+}
+
 getColors()

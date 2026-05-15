@@ -1,5 +1,5 @@
-import days from "../data/daily_resources.json"
 import fs from "fs"
+import { Event, ResourceGained } from "../utils/prebuild-utils"
 
 
 function getOperatorImages() {
@@ -7,26 +7,27 @@ function getOperatorImages() {
     return filenames.map(filename => filename.split(".")[0])
 }
 
-function getAllOperators() {
+function getAllOperators(events: Event[]) {
     const ops: string[] = []
-    for (const day of days) {
-        ops.push(...day.event_ops)
+    for (const event of events) {
+        ops.push(...event.event_ops.split(", ").map(s => s.trim()))
     }
-    return ops
+    return ops.filter(op => op !== "")
 }
 
-function checkDailyResources() {
+export function checkDailyResources(events: Event[]) {
 
     // Make sure that every limited event has exactly 2 operators
-    for (const day of days) {
-        if (day.event_id?.endsWith("_lim") && day.eventDay === 1 && day.event_ops.length < 2) {
-            throw Error("Limited event lists fewer or more than 2 operators: " + day.event_ops.join(", "))
-        }
+    for (const event of events) {
+        const ops = event.event_ops.split(", ")
+        if (event.is_limited && !event.is_rerun && ops.length !== 2)
+            throw Error(`Limited (non rerun) event ${event.id} lists fewer or more than 2 operators: ${ops}`)
     }
 
     // Make sure that there is an image for every operator
     const operatorImages = new Set(getOperatorImages())
-    for (const op of getAllOperators()) {
+    const allOps = getAllOperators(events)
+    for (const op of allOps) {
         if (!operatorImages.has(op)) {
             throw Error("Missing operator image: " + op)
         }
@@ -34,31 +35,33 @@ function checkDailyResources() {
 
     // Make sure that every event lasts exactly 7, 10 or 14 days
     const validDurations = [7, 10, 14]
-    const eventDurations: Record<string, number> = {}
-    for (const day of days) {
-        if (day.event_id)
-            eventDurations[day.event_id] = day.eventDay
+    for (const event of events) {
+        if (event.is_rerun && event.duration_days !== 10)
+            throw Error(`${event.id} event should have 10-day duration but has ${event.duration_days}`)
+        else if (!validDurations.includes(event.duration_days))
+            throw Error(`Invalid event duration for ${event.id}: ${event.duration_days}`)
     }
-    Object.entries(eventDurations).forEach(([event_id, duration]) => {
-        if (!validDurations.includes(duration)) {
-            throw Error(`Invalid event duration for ${event_id}: ${duration}`)
-        }
-    })
-
-    // Make sure that all reruns have orundum from intelligence certificates ("orundum:intel"),
-    // and non-reruns have no orundum from intelligence certificates
-    for (const day of days) {
-        const isRerun = day.event_id?.endsWith("rerun")
-        const orundumFromIntelCerts = day.resourcesGained.orundum.find(res => res.source === "intel")?.value || 0
-
-        if (!isRerun && orundumFromIntelCerts > 0)
-            throw Error(`Non-rerun has orundum from intel certs: event ${day.event_id}, ${orundumFromIntelCerts} orundum`)
-
-        if (isRerun && day.eventDay === 1 && orundumFromIntelCerts === 0)
-            throw Error(`Rerun has no orundum from intel certs: event ${day.event_id}`)
-    }
-
 }
 
-checkDailyResources()
-console.info("✅ Spreadsheet data validated successfully")
+/**
+    Make sure that all reruns have orundum from intelligence certificates ("orundum:intel"),
+    and non-reruns have no orundum from intelligence certificates
+ */
+export function checkIntelCerts(events: Event[], resourcesGained: ResourceGained[]) {
+
+    const rerunDays = new Set(events.filter(event => event.is_rerun).map(event => event.first_day))
+    const nonRerunDays = new Set(events.filter(event => !event.is_rerun).map(event => event.first_day))
+
+    const orundumGained = resourcesGained.filter(res => res.resource === "orundum" && res.source === "intel")
+    const orundumGainedDays = new Set(orundumGained.map(res => res.day))
+
+    for (const res of orundumGained) {
+        if (nonRerunDays.has(res.day))
+            throw Error(`Non-rerun has orundum from intel certs on day ${res.day}`)
+    }
+
+    for (const day of rerunDays) {
+        if (!orundumGainedDays.has(day))
+            throw Error(`Rerun has no orundum from intel certs on day ${day}`)
+    }
+}

@@ -2,7 +2,7 @@ import { UserResources } from "./stores/useUserResourcesStore"
 import { Resources } from "./utils/resources"
 
 
-export const resources = ["orundum", "tickets", "op"] as const
+export const resources = ["orundum", "tickets", "op", "cert"] as const
 
 export type Resource = keyof BasicResources
 

@@ -1,5 +1,5 @@
 import { ResourceChange } from '../../utils/pipeline'
-import s from './Calendar.module.css'
+import s from './Calendar.module.scss'
 
 export type CalendarRow = {
     day: string
@@ -22,6 +22,13 @@ export type CalendarRow = {
     orundum_leftover: number
     tickets_leftover: number
     op_leftover: number
+    certs_leftover: number
+    weekday: number
+
+    max_orundum_leftover: number
+    max_tickets_leftover: number
+    max_op_leftover: number
+    max_certs_leftover: number
 
     // Event data
     event_id: string | undefined
@@ -51,109 +58,95 @@ type Props = {
 }
 
 export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
+
+    console.log(rows[0])
+
     return (
         <div className={s.Calendar}>
             <table>
                 <thead>
-                    <th>Day</th>
+                    <tr>
+                        <th>Event</th>
+                        <th>Day</th>
 
-                    {/* Resource data */}
-                    <th>Orundum Gained</th>
-                    <th>Tickets Gained</th>
-                    <th>OP Gained</th>
-                    <th>Certs Gained</th>
-                    <th>User Max Pulls</th>
-                    <th>Orundum Spendable</th>
-                    <th>Tickets Spendable</th>
-                    <th>OP Spendable</th>
-                    <th>Pulls Available Incl OP</th>
-                    <th>Pulls Available Excl OP</th>
-                    <th>Pulls Spent</th>
-                    <th>Orundum Spent</th>
-                    <th>Tickets Spent</th>
-                    <th>OP Spent</th>
-                    <th>Orundum Leftover</th>
-                    <th>Tickets Leftover</th>
-                    <th>OP Leftover</th>
-
-                    {/* Event data */}
-                    <th>Event ID</th>
-                    <th>Day of Event</th>
-                    <th>Date Confirmed</th>
-                    <th>Is Limited</th>
-                    <th>Is Rerun</th>
-                    <th>Is Collab</th>
-                    <th>Title</th>
-                    <th>Event Ops</th>
-                    <th>Event Link</th>
-                    <th>First Day</th>
-                    <th>Duration Days</th>
-                    <th>Color Dark Hex</th>
-                    <th>Color Dark Hue</th>
-                    <th>Color Dark Sat</th>
-                    <th>Color Dark Light</th>
-                    <th>Color Light Hex</th>
-                    <th>Color Light Hue</th>
-                    <th>Color Light Sat</th>
-                    <th>Color Light Light</th>
-
-                    {/* Resources spent/gained */}
-                    <th>Resources spent/gained</th>
+                        <th>Total pulls</th>
+                        <th>Orundum</th>
+                        <th>Tickets</th>
+                        <th>OP</th>
+                        <th>Certs</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {rows.map((row) => (
                         <tr key={row.day}>
                             {/* Day */}
-                            <td>{row.day}</td>
 
-                            {/* Resource data */}
-                            <td>{row.orundum_gained}</td>
-                            <td>{row.tickets_gained}</td>
-                            <td>{row.op_gained}</td>
-                            <td>{row.certs_gained}</td>
-                            <td>{row.user_max_pulls}</td>
-                            <td>{row.orundum_spendable}</td>
-                            <td>{row.tickets_spendable}</td>
-                            <td>{row.op_spendable}</td>
-                            <td>{row.pulls_available_incl_op}</td>
-                            <td>{row.pulls_available_excl_op}</td>
-                            <td>{row.pulls_spent}</td>
-                            <td>{row.orundum_spent}</td>
-                            <td>{row.tickets_spent}</td>
-                            <td>{row.op_spent}</td>
-                            <td>{row.orundum_leftover}</td>
-                            <td>{row.tickets_leftover}</td>
-                            <td>{row.op_leftover}</td>
+                            {
+                                row.event_id &&
+                                row.day_of_event === 1 &&
+                                <td rowSpan={row.duration_days}>{row.title}</td>
+                            }
+                            {
+                                !row.event_id &&
+                                <td></td>
+                            }
 
-                            {/* Event data */}
-                            <td>{row.event_id}</td>
-                            <td>{row.day_of_event}</td>
-                            <td>{row.date_confirmed}</td>
-                            <td>{row.is_limited}</td>
-                            <td>{row.is_rerun}</td>
-                            <td>{row.is_collab}</td>
-                            <td>{row.title}</td>
-                            <td>{row.event_ops}</td>
-                            <td>{row.event_link}</td>
-                            <td>{row.first_day}</td>
-                            <td>{row.duration_days}</td>
-                            <td>{row.color_dark_hex}</td>
-                            <td>{row.color_dark_hue}</td>
-                            <td>{row.color_dark_sat}</td>
-                            <td>{row.color_dark_light}</td>
-                            <td>{row.color_light_hex}</td>
-                            <td>{row.color_light_hue}</td>
-                            <td>{row.color_light_sat}</td>
-                            <td>{row.color_light_light}</td>
+                            <td>{formatDate(row.day, row.weekday)}</td>
 
-                            {/* Resources spent/gained */}
-                            <td>
-                                {JSON.stringify((resourcesGainedOrSpentByDay[row.day] || []).map(res => res.amount))}
+                            <td>{row.pulls_available_incl_op} ({row.pulls_available_excl_op} + {row.pulls_available_incl_op - row.pulls_available_excl_op})</td>
+
+                            <td title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}>
+                                {row.orundum_leftover} (+{row.orundum_gained - row.orundum_spent})
+                                <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} />
                             </td>
+                            <td title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 2), null, 4)}>
+                                {row.tickets_leftover} (+{row.tickets_gained - row.tickets_spent})
+                                <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} />
+                            </td>
+                            <td title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 3), null, 4)}>
+                                {row.op_leftover} (+{row.op_gained - row.op_spent})
+                                <ProgressBar value={row.op_leftover} max={row.max_op_leftover} />
+                            </td>
+                            <td title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 4), null, 4)}>
+                                {Math.floor(row.certs_leftover)} (+{row.certs_gained})
+                                <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} />
+                            </td>
+
                         </tr>
                     ))}
                 </tbody>
             </table>
+        </div>
+    )
+}
+
+
+/** Convert YYYY-MM-DD to Jan 01 Mon */
+function formatDate(dateStr: string, dayofweek: number): string {
+    const [_, month, day] = dateStr.split('-')
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    return `${months[parseInt(month) - 1]} ${day} ${days[dayofweek - 1]}`
+}
+
+
+function ProgressBar({ value, max }: { value: number, max: number }) {
+    const percentage = Math.round(value / max * 100)
+    return (
+        <div style={{
+            width: '100%',
+            height: '10px',
+            backgroundColor: '#ccc',
+            borderRadius: '5px',
+            overflow: 'hidden',
+            marginTop: '4px'
+        }}>
+            <div style={{
+                width: `${percentage}%`,
+                height: '100%',
+                backgroundColor: '#007bff',
+                borderRadius: '5px',
+            }} />
         </div>
     )
 }

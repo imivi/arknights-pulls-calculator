@@ -1,0 +1,56 @@
+@use "../../styles/colors.scss";
+
+.Calendar {
+    display: block;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: max-content;
+    }
+
+    th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 10px 14px;
+        font-weight: 600;
+        text-align: left;
+        white-space: nowrap;
+        background-color: colors.$table-header-bg-light;
+        color: colors.$table-header-text-light;
+        border-bottom: 2px solid colors.$table-header-border-light;
+    }
+
+    td {
+        padding: 8px 14px;
+        white-space: nowrap;
+        border: 1px solid #eee;
+    }
+
+    // Default row striping for light mode
+    tr:nth-child(even) td {
+        background-color: colors.$table-row-bg-light;
+    }
+
+    // Dark mode styles using global data-dark selector
+    :global([data-dark="true"]) & {
+        th {
+            background-color: colors.$table-header-bg-dark;
+            color: colors.$table-header-text-dark;
+            border-bottom: 2px solid colors.$table-header-border-dark;
+        }
+
+        td {
+            border: 1px solid #444;
+            color: colors.$table-row-text-dark;
+        }
+
+        tr:nth-child(even) td {
+            background-color: colors.$table-row-bg-dark;
+        }
+    }
+}

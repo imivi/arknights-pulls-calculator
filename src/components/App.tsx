@@ -21,9 +21,9 @@ import tables from "../data/tables.json"
 
 
 const dummyUserSettings: UserSettings = {
-    startingOrundum: 10_000,
-    startingTickets: 20,
-    startingOp: 200,
+    startingOrundum: 60_000, // 100 pulls
+    startingTickets: 20, // 20 pulls
+    startingOp: 100, // 30 pulls
     startingCerts: 50,
     monthlyCard: false,
     claimedDay: '2026-05-16',
@@ -38,10 +38,10 @@ const dummyUserSettings: UserSettings = {
     // resources added or subtracted by the user
     userResources: {
         '2026-06-02': {
-            orundum: { value: 1_000, description: 'user_input' },
-            tickets: { value: 38, description: 'user_input' },
-            op: { value: 10, description: 'user_input' },
-            certs: { value: -258, description: 'user_input' },
+            orundum: { value: 1_000, description: 'random reward' },
+            tickets: { value: 12, description: 'buy tickets in store' },
+            op: { value: -18, description: 'skin purchase' },
+            certs: { value: -38, description: 'buy tickets in store' },
         },
     },
 }

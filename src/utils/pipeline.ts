@@ -137,12 +137,16 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             row['orundum_spendable'] = row['orundum_gained'] + userSettings.startingOrundum
             row['tickets_spendable'] = row['tickets_gained'] + userSettings.startingTickets
             row['op_spendable'] = row['op_gained'] + userSettings.startingOp
+
+            row['certs_leftover'] = userSettings.startingCerts + row['certs_gained']
         }
         else {
             const yesterday = res_gained_by_day[i - 1]
             row['orundum_spendable'] = row['orundum_gained'] + yesterday['orundum_leftover']
             row['tickets_spendable'] = row['tickets_gained'] + yesterday['tickets_leftover']
             row['op_spendable'] = row['op_gained'] + yesterday['op_leftover']
+
+            row['certs_leftover'] = yesterday['certs_leftover'] + row['certs_gained']
         }
 
         // Spend resources for pulls
@@ -236,9 +240,16 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     })
 
     const dt_final_calendar = aq.from(res_gained_by_day)
+        .join_left(dt_days, 'day')
         .join_left(dt_event_days, 'day')
         .join_left(dt_events, 'event_id')
         .orderby('day')
+        .derive({
+            max_orundum_leftover: (d: any) => aq.op.max(d.orundum_leftover),
+            max_tickets_leftover: (d: any) => aq.op.max(d.tickets_leftover),
+            max_op_leftover: (d: any) => aq.op.max(d.op_leftover),
+            max_certs_leftover: (d: any) => aq.op.max(d.certs_leftover),
+        })
 
     return {
         dt_merged,

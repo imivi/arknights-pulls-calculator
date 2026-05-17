@@ -220,6 +220,21 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     const dt_resources_spent_from_pulling = aq.from(resourcesSpentFromPulling)
     const dt_all_resources_incl_pulls = dt_all_resources.concat(dt_resources_spent_from_pulling).orderby('day')
 
+    // Group resources gained/spentby day
+    const all_resources_gained_or_spent_by_day: Record<string, ResourceChange[]> = {}
+    dt_all_resources_incl_pulls.objects().forEach((row: any) => {
+        if (!all_resources_gained_or_spent_by_day[row.day]) {
+            all_resources_gained_or_spent_by_day[row.day] = []
+        }
+        all_resources_gained_or_spent_by_day[row.day].push({
+            amount: row.amount,
+            confirmed: row.confirmed,
+            day: row.day,
+            resource: row.resource,
+            source: row.source,
+        })
+    })
+
     const dt_final_calendar = aq.from(res_gained_by_day)
         .join_left(dt_event_days, 'day')
         .join_left(dt_events, 'event_id')
@@ -240,13 +255,14 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         dt_event_days,
         dt_resources,
         dt_resources_spent_from_pulling,
+        all_resources_gained_or_spent_by_day,
     }
 }
 
 
 
 
-type ResourceChange = {
+export type ResourceChange = {
     amount: number
     confirmed: number
     day: string

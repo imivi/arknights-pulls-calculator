@@ -1,7 +1,10 @@
+import { ResourceChange } from '../../utils/pipeline'
 import s from './Calendar.module.css'
 
 export type CalendarRow = {
     day: string
+
+    // Resource data
     orundum_gained: number
     tickets_gained: number
     op_gained: number
@@ -19,18 +22,42 @@ export type CalendarRow = {
     orundum_leftover: number
     tickets_leftover: number
     op_leftover: number
+
+    // Event data
+    event_id: string | undefined
+    day_of_event: number | undefined
+    date_confirmed: number | undefined
+    is_limited: number | undefined
+    is_rerun: number | undefined
+    is_collab: number | undefined
+    title: string | undefined
+    event_ops: string | undefined
+    event_link: string | undefined
+    first_day: string | undefined
+    duration_days: number | undefined
+    color_dark_hex: string | undefined
+    color_dark_hue: number | undefined
+    color_dark_sat: number | undefined
+    color_dark_light: number | undefined
+    color_light_hex: string | undefined
+    color_light_hue: number | undefined
+    color_light_sat: number | undefined
+    color_light_light: number | undefined
 }
 
 type Props = {
     rows: CalendarRow[]
+    resourcesGainedOrSpentByDay: Record<string, ResourceChange[]>
 }
 
-export default function Calendar({ rows }: Props) {
+export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     return (
         <div className={s.Calendar}>
             <table>
                 <thead>
                     <th>Day</th>
+
+                    {/* Resource data */}
                     <th>Orundum Gained</th>
                     <th>Tickets Gained</th>
                     <th>OP Gained</th>
@@ -48,11 +75,38 @@ export default function Calendar({ rows }: Props) {
                     <th>Orundum Leftover</th>
                     <th>Tickets Leftover</th>
                     <th>OP Leftover</th>
+
+                    {/* Event data */}
+                    <th>Event ID</th>
+                    <th>Day of Event</th>
+                    <th>Date Confirmed</th>
+                    <th>Is Limited</th>
+                    <th>Is Rerun</th>
+                    <th>Is Collab</th>
+                    <th>Title</th>
+                    <th>Event Ops</th>
+                    <th>Event Link</th>
+                    <th>First Day</th>
+                    <th>Duration Days</th>
+                    <th>Color Dark Hex</th>
+                    <th>Color Dark Hue</th>
+                    <th>Color Dark Sat</th>
+                    <th>Color Dark Light</th>
+                    <th>Color Light Hex</th>
+                    <th>Color Light Hue</th>
+                    <th>Color Light Sat</th>
+                    <th>Color Light Light</th>
+
+                    {/* Resources spent/gained */}
+                    <th>Resources spent/gained</th>
                 </thead>
                 <tbody>
                     {rows.map((row) => (
                         <tr key={row.day}>
+                            {/* Day */}
                             <td>{row.day}</td>
+
+                            {/* Resource data */}
                             <td>{row.orundum_gained}</td>
                             <td>{row.tickets_gained}</td>
                             <td>{row.op_gained}</td>
@@ -70,6 +124,32 @@ export default function Calendar({ rows }: Props) {
                             <td>{row.orundum_leftover}</td>
                             <td>{row.tickets_leftover}</td>
                             <td>{row.op_leftover}</td>
+
+                            {/* Event data */}
+                            <td>{row.event_id}</td>
+                            <td>{row.day_of_event}</td>
+                            <td>{row.date_confirmed}</td>
+                            <td>{row.is_limited}</td>
+                            <td>{row.is_rerun}</td>
+                            <td>{row.is_collab}</td>
+                            <td>{row.title}</td>
+                            <td>{row.event_ops}</td>
+                            <td>{row.event_link}</td>
+                            <td>{row.first_day}</td>
+                            <td>{row.duration_days}</td>
+                            <td>{row.color_dark_hex}</td>
+                            <td>{row.color_dark_hue}</td>
+                            <td>{row.color_dark_sat}</td>
+                            <td>{row.color_dark_light}</td>
+                            <td>{row.color_light_hex}</td>
+                            <td>{row.color_light_hue}</td>
+                            <td>{row.color_light_sat}</td>
+                            <td>{row.color_light_light}</td>
+
+                            {/* Resources spent/gained */}
+                            <td>
+                                {JSON.stringify((resourcesGainedOrSpentByDay[row.day] || []).map(res => res.amount))}
+                            </td>
                         </tr>
                     ))}
                 </tbody>

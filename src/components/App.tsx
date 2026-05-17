@@ -15,7 +15,36 @@ import DebugCalendar from "./DebugCalendar"
 import { FaGear } from "react-icons/fa6"
 import { IconOnlyResourceBadge } from "./table/ResourceBadge"
 import Table from "./table/Table"
+import Calendar, { CalendarRow } from "./calendar/Calendar"
+import { runPipeline, UserSettings } from "../utils/pipeline"
+import tables from "../data/tables.json"
 
+
+const dummyUserSettings: UserSettings = {
+    startingOrundum: 10_000,
+    startingTickets: 20,
+    startingOp: 200,
+    startingCerts: 50,
+    monthlyCard: false,
+    claimedDay: '2026-05-16',
+    certsPerDay: 1.5,
+    clearedReruns: [
+        'exodus_rerun',
+        'reunion_lim_rerun',
+    ],
+    maxPullsToSpend: {
+        '2026-07-16': 176,
+    },
+    // resources added or subtracted by the user
+    userResources: {
+        '2026-06-02': {
+            orundum: { value: 1_000, description: 'user_input' },
+            tickets: { value: 38, description: 'user_input' },
+            op: { value: 10, description: 'user_input' },
+            certs: { value: -258, description: 'user_input' },
+        },
+    },
+}
 
 
 export default function App() {
@@ -27,6 +56,9 @@ export default function App() {
     const { showResources, setShowResources } = useShowResourcesStore()
 
     const [showChart, setShowChart] = useState(window.innerWidth > 600)
+
+    const { dt_final_calendar, all_resources_gained_or_spent_by_day } = runPipeline(dummyUserSettings, tables)
+    const calendarRows = dt_final_calendar.objects() as unknown as CalendarRow[]
 
     return (
         <main className={s.App} data-dark={darkMode}>
@@ -77,7 +109,12 @@ export default function App() {
                 {/* <Button>Customize resource income</Button> */}
             </fieldset>
 
-            <Table days={days} />
+            {/* <Table days={days} /> */}
+
+            <Calendar
+                rows={calendarRows}
+                resourcesGainedOrSpentByDay={all_resources_gained_or_spent_by_day}
+            />
 
             <div className={s.buttons}>
                 <Button onClick={() => downloadCsv(days)}>
@@ -91,11 +128,9 @@ export default function App() {
                 </Button>
             </div>
 
-            <Chart days={days} show={showChart} />
+            {/* <Chart days={days} show={showChart} /> */}
 
-            <Footer />
-
-            {import.meta.env.DEV && <DebugCalendar days={days} />}
+            {/* <Footer /> */}
 
         </main >
     )

@@ -6,6 +6,12 @@
     height: 100%;
     width: 100%;
 
+    // Light theme progress colors (semi-transparent badges)
+    --orundum-progress: rgba(236, 181, 181, 0.45);
+    --ticket-progress: rgba(171, 220, 138, 0.45);
+    --op-progress: rgba(232, 218, 154, 0.45);
+    --cert-progress: rgba(207, 160, 110, 0.45);
+
     table {
         border-collapse: collapse;
         width: 100%;
@@ -31,6 +37,12 @@
         border: 1px solid #eee;
     }
 
+    td.ProgressCell {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
     // Default row striping for light mode
     tr:nth-child(even) td {
         background-color: colors.$table-row-bg-light;
@@ -38,6 +50,12 @@
 
     // Dark mode styles using global data-dark selector
     :global([data-dark="true"]) & {
+        // Dark theme progress colors
+        --orundum-progress: rgba(129, 40, 34, 0.35);
+        --ticket-progress: rgba(121, 163, 76, 0.35);
+        --op-progress: rgba(202, 178, 101, 0.35);
+        --cert-progress: rgba(173, 97, 46, 0.35);
+
         th {
             background-color: colors.$table-header-bg-dark;
             color: colors.$table-header-text-dark;

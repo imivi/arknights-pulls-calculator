@@ -4,8 +4,14 @@ import { Resources } from "./utils/resources"
 
 export const resources = ["orundum", "tickets", "op", "cert"] as const
 
-export type Resource = keyof BasicResources
+export type Resource = typeof resources[number]
 
+export const resourceEncoding: Record<Resource, number> = {
+    "orundum": 1,
+    "tickets": 2,
+    "op": 3,
+    "cert": 4,
+} as const
 
 export type BasicResources = {
     orundum: number

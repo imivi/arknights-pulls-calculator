@@ -1,7 +1,7 @@
 import PublicGoogleSheetsParser from 'public-google-sheets-parser'
 import fs from "fs"
 import { env } from '../env'
-import { extractEvents, extractResourcesGained, getWeekday, partiallyIndentJson, transpose } from '../utils/prebuild-utils'
+import { extractEvents, extractResourcesGained, getEventDays, getWeekday, partiallyIndentJson, transpose } from '../utils/prebuild-utils'
 import { dataPaths } from '../data-paths'
 import { GoogleSheetRow, rowsSchema } from './types'
 import { checkDailyResources, checkIntelCerts } from './check-daily-resources'
@@ -45,10 +45,10 @@ async function main() {
     // Read google sheet as-is
     const googleSheetId = env.GOOGLE_SHEET_ID
 
-    const USE_CACHE = false
+    const USE_CACHE = true
     let rows: GoogleSheetRow[] = []
     if (USE_CACHE) {
-        console.info("Using google sheet json cache")
+        console.info("📦 Using google sheet json cache")
         rows = JSON.parse(fs.readFileSync(dataPaths.rawGoogleSheet, { encoding: "utf-8" }))
     }
     else {
@@ -59,6 +59,7 @@ async function main() {
 
     const days = extractDays(rows)
     const events = await extractEvents(rows)
+    const eventDays = getEventDays(rows)
     const resources = rows.map(row => extractResourcesGained(row)).flat()
     console.info("✅ (2/4) Processed sheet data")
 
@@ -67,6 +68,7 @@ async function main() {
         days: transpose(days),
         events: transpose(events),
         resources: transpose(resources),
+        eventDays: transpose(eventDays),
     }
 
     fs.writeFileSync(dataPaths.tables, partiallyIndentJson(JSON.stringify(tables)), { encoding: "utf-8" })

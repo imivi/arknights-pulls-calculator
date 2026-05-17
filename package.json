@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "vite",
     "fetch-daily-resources": "tsx src/scripts/fetch-daily-resources.ts",
-    "get-image-colors": "tsx src/scripts/get-image-colors.ts",
     "create-row-styles": "tsx src/scripts/create-row-styles.ts",
-    "check-data": "tsx src/scripts/check-daily-resources.ts",
     "prebuild": "pnpm fetch-daily-resources && pnpm check-data && pnpm get-image-colors && pnpm create-row-styles",
     "build": "tsc -b && vite build",
     "cleanup": "ts-unused-exports ./tsconfig.app.json",
@@ -20,6 +18,7 @@
     "@nivo/bar": "^0.99.0",
     "@nivo/core": "^0.99.0",
     "@nivo/line": "^0.99.0",
+    "arquero": "^8.0.3",
     "dayjs": "^1.11.13",
     "export-to-csv": "^1.4.0",
     "node-vibrant": "^4.0.3",

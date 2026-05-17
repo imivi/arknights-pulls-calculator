@@ -8,9 +8,10 @@ export type UserResource = {
 }
 
 export type UserResources = {
-    orundum: UserResource
-    tickets: UserResource
-    op: UserResource
+    orundum?: UserResource
+    tickets?: UserResource
+    op?: UserResource
+    certs?: UserResource
 }
 
 // Maps the date to the custom user resources

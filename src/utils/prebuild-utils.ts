@@ -1,6 +1,6 @@
 import { getEventImageColors } from "../scripts/get-image-colors"
 import { GoogleSheetRow } from "../scripts/types"
-import { Resource, resources } from "../types"
+import { Resource, resourceEncoding, resources } from "../types"
 
 type Item = {
     eventDay: number
@@ -70,9 +70,9 @@ export function getWeekday(dateStr: string): number {
 
 export type Event = {
     first_day: string
-    last_day: string
+    // last_day: string
     duration_days: number
-    id: string
+    event_id: string
     title: string
     event_ops: string
     event_link: string
@@ -96,13 +96,13 @@ async function rowGroupToEvent(rows: GoogleSheetRow[]): Promise<Event> {
     const event_id = rows[0].event_id!
     const dates = rows.map(row => row.day).sort()
     const first_day = dates[0]
-    const last_day = dates[dates.length - 1]
+    // const last_day = dates[dates.length - 1]
     const duration_days = dates.length
     const colors = await getEventImageColors(event_id)
     const event_title = rows[0].event!
 
     return {
-        id: event_id,
+        event_id,
         date_confirmed: event_title.endsWith("(TBD)") ? 0 : 1,
         is_limited: Number(event_id.includes("_lim")),
         is_rerun: Number(event_id.includes("_rerun")),
@@ -111,7 +111,7 @@ async function rowGroupToEvent(rows: GoogleSheetRow[]): Promise<Event> {
         event_ops: rows[0].event_ops!,
         event_link: rows[0].event_link!,
         first_day,
-        last_day,
+        // last_day,
         duration_days,
         ...colors,
     }
@@ -146,9 +146,43 @@ export async function extractEvents(rows: GoogleSheetRow[]) {
 }
 
 
+type EventDay = {
+    day: string
+    event_id: string
+    day_of_event: number
+}
+export function getEventDays(rows: GoogleSheetRow[]): EventDay[] {
+
+    const eventDays: Record<string, string[]> = {} // maps event_id -> list of days
+
+    const rowsWithEvents = rows.filter(row => !!row.event_id)
+    for (const row of rowsWithEvents) {
+        const event_id = row.event_id!
+        if (!eventDays[event_id]) {
+            eventDays[event_id] = []
+        }
+        eventDays[event_id].push(row.day)
+    }
+
+    const eventDaysList: EventDay[] = []
+    for (const [event_id, days] of Object.entries(eventDays)) {
+        days.sort()
+        for (let i = 0; i < days.length; i++) {
+            eventDaysList.push({
+                day: days[i],
+                event_id,
+                day_of_event: i + 1,
+            })
+        }
+    }
+
+    return eventDaysList
+}
+
+
 export type ResourceGained = {
     day: string
-    resource: Resource
+    resource: number // Encoded: 0=orundum, 1=tickets, 2=op, 3=cert
     amount: number
     source: string
     confirmed: number
@@ -172,7 +206,7 @@ export function extractResourcesGained(row: GoogleSheetRow): ResourceGained[] {
             amount,
             confirmed: 1,
             day: row.day,
-            resource: res as Resource,
+            resource: resourceEncoding[res as Resource],
             source,
         }
     })
@@ -214,7 +248,6 @@ export function partiallyIndentJson(jsonText: string): string {
         "weekday": doubleIndent,
 
         "events": singleIndent,
-        "id": doubleIndent,
         "date_confirmed": doubleIndent,
         "is_limited": doubleIndent,
         "is_rerun": doubleIndent,
@@ -231,12 +264,16 @@ export function partiallyIndentJson(jsonText: string): string {
         "color_light_hue": doubleIndent,
         "color_light_sat": doubleIndent,
         "color_light_light": doubleIndent,
+        // "last_day": doubleIndent,
+        "duration_days": doubleIndent,
 
         "resources": singleIndent,
         "amount": doubleIndent,
         "confirmed": doubleIndent,
         "resource": doubleIndent,
         "source": doubleIndent,
+        "event_id": doubleIndent,
+        "day_of_event": doubleIndent,
     }
 
     for (const key of Object.keys(indentations)) {

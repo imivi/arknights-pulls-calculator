@@ -7,7 +7,7 @@ import { Tooltip } from "react-tooltip";
 import { useUserResources } from "../../hooks/useUserResources";
 import { useDarkModeStore } from "../../stores/useDarkModeStore";
 import { UserResource } from "../../stores/useUserResourcesStore";
-import { Day, Resource } from "../../types";
+import { CalendarRow, Day, Resource } from "../../types";
 import { formatOrundum } from "../../utils/utils";
 import Button from "../Button";
 import Icon from "../Icon";
@@ -23,13 +23,13 @@ const allValueShortcuts = {
 
 
 type Props = {
-    day: Day
+    row: CalendarRow
     resource: Resource
 }
 
-export default function ResourceMenu({ day, resource }: Props) {
+export default function ResourceMenu({ row, resource }: Props) {
 
-    const { date } = day
+    const date = row.day
 
     const [showMenu, setShowMenu] = useState(false)
 

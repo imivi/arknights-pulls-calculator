@@ -245,10 +245,12 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         .join_left(dt_events, 'event_id')
         .orderby('day')
         .derive({
+            max_pulls_leftover: (d: any) => aq.op.max(d.pulls_available_incl_op),
             max_orundum_leftover: (d: any) => aq.op.max(d.orundum_leftover),
             max_tickets_leftover: (d: any) => aq.op.max(d.tickets_leftover),
             max_op_leftover: (d: any) => aq.op.max(d.op_leftover),
             max_certs_leftover: (d: any) => aq.op.max(d.certs_leftover),
+            max_pulls_spent: (d: any) => aq.op.max(d.pulls_spent),
         })
 
     return {

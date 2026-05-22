@@ -74,3 +74,59 @@ type CalculatedValues = {
 }
 
 export type Day = BaseValues & UserValues & CalculatedValues
+
+
+
+
+export type CalendarRow = {
+    day: string
+
+    // Resource data
+    orundum_gained: number
+    tickets_gained: number
+    op_gained: number
+    certs_gained: number
+    user_max_pulls: number
+    orundum_spendable: number
+    tickets_spendable: number
+    op_spendable: number
+    pulls_available_incl_op: number
+    pulls_available_excl_op: number
+    pulls_spent: number
+    orundum_spent: number
+    tickets_spent: number
+    op_spent: number
+    orundum_leftover: number
+    tickets_leftover: number
+    op_leftover: number
+    certs_leftover: number
+    weekday: number
+
+    max_pulls_leftover: number
+    max_orundum_leftover: number
+    max_tickets_leftover: number
+    max_op_leftover: number
+    max_certs_leftover: number
+    max_pulls_spent: number
+
+    // Event data
+    event_id: string | undefined
+    day_of_event: number | undefined
+    date_confirmed: number | undefined
+    is_limited: number | undefined
+    is_rerun: number | undefined
+    is_collab: number | undefined
+    title: string | undefined
+    event_ops: string | undefined
+    event_link: string | undefined
+    first_day: string | undefined
+    duration_days: number | undefined
+    color_dark_hex: string | undefined
+    color_dark_hue: number | undefined
+    color_dark_sat: number | undefined
+    color_dark_light: number | undefined
+    color_light_hex: string | undefined
+    color_light_hue: number | undefined
+    color_light_sat: number | undefined
+    color_light_light: number | undefined
+}

@@ -1,57 +1,9 @@
-import { ResourceChange } from '../../utils/pipeline'
 import s from './Calendar.module.scss'
 import { useDarkModeStore } from '../../stores/useDarkModeStore'
-
-export type CalendarRow = {
-    day: string
-
-    // Resource data
-    orundum_gained: number
-    tickets_gained: number
-    op_gained: number
-    certs_gained: number
-    user_max_pulls: number
-    orundum_spendable: number
-    tickets_spendable: number
-    op_spendable: number
-    pulls_available_incl_op: number
-    pulls_available_excl_op: number
-    pulls_spent: number
-    orundum_spent: number
-    tickets_spent: number
-    op_spent: number
-    orundum_leftover: number
-    tickets_leftover: number
-    op_leftover: number
-    certs_leftover: number
-    weekday: number
-
-    max_orundum_leftover: number
-    max_tickets_leftover: number
-    max_op_leftover: number
-    max_certs_leftover: number
-
-    // Event data
-    event_id: string | undefined
-    day_of_event: number | undefined
-    date_confirmed: number | undefined
-    is_limited: number | undefined
-    is_rerun: number | undefined
-    is_collab: number | undefined
-    title: string | undefined
-    event_ops: string | undefined
-    event_link: string | undefined
-    first_day: string | undefined
-    duration_days: number | undefined
-    color_dark_hex: string | undefined
-    color_dark_hue: number | undefined
-    color_dark_sat: number | undefined
-    color_dark_light: number | undefined
-    color_light_hex: string | undefined
-    color_light_hue: number | undefined
-    color_light_sat: number | undefined
-    color_light_light: number | undefined
-}
+import EventCell from './EventCell'
+import { ResourceChange } from '../../utils/pipeline'
+import { IconOnlyResourceBadge } from '../table/ResourceBadge'
+import { CalendarRow } from '../../types'
 
 type Props = {
     rows: CalendarRow[]
@@ -61,7 +13,10 @@ type Props = {
 export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     const { darkMode } = useDarkModeStore()
 
-    console.log(rows[0])
+    // console.log(rows[0])
+
+    const maxPullsSpent = rows[0].max_pulls_spent
+    const userSpentPulls = maxPullsSpent > 0
 
     return (
         <div className={s.Calendar} data-dark={darkMode}>
@@ -71,7 +26,15 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                         <th>Event</th>
                         <th>Day</th>
 
-                        <th>Total pulls</th>
+                        {userSpentPulls && <th>Pulls spent</th>}
+
+                        <th>Pulls (
+                            <IconOnlyResourceBadge resource="orundum" />
+                            <IconOnlyResourceBadge resource="tickets" />
+                            +
+                            <IconOnlyResourceBadge resource="op" />
+                            )</th>
+
                         <th>Orundum</th>
                         <th>Tickets</th>
                         <th>OP</th>
@@ -79,42 +42,53 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {rows.map((row) => (
+                    {rows.map((row, i) => (
                         <tr key={row.day}>
                             {/* Day */}
 
                             {
                                 row.event_id &&
-                                row.day_of_event === 1 &&
-                                <td rowSpan={row.duration_days}>{row.title}</td>
+                                (row.day_of_event === 1 || i === 0) && // first row or day 1 of event
+                                <EventCell
+                                    day={row}
+                                    rowSpan={row.duration_days! - row.day_of_event! + 1}
+                                />
                             }
                             {
                                 !row.event_id &&
-                                <td></td>
+                                <td>-</td>
                             }
 
                             <td>{formatDate(row.day, row.weekday)}</td>
 
-                            <td>{row.pulls_available_incl_op} ({row.pulls_available_excl_op} + {row.pulls_available_incl_op - row.pulls_available_excl_op})</td>
+                            {userSpentPulls && <td>{row.pulls_spent}</td>}
+
+                            <td className={s.ProgressCell}>
+                                <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)">
+                                    {row.pulls_available_incl_op} pulls
+                                    &nbsp;
+                                    <small>({row.pulls_available_excl_op} + {row.pulls_available_incl_op - row.pulls_available_excl_op})</small>
+                                </ProgressBar>
+                            </td>
 
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}>
                                 <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} color="var(--orundum-progress)">
-                                    {row.orundum_leftover} (+{row.orundum_gained - row.orundum_spent})
+                                    {row.orundum_leftover} <Details value={row.orundum_gained - row.orundum_spent} />
                                 </ProgressBar>
                             </td>
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 2), null, 4)}>
                                 <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} color="var(--ticket-progress)">
-                                    {row.tickets_leftover} (+{row.tickets_gained - row.tickets_spent})
+                                    {row.tickets_leftover} <Details value={row.tickets_gained - row.tickets_spent} />
                                 </ProgressBar>
                             </td>
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 3), null, 4)}>
                                 <ProgressBar value={row.op_leftover} max={row.max_op_leftover} color="var(--op-progress)">
-                                    {row.op_leftover} (+{row.op_gained - row.op_spent})
+                                    {row.op_leftover} <Details value={row.op_gained - row.op_spent} />
                                 </ProgressBar>
                             </td>
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 4), null, 4)}>
                                 <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} color="var(--cert-progress)">
-                                    {Math.floor(row.certs_leftover)} (+{row.certs_gained})
+                                    {Math.floor(row.certs_leftover)} <Details value={row.certs_gained} />
                                 </ProgressBar>
                             </td>
 
@@ -124,6 +98,16 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
             </table>
         </div>
     )
+}
+
+
+function Details({ value }: { value: number }) {
+    if (value === 0)
+        return null
+    else if (value > 0)
+        return <small>+{value}</small>
+    else
+        return <small>-{Math.abs(value)}</small>
 }
 
 

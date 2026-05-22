@@ -103,11 +103,11 @@ async function rowGroupToEvent(rows: GoogleSheetRow[]): Promise<Event> {
 
     return {
         event_id,
-        date_confirmed: event_title.endsWith("(TBD)") ? 0 : 1,
+        date_confirmed: event_title.endsWith("(TBD)") ? 1 : 0,
         is_limited: Number(event_id.includes("_lim")),
         is_rerun: Number(event_id.includes("_rerun")),
         is_collab: Number(event_id.includes("_collab")),
-        title: event_title,
+        title: event_title.replace("(date TBD)", "").trim(),
         event_ops: rows[0].event_ops!,
         event_link: rows[0].event_link!,
         first_day,

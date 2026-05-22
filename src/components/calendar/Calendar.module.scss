@@ -7,6 +7,7 @@
     width: 100%;
 
     // Light theme progress colors (semi-transparent badges)
+    --pulls-progress: rgba(181, 199, 236, 0.45);
     --orundum-progress: rgba(236, 181, 181, 0.45);
     --ticket-progress: rgba(171, 220, 138, 0.45);
     --op-progress: rgba(232, 218, 154, 0.45);
@@ -32,8 +33,7 @@
     }
 
     td {
-        padding: 8px 14px;
-        white-space: nowrap;
+        padding: .4em .8em;
         border: 1px solid #eee;
     }
 
@@ -41,6 +41,16 @@
         padding: 0;
         position: relative;
         overflow: hidden;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            // outline: 1px solid red;
+        }
+    }
+
+    small {
+        margin-left: 0.5em;
     }
 
     // Default row striping for light mode
@@ -51,6 +61,7 @@
     // Dark mode styles using global data-dark selector
     :global([data-dark="true"]) & {
         // Dark theme progress colors
+        --pulls-progress: rgba(181, 199, 236, 0.45);
         --orundum-progress: rgba(129, 40, 34, 0.35);
         --ticket-progress: rgba(121, 163, 76, 0.35);
         --op-progress: rgba(202, 178, 101, 0.35);

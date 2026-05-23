@@ -1,7 +1,7 @@
 import { useDayClearedStore } from "../stores/useDayClearedStore";
+import { useResourceAdjustmentsStore } from "../stores/useResourceAdjustmentsStore";
 import { useSpendablePullsStore } from "../stores/useSpendablePullsStore";
 import { useStartingResourcesStore } from "../stores/useStartingResourcesStore";
-import { useUserResourcesStore } from "../stores/useUserResourcesStore";
 import { Settings } from "../types";
 import { today } from "../utils/utils";
 import { useClearedReruns } from "./useClearedReruns";
@@ -13,7 +13,7 @@ export function useSettings() {
     const { clearedReruns } = useClearedReruns()
     const firstDayCleared = useDayClearedStore(store => store.dayCleared === today())
     const { spendablePulls } = useSpendablePullsStore()
-    const { userResources } = useUserResourcesStore()
+    const { resourceAdjustments } = useResourceAdjustmentsStore()
 
     const settings: Settings = {
         activeMonthlyCard: monthlyCard,
@@ -21,7 +21,7 @@ export function useSettings() {
         clearedReruns,
         firstDayCleared,
         spendablePulls,
-        userResources,
+        resourceAdjustments,
     }
 
     return settings

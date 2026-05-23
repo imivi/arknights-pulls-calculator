@@ -1,6 +1,5 @@
 import s from "./App.module.scss"
 
-import { useCalendar } from "../hooks/useCalendar"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import Settings from "./StartingResources"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
@@ -11,45 +10,17 @@ import { useState } from "react"
 import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-icons/fa"
 import Button from "./Button"
 import Icon from "./Icon"
-import DebugCalendar from "./DebugCalendar"
 import { FaGear } from "react-icons/fa6"
 import { IconOnlyResourceBadge } from "./table/ResourceBadge"
-import Table from "./table/Table"
-import Calendar, { CalendarRow } from "./calendar/Calendar"
-import { runPipeline, UserSettings } from "../utils/pipeline"
+import Calendar from "./calendar/Calendar"
+import { runPipeline } from "../utils/pipeline"
 import tables from "../data/tables.json"
+import { CalendarRow } from "../types"
+import { useUserSettings } from "../hooks/useUserSettings"
 
-
-const dummyUserSettings: UserSettings = {
-    startingOrundum: 60_000, // 100 pulls
-    startingTickets: 20, // 20 pulls
-    startingOp: 100, // 30 pulls
-    startingCerts: 50,
-    monthlyCard: false,
-    claimedDay: '2026-05-16',
-    certsPerDay: 1.5,
-    clearedReruns: [
-        'exodus_rerun',
-        'reunion_lim_rerun',
-    ],
-    maxPullsToSpend: {
-        '2026-07-16': 176,
-    },
-    // resources added or subtracted by the user
-    userResources: {
-        '2026-06-02': {
-            orundum: { value: 1_000, description: 'random reward' },
-            tickets: { value: 12, description: 'buy tickets in store' },
-            op: { value: -18, description: 'skin purchase' },
-            certs: { value: -38, description: 'buy tickets in store' },
-        },
-    },
-}
 
 
 export default function App() {
-
-    const days = useCalendar()
 
     const { darkMode } = useDarkModeStore()
 
@@ -57,7 +28,13 @@ export default function App() {
 
     const [showChart, setShowChart] = useState(window.innerWidth > 600)
 
-    const { dt_final_calendar, all_resources_gained_or_spent_by_day } = runPipeline(dummyUserSettings, tables)
+    const userSettings = useUserSettings()
+
+    // return <pre>{JSON.stringify(userSettings, null, 4)}</pre>
+
+    // console.log(userSettings)
+
+    const { dt_final_calendar, all_resources_gained_or_spent_by_day } = runPipeline(userSettings, tables)
     const calendarRows = dt_final_calendar.objects() as unknown as CalendarRow[]
 
     return (
@@ -109,18 +86,16 @@ export default function App() {
                 {/* <Button>Customize resource income</Button> */}
             </fieldset>
 
-            {/* <Table days={days} /> */}
-
             <Calendar
                 rows={calendarRows}
                 resourcesGainedOrSpentByDay={all_resources_gained_or_spent_by_day}
             />
 
             <div className={s.buttons}>
-                <Button onClick={() => downloadCsv(days)}>
+                {/* <Button onClick={() => downloadCsv(days)}>
                     <FaDownload />&nbsp;
                     Download table (.csv)
-                </Button>
+                </Button> */}
 
                 <Button onClick={() => setShowChart(!showChart)}>
                     {showChart ? <FaChevronUp /> : <FaChevronRight />}&nbsp;
@@ -130,7 +105,7 @@ export default function App() {
 
             {/* <Chart days={days} show={showChart} /> */}
 
-            {/* <Footer /> */}
+            <Footer />
 
         </main >
     )

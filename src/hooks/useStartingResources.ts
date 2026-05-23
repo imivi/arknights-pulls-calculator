@@ -1,10 +1,10 @@
 import { useMemo } from "react"
 import { Resources } from "../utils/resources"
 import { useStartingResourcesStore } from "../stores/useStartingResourcesStore"
+import { Resource } from "../types"
 
 
 
-type Resource = "orundum" | "op" | "tickets"
 
 export function useStartingResources() {
 

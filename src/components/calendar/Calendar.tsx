@@ -4,6 +4,7 @@ import EventCell from './EventCell'
 import { ResourceChange } from '../../utils/pipeline'
 import { IconOnlyResourceBadge } from '../table/ResourceBadge'
 import { CalendarRow } from '../../types'
+import { formatOrundum } from '../../utils/utils'
 
 type Props = {
     rows: CalendarRow[]
@@ -65,6 +66,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                             <td className={s.ProgressCell}>
                                 <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)">
+                                    <IconOnlyResourceBadge resource="pulls" />
                                     {row.pulls_available_incl_op} pulls
                                     &nbsp;
                                     <small>({row.pulls_available_excl_op} + {row.pulls_available_incl_op - row.pulls_available_excl_op})</small>
@@ -73,21 +75,28 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}>
                                 <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} color="var(--orundum-progress)">
-                                    {row.orundum_leftover} <Details value={row.orundum_gained - row.orundum_spent} />
+                                    <IconOnlyResourceBadge resource="orundum" />
+                                    {formatOrundum(row.orundum_leftover)} <Details value={row.orundum_gained - row.orundum_spent} />
                                 </ProgressBar>
                             </td>
+
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 2), null, 4)}>
                                 <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} color="var(--ticket-progress)">
+                                    <IconOnlyResourceBadge resource="tickets" />
                                     {row.tickets_leftover} <Details value={row.tickets_gained - row.tickets_spent} />
                                 </ProgressBar>
                             </td>
+
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 3), null, 4)}>
                                 <ProgressBar value={row.op_leftover} max={row.max_op_leftover} color="var(--op-progress)">
+                                    <IconOnlyResourceBadge resource="op" />
                                     {row.op_leftover} <Details value={row.op_gained - row.op_spent} />
                                 </ProgressBar>
                             </td>
+
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 4), null, 4)}>
                                 <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} color="var(--cert-progress)">
+                                    <IconOnlyResourceBadge resource="cert" />
                                     {Math.floor(row.certs_leftover)} <Details value={row.certs_gained} />
                                 </ProgressBar>
                             </td>
@@ -105,9 +114,9 @@ function Details({ value }: { value: number }) {
     if (value === 0)
         return null
     else if (value > 0)
-        return <small>+{value}</small>
+        return <small className={s.Details}>+{value}</small>
     else
-        return <small>-{Math.abs(value)}</small>
+        return <small className={s.Details}>-{Math.abs(value)}</small>
 }
 
 
@@ -123,15 +132,7 @@ function formatDate(dateStr: string, dayofweek: number): string {
 function ProgressBar({ value, max, color, children }: { value: number, max: number, color: string, children: React.ReactNode }) {
     const percentage = max > 0 ? Math.max(0, Math.min(100, Math.round((value / max) * 100))) : 0
     return (
-        <div style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-            padding: '8px 14px',
-            boxSizing: 'border-box',
-            display: 'flex',
-            alignItems: 'center',
-        }}>
+        <div className={s.ProgressBar}>
             {/* The progress bar background */}
             <div style={{
                 position: 'absolute',

@@ -7,12 +7,13 @@ export class Resources {
     static PULL_TO_ORUNDUM_CONVERSION_RATE = 600
     static OP_TO_ORUNDUM_CONVERSION_RATE = 180
 
-    constructor(public orundum = 0, public tickets = 0, public op = 0) { }
+    constructor(public orundum = 0, public tickets = 0, public op = 0, public certs = 0) { }
 
-    set(orundum: number, tickets: number, op: number) {
+    set(orundum: number, tickets: number, op: number, certs: number) {
         this.orundum = orundum
         this.tickets = tickets
         this.op = op
+        this.certs = certs
         return this
     }
 

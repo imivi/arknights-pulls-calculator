@@ -41,6 +41,7 @@
         padding: 0;
         position: relative;
         overflow: hidden;
+        // display: inline-flex;
 
         span {
             display: inline-flex;
@@ -82,4 +83,27 @@
             background-color: colors.$table-row-bg-dark;
         }
     }
+}
+
+.ProgressBar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // padding: 8px 14px;
+    padding: .2em .4em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+    span {
+        // display: inline-grid;
+        // grid-template-columns: auto 1fr auto;
+    }
+}
+
+.Details {
+    border: 1px solid rgba($color: #000000, $alpha: 0.3);
+    padding: .1em .2em;
+    border-radius: 2px;
+    // margin-left: auto;
 }

@@ -4,13 +4,12 @@ import buttonStyle from "../Button.module.scss"
 import { useEffect, useState } from "react";
 import { Popover } from "radix-ui";
 import { Tooltip } from "react-tooltip";
-import { useUserResources } from "../../hooks/useUserResources";
 import { useDarkModeStore } from "../../stores/useDarkModeStore";
-import { UserResource } from "../../stores/useUserResourcesStore";
-import { CalendarRow, Day, Resource } from "../../types";
+import { CalendarRow, Resource } from "../../types";
 import { formatOrundum } from "../../utils/utils";
 import Button from "../Button";
 import Icon from "../Icon";
+import { useResourceAdjustments } from "../../hooks/useResourceAdjustments";
 
 
 
@@ -18,6 +17,7 @@ const allValueShortcuts = {
     orundum: [],
     tickets: [0, 38],
     op: [0, -15, -18, -21, -24],
+    cert: [0, -258],
 }
 
 
@@ -37,44 +37,33 @@ export default function ResourceMenu({ row, resource }: Props) {
     const amountAsNumber = Number(inputValue) || 0
     const [description, setDescription] = useState("")
 
-    const { userResources, setResource, deleteResource } = useUserResources()
+    const { getResourceAdjustment, setResourceAdjustment, deleteResourceAdjustment } = useResourceAdjustments()
+    const resourceAdjustment = getResourceAdjustment(date, resource)
+    const isActive = !!resourceAdjustment
 
-    const isActive = (date in userResources) && (resource in userResources[date]) && userResources[date][resource].value !== 0
-
-    const amount = isActive ? userResources[date][resource].value : 0
-
-    function getResources(): UserResource {
-        if (date in userResources && resource in userResources[date]) {
-            return userResources[date][resource]
-        }
-        return {
-            value: 0,
-            description: "",
-        }
-    }
+    const amount = resourceAdjustment?.amount || 0
 
     // Make sure the input fields are always showing the latest values
     useEffect(() => {
         if (showMenu) {
-            const res = getResources()
-            setInputValue(res.value)
-            setDescription(res.description)
+            setInputValue(resourceAdjustment?.amount || 0)
+            setDescription(resourceAdjustment?.description || "")
         }
     }, [showMenu])
 
     function onSubmit() {
         setShowMenu(false)
         if (inputValue === 0 && description === "")
-            deleteResource(date, resource)
+            deleteResourceAdjustment(date, resource)
         else
-            setResource(date, resource, amountAsNumber, description)
+            setResourceAdjustment(date, resource, amountAsNumber, description)
     }
 
     const { darkMode } = useDarkModeStore()
 
     const valueShortcuts = allValueShortcuts[resource]
 
-    const btnTooltipId = `add-resource-${resource}-${day.date}`
+    const btnTooltipId = `add-resource-${resource}-${row.day}`
 
     return (
         <Popover.Root open={showMenu} onOpenChange={(open) => setShowMenu(open)} >
@@ -94,9 +83,10 @@ export default function ResourceMenu({ row, resource }: Props) {
                         data-active={isActive}
                         data-tooltip-id={btnTooltipId}
                     >
-                        {resource === "orundum" && formatOrundum(day.cumulativeResources.orundum)}
-                        {resource === "tickets" && day.cumulativeResources.tickets.toFixed()}
-                        {resource === "op" && day.cumulativeResources.op.toFixed()}
+                        {resource === "orundum" && formatOrundum(row.orundum_spendable)}
+                        {resource === "tickets" && row.tickets_spendable}
+                        {resource === "op" && row.op_spendable}
+                        {resource === "cert" && row.certs_leftover}
                     </span>
                     <Tooltip id={btnTooltipId}>Click to add or deduct {resource}</Tooltip>
 

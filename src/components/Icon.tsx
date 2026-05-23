@@ -1,6 +1,6 @@
 import s from "./Icon.module.scss"
 
-type Resource = "orundum" | "op" | "tickets" | "monthly_card" | "no_op" | "plus_op"
+type Resource = "orundum" | "op" | "tickets" | "monthly_card" | "no_op" | "plus_op" | "cert" | "pulls"
 
 type Props = {
     type: Resource

@@ -1,5 +1,3 @@
-import { UserResources } from "./stores/useUserResourcesStore"
-import { Resources } from "./utils/resources"
 
 
 export const resources = ["orundum", "tickets", "op", "cert"] as const
@@ -17,6 +15,7 @@ export type BasicResources = {
     orundum: number
     tickets: number
     op: number
+    certs: number
 }
 
 export type ResourceGained = {
@@ -38,42 +37,8 @@ export type Settings = {
     firstDayCleared: boolean
     spendablePulls: Record<string, number>
     clearedReruns: string[]
-    userResources: Record<string, UserResources>
+    // userResources: Record<string, UserResources>
 }
-
-
-export type BaseValues = {
-    date: string
-    free_monthly_card: boolean
-    event_name: string | undefined
-    event_id: string | undefined
-    event_link: string | undefined
-    event_ops: string[]
-    eventDay: number
-    freePulls: number
-    defaultResourcesInfo: ResourcesGainedInfo,
-
-    rowSpan: number
-}
-
-// user-derived fields
-export type UserValues = {
-    rewardsClaimed: boolean
-    spendablePulls: number
-    activeResourcesInfo: ResourcesGainedInfo
-}
-
-type CalculatedValues = {
-    resourcesGainedToday: Resources
-    cumulativeResources: Resources
-    cumulativeSpendableResources: Resources // Excludes any resources already spent on pulls on this day
-    pullsAvailableTotal: number
-    pullsAvailableWithoutOP: number
-    pullsAvailableFromOP: number
-    pullsSpent: number
-}
-
-export type Day = BaseValues & UserValues & CalculatedValues
 
 
 
@@ -129,4 +94,22 @@ export type CalendarRow = {
     color_light_hue: number | undefined
     color_light_sat: number | undefined
     color_light_light: number | undefined
+}
+
+type Day = string // YYYY-MM-DD
+
+export type UserSettings = {
+    startingOrundum: number
+    startingTickets: number
+    startingOp: number
+    startingCerts: number
+    monthlyCard: boolean
+    claimedDay: string | null
+    certsPerDay: number
+    clearedReruns: string[]
+    maxPullsToSpend: Record<Day, number>
+    resourceAdjustments: Record<string, {
+        amount: number
+        description: string
+    }>
 }

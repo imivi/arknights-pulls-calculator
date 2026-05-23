@@ -4,7 +4,7 @@ import { CSSProperties, ReactNode } from "react"
 import { useClearedReruns } from "../../hooks/useClearedReruns"
 import { FaArrowUpRightFromSquare } from "react-icons/fa6"
 import { FaExclamationTriangle } from "react-icons/fa"
-import { CalendarRow } from "./Calendar"
+import { CalendarRow } from "../../types"
 
 
 type Props = {
@@ -15,8 +15,6 @@ type Props = {
 export default function EventCell({ day, rowSpan }: Props) {
 
     const { clearedReruns, toggleClearedRerun } = useClearedReruns()
-
-    console.log(day)
 
     if (rowSpan === 0)
         return null

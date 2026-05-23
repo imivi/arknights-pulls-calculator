@@ -109,3 +109,28 @@
     border-radius: 2px;
     // margin-left: auto;
 }
+
+
+button.btn_open_menu {
+    border: none;
+    background: none;
+    margin: 0;
+    // width: 100%;
+    height: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+
+    cursor: pointer;
+    color: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    opacity: 0.8;
+    transition: opacity 200ms ease;
+
+    &:hover {
+        opacity: 1;
+    }
+}

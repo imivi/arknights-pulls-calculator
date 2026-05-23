@@ -10,6 +10,8 @@ import Stripes from '../table/Stripes'
 import { ReactNode } from 'react'
 import { DualProgressBar } from './DualProgressBar'
 import { useSpendOpStore } from '../../stores/useSpendOpStore'
+import ResourceMenu from './ResourceMenu'
+import { Tooltip } from 'react-tooltip'
 
 type Props = {
     rows: CalendarRow[]
@@ -71,6 +73,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                 <td>-</td>
                             }
 
+                            {/* Date */}
                             <td>
                                 {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />}
 
@@ -101,9 +104,21 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}>
                                 <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} color="var(--orundum-progress)">
-                                    <IconOnlyResourceBadge resource="orundum" />
-                                    {formatOrundum(row.orundum_leftover)} <Details value={row.orundum_gained - row.orundum_spent} />
+
+                                    <ResourceMenu row={row} resource="orundum">
+                                        <button
+                                            className={s.btn_open_menu}
+                                            aria-label="Spend or gain resources"
+                                            data-tooltip-id={row.day + ':' + 'orundum'}
+                                        >
+                                            <IconOnlyResourceBadge resource="orundum" />
+                                            {formatOrundum(row.orundum_leftover)} <Details value={row.orundum_gained - row.orundum_spent} />
+
+                                        </button>
+                                    </ResourceMenu>
+
                                 </ProgressBar>
+                                <Tooltip id={row.day + ':' + 'orundum'}>Click to add or deduct orundum</Tooltip>
                             </td>
 
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 2), null, 4)}>
@@ -131,7 +146,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </div >
     )
 }
 

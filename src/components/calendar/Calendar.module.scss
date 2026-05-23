@@ -7,11 +7,11 @@
     width: 100%;
 
     // Light theme progress colors (semi-transparent badges)
-    --pulls-progress: rgba(181, 199, 236, 0.45);
-    --orundum-progress: rgba(236, 181, 181, 0.45);
-    --ticket-progress: rgba(171, 220, 138, 0.45);
-    --op-progress: rgba(232, 218, 154, 0.45);
-    --cert-progress: rgba(207, 160, 110, 0.45);
+    --pulls-progress: rgba(181, 199, 236, 0.8);
+    --orundum-progress: rgba(236, 181, 181, 0.8);
+    --ticket-progress: rgba(171, 220, 138, 0.8);
+    --op-progress: rgba(232, 218, 154, 0.8);
+    --cert-progress: rgba(207, 160, 110, 0.8);
 
     table {
         border-collapse: collapse;
@@ -40,7 +40,7 @@
     td.ProgressCell {
         padding: 0;
         position: relative;
-        overflow: hidden;
+        // overflow: hidden;
         // display: inline-flex;
 
         span {
@@ -62,12 +62,12 @@
     // Dark mode styles using global data-dark selector
     :global([data-dark="true"]) & {
         // Dark theme progress colors
-        --pulls-progress: rgba(78, 146, 202, 0.881);
+        --pulls-progress: rgba(78, 146, 202, 0.8);
         // --pulls-progress: #2e85ad;
-        --orundum-progress: rgba(155, 53, 45, 0.402);
-        --ticket-progress: rgba(121, 163, 76, 0.35);
-        --op-progress: rgba(207, 178, 83, 0.387);
-        --cert-progress: rgba(173, 97, 46, 0.35);
+        --orundum-progress: rgba(151, 37, 29, 0.8);
+        --ticket-progress: rgba(95, 149, 37, 0.8);
+        --op-progress: rgba(188, 160, 68, 0.8);
+        --cert-progress: rgba(173, 97, 46, 0.8);
 
         th {
             background-color: colors.$table-header-bg-dark;
@@ -96,6 +96,22 @@
     display: flex;
     align-items: center;
 
+    .Bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: color;
+        z-index: 0;
+        transition: width 0.5s ease;
+    }
+
+    .Content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+    }
+
     span {
         // display: inline-grid;
         // grid-template-columns: auto 1fr auto;
@@ -107,7 +123,12 @@
     // border: 1px solid rgba($color: #000000, $alpha: 0.3);
     padding: .2em .4em;
     border-radius: 2px;
+
     // margin-left: auto;
+    &[data-highlight=true] {
+        background-color: rgba($color: white, $alpha: 0.7);
+        color: black;
+    }
 }
 
 
@@ -117,6 +138,7 @@ button.btn_open_menu {
     margin: 0;
     // width: 100%;
     height: 100%;
+    padding: 0;
     font-size: inherit;
     font-family: inherit;
     color: inherit;
@@ -126,11 +148,24 @@ button.btn_open_menu {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
 
-    opacity: 0.8;
-    transition: opacity 200ms ease;
+.tooltip {
+    position: relative;
+    z-index: 9;
+    font-size: 1em;
 
-    &:hover {
-        opacity: 1;
+    p {
+        margin: .5em 0;
     }
+
+    ul {
+        // list-style: none;
+        margin: .5em 0;
+        padding: 0 1em;
+    }
+}
+
+.date_cell {
+    position: relative;
 }

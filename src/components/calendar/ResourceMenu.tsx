@@ -40,9 +40,6 @@ export default function ResourceMenu({ row, resource, children }: Props) {
 
     const { getResourceAdjustment, setResourceAdjustment, deleteResourceAdjustment } = useResourceAdjustments()
     const resourceAdjustment = getResourceAdjustment(date, resource)
-    const isActive = !!resourceAdjustment
-
-    const amount = resourceAdjustment?.amount || 0
 
     // Make sure the input fields are always showing the latest values
     useEffect(() => {
@@ -63,8 +60,6 @@ export default function ResourceMenu({ row, resource, children }: Props) {
     const { darkMode } = useDarkModeStore()
 
     const valueShortcuts = allValueShortcuts[resource]
-
-    const btnTooltipId = `add-resource-${resource}-${row.day}`
 
     return (
         <Popover.Root open={showMenu} onOpenChange={(open) => setShowMenu(open)} >

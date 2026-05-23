@@ -7,6 +7,7 @@ export function useResourceAdjustments() {
     function getResourceAdjustment(date: string, resource: Resource) {
         const key = `${date}:${resource}`
         if (!resourceAdjustments.hasOwnProperty(key)) return null
+        if (resourceAdjustments[key].amount === 0) return null
         return resourceAdjustments[key]
     }
 

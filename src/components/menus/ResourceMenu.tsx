@@ -53,7 +53,7 @@ export default function ResourceMenu({ row, resource }: Props) {
 
     function onSubmit() {
         setShowMenu(false)
-        if (inputValue === 0 && description === "")
+        if (amountAsNumber === 0 && description === "")
             deleteResourceAdjustment(date, resource)
         else
             setResourceAdjustment(date, resource, amountAsNumber, description)

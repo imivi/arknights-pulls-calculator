@@ -149,9 +149,9 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
 
         // Spend resources for pulls
         const spendablesResources = {
-            op: row['op_spendable'],
-            tickets: row['tickets_spendable'],
             orundum: row['orundum_spendable'],
+            tickets: row['tickets_spendable'],
+            op: userSettings.spendOp ? row['op_spendable'] : 0,
             certs: 0,
         }
         const pullsInclOP = convertResourcesToPulls(spendablesResources, true)

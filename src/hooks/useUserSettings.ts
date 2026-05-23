@@ -2,6 +2,7 @@ import { useCertsPerDayStore } from "../stores/useCertsPerDayStore"
 import { useDayClearedStore } from "../stores/useDayClearedStore"
 import { useResourceAdjustmentsStore } from "../stores/useResourceAdjustmentsStore"
 import { useSpendablePullsStore } from "../stores/useSpendablePullsStore"
+import { useSpendOpStore } from "../stores/useSpendOpStore"
 import { useStartingResourcesStore } from "../stores/useStartingResourcesStore"
 import { UserSettings } from "../types"
 import { useClearedReruns } from "./useClearedReruns"
@@ -20,6 +21,7 @@ export function useUserSettings(): UserSettings {
     const { resourceAdjustments } = useResourceAdjustmentsStore()
     const { startingResources } = useStartingResources()
     const { certsPerDay } = useCertsPerDayStore()
+    const { spendOp } = useSpendOpStore()
     return {
         startingOrundum: startingResources.orundum,
         startingTickets: startingResources.tickets,
@@ -30,6 +32,7 @@ export function useUserSettings(): UserSettings {
         certsPerDay,
         clearedReruns,
         maxPullsToSpend: spendablePulls,
+        spendOp,
         resourceAdjustments,
     }
 }
@@ -44,6 +47,7 @@ export const dummyUserSettings: UserSettings = {
     monthlyCard: false,
     claimedDay: '2026-05-16',
     certsPerDay: 1.5,
+    spendOp: true,
     clearedReruns: [
         'exodus_rerun',
         'reunion_lim_rerun',

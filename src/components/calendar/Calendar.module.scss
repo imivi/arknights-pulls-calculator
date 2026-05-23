@@ -62,10 +62,11 @@
     // Dark mode styles using global data-dark selector
     :global([data-dark="true"]) & {
         // Dark theme progress colors
-        --pulls-progress: rgba(181, 199, 236, 0.45);
-        --orundum-progress: rgba(129, 40, 34, 0.35);
+        --pulls-progress: rgba(78, 146, 202, 0.881);
+        // --pulls-progress: #2e85ad;
+        --orundum-progress: rgba(155, 53, 45, 0.402);
         --ticket-progress: rgba(121, 163, 76, 0.35);
-        --op-progress: rgba(202, 178, 101, 0.35);
+        --op-progress: rgba(207, 178, 83, 0.387);
         --cert-progress: rgba(173, 97, 46, 0.35);
 
         th {
@@ -102,8 +103,9 @@
 }
 
 .Details {
-    border: 1px solid rgba($color: #000000, $alpha: 0.3);
-    padding: .1em .2em;
+    background-color: rgba($color: white, $alpha: 0.1);
+    // border: 1px solid rgba($color: #000000, $alpha: 0.3);
+    padding: .2em .4em;
     border-radius: 2px;
     // margin-left: auto;
 }

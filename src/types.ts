@@ -37,7 +37,7 @@ export type Settings = {
     firstDayCleared: boolean
     spendablePulls: Record<string, number>
     clearedReruns: string[]
-    // userResources: Record<string, UserResources>
+    resourceAdjustments: Record<string, { amount: number, description: string }>
 }
 
 
@@ -108,6 +108,7 @@ export type UserSettings = {
     certsPerDay: number
     clearedReruns: string[]
     maxPullsToSpend: Record<Day, number>
+    spendOp: boolean
     resourceAdjustments: Record<string, {
         amount: number
         description: string

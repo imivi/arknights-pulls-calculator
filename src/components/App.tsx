@@ -17,6 +17,7 @@ import { runPipeline } from "../utils/pipeline"
 import tables from "../data/tables.json"
 import { CalendarRow } from "../types"
 import { useUserSettings } from "../hooks/useUserSettings"
+import { useSpendOpStore } from "../stores/useSpendOpStore"
 
 
 
@@ -36,6 +37,8 @@ export default function App() {
 
     const { dt_final_calendar, all_resources_gained_or_spent_by_day } = runPipeline(userSettings, tables)
     const calendarRows = dt_final_calendar.objects() as unknown as CalendarRow[]
+
+    const { spendOp, setSpendOp } = useSpendOpStore()
 
     return (
         <main className={s.App} data-dark={darkMode}>
@@ -81,6 +84,11 @@ export default function App() {
                     &nbsp;Show resources
                     <Icon type="orundum" size={24} />
                     <Icon type="tickets" size={24} />
+                    <Icon type="op" size={24} />
+                </label>
+                <label>
+                    <input type="checkbox" checked={spendOp} onChange={e => setSpendOp(e.target.checked)} />
+                    &nbsp;Spend OP for pulls
                     <Icon type="op" size={24} />
                 </label>
                 {/* <Button>Customize resource income</Button> */}

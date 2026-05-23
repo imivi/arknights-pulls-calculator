@@ -1,10 +1,15 @@
 import s from './Calendar.module.scss'
+
 import { useDarkModeStore } from '../../stores/useDarkModeStore'
 import EventCell from './EventCell'
 import { ResourceChange } from '../../utils/pipeline'
 import { IconOnlyResourceBadge } from '../table/ResourceBadge'
 import { CalendarRow } from '../../types'
 import { formatOrundum } from '../../utils/utils'
+import Stripes from '../table/Stripes'
+import { ReactNode } from 'react'
+import { DualProgressBar } from './DualProgressBar'
+import { useSpendOpStore } from '../../stores/useSpendOpStore'
 
 type Props = {
     rows: CalendarRow[]
@@ -19,6 +24,8 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     const maxPullsSpent = rows[0].max_pulls_spent
     const userSpentPulls = maxPullsSpent > 0
 
+    const { spendOp } = useSpendOpStore()
+
     return (
         <div className={s.Calendar} data-dark={darkMode}>
             <table>
@@ -32,8 +39,12 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                         <th>Pulls (
                             <IconOnlyResourceBadge resource="orundum" />
                             <IconOnlyResourceBadge resource="tickets" />
-                            +
-                            <IconOnlyResourceBadge resource="op" />
+                            {spendOp && (
+                                <>
+                                    +
+                                    <IconOnlyResourceBadge resource="op" />
+                                </>
+                            )}
                             )</th>
 
                         <th>Orundum</th>
@@ -60,17 +71,32 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                 <td>-</td>
                             }
 
-                            <td>{formatDate(row.day, row.weekday)}</td>
+                            <td>
+                                {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />}
+
+                                {formatDate(row.day, row.weekday)}
+                            </td>
 
                             {userSpentPulls && <td>{row.pulls_spent}</td>}
 
                             <td className={s.ProgressCell}>
-                                <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)">
+                                {/* <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)"> */}
+                                <DualProgressBar
+                                    value1={row.pulls_available_excl_op}
+                                    value2={row.pulls_available_incl_op - row.pulls_available_excl_op}
+                                    color1="var(--pulls-progress)"
+                                    color2="var(--op-progress)"
+                                    max={row.max_pulls_leftover}
+                                >
                                     <IconOnlyResourceBadge resource="pulls" />
                                     {row.pulls_available_incl_op} pulls
                                     &nbsp;
-                                    <small>({row.pulls_available_excl_op} + {row.pulls_available_incl_op - row.pulls_available_excl_op})</small>
-                                </ProgressBar>
+                                    {
+                                        spendOp &&
+                                        <Details value={`${row.pulls_available_excl_op} + ${row.pulls_available_incl_op - row.pulls_available_excl_op}`} />
+                                    }
+                                </DualProgressBar>
+                                {/* </ProgressBar> */}
                             </td>
 
                             <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}>
@@ -110,7 +136,9 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 }
 
 
-function Details({ value }: { value: number }) {
+function Details({ value }: { value: number | string }) {
+    if (typeof value === 'string')
+        return <small className={s.Details}>{value}</small>
     if (value === 0)
         return null
     else if (value > 0)
@@ -129,7 +157,7 @@ function formatDate(dateStr: string, dayofweek: number): string {
 }
 
 
-function ProgressBar({ value, max, color, children }: { value: number, max: number, color: string, children: React.ReactNode }) {
+function ProgressBar({ value, max, color, children }: { value: number, max: number, color: string, children: ReactNode }) {
     const percentage = max > 0 ? Math.max(0, Math.min(100, Math.round((value / max) * 100))) : 0
     return (
         <div className={s.ProgressBar}>

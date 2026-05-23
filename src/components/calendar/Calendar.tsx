@@ -14,6 +14,8 @@ import ResourceMenu from './ResourceMenu'
 import { Tooltip } from 'react-tooltip'
 import { resourceLabels } from '../../labels'
 import { useResourceAdjustments } from '../../hooks/useResourceAdjustments'
+import PullsMenu from '../menus/PullsMenu'
+import { useStartingResourcesStore } from '../../stores/useStartingResourcesStore'
 
 
 type Props = {
@@ -47,6 +49,10 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     const ticketsSpentByDay = getResourcesSpentByDay(resourcesGainedOrSpentByDay, 2)
     const opSpentByDay = getResourcesSpentByDay(resourcesGainedOrSpentByDay, 3)
     const certsSpentByDay = getResourcesSpentByDay(resourcesGainedOrSpentByDay, 4)
+
+    const { startingResources } = useStartingResourcesStore()
+    console.log(startingResources)
+    console.log(rows[0])
 
     return (
         <div className={s.Calendar} data-dark={darkMode}>
@@ -104,32 +110,33 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             {/* Pulls */}
                             <td className={s.ProgressCell}>
                                 {/* <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)"> */}
-                                <DualProgressBar
-                                    value1={row.pulls_available_excl_op}
-                                    value2={row.pulls_available_incl_op - row.pulls_available_excl_op}
-                                    color1="var(--pulls-progress)"
-                                    color2="var(--op-progress)"
-                                    max={row.max_pulls_leftover}
-                                >
-                                    <IconOnlyResourceBadge resource="pulls" />
-                                    {row.pulls_available_incl_op} pulls
-                                    &nbsp;
-                                    {
-                                        spendOp &&
-                                        <Details
-                                            value={`${row.pulls_available_excl_op} + ${row.pulls_available_incl_op - row.pulls_available_excl_op}`}
-                                            highlight={false}
-                                        // highlight={opSpentByDay[row.day]}
-                                        />
-                                    }
-                                </DualProgressBar>
+                                <PullsMenu row={row}>
+                                    <DualProgressBar
+                                        value1={row.pulls_available_excl_op}
+                                        value2={row.pulls_available_incl_op - row.pulls_available_excl_op}
+                                        color1="var(--pulls-progress)"
+                                        color2="var(--op-progress)"
+                                        max={row.max_pulls_leftover}
+                                    >
+                                        <IconOnlyResourceBadge resource="pulls" />
+                                        {row.pulls_available_incl_op} pulls
+                                        &nbsp;
+                                        {
+                                            spendOp &&
+                                            <Details
+                                                value={`${row.pulls_available_excl_op} + ${row.pulls_available_incl_op - row.pulls_available_excl_op}`}
+                                                highlight={false}
+                                            // highlight={opSpentByDay[row.day]}
+                                            />
+                                        }
+                                    </DualProgressBar>
+                                </PullsMenu>
+
                                 {/* </ProgressBar> */}
                             </td>
 
                             {/* Orundum */}
-                            <td className={s.ProgressCell}
-                            // title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}
-                            >
+                            <td className={s.ProgressCell}>
 
                                 <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} color="var(--orundum-progress)">
 
@@ -165,21 +172,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                             </td>
 
-                            {/* Tickets */}
-                            {/* <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 2), null, 4)}>
-                                <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} color="var(--ticket-progress)">
-                                    <IconOnlyResourceBadge resource="tickets" />
-                                    {row.tickets_leftover}
-                                    <Details
-                                        value={row.tickets_gained - row.tickets_spent}
-                                        highlight={!!getResourceAdjustment(row.day, 'tickets')}
-                                    />
-                                </ProgressBar>
-                            </td> */}
-
-                            <td className={s.ProgressCell}
-                            // title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}
-                            >
+                            <td className={s.ProgressCell}>
 
                                 <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} color="var(--ticket-progress)">
 
@@ -251,6 +244,13 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                         </ul>
                                     </Tooltip>
                                 </div>
+
+                                {/* <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 3), null, 4)}>
+                                <ProgressBar value={row.op_leftover} max={row.max_op_leftover} color="var(--op-progress)">
+                                    <IconOnlyResourceBadge resource="op" />
+                                    {row.op_leftover} <Details value={row.op_gained - row.op_spent} />
+                                </ProgressBar>
+                            </td> */}
 
                             </td>
 

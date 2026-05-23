@@ -20,6 +20,7 @@ export const useStartingResourcesStore = create(persist<Store>((set) => ({
         orundum: 0,
         op: 0,
         tickets: 0,
+        certs: 0,
     },
     setStartingResources: (res: BasicResources) => set({ startingResources: res }),
 

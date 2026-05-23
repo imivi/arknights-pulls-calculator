@@ -23,13 +23,10 @@
     margin: 0 auto;
     border-radius: 5px;
     box-shadow: 0 2px 3px rgba($color: black, $alpha: 0.2);
-    gap: .5em;
     display: grid;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-
-    width: min(26rem, 90vw);
+    gap: .5em;
 
     background-color: colors.$table-header-bg-light;
 

@@ -6,7 +6,7 @@ import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Footer from "./Footer"
 import Chart from "./Chart"
 import { downloadCsv } from "../utils/download-csv"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-icons/fa"
 import Button from "./Button"
 import Icon from "./Icon"
@@ -35,7 +35,8 @@ export default function App() {
 
     // console.log(userSettings)
 
-    const { dt_final_calendar, all_resources_gained_or_spent_by_day } = runPipeline(userSettings, tables)
+    const { dt_final_calendar, all_resources_gained_or_spent_by_day } = useMemo(() => runPipeline(userSettings, tables), [userSettings])
+
     const calendarRows = dt_final_calendar.objects() as unknown as CalendarRow[]
 
     const { spendOp, setSpendOp } = useSpendOpStore()
@@ -85,11 +86,11 @@ export default function App() {
                     <Icon type="orundum" size={24} />
                     <Icon type="tickets" size={24} />
                     <Icon type="op" size={24} />
+                    <Icon type="cert" size={24} />
                 </label>
                 <label>
                     <input type="checkbox" checked={spendOp} onChange={e => setSpendOp(e.target.checked)} />
-                    &nbsp;Spend OP for pulls
-                    <Icon type="op" size={24} />
+                    &nbsp;Spend <Icon type="op" size={24} />for pulls
                 </label>
                 {/* <Button>Customize resource income</Button> */}
             </fieldset>

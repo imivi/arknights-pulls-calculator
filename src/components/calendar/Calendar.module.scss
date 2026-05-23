@@ -2,7 +2,7 @@
 
 .Calendar {
     display: block;
-    overflow: auto;
+    // overflow: auto;
     height: 100%;
     width: 100%;
 
@@ -11,7 +11,7 @@
     --orundum-progress: rgba(236, 181, 181, 0.8);
     --ticket-progress: rgba(171, 220, 138, 0.8);
     --op-progress: rgba(232, 218, 154, 0.8);
-    --cert-progress: rgba(207, 160, 110, 0.8);
+    --cert-progress: rgba(230, 210, 189, 0.8);
 
     table {
         border-collapse: collapse;

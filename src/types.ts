@@ -18,6 +18,8 @@ export type BasicResources = {
     certs: number
 }
 
+export type PullResources = Omit<BasicResources, "certs">
+
 export type ResourceGained = {
     value: number,
     source: string // e.g. "login_event"

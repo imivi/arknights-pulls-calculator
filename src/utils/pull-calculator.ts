@@ -1,12 +1,12 @@
-import { BasicResources } from "../types"
+import { PullResources } from "../types"
 
 
 export class PullCalculator {
 
     private pulls = 0
-    public res: BasicResources
+    public res: PullResources
 
-    constructor(res: BasicResources) {
+    constructor(res: PullResources) {
         this.res = {
             op: res.op,
             orundum: res.orundum,

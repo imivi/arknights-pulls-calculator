@@ -99,7 +99,7 @@ function Operators({ ops }: { ops: string[] }) {
 
 
 
-function Warning({ borderColor, children }: { borderColor: string, children: ReactNode }) {
+export function Warning({ borderColor, children }: { borderColor: string, children: ReactNode }) {
     return (
         <small className={s.warning} style={{ borderColor }}>
             <FaExclamationTriangle size={14} /> {children}

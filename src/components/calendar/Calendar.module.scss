@@ -34,19 +34,20 @@
 
     td {
         padding: .4em .8em;
-        border: 1px solid #eee;
+        border-right: 1px solid #eee;
     }
 
     td.ProgressCell {
         padding: 0;
         position: relative;
+        padding-bottom: 1px;
+        // transform: scaleY(0.98);
         // overflow: hidden;
         // display: inline-flex;
 
         span {
             display: inline-flex;
             align-items: center;
-            // outline: 1px solid red;
         }
     }
 
@@ -76,7 +77,8 @@
         }
 
         td {
-            border: 1px solid #444;
+            // border: 1px solid #444;
+            border-right: 1px solid #444;
             color: colors.$table-row-text-dark;
         }
 
@@ -119,14 +121,17 @@
 }
 
 .Details {
-    background-color: rgba($color: white, $alpha: 0.1);
+    background-color: rgba($color: white, $alpha: 0.15);
     // border: 1px solid rgba($color: #000000, $alpha: 0.3);
-    padding: .2em .4em;
-    border-radius: 2px;
+    padding: .2em .6em;
+    height: .8rem;
+    border-radius: .8rem;
+    display: flex;
+    align-items: center;
 
     // margin-left: auto;
     &[data-highlight=true] {
-        background-color: rgba($color: white, $alpha: 0.7);
+        background-color: rgba($color: white, $alpha: 0.8);
         color: black;
     }
 }
@@ -166,6 +171,13 @@ button.btn_open_menu {
     }
 }
 
-.date_cell {
+td.date_cell {
     position: relative;
+    border: none;
+    overflow: hidden;
+
+    &>span {
+        position: relative;
+        z-index: 1;
+    }
 }

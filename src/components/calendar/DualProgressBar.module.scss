@@ -1,1 +1,35 @@
-.DualProgressBar {}
+.DualProgressBar {
+    position: relative;
+    overflow: hidden;
+    height: calc(100% - 1px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+
+    .bar1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: var(--pulls-progress);
+        z-index: 0;
+        transition: width 0.3s ease;
+    }
+
+    .bar2 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background-color: var(--op-progress);
+        z-index: 0;
+        transition: left 0.3s ease, width 0.3s ease;
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+    }
+}

@@ -135,7 +135,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             row['tickets_spendable'] = row['tickets_gained'] + userSettings.startingTickets
             row['op_spendable'] = row['op_gained'] + userSettings.startingOp
 
-            console.log({ certs_gained: row['certs_gained'], startingCerts: userSettings.startingCerts })
+            // console.log({ certs_gained: row['certs_gained'], startingCerts: userSettings.startingCerts })
             row['certs_leftover'] = row['certs_gained'] + userSettings.startingCerts
         }
         else {

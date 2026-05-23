@@ -3,7 +3,7 @@ import s from "./TableRow.module.scss"
 import imageColors from "../../data/image-colors.json"
 import { Tooltip } from "react-tooltip"
 import EventCell from "./EventCell"
-import { useMemo } from "react"
+import { CSSProperties, useMemo } from "react"
 import { Colors } from "../../scripts/get-image-colors"
 import { resourceLabels } from "../../labels"
 import { useDayClearedStore } from "../../stores/useDayClearedStore"
@@ -66,7 +66,13 @@ export default function CalendarRow({ day, rowIsEven, isToday }: RowProps) {
                 data-cleared={isToday && dayCleared}
             >
 
-                <span className={s.date} data-interactive={isToday}>
+                <span
+                    className={s.date}
+                    data-interactive={isToday}
+                    data-event-id={day.event_id}
+                    data-dark={darkMode}
+                    data-even={rowIsEven}
+                >
 
                     {dateTBD && <Stripes color={colors?.dark.hex!} />}
 

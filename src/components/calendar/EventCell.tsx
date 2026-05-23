@@ -14,6 +14,9 @@ type Props = {
 
 export default function EventCell({ day, rowSpan }: Props) {
 
+    if (day.day_of_event === 1)
+        console.log(day)
+
     const { clearedReruns, toggleClearedRerun } = useClearedReruns()
 
     if (rowSpan === 0)

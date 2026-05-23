@@ -225,6 +225,6 @@ function getBannerType(row: CalendarRow): BannerType {
 
 
 function formatProbability(value: number): string {
-    if (value < 0.99) return Math.round(value).toFixed(0)
-    return value.toFixed(1)
+    if (value < 0.99) return Math.round(value)?.toFixed(0)
+    return value?.toFixed(1)
 }

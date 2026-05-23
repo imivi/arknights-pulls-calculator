@@ -7,7 +7,7 @@ import { IconOnlyResourceBadge } from '../table/ResourceBadge'
 import { CalendarRow } from '../../types'
 import { formatOrundum } from '../../utils/utils'
 import Stripes from '../table/Stripes'
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { DualProgressBar } from './DualProgressBar'
 import { useSpendOpStore } from '../../stores/useSpendOpStore'
 import ResourceMenu from './ResourceMenu'
@@ -50,9 +50,10 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     const opSpentByDay = getResourcesSpentByDay(resourcesGainedOrSpentByDay, 3)
     const certsSpentByDay = getResourcesSpentByDay(resourcesGainedOrSpentByDay, 4)
 
-    const { startingResources } = useStartingResourcesStore()
-    console.log(startingResources)
-    console.log(rows[0])
+    // const { startingResources } = useStartingResourcesStore()
+    // console.log(startingResources)
+    // console.log(rows[0])
+
 
     return (
         <div className={s.Calendar} data-dark={darkMode}>
@@ -81,6 +82,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                         <th>Certs</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     {rows.map((row, i) => (
                         <tr key={row.day}>
@@ -100,9 +102,9 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             }
 
                             {/* Date */}
-                            <td className={s.date_cell}>
+                            <td className={s.date_cell} style={getDateCellStyle(row, i % 2 === 0, darkMode)}>
                                 {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />}
-                                {formatDate(row.day, row.weekday)}
+                                <span>{formatDate(row.day, row.weekday)}</span>
                             </td>
 
                             {userSpentPulls && <td>{row.pulls_spent}</td>}
@@ -344,4 +346,24 @@ function ProgressBar({ value, max, color, children }: { value: number, max: numb
             </span>
         </div>
     )
+}
+
+function getDateCellStyle(row: CalendarRow, rowIsEven: boolean, darkMode: boolean): CSSProperties {
+
+    const alpha = rowIsEven ? 0.7 : 0.4;
+
+    if (darkMode) {
+        return {
+            color: "#eee",
+            backgroundColor: `hsla(${row.color_light_hue}, ${row.color_light_sat}%, ${row.color_light_light}%, ${alpha})`,
+        }
+    }
+
+    else {
+        return {
+            color: row.color_dark_hex,
+            backgroundColor: `hsla(${row.color_dark_hue}, ${row.color_dark_sat}%, ${row.color_dark_light}%, ${alpha})`,
+        }
+    }
+
 }

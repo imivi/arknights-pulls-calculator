@@ -176,6 +176,10 @@
     display: flex;
     align-items: center;
 
+    &[data-show="false"] {
+        display: none;
+    }
+
     // margin-left: auto;
     &[data-highlight=true] {
         background-color: rgba($color: white, $alpha: 0.8);

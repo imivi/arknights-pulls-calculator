@@ -72,7 +72,7 @@ export default function StartingResources() {
             </label>
 
             <label data-resource="starting-certs" data-tooltip-id="starting-certs">
-                <Icon type="certs" size={32} />
+                <Icon type="certs_dark" size={32} />
                 <input
                     type="number"
                     value={inputValues.certs}

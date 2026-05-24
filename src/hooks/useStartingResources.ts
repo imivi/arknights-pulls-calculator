@@ -1,5 +1,3 @@
-import { useMemo } from "react"
-import { Resources } from "../utils/resources"
 import { useStartingResourcesStore } from "../stores/useStartingResourcesStore"
 import { Resource } from "../types"
 

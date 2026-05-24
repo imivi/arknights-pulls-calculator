@@ -2,7 +2,7 @@ import * as aq from 'arquero'
 import { ResourceAdjustments } from "../stores/useResourceAdjustmentsStore"
 import dayjs from "dayjs"
 import { convertPullsToResources, convertResourcesToPulls } from "./utils"
-import { UserSettings } from '../types'
+import { CalendarRow, UserSettings } from '../types'
 
 
 type EventDaysTable = {
@@ -126,7 +126,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
 
     const resourcesSpentFromPulling: ResourceChange[] = []
 
-    res_gained_by_day.forEach((row: any, i: number) => {
+    res_gained_by_day.forEach((row: CalendarRow, i: number) => {
 
         const today = (i === 0)
 
@@ -154,7 +154,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             orundum: row['orundum_spendable'],
             tickets: row['tickets_spendable'],
             op: userSettings.spendOp ? row['op_spendable'] : 0,
-            certs: 0,
+            certs: 0, // doesn't matter
         }
         const pullsInclOP = convertResourcesToPulls(spendablesResources, true)
         const pullsExclOP = convertResourcesToPulls(spendablesResources, false)

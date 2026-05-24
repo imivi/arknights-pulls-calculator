@@ -146,15 +146,13 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             <IconOnlyResourceBadge resource="pulls" />
                                             {row.pulls_available_incl_op}&nbsp;pulls
                                             &nbsp;
-                                            {
-                                                spendOp &&
-                                                <Details
-                                                    value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
-                                                    highlight={false}
-                                                    showUnhighlighted={true}
-                                                // highlight={opSpentByDay[row.day]}
-                                                />
-                                            }
+                                            <Details
+                                                value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
+                                                highlight={false}
+                                                showUnhighlighted={true}
+                                                show={spendOp}
+                                            // highlight={opSpentByDay[row.day]}
+                                            />
                                         </DualProgressBar>
                                     </button>
                                 </PullsMenu>
@@ -179,6 +177,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                                 value={row.orundum_gained - row.orundum_spent}
                                                 highlight={!!getResourceAdjustment(row.day, 'orundum')}
                                                 showUnhighlighted={showDailyResourceChange}
+                                                show={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -216,6 +215,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                                 value={row.tickets_gained - row.tickets_spent}
                                                 highlight={!!getResourceAdjustment(row.day, 'tickets')}
                                                 showUnhighlighted={showDailyResourceChange}
+                                                show={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -256,6 +256,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                                 value={row.op_gained - row.op_spent}
                                                 highlight={!!getResourceAdjustment(row.day, 'op')}
                                                 showUnhighlighted={showDailyResourceChange}
+                                                show={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -303,6 +304,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                                 value={row.certs_gained}
                                                 highlight={!!getResourceAdjustment(row.day, 'certs')}
                                                 showUnhighlighted={showDailyResourceChange}
+                                                show={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -344,17 +346,20 @@ function formatSignedValue(value: number) {
 }
 
 
-function Details({ value, highlight, showUnhighlighted }: { value: number | string | ReactNode, highlight: boolean, showUnhighlighted: boolean }) {
-    if (!showUnhighlighted && !highlight)
-        return null
+function Details({ value, highlight, showUnhighlighted, show }: { value: number | string | ReactNode, highlight: boolean, showUnhighlighted: boolean, show: boolean }) {
+
+    // If show=false, hide the element; otherwise, only show it showUnhighlighted=true; always show highlighted values
+    // const visible = show && (highlight || showUnhighlighted)
+    const visible = highlight || show || showUnhighlighted
+
     if (typeof value === 'string')
-        return <small className={s.Details}>{value}</small>
+        return <small className={s.Details} data-show={visible}>{value}</small>
     if (value === 0)
         return null
     else if (typeof value === 'number')
-        return <small className={s.Details} data-highlight={!!highlight}>{formatSignedValue(value)}</small>
+        return <small className={s.Details} data-show={visible} data-highlight={!!highlight}>{formatSignedValue(value)}</small>
     else
-        return <small className={s.Details} data-highlight={!!highlight}>{value}</small>
+        return <small className={s.Details} data-show={visible} data-highlight={!!highlight}>{value}</small>
 }
 
 

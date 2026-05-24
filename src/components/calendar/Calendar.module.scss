@@ -8,10 +8,15 @@
 
     // Light theme progress colors (semi-transparent badges)
     --pulls-progress: rgba(181, 199, 236, 0.8);
+    --pulls-progress-light: rgba(181, 199, 236, 0.9);
     --orundum-progress: rgba(236, 181, 181, 0.8);
+    --orundum-progress-light: rgba(236, 181, 181, 0.9);
     --ticket-progress: rgba(171, 220, 138, 0.8);
+    --ticket-progress-light: rgba(171, 220, 138, 0.9);
     --op-progress: rgba(232, 218, 154, 0.8);
+    --op-progress-light: rgba(232, 218, 154, 0.9);
     --cert-progress: rgba(230, 210, 189, 0.8);
+    --cert-progress-light: rgba(230, 210, 189, 0.9);
 
     table {
         border-collapse: collapse;
@@ -35,6 +40,10 @@
     td {
         padding: .4em .8em;
         border-right: 1px solid #eee;
+    }
+
+    td[data-column="pulls"] {
+        min-width: 11em;
     }
 
     td.ProgressCell {
@@ -64,11 +73,15 @@
     :global([data-dark="true"]) & {
         // Dark theme progress colors
         --pulls-progress: rgba(78, 146, 202, 0.8);
-        // --pulls-progress: #2e85ad;
+        --pulls-progress-light: rgba(78, 146, 202, 1);
         --orundum-progress: rgba(151, 37, 29, 0.8);
+        --orundum-progress-light: rgba(151, 37, 29, 1);
         --ticket-progress: rgba(95, 149, 37, 0.8);
+        --ticket-progress-light: rgba(95, 149, 37, 1);
         --op-progress: rgba(188, 160, 68, 0.8);
+        --op-progress-light: rgba(188, 160, 68, 1);
         --cert-progress: rgba(173, 97, 46, 0.8);
+        --cert-progress-light: rgba(173, 97, 46, 1);
 
         th {
             background-color: colors.$table-header-bg-dark;
@@ -98,14 +111,48 @@
     display: flex;
     align-items: center;
 
+    /* Resource-specific Bar styles - applied to .Bar when .ProgressBar has matching data-resource */
+    &[data-resource="orundum"] .Bar {
+        background-color: var(--orundum-progress);
+    }
+
+    &[data-resource="orundum"]:hover .Bar {
+        background-color: var(--orundum-progress-light);
+    }
+
+    &[data-resource="tickets"] .Bar {
+        background-color: var(--ticket-progress);
+    }
+
+    &[data-resource="tickets"]:hover .Bar {
+        background-color: var(--ticket-progress-light);
+    }
+
+    &[data-resource="op"] .Bar {
+        background-color: var(--op-progress);
+    }
+
+    &[data-resource="op"]:hover .Bar {
+        background-color: var(--op-progress-light);
+    }
+
+    &[data-resource="certs"] .Bar {
+        background-color: var(--cert-progress);
+    }
+
+    &[data-resource="certs"]:hover .Bar {
+        background-color: var(--cert-progress-light);
+    }
+
+
     .Bar {
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
-        background-color: color;
         z-index: 0;
         transition: width 0.5s ease;
+
     }
 
     .Content {
@@ -180,4 +227,37 @@ td.date_cell {
         position: relative;
         z-index: 1;
     }
+}
+
+td.pulls_spent_cell {
+    text-align: center;
+    max-width: 40px;
+    padding: 0;
+}
+
+span.pulls_spent {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--pulls-progress);
+    transition: background-color 100ms;
+
+    &:hover {
+        background-color: var(--pulls-progress-light);
+    }
+
+    // max-height: 1.2em;
+    /* Set your desired background color */
+    color: rgb(227, 233, 242);
+    /* Text color */
+    padding: 4px 30px 6px 16px;
+    /* Extra padding on the right to clear the triangle */
+    font-weight: bold;
+    font-family: sans-serif;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba($color: black, $alpha: 0.3);
+    // text-shadow: 0px 1px 1px rgba($color: black, $alpha: 0.5);
+    cursor: pointer;
+
+    /* 5-point polygon to cut out the right triangle */
+    clip-path: polygon(0% 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 0% 100%);
 }

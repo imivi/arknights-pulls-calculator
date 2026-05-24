@@ -16,6 +16,7 @@ import { resourceLabels } from '../../labels'
 import { useResourceAdjustments } from '../../hooks/useResourceAdjustments'
 import PullsMenu from '../menus/PullsMenu'
 import { useStartingResourcesStore } from '../../stores/useStartingResourcesStore'
+import { useShowDailyResourceChangeStore } from '../../stores/useShowDailyResourceChangeStore'
 
 
 type Props = {
@@ -54,6 +55,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     // console.log(startingResources)
     // console.log(rows[0])
 
+    const { showDailyResourceChange } = useShowDailyResourceChangeStore()
 
     return (
         <div className={s.Calendar} data-dark={darkMode}>
@@ -63,9 +65,11 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                         <th>Event</th>
                         <th>Day</th>
 
-                        {userSpentPulls && <th>Pulls spent</th>}
+                        {userSpentPulls && <th className={s.pulls_spent}>Pulls<br />spent</th>}
 
-                        <th>Pulls (
+                        <th>
+                            Pulls available
+                            <br />
                             <IconOnlyResourceBadge resource="orundum" />
                             <IconOnlyResourceBadge resource="tickets" />
                             {spendOp && (
@@ -74,7 +78,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                     <IconOnlyResourceBadge resource="op" />
                                 </>
                             )}
-                            )</th>
+                        </th>
 
                         <th>Orundum</th>
                         <th>Tickets</th>
@@ -86,8 +90,8 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                 <tbody>
                     {rows.map((row, i) => (
                         <tr key={row.day}>
-                            {/* Day */}
 
+                            {/* Event banner or empty cell */}
                             {
                                 row.event_id &&
                                 (row.day_of_event === 1 || i === 0) && // first row or day 1 of event
@@ -102,15 +106,22 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             }
 
                             {/* Date */}
-                            <td className={s.date_cell} style={getDateCellStyle(row, i % 2 === 0, darkMode)}>
+                            <td className={s.date_cell} style={getDateCellStyle(row, i % 2 === 0, darkMode)}
+                                title={import.meta.env.DEV ? JSON.stringify(row, null, 4) : undefined}
+                            >
                                 {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />}
                                 <span>{formatDate(row.day, row.weekday)}</span>
                             </td>
 
-                            {userSpentPulls && <td>{row.pulls_spent}</td>}
+                            {
+                                userSpentPulls &&
+                                <td className={s.pulls_spent_cell}>
+                                    {row.pulls_spent > 0 ? <span className={s.pulls_spent}>{row.pulls_spent}</span> : null}
+                                </td>
+                            }
 
                             {/* Pulls */}
-                            <td className={s.ProgressCell}>
+                            <td className={s.ProgressCell} data-column="pulls">
                                 {/* <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)"> */}
                                 <PullsMenu row={row}>
                                     <DualProgressBar
@@ -121,13 +132,14 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                         max={row.max_pulls_leftover}
                                     >
                                         <IconOnlyResourceBadge resource="pulls" />
-                                        {row.pulls_available_incl_op} pulls
+                                        {row.pulls_available_incl_op}&nbsp;pulls
                                         &nbsp;
                                         {
                                             spendOp &&
                                             <Details
-                                                value={`${row.pulls_available_excl_op} + ${row.pulls_available_incl_op - row.pulls_available_excl_op}`}
+                                                value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
                                                 highlight={false}
+                                                showUnhighlighted={true}
                                             // highlight={opSpentByDay[row.day]}
                                             />
                                         }
@@ -140,7 +152,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             {/* Orundum */}
                             <td className={s.ProgressCell}>
 
-                                <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} color="var(--orundum-progress)">
+                                <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} resource="orundum">
 
                                     <ResourceMenu row={row} resource="orundum">
                                         <button
@@ -153,6 +165,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             <Details
                                                 value={row.orundum_gained - row.orundum_spent}
                                                 highlight={!!getResourceAdjustment(row.day, 'orundum')}
+                                                showUnhighlighted={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -176,7 +189,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                             <td className={s.ProgressCell}>
 
-                                <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} color="var(--ticket-progress)">
+                                <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} resource="tickets">
 
                                     <ResourceMenu row={row} resource="tickets">
                                         <button
@@ -189,6 +202,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             <Details
                                                 value={row.tickets_gained - row.tickets_spent}
                                                 highlight={!!getResourceAdjustment(row.day, 'tickets')}
+                                                showUnhighlighted={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -215,7 +229,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             // title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}
                             >
 
-                                <ProgressBar value={row.op_leftover} max={row.max_op_leftover} color="var(--op-progress)">
+                                <ProgressBar value={row.op_leftover} max={row.max_op_leftover} resource="op">
 
                                     <ResourceMenu row={row} resource="op">
                                         <button
@@ -228,6 +242,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             <Details
                                                 value={row.op_gained - row.op_spent}
                                                 highlight={!!getResourceAdjustment(row.day, 'op')}
+                                                showUnhighlighted={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -261,7 +276,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             // title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}
                             >
 
-                                <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} color="var(--cert-progress)">
+                                <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} resource="certs">
 
                                     <ResourceMenu row={row} resource="cert">
                                         <button
@@ -270,10 +285,11 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             data-tooltip-id={row.day + ':' + 'certs'}
                                         >
                                             <IconOnlyResourceBadge resource="cert" />
-                                            {row.certs_leftover}
+                                            {Math.floor(row.certs_leftover)}
                                             <Details
                                                 value={row.certs_gained}
                                                 highlight={!!getResourceAdjustment(row.day, 'cert')}
+                                                showUnhighlighted={showDailyResourceChange}
                                             />
                                         </button>
                                     </ResourceMenu>
@@ -315,13 +331,17 @@ function formatSignedValue(value: number) {
 }
 
 
-function Details({ value, highlight }: { value: number | string, highlight: boolean }) {
+function Details({ value, highlight, showUnhighlighted }: { value: number | string | ReactNode, highlight: boolean, showUnhighlighted: boolean }) {
+    if (!showUnhighlighted && !highlight)
+        return null
     if (typeof value === 'string')
         return <small className={s.Details}>{value}</small>
     if (value === 0)
         return null
-    else
+    else if (typeof value === 'number')
         return <small className={s.Details} data-highlight={!!highlight}>{formatSignedValue(value)}</small>
+    else
+        return <small className={s.Details} data-highlight={!!highlight}>{value}</small>
 }
 
 
@@ -334,12 +354,12 @@ function formatDate(dateStr: string, dayofweek: number): string {
 }
 
 
-function ProgressBar({ value, max, color, children }: { value: number, max: number, color: string, children: ReactNode }) {
+function ProgressBar({ value, max, resource, children }: { value: number, max: number, resource: "orundum" | "tickets" | "op" | "certs", children: ReactNode }) {
     const percentage = max > 0 ? Math.max(0, Math.min(100, Math.round((value / max) * 100))) : 0
     return (
-        <div className={s.ProgressBar}>
+        <div className={s.ProgressBar} data-resource={resource}>
             {/* The progress bar background */}
-            <div className={s.Bar} style={{ width: `${percentage}%`, backgroundColor: color }} />
+            <div className={s.Bar} style={{ width: `${percentage}%` }} />
             {/* The cell content */}
             <span className={s.Content}>
                 {children}

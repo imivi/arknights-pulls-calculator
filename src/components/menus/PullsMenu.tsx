@@ -51,7 +51,11 @@ export default function PullsMenu({ row, children }: Props) {
 
     // Make sure the input value is always showing the spendable pulls
     useEffect(() => {
-        setInputValue(spendablePullsToday.toFixed())
+        if (row.pulls_spent > 0)
+            setInputValue(row.pulls_spent.toFixed())
+        else
+            setInputValue('0')
+        // setInputValue(spendablePullsToday.toFixed())
     }, [showPullMenu])
 
     function increment(n: number) {

@@ -43,7 +43,7 @@ export default function StartingResources() {
                 <input
                     type="number"
                     value={inputValues.orundum}
-                    onChange={(e) => setInputValue("orundum", e.target.valueAsNumber)}
+                    onChange={(e) => setInputValue("orundum", e.target.valueAsNumber || 0)}
                     min={0}
                 />
                 <Tooltip id="starting-orundum" content="Your current orundum" defaultIsOpen={startingResources.orundum === 0} />
@@ -54,7 +54,7 @@ export default function StartingResources() {
                 <input
                     type="number"
                     value={inputValues.tickets}
-                    onChange={(e) => setInputValue("tickets", e.target.valueAsNumber)}
+                    onChange={(e) => setInputValue("tickets", e.target.valueAsNumber || 0)}
                     min={0}
                 />
                 <Tooltip id="starting-tickets" content="Your current HH permits" />
@@ -65,11 +65,23 @@ export default function StartingResources() {
                 <input
                     type="number"
                     value={inputValues.op}
-                    onChange={(e) => setInputValue("op", e.target.valueAsNumber)}
+                    onChange={(e) => setInputValue("op", e.target.valueAsNumber || 0)}
                     min={0}
                 />
                 <Tooltip id="starting-op" content="Your current OP" />
             </label>
+
+            <label data-resource="starting-certs" data-tooltip-id="starting-certs">
+                <Icon type="cert" size={32} />
+                <input
+                    type="number"
+                    value={inputValues.certs}
+                    onChange={(e) => setInputValue("certs" as Resource, e.target.valueAsNumber || 0)}
+                    min={0}
+                />
+                <Tooltip id="starting-certs" content="Your current distinction certificates" />
+            </label>
+
             <label data-resource="monthly_card" data-tooltip-id="monthly_card">
                 <input type="checkbox" checked={monthlyCard} onChange={(e) => setMonthlyCard(e.target.checked)} />
                 card

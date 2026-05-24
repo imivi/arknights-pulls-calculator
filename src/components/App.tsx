@@ -18,6 +18,7 @@ import tables from "../data/tables.json"
 import { CalendarRow } from "../types"
 import { useUserSettings } from "../hooks/useUserSettings"
 import { useSpendOpStore } from "../stores/useSpendOpStore"
+import { useShowDailyResourceChangeStore } from "../stores/useShowDailyResourceChangeStore"
 
 
 
@@ -30,6 +31,8 @@ export default function App() {
     const [showChart, setShowChart] = useState(window.innerWidth > 600)
 
     const userSettings = useUserSettings()
+
+    const { showDailyResourceChange, setShowDailyResourceChange } = useShowDailyResourceChangeStore()
 
     // return <pre>{JSON.stringify(userSettings, null, 4)}</pre>
 
@@ -87,6 +90,10 @@ export default function App() {
                     <Icon type="tickets" size={24} />
                     <Icon type="op" size={24} />
                     <Icon type="cert" size={24} />
+                </label>
+                <label>
+                    <input type="checkbox" checked={showDailyResourceChange} onChange={e => setShowDailyResourceChange(e.target.checked)} />
+                    &nbsp;Show daily resources gained/spent
                 </label>
                 <label>
                     <input type="checkbox" checked={spendOp} onChange={e => setSpendOp(e.target.checked)} />

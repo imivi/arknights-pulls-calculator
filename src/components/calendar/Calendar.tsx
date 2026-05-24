@@ -89,6 +89,8 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             )}
                         </th>
 
+                        <th>Free<br />pulls</th>
+
                         <th>Orundum</th>
                         <th>Tickets</th>
                         <th>OP</th>
@@ -118,7 +120,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             <td className={s.date_cell} style={getDateCellStyle(row, i % 2 === 0, darkMode)}
                                 title={import.meta.env.DEV ? JSON.stringify(row, null, 4) : undefined}
                             >
-                                {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />}
+                                {/* {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />} */}
                                 <span>{formatDate(row.day, row.weekday)}</span>
                             </td>
 
@@ -144,8 +146,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             max={row.max_pulls_leftover}
                                         >
                                             <IconOnlyResourceBadge resource="pulls" />
-                                            {row.pulls_available_incl_op}&nbsp;pulls
-                                            &nbsp;
+                                            <span>{row.pulls_available_incl_op}&nbsp;pulls&nbsp;</span>
                                             <Details
                                                 value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
                                                 highlight={false}
@@ -160,8 +161,18 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                 {/* </ProgressBar> */}
                             </td>
 
+                            {/* Free pulls */}
+                            <td>
+                                {
+                                    row.free_pulls > 0 &&
+                                    <small className={s.free_pulls}>
+                                        +{row.free_pulls}&nbsp;free
+                                    </small>
+                                }
+                            </td>
+
                             {/* Orundum */}
-                            <td className={s.ProgressCell}>
+                            < td className={s.ProgressCell} >
 
                                 <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} resource="orundum">
 
@@ -329,7 +340,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                         </tr>
                     ))}
                 </tbody>
-            </table>
+            </table >
         </div >
     )
 }

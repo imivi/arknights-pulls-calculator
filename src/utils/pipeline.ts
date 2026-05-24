@@ -252,6 +252,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             max_op_leftover: (d: any) => aq.op.max(d.op_leftover),
             max_certs_leftover: (d: any) => aq.op.max(d.certs_leftover),
             max_pulls_spent: (d: any) => aq.op.max(d.pulls_spent),
+            free_pulls: 0,
         })
 
     return {

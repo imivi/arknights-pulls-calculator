@@ -22,6 +22,19 @@ import { useShowDailyResourceChangeStore } from "../stores/useShowDailyResourceC
 
 
 
+
+function addFreePulls(row: CalendarRow): CalendarRow {
+
+    if (row.is_collab)
+        row.free_pulls = (row.day_of_event === 1 || row.day_of_event === 8) ? 11 : 1
+
+    if (row.is_limited && !row.is_rerun)
+        row.free_pulls = row.day_of_event === 1 ? 11 : 1
+
+    return row
+}
+
+
 export default function App() {
 
     const { darkMode } = useDarkModeStore()
@@ -40,7 +53,7 @@ export default function App() {
 
     const { dt_final_calendar, all_resources_gained_or_spent_by_day } = useMemo(() => runPipeline(userSettings, tables), [userSettings])
 
-    const calendarRows = dt_final_calendar.objects() as unknown as CalendarRow[]
+    const calendarRows = useMemo(() => dt_final_calendar.objects().map(row => addFreePulls(row as CalendarRow)), [dt_final_calendar])
 
     const { spendOp, setSpendOp } = useSpendOpStore()
 
@@ -96,7 +109,8 @@ export default function App() {
                                     <IconOnlyResourceBadge resource="orundum" />
                                     <IconOnlyResourceBadge resource="tickets" />
                                     <IconOnlyResourceBadge resource="op" />
-                                    for additional information
+                                    <IconOnlyResourceBadge resource="certs" />
+                                    for additional info
                                 </li>
                                 <li>Click on any resource count to spend or gain resources</li>
                             </>

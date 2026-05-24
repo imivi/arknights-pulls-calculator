@@ -6,6 +6,10 @@
     height: 100%;
     width: 100%;
 
+    max-width: min(95vw, 1400px);
+    margin: 0 auto;
+    overflow-x: auto;
+
     // Light theme progress colors (semi-transparent badges)
     --pulls-progress: rgba(181, 199, 236, 0.8);
     --pulls-progress-light: rgba(181, 199, 236, 0.9);
@@ -271,4 +275,20 @@ button.pulls_spent {
 
     /* 5-point polygon to cut out the right triangle */
     clip-path: polygon(0% 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 0% 100%);
+}
+
+small.free_pulls {
+    color: #dfe6ec;
+    background-color: #2e85ad;
+    height: .8rem;
+
+    /* Increase left padding slightly so the text doesn't hit the triangle point */
+    padding: .2rem .2rem .2rem .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+
+    /* Cuts a triangle out of the left side */
+    clip-path: polygon(0% 50%, .5rem 0%, 100% 0%, 100% 100%, .5rem 100%);
 }

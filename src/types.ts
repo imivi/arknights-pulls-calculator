@@ -68,6 +68,7 @@ export type CalendarRow = {
     op_leftover: number
     certs_leftover: number
     weekday: number
+    free_pulls: number
 
     max_pulls_leftover: number
     max_orundum_leftover: number

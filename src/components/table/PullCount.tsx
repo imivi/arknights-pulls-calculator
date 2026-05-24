@@ -5,7 +5,7 @@ import { useDarkModeStore } from "../../stores/useDarkModeStore"
 import { useSpendablePullsStore } from "../../stores/useSpendablePullsStore"
 import { Tooltip } from "react-tooltip"
 import { FaExclamationTriangle } from "react-icons/fa"
-import PullsMenu from "../menus/PullsMenu"
+import PullsMenu from "../calendar/PullsMenu"
 
 
 type Props = {

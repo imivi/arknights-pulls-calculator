@@ -14,7 +14,7 @@ import ResourceMenu from './ResourceMenu'
 import { Tooltip } from 'react-tooltip'
 import { resourceLabels } from '../../labels'
 import { useResourceAdjustments } from '../../hooks/useResourceAdjustments'
-import PullsMenu from '../menus/PullsMenu'
+import PullsMenu from './PullsMenu'
 import { useStartingResourcesStore } from '../../stores/useStartingResourcesStore'
 import { useShowDailyResourceChangeStore } from '../../stores/useShowDailyResourceChangeStore'
 
@@ -291,17 +291,17 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                                 <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} resource="certs">
 
-                                    <ResourceMenu row={row} resource="cert">
+                                    <ResourceMenu row={row} resource="certs">
                                         <button
                                             className={s.btn_open_menu}
                                             aria-label="Spend or gain resources"
                                             data-tooltip-id={row.day + ':' + 'certs'}
                                         >
-                                            <IconOnlyResourceBadge resource="cert" />
+                                            <IconOnlyResourceBadge resource="certs" />
                                             {Math.floor(row.certs_leftover)}
                                             <Details
                                                 value={row.certs_gained}
-                                                highlight={!!getResourceAdjustment(row.day, 'cert')}
+                                                highlight={!!getResourceAdjustment(row.day, 'certs')}
                                                 showUnhighlighted={showDailyResourceChange}
                                             />
                                         </button>
@@ -395,7 +395,7 @@ function getDateCellStyle(row: CalendarRow, rowIsEven: boolean, darkMode: boolea
     else {
         return {
             color: row.color_dark_hex,
-            backgroundColor: `hsla(${row.color_dark_hue}, ${row.color_dark_sat}%, ${row.color_dark_light}%, ${alpha})`,
+            backgroundColor: `hsla(${row.color_dark_hue}, ${row.color_dark_sat! - 10}%, ${row.color_dark_light! + 45}%, ${alpha})`,
         }
     }
 

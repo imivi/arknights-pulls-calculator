@@ -17,7 +17,7 @@ const allValueShortcuts = {
     orundum: [],
     tickets: [0, 38],
     op: [0, -15, -18, -21, -24],
-    cert: [0, -258],
+    certs: [0, -258],
 }
 
 

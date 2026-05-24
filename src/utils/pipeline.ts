@@ -120,6 +120,8 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     // throw new Error('debug')
 
 
+
+
     const res_gained_by_day = dt_res_gained_by_day.objects()
 
     const resourcesSpentFromPulling: ResourceChange[] = []

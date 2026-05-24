@@ -57,50 +57,54 @@ export default function App() {
 
             </header>
 
-            <fieldset className={s.message_box} data-dark={darkMode}>
-                <legend>
-                    <FaInfoCircle size={16} />&nbsp;tips
-                </legend>
-                <ul>
-                    <li>Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls</li>
-                    <li>Click on today's date to claim resources</li>
-                    {
-                        showResources &&
-                        <>
-                            <li>Click or hover over any resource badge
-                                <IconOnlyResourceBadge resource="orundum" />
-                                <IconOnlyResourceBadge resource="tickets" />
-                                <IconOnlyResourceBadge resource="op" />
-                                for additional information
-                            </li>
-                            <li>Click on any resource count to spend or gain resources</li>
-                        </>
-                    }
-                </ul>
-            </fieldset>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "center", gap: 20 }}>
 
-            <fieldset className={s.message_box} data-dark={darkMode}>
-                <legend>
-                    <FaGear size={16} />&nbsp;settings
-                </legend>
-                <label>
-                    <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
-                    &nbsp;Show resources
-                    <Icon type="orundum" size={24} />
-                    <Icon type="tickets" size={24} />
-                    <Icon type="op" size={24} />
-                    <Icon type="cert" size={24} />
-                </label>
-                <label>
-                    <input type="checkbox" checked={showDailyResourceChange} onChange={e => setShowDailyResourceChange(e.target.checked)} />
-                    &nbsp;Show daily resources gained/spent
-                </label>
-                <label>
-                    <input type="checkbox" checked={spendOp} onChange={e => setSpendOp(e.target.checked)} />
-                    &nbsp;Spend <Icon type="op" size={24} />for pulls
-                </label>
-                {/* <Button>Customize resource income</Button> */}
-            </fieldset>
+                <fieldset className={s.message_box} data-dark={darkMode}>
+                    <legend>
+                        <FaGear size={16} />&nbsp;settings
+                    </legend>
+                    <label>
+                        <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
+                        &nbsp;Show resources
+                        <Icon type="orundum" size={24} />
+                        <Icon type="tickets" size={24} />
+                        <Icon type="op" size={24} />
+                        <Icon type="certs" size={24} />
+                    </label>
+                    <label>
+                        <input type="checkbox" checked={showDailyResourceChange} onChange={e => setShowDailyResourceChange(e.target.checked)} />
+                        &nbsp;Show daily resources gained/spent
+                    </label>
+                    <label>
+                        <input type="checkbox" checked={spendOp} onChange={e => setSpendOp(e.target.checked)} />
+                        &nbsp;Spend <Icon type="op" size={24} />for pulls
+                    </label>
+                    {/* <Button>Customize resource income</Button> */}
+                </fieldset>
+
+                <fieldset className={s.message_box} data-dark={darkMode}>
+                    <legend>
+                        <FaInfoCircle size={16} />&nbsp;tips
+                    </legend>
+                    <ul>
+                        <li>Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls</li>
+                        <li>Click on today's date to claim resources</li>
+                        {
+                            showResources &&
+                            <>
+                                <li>Click or hover over any resource badge
+                                    <IconOnlyResourceBadge resource="orundum" />
+                                    <IconOnlyResourceBadge resource="tickets" />
+                                    <IconOnlyResourceBadge resource="op" />
+                                    for additional information
+                                </li>
+                                <li>Click on any resource count to spend or gain resources</li>
+                            </>
+                        }
+                    </ul>
+                </fieldset>
+
+            </div>
 
             <Calendar
                 rows={calendarRows}

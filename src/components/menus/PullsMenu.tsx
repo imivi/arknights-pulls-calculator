@@ -27,7 +27,7 @@ export default function PullsMenu({ row, children }: Props) {
     const [showPullMenu, setShowPullMenu] = useState(false)
 
     const { spendablePulls, setSpendablePulls } = useSpendablePullsStore()
-    const spendablePullsToday = row.pulls_available_incl_op
+    // const spendablePullsToday = row.pulls_available_incl_op
 
     const [inputValue, setInputValue] = useState("0")
     const inputValueAsNumber = Number(inputValue) || 0
@@ -86,12 +86,15 @@ export default function PullsMenu({ row, children }: Props) {
     return (
         <Popover.Root open={showPullMenu} onOpenChange={(open) => setShowPullMenu(open)} >
             <Popover.Trigger asChild>
-                <button className={s.btn_open_menu} aria-label="Spend pulls">
-                    {children}
-                </button>
+                {/* <button className={s.btn_open_menu} aria-label="Spend pulls"> */}
+                {children}
+                {/* </button> */}
             </Popover.Trigger>
             <Popover.Portal>
-                <Popover.Content className={s.Content} sideOffset={5}>
+                <Popover.Content
+                    className={s.Content}
+                    sideOffset={15} // shift up/down
+                >
                     <Popover.Arrow className={s.Arrow} />
 
                     <form onSubmit={e => { e.preventDefault(); onSubmit() }}>

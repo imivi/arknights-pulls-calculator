@@ -235,7 +235,14 @@ td.pulls_spent_cell {
     padding: 0;
 }
 
-span.pulls_spent {
+button.pulls_spent {
+
+    // Reset button styling
+    border: none;
+    background: none;
+    font-size: inherit;
+    outline: none;
+
     display: inline-flex;
     align-items: center;
     background-color: var(--pulls-progress);

@@ -7,7 +7,7 @@ import { IconOnlyResourceBadge } from '../table/ResourceBadge'
 import { CalendarRow } from '../../types'
 import { formatOrundum } from '../../utils/utils'
 import Stripes from '../table/Stripes'
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties, ReactNode, useRef } from 'react'
 import { DualProgressBar } from './DualProgressBar'
 import { useSpendOpStore } from '../../stores/useSpendOpStore'
 import ResourceMenu from './ResourceMenu'
@@ -27,7 +27,16 @@ type Props = {
 export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     const { darkMode } = useDarkModeStore()
 
-    // console.log(rows[0])
+    // These are refs on the available pull counts
+    // when the user clicks on a nearby pull count, click on the ref
+    const pullButtonsRef = useRef<Record<string, HTMLButtonElement | null>>({})
+
+    function onSpentPullsClick(day: string) {
+        const targetButton = pullButtonsRef.current[day]
+        if (targetButton) {
+            targetButton.click()
+        }
+    }
 
     const maxPullsSpent = rows[0].max_pulls_spent
     const userSpentPulls = maxPullsSpent > 0
@@ -116,34 +125,38 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             {
                                 userSpentPulls &&
                                 <td className={s.pulls_spent_cell}>
-                                    {row.pulls_spent > 0 ? <span className={s.pulls_spent}>{row.pulls_spent}</span> : null}
+                                    {row.pulls_spent > 0 &&
+                                        <button className={s.pulls_spent} onClick={() => { onSpentPullsClick(row.day); console.log(row.day) }}>
+                                            {row.pulls_spent}
+                                        </button>
+                                    }
                                 </td>
                             }
 
                             {/* Pulls */}
-                            <td className={s.ProgressCell} data-column="pulls">
+                            <td className={s.ProgressCell} data-column="pulls"                            >
                                 {/* <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)"> */}
                                 <PullsMenu row={row}>
-                                    <DualProgressBar
-                                        value1={row.pulls_available_excl_op}
-                                        value2={row.pulls_available_incl_op - row.pulls_available_excl_op}
-                                        color1="var(--pulls-progress)"
-                                        color2="var(--op-progress)"
-                                        max={row.max_pulls_leftover}
-                                    >
-                                        <IconOnlyResourceBadge resource="pulls" />
-                                        {row.pulls_available_incl_op}&nbsp;pulls
-                                        &nbsp;
-                                        {
-                                            spendOp &&
-                                            <Details
-                                                value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
-                                                highlight={false}
-                                                showUnhighlighted={true}
-                                            // highlight={opSpentByDay[row.day]}
-                                            />
-                                        }
-                                    </DualProgressBar>
+                                    <button className={s.btn_open_menu} aria-label="Spend pulls" ref={(el) => { pullButtonsRef.current[row.day] = el }}>
+                                        <DualProgressBar
+                                            value1={row.pulls_available_excl_op}
+                                            value2={row.pulls_available_incl_op - row.pulls_available_excl_op}
+                                            max={row.max_pulls_leftover}
+                                        >
+                                            <IconOnlyResourceBadge resource="pulls" />
+                                            {row.pulls_available_incl_op}&nbsp;pulls
+                                            &nbsp;
+                                            {
+                                                spendOp &&
+                                                <Details
+                                                    value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
+                                                    highlight={false}
+                                                    showUnhighlighted={true}
+                                                // highlight={opSpentByDay[row.day]}
+                                                />
+                                            }
+                                        </DualProgressBar>
+                                    </button>
                                 </PullsMenu>
 
                                 {/* </ProgressBar> */}

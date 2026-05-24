@@ -5,8 +5,8 @@ import s from './DualProgressBar.module.scss'
 interface DualProgressBarProps {
     value1: number
     value2: number
-    color1: string
-    color2: string
+    // color1: string
+    // color2: string
     max: number
     children?: ReactNode
 }

@@ -9,6 +9,16 @@
     align-items: center;
     width: 100%;
 
+    &:hover {
+        .bar1 {
+            background-color: var(--pulls-progress-light);
+        }
+
+        .bar2 {
+            background-color: var(--op-progress-light);
+        }
+    }
+
     .bar1 {
         position: absolute;
         top: 0;

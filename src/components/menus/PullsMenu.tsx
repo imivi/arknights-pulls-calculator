@@ -5,11 +5,11 @@ import { ReactNode, useEffect, useState } from "react";
 import { Popover } from "radix-ui";
 import { useSpendablePullsStore } from "../../stores/useSpendablePullsStore";
 import { useDarkModeStore } from "../../stores/useDarkModeStore";
-import { Day } from "../../types";
 import { convertPullsToResources, constrain, formatOrundum } from "../../utils/utils";
 import Button from "../Button";
 import Icon from "../Icon";
 import { getPullOdds } from "../../utils/get-pull-odds";
+import { CalendarRow } from "../../types";
 
 
 type BannerType = "debut" | "limited" | "none"
@@ -18,11 +18,11 @@ type BannerType = "debut" | "limited" | "none"
 
 
 type Props = {
-    day: Day
+    row: CalendarRow
     children: ReactNode
 }
 
-export default function PullsMenu({ day, children }: Props) {
+export default function PullsMenu({ row, children }: Props) {
 
     const [showPullMenu, setShowPullMenu] = useState(false)
 

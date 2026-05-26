@@ -1,5 +1,5 @@
-import type { CalendarRow } from "./Calendar"
-import { ResourceChange } from '../../utils/pipeline'
+import { CalendarRow } from "../../types"
+import { ResourceChange } from "../../utils/pipeline"
 
 type Props = {
     rows: CalendarRow[]

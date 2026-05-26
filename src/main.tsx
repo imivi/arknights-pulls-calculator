@@ -1,12 +1,12 @@
 import "normalize.css"
-import "./styles/global_row_styles.scss"
+// import "./styles/global_row_styles.scss"
 import './styles/globals.scss'
 import "./fonts/Inter.ttf"
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './components/App'
-import TestPipeline from './components/TestPipeline'
+// import TestPipeline from './components/TestPipeline'
 
 
 createRoot(document.getElementById('root')!).render(

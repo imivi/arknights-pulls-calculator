@@ -1,14 +1,14 @@
 import s from "./Chart.module.scss"
 
 import { useMemo } from "react"
-import { Day } from "../types"
 import { useDarkModeStore } from "../stores/useDarkModeStore"
 import { type LineSeries, ResponsiveLine } from '@nivo/line'
+import { CalendarRow } from "../types"
 
 
 
 type Props = {
-    days: Day[]
+    days: CalendarRow[]
     show: boolean
 }
 
@@ -102,7 +102,7 @@ type LabeledPoint = {
     label: string
 }
 
-function getData(days: Day[]) {
+function getData(days: CalendarRow[]) {
     const fewerDays = days.filter((_, i) => i % 5 === 0)
 
     const totalPulls: LabeledPoint[] = []
@@ -110,16 +110,16 @@ function getData(days: Day[]) {
     const labels: string[] = []
 
     fewerDays.forEach((day, i) => {
-        const label = formatDate(day.date)
+        const label = formatDate(day.day)
         labels.push(label)
         totalPulls.push({
             x: i,
-            y: day.pullsAvailableTotal,
+            y: day.pulls_available_incl_op,
             label,
         })
         totalPullsWithoutOP.push({
             x: i,
-            y: day.pullsAvailableWithoutOP,
+            y: day.pulls_available_excl_op,
             label,
         })
     })

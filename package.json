@@ -7,7 +7,7 @@
     "dev": "vite",
     "fetch-daily-resources": "tsx src/scripts/fetch-daily-resources.ts",
     "create-row-styles": "tsx src/scripts/create-row-styles.ts",
-    "prebuild": "pnpm fetch-daily-resources && pnpm check-data && pnpm get-image-colors && pnpm create-row-styles",
+    "_prebuild": "pnpm fetch-daily-resources",
     "build": "tsc -b && vite build",
     "count-loc": "node-sloc src",
     "cleanup": "ts-unused-exports ./tsconfig.app.json",

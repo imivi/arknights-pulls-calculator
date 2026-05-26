@@ -4,7 +4,9 @@ import { PullCalculator } from "./pull-calculator"
 import { Resources } from "./resources"
 
 
-export function convertResourcesToPulls(res: BasicResources, useOP: boolean): number {
+type PullResources = Omit<BasicResources, "certs">
+
+export function convertResourcesToPulls(res: PullResources, useOP: boolean): number {
     const calc = new PullCalculator(res).spendTickets().spendOrundum()
 
     if (useOP)
@@ -13,15 +15,15 @@ export function convertResourcesToPulls(res: BasicResources, useOP: boolean): nu
     return calc.getPulls()
 }
 
-export function convertPullsToResources(startingResources: BasicResources, pulls: number): { spent: BasicResources, remaining: BasicResources } {
+export function convertPullsToResources(startingResources: PullResources, pulls: number): { spent: BasicResources, remaining: BasicResources } {
 
     const calc = new PullCalculator(startingResources)
     calc.spendTickets(pulls)
     calc.spendOrundum(pulls - calc.getPulls())
     calc.convertOP(pulls - calc.getPulls())
 
-    const resRemaining = calc.res
-    const resStart = new Resources(startingResources.orundum, startingResources.tickets, startingResources.op)
+    const resRemaining = new Resources(calc.res.orundum, calc.res.tickets, calc.res.op, 0)
+    const resStart = new Resources(startingResources.orundum, startingResources.tickets, startingResources.op, 0)
     const resSpent = resStart.clone().subtract(resRemaining)
 
     return {

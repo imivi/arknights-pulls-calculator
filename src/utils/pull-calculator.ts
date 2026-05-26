@@ -4,9 +4,8 @@ import { BasicResources } from "../types"
 export class PullCalculator {
 
     private pulls = 0
-    public res: BasicResources
 
-    constructor(res: BasicResources) {
+    constructor(public res: Omit<BasicResources, "certs">) {
         this.res = {
             op: res.op,
             orundum: res.orundum,

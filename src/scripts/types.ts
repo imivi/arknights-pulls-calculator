@@ -23,7 +23,7 @@ const rowSchema = z.object({
     "tickets:login": z.number().default(0),
     "tickets:store": z.number().default(0),
     "tickets:event_shop": z.number().default(0),
-    "cert:tokens": z.number().default(0),
+    "certs:tokens": z.number().default(0),
 })
 
 export type GoogleSheetRow = z.infer<typeof rowSchema>

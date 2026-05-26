@@ -45,7 +45,7 @@ async function main() {
     // Read google sheet as-is
     const googleSheetId = env.GOOGLE_SHEET_ID
 
-    const USE_CACHE = true
+    const USE_CACHE = false // import.meta.env.DEV
     let rows: GoogleSheetRow[] = []
     if (USE_CACHE) {
         console.info("📦 Using google sheet json cache")

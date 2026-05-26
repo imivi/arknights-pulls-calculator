@@ -9,6 +9,9 @@ button.btn_open_menu {
     height: 100%;
     font-size: inherit;
     font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
 }
 
 .Content {
@@ -20,6 +23,8 @@ button.btn_open_menu {
 
     display: grid;
     gap: 10px;
+
+    transform: translateX(15px);
 
     main {
         padding: 10px;

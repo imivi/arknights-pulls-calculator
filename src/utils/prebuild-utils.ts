@@ -103,7 +103,7 @@ async function rowGroupToEvent(rows: GoogleSheetRow[]): Promise<Event> {
 
     return {
         event_id,
-        date_confirmed: event_title.endsWith("(TBD)") ? 1 : 0,
+        date_confirmed: event_title.includes("TBD") ? 0 : 1,
         is_limited: Number(event_id.includes("_lim")),
         is_rerun: Number(event_id.includes("_rerun")),
         is_collab: Number(event_id.includes("_collab")),

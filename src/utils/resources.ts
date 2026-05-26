@@ -1,5 +1,5 @@
 import { PullCalculator } from "./pull-calculator"
-import { BasicResources } from "../types"
+import { PullResources } from "../types"
 
 
 export class Resources {
@@ -7,31 +7,30 @@ export class Resources {
     static PULL_TO_ORUNDUM_CONVERSION_RATE = 600
     static OP_TO_ORUNDUM_CONVERSION_RATE = 180
 
-    constructor(public orundum = 0, public tickets = 0, public op = 0, public certs = 0) { }
+    constructor(public orundum = 0, public tickets = 0, public op = 0) { }
 
-    set(orundum: number, tickets: number, op: number, certs: number) {
+    set(orundum: number, tickets: number, op: number) {
         this.orundum = orundum
         this.tickets = tickets
         this.op = op
-        this.certs = certs
         return this
     }
 
-    add(res: BasicResources) {
+    add(res: PullResources) {
         this.orundum += res.orundum
         this.tickets += res.tickets
         this.op += res.op
         return this
     }
 
-    subtract(res: BasicResources) {
+    subtract(res: PullResources) {
         this.orundum -= res.orundum
         this.tickets -= res.tickets
         this.op -= res.op
         return this
     }
 
-    copyFrom(res: BasicResources) {
+    copyFrom(res: PullResources) {
         this.orundum = res.orundum
         this.tickets = res.tickets
         this.op = res.op

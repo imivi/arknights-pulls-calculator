@@ -5,7 +5,14 @@ import pullOdds from "./pull_odds.json"
 
 type PullOdds = Record<string, number>
 
-export function getPullOdds(pulls: number, bannerType: "debut" | "limited"): PullOdds {
+export function getPullOdds(pulls: number, bannerType: "debut" | "limited" | "collab"): PullOdds {
+
+    // Collab banner (one rate-up, 50%, 120 pulls hard pity)
+    if (bannerType === "collab") {
+        return {
+            "Pull odds:": pulls >= 120 ? 1 : pullOdds.debut[pulls],
+        }
+    }
 
     // Standard debut banner (one rate-up, 50%)
     if (bannerType === "debut") {
@@ -15,11 +22,9 @@ export function getPullOdds(pulls: number, bannerType: "debut" | "limited"): Pul
     }
 
     // Limited banner (two rate-ups, 35% each)
-    else {
-        return {
-            "Any rate-up:": pullOdds.limited_any[pulls],
-            "Specific rate-up:": pullOdds.limited_specific[pulls],
-            "Both rate-ups:": pullOdds.limited_both[pulls],
-        }
+    return {
+        "Any rate-up:": pullOdds.limited_any[pulls],
+        "Specific rate-up:": pullOdds.limited_specific[pulls],
+        "Both rate-ups:": pullOdds.limited_both[pulls],
     }
 }

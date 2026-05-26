@@ -2,7 +2,7 @@ import * as aq from 'arquero'
 import { ResourceAdjustments } from "../stores/useResourceAdjustmentsStore"
 import dayjs from "dayjs"
 import { convertPullsToResources, convertResourcesToPulls } from "./utils"
-import { UserSettings } from '../types'
+import { CalendarRow, UserSettings } from '../types'
 
 
 type EventDaysTable = {
@@ -32,15 +32,15 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
 
     const todayStr = dayjs().format('YYYY-MM-DD')
 
-    const dt_cleared_reruns = aq.from(userSettings.clearedReruns.map(id => ({ event_id: id, cleared_rerun: 1 })))
-
-    let dt_max_pulls = aq.table({
-        day: [],
-        user_max_pulls: [],
+    const dt_cleared_reruns = aq.table({
+        event_id: userSettings.clearedReruns,
+        cleared_rerun: userSettings.clearedReruns.map(_ => 1),
     })
-    if (Object.values(userSettings.maxPullsToSpend).length > 0) {
-        dt_max_pulls = aq.from(Object.entries(userSettings.maxPullsToSpend).map(([day, amount]) => ({ day, user_max_pulls: amount })))
-    }
+
+    const dt_max_pulls = aq.table({
+        day: Object.keys(userSettings.maxPullsToSpend),
+        user_max_pulls: Object.values(userSettings.maxPullsToSpend),
+    })
 
     const dt_days = aq.table(tables.days)
         .params({ today: todayStr })
@@ -54,12 +54,11 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     const dt_res_adjustments = aq.from(getDailyUserResources(userSettings.resourceAdjustments))
     const dt_all_resources = dt_resources.concat(dt_certs).concat(dt_res_adjustments)
 
-
     // console.log(dt_all_resources.filter(row => row.resource === 4).objects())
 
     const dt_merged = dt_days
         .join_left(dt_event_days, 'day')
-        // .join_left(dt_events, 'event_id')
+        .join_left(dt_events, 'event_id')
         .join_left(dt_cleared_reruns, 'event_id')
         .join_left(dt_all_resources, 'day')
         .derive({
@@ -75,7 +74,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         // If user is F2P, exclude resources from monthly cards
         .filter((row: any) => row.source !== 'monthly_card' || row.has_monthly_card === 1)
         // If user cleared reruns, exclude resources from those days
-        .filter((row: any) => row.source !== "event_stages" || row.cleared_rerun === 1)
+        .filter((row: any) => row.source !== "event_stages" || row.cleared_rerun === 0)
         // If user did not clear a rerun, exclude the orundum from intel certs
         .filter((row: any) => !(row.source === "intel" && row.cleared_rerun === 0))
         // If user did not clear a rerun, exclude the certs from welfare tokens
@@ -121,11 +120,13 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     // throw new Error('debug')
 
 
+
+
     const res_gained_by_day = dt_res_gained_by_day.objects()
 
     const resourcesSpentFromPulling: ResourceChange[] = []
 
-    res_gained_by_day.forEach((row: any, i: number) => {
+    res_gained_by_day.forEach((row: CalendarRow, i: number) => {
 
         const today = (i === 0)
 
@@ -136,7 +137,8 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             row['tickets_spendable'] = row['tickets_gained'] + userSettings.startingTickets
             row['op_spendable'] = row['op_gained'] + userSettings.startingOp
 
-            row['certs_leftover'] = userSettings.startingCerts + row['certs_gained']
+            // console.log({ certs_gained: row['certs_gained'], startingCerts: userSettings.startingCerts })
+            row['certs_leftover'] = row['certs_gained'] + userSettings.startingCerts
         }
         else {
             const yesterday = res_gained_by_day[i - 1]
@@ -152,7 +154,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             orundum: row['orundum_spendable'],
             tickets: row['tickets_spendable'],
             op: userSettings.spendOp ? row['op_spendable'] : 0,
-            certs: 0,
+            certs: 0, // doesn't matter
         }
         const pullsInclOP = convertResourcesToPulls(spendablesResources, true)
         const pullsExclOP = convertResourcesToPulls(spendablesResources, false)
@@ -250,6 +252,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             max_op_leftover: (d: any) => aq.op.max(d.op_leftover),
             max_certs_leftover: (d: any) => aq.op.max(d.certs_leftover),
             max_pulls_spent: (d: any) => aq.op.max(d.pulls_spent),
+            free_pulls: 0,
         })
 
     return {

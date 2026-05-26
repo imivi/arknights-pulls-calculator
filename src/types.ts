@@ -1,6 +1,6 @@
 
 
-export const resources = ["orundum", "tickets", "op", "cert"] as const
+export const resources = ["orundum", "tickets", "op", "certs"] as const
 
 export type Resource = typeof resources[number]
 
@@ -8,7 +8,7 @@ export const resourceEncoding: Record<Resource, number> = {
     "orundum": 1,
     "tickets": 2,
     "op": 3,
-    "cert": 4,
+    "certs": 4,
 } as const
 
 export type BasicResources = {
@@ -17,6 +17,8 @@ export type BasicResources = {
     op: number
     certs: number
 }
+
+export type PullResources = Omit<BasicResources, "certs">
 
 export type ResourceGained = {
     value: number,
@@ -66,6 +68,7 @@ export type CalendarRow = {
     op_leftover: number
     certs_leftover: number
     weekday: number
+    free_pulls: number
 
     max_pulls_leftover: number
     max_orundum_leftover: number

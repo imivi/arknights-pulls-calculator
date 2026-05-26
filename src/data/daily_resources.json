@@ -1,0 +1,7564 @@
+[
+    {
+        "date": "2026-01-01",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-02",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-03",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-04",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-05",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-06",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_link": "https://arknights.wiki.gg/wiki/Adventure_That_Cannot_Wait_for_the_Sun/Rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 38,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-07",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-08",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-09",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-10",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-11",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-12",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-13",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-14",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-15",
+        "event_name": "Adventure That Cannot Wait for the Sun Rerun",
+        "event_id": "adv_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-16",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_link": "https://arknights.wiki.gg/wiki/Ato",
+        "event_ops": [
+            "Hoshiguma_the_Breacher",
+            "Haruka"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 15,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 11
+    },
+    {
+        "date": "2026-01-17",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-18",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-19",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-20",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-21",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-22",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-23",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-24",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-25",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-26",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-27",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-28",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-29",
+        "event_name": "Ato",
+        "event_id": "ato_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-01-30",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 9,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-01-31",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-01",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-02",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2300,
+                    "source": "new_anni"
+                },
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-03",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-04",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-05",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-06",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-07",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-08",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-09",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-10",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_link": "https://arknights.wiki.gg/wiki/Somniloquium_Serenum",
+        "event_ops": [
+            "Togawa_Sakiko",
+            "Wakaba_Mutsumi",
+            "Misumi_Uika"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 10,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 10
+    },
+    {
+        "date": "2026-02-11",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-12",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-13",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-14",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-15",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-16",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-17",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": [
+                {
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 10
+    },
+    {
+        "date": "2026-02-18",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-19",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-20",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-21",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-22",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-23",
+        "event_name": "Somniloquium Serenum",
+        "event_id": "somni_collab",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-24",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_link": "https://arknights.wiki.gg/wiki/Ending_a_Grand_Overture/Rerun",
+        "event_ops": [
+            "Vina_Victoria"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 30,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-25",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-26",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-27",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-02-28",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-01",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-02",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-03",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-04",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-05",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-06",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-07",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-08",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-09",
+        "event_name": "Ending a Grand Overture Rerun",
+        "event_id": "overture_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-10",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-11",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-12",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-13",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-14",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-15",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-16",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-17",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-18",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-19",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_link": "https://arknights.wiki.gg/wiki/Abnormal_Spectrum",
+        "event_ops": [
+            "Mantra"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 40,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-20",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-21",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-22",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-23",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-24",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-25",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-26",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-27",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-28",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-29",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-30",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-03-31",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-01",
+        "event_name": "Abnormal Spectrum",
+        "event_id": "spectrum",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-02",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-03",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-04",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-05",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-06",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-07",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-08",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-09",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-10",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-11",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-12",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-13",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-14",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_link": "https://arknights.wiki.gg/wiki/Retracing_Our_Steps_1101",
+        "event_ops": [
+            "SilverAsh_the_Reignfrost",
+            "Pramanix_the_Prerita"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 15,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 11
+    },
+    {
+        "date": "2026-04-15",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-16",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-17",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-18",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-19",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-20",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-21",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-22",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-23",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-24",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-25",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-26",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-27",
+        "event_name": "Retracing Our Steps 1101",
+        "event_id": "retracing_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-04-28",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 9,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-29",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-04-30",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-01",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-02",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-03",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2300,
+                    "source": "new_anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-04",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-05",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-06",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-07",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_link": "https://arknights.wiki.gg/wiki/I_Portatori_dei_Velluti/Rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 41,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-08",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-09",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-10",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-11",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-12",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-13",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-14",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-15",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-16",
+        "event_name": "I Portatori dei Velluti Rerun",
+        "event_id": "velluti_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-17",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-18",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-19",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-20",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-21",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_link": "https://arknights.wiki.gg/wiki/Unrealized_Realities",
+        "event_ops": [
+            "Nasti"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 12,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-22",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-23",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-24",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-25",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-26",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-27",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-28",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 18,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-29",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-30",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-05-31",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-01",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-02",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-03",
+        "event_name": "Unrealized Realities",
+        "event_id": "unrealized",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-04",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-05",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_link": "https://arknights.wiki.gg/wiki/Exodus_from_the_Pale_Sea/Rerun",
+        "event_ops": [
+            "Thorns_the_Lodestar"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 28,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-06",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-07",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-08",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-09",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-10",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-11",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-12",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-13",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-14",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-15",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-16",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-17",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-18",
+        "event_name": "Exodus from the Pale Sea Rerun",
+        "event_id": "exodus_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-19",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_link": "https://arknights.wiki.gg/wiki/Medjehtiqedti_Bound",
+        "event_ops": [
+            "Titi"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 12,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-20",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-21",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-22",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-23",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-24",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-25",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-26",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 18,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-27",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-28",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-29",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-06-30",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-01",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-02",
+        "event_name": "Medjehtiqedti Bound",
+        "event_id": "medjeh",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-03",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_link": "https://arknights.wiki.gg/wiki/Such_is_the_Joy_of_Our_Reunion/Rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 38,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-04",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-05",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-06",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-07",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-08",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-09",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-10",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-11",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-12",
+        "event_name": "Such is the Joy of Our Reunion Rerun (date TBD)",
+        "event_id": "reunion_lim_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-13",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-14",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-15",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-16",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_link": "https://arknights.wiki.gg/wiki/First_of_A_Thousand_Autumns",
+        "event_ops": [
+            "Wang",
+            "Ch'en_the_Dawnstreak"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 15,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 11
+    },
+    {
+        "date": "2026-07-17",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-18",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-19",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-20",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-21",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-22",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-23",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-24",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-25",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-26",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-27",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-28",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-29",
+        "event_name": "First of A Thousand Autumns (date TBD)",
+        "event_id": "first_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-07-30",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 9,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-07-31",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-01",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2300,
+                    "source": "new_anni"
+                },
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-02",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-03",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-04",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-05",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-06",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-07",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-08",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-09",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-10",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-11",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-12",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-13",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_link": "https://arknights.wiki.gg/wiki/Crossing",
+        "event_ops": [
+            "Bellone"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 12,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-14",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-15",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-16",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-17",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-18",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-19",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-20",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 18,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-21",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-22",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-23",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-24",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-25",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-26",
+        "event_name": "Crossing (date TBD)",
+        "event_id": "crossing",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-27",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-28",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-29",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-30",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_link": "https://arknights.wiki.gg/wiki/When_Elegies_Are_Ashes/Rerun",
+        "event_ops": [
+            "Necrass"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 2000,
+                    "source": "intel"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 28,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-08-31",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-01",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-02",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-03",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-04",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-05",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-06",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-07",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-08",
+        "event_name": "When Elegies Are Ashes Rerun (date TBD)",
+        "event_id": "elegies_rerun",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-09",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-10",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_link": "https://arknights.wiki.gg/wiki/People,_A_People",
+        "event_ops": [
+            "Zima the Raging Tide"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 12,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-11",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-12",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-13",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-14",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-15",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-16",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-17",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": [
+                {
+                    "value": 18,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-18",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-19",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-20",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-21",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-22",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-23",
+        "event_name": "People, A People (date TBD)",
+        "event_id": "people",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-24",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-25",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-26",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-27",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-28",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-29",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-09-30",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-01",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 600,
+                    "source": "store"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 4,
+                    "source": "store"
+                }
+            ],
+            "op": [
+                {
+                    "value": 6,
+                    "source": "monthly_card"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-02",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-03",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-04",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_link": "https://arknights.wiki.gg/wiki/Critical_Phase_Transition",
+        "event_ops": [
+            "Kal'tsit - Esperanta",
+            "Closure"
+        ],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 3,
+                    "source": "event_shop"
+                }
+            ],
+            "op": [
+                {
+                    "value": 15,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 1,
+        "freePulls": 11
+    },
+    {
+        "date": "2026-10-05",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 2,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-06",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 3,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-07",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 4,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-08",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 5,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-09",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 6,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-10",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 7,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-11",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 16,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 8,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-12",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 9,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-13",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 10,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-14",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 11,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-15",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 12,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-16",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 13,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-17",
+        "event_name": "Critical Phase Transition (date TBD)",
+        "event_id": "critical_lim",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 580,
+                    "source": "fortune_strip"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [
+                {
+                    "value": 1,
+                    "source": "login"
+                }
+            ],
+            "op": []
+        },
+        "eventDay": 14,
+        "freePulls": 1
+    },
+    {
+        "date": "2026-10-18",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": [
+                {
+                    "value": 9,
+                    "source": "event_stages"
+                }
+            ]
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-19",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-20",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-21",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-22",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-23",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-24",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-25",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-26",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 1800,
+                    "source": "anni"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-27",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-28",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-29",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 500,
+                    "source": "weekly_missions"
+                },
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-30",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    },
+    {
+        "date": "2026-10-31",
+        "event_ops": [],
+        "resourcesGained": {
+            "orundum": [
+                {
+                    "value": 200,
+                    "source": "monthly_card"
+                },
+                {
+                    "value": 100,
+                    "source": "daily_missions"
+                }
+            ],
+            "tickets": [],
+            "op": []
+        },
+        "eventDay": 0,
+        "freePulls": 0
+    }
+]

@@ -1,10 +1,8 @@
 import dayjs from "dayjs"
-import { BasicResources, PullResources, ResourceGained } from "../types"
+import { PullResources, ResourceGained } from "../types"
 import { PullCalculator } from "./pull-calculator"
 import { Resources } from "./resources"
 
-
-type PullResources = Omit<BasicResources, "certs">
 
 export function convertResourcesToPulls(res: PullResources, useOP: boolean): number {
     const calc = new PullCalculator(res).spendTickets().spendOrundum()
@@ -23,8 +21,8 @@ export function convertPullsToResources(startingResources: PullResources, pulls:
     calc.spendOrundum(pulls - calc.getPulls())
     calc.convertOP(pulls - calc.getPulls())
 
-    const resRemaining = new Resources(calc.res.orundum, calc.res.tickets, calc.res.op, 0)
-    const resStart = new Resources(startingResources.orundum, startingResources.tickets, startingResources.op, 0)
+    const resRemaining = calc.res
+    const resStart = new Resources(startingResources.orundum, startingResources.tickets, startingResources.op)
     const resSpent = resStart.clone().subtract(resRemaining)
 
     return {

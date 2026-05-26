@@ -5,7 +5,7 @@ import EventCell from './EventCell'
 import { ResourceChange } from '../../utils/pipeline'
 import { IconOnlyResourceBadge } from '../table/ResourceBadge'
 import { CalendarRow } from '../../types'
-import { formatOrundum } from '../../utils/utils'
+import { formatOrundum, TODAY } from '../../utils/utils'
 import Stripes from '../table/Stripes'
 import { CSSProperties, ReactNode, useRef } from 'react'
 import { DualProgressBar } from './DualProgressBar'
@@ -17,6 +17,8 @@ import { useResourceAdjustments } from '../../hooks/useResourceAdjustments'
 import PullsMenu from './PullsMenu'
 import { useStartingResourcesStore } from '../../stores/useStartingResourcesStore'
 import { useShowDailyResourceChangeStore } from '../../stores/useShowDailyResourceChangeStore'
+import { useDayClearedStore } from '../../stores/useDayClearedStore'
+
 
 
 type Props = {
@@ -60,11 +62,8 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     const opSpentByDay = getResourcesSpentByDay(resourcesGainedOrSpentByDay, 3)
     const certsSpentByDay = getResourcesSpentByDay(resourcesGainedOrSpentByDay, 4)
 
-    // const { startingResources } = useStartingResourcesStore()
-    // console.log(startingResources)
-    // console.log(rows[0])
-
     const { showDailyResourceChange } = useShowDailyResourceChangeStore()
+    const { dayCleared, setDayCleared } = useDayClearedStore()
 
     return (
         <div className={s.Calendar} data-dark={darkMode}>
@@ -121,7 +120,31 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                 title={import.meta.env.DEV ? JSON.stringify(row, null, 4) : undefined}
                             >
                                 {/* {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />} */}
-                                <span>{formatDate(row.day, row.weekday)}</span>
+                                <span data-interactive={i === 0}>
+                                    {
+                                        i === 0 &&
+                                        <input
+                                            type="checkbox"
+                                            checked={dayCleared === TODAY}
+                                            onChange={() => setDayCleared(dayCleared ? null : TODAY)}
+                                            name='checkbox-today-cleared'
+                                            id="checkbox-today-cleared"
+                                        />
+                                    }
+                                    <label
+                                        data-tooltip-id={i === 0 ? 'already-cleared-tooltip' : undefined}
+                                        htmlFor={i === 0 ? "checkbox-today-cleared" : undefined}
+                                    >
+                                        {formatDate(row.day, row.weekday)}
+                                    </label>
+
+                                    {
+                                        // i === 0 &&
+                                        // <Tooltip id='already-cleared-tooltip' style={{ zIndex: 9 }} place="bottom">
+                                        //     Already cleared?
+                                        // </Tooltip>
+                                    }
+                                </span>
                             </td>
 
                             {

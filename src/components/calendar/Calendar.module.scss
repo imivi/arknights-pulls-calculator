@@ -46,6 +46,13 @@
         border-right: 1px solid #eee;
     }
 
+    span[data-interactive=true] {
+        cursor: pointer;
+        display: flex;
+        gap: .5em;
+        position: relative;
+    }
+
     td[data-column="pulls"] {
         min-width: 11em;
     }
@@ -264,7 +271,8 @@ button.pulls_spent {
     /* Set your desired background color */
     color: rgb(227, 233, 242);
     /* Text color */
-    padding: 4px 30px 6px 16px;
+    padding: 2px 18px;
+    padding-left: 8px;
     /* Extra padding on the right to clear the triangle */
     font-weight: bold;
     font-family: sans-serif;
@@ -281,6 +289,7 @@ small.free_pulls {
     color: #dfe6ec;
     background-color: #2e85ad;
     height: .8rem;
+    max-width: 3rem;
 
     /* Increase left padding slightly so the text doesn't hit the triangle point */
     padding: .2rem .2rem .2rem .6rem;

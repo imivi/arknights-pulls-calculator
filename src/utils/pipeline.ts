@@ -52,7 +52,11 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     // console.log(getDailyCertsResources(1.5))
     const dt_certs = aq.from(getDailyCertsResources(userSettings.certsPerDay, dt_days.objects().map((d: any) => d.day)))
     const dt_res_adjustments = aq.from(getDailyUserResources(userSettings.resourceAdjustments))
-    const dt_all_resources = dt_resources.concat(dt_certs).concat(dt_res_adjustments)
+    const dt_all_resources = dt_resources
+        .concat(dt_certs)
+        .params({ claimedDay: userSettings.claimedDay })
+        .filter((d: any, params: any) => !params.claimedDay || d.day !== params.claimedDay)
+        .concat(dt_res_adjustments)
 
     // console.log(dt_all_resources.filter(row => row.resource === 4).objects())
 

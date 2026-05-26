@@ -1,0 +1,11 @@
+.CertsPerDay {
+    input {
+        max-width: 3rem;
+        text-align: center;
+        border-radius: 2px;
+        border: none;
+        outline: none;
+        padding: .2em;
+        border: 1px solid rgba($color: black, $alpha: 0.2);
+    }
+}

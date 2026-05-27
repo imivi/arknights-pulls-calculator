@@ -116,7 +116,7 @@ export default function App() {
                                     <IconOnlyResourceBadge resource="certs" />
                                     for additional info
                                 </li>
-                                <li>Click on any resource count to spend or gain resources</li>
+                                <li>Click on any resource count to spend or gain resources<br />(can be used to trade certificates for tickets)</li>
                             </>
                         }
                     </ul>

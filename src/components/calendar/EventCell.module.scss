@@ -12,7 +12,7 @@ td.EventCell {
         z-index: 2;
         position: relative;
         padding: 10px;
-        gap: .2em;
+        gap: .5em;
 
         a.event_title {
             font-size: 1.1em;
@@ -32,7 +32,7 @@ td.EventCell {
 }
 
 label.already_cleared {
-    padding: .5em 0;
+    margin-top: .5em;
     display: flex;
     align-items: center;
     gap: .5em;
@@ -67,7 +67,7 @@ ul.warnings {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 0.2em;
+    gap: 0.5em;
 }
 
 .warning {

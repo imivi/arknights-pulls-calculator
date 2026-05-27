@@ -70,18 +70,11 @@
 
     // Style the bold text like the pull counter
     strong {
+        font-weight: normal;
         padding: .2em .4em;
-        border-radius: 5px;
-
-        &[data-dark=true] {
-            background-color: colors.$table-cell-pulls-bg-even-dark;
-            color: colors.$table-cell-pulls-text-dark;
-        }
-
-        &[data-dark=false] {
-            background-color: colors.$table-cell-pulls-bg-even-light;
-            color: colors.$table-cell-pulls-text-light;
-        }
+        border-radius: 2px;
+        background-color: rgba(78, 146, 202, 0.8);
+        color: white;
     }
 
 

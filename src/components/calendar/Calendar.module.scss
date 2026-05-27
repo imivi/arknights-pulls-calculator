@@ -7,6 +7,11 @@
     width: 100%;
 
     max-width: min(95vw, 1400px);
+
+    &[data-show-resources=false] {
+        max-width: min(95vw, 800px);
+    }
+
     margin: 0 auto;
     overflow-x: auto;
 
@@ -71,7 +76,12 @@
         }
     }
 
-    small {
+    th[data-show=false],
+    td[data-show=false] {
+        display: none;
+    }
+
+    td>small {
         margin-left: 0.5em;
     }
 

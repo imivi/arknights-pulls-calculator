@@ -69,7 +69,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
     const showResourceColumns = useShowResourcesStore(store => store.showResources)
 
     return (
-        <div className={s.Calendar} data-dark={darkMode}>
+        <div className={s.Calendar} data-dark={darkMode} data-show-resources={showResourceColumns}>
             <table>
                 <thead>
                     <tr>

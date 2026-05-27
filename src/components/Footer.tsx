@@ -16,7 +16,7 @@ export default function Footer({ }: Props) {
                 <h2>Not included</h2>
                 <ul>
                     <li><strong>24 free pulls</strong> on each limited banner (every 3 months) are listed separately. They are excluded from the running total because they can&#39;t be saved.</li>
-                    <li><strong>Distinction Certificates</strong> (gold certs), mostly from recruitment and extra event welfare tokens, you can exchange 258 of them for 38 HH permits.</li>
+                    <li><strong>Distinction Certificates</strong> (gold certs), mostly from recruitment and extra event welfare tokens, you can exchange 258 of them for 38 HH permits. You can trade certificates for HH tickets on this tool by clicking on any resource count for certificates or HH tickets and entering the number of certificates traded (enter a negative value) and tickets gained (enter a positive value).</li>
                     <li>Any orundum from the <strong>Intelligence Certification Store</strong> (purple certs) beyond the 2000 orundum added on each rerun. Note that this orundum does not expire after the rerun ends. Therefore, if you are a new player or you have not cleared past reruns, you can still purchase any remaining orundum.</li>
                     <li>Maintenance compensation and random gifts in the mail.</li>
                 </ul>

@@ -8,7 +8,7 @@ type Store = {
 }
 
 export const useCertsPerDayStore = create(persist<Store>((set) => ({
-    certsPerDay: 1.5,
+    certsPerDay: 1,
     setCertsPerDay: (certsPerDay) => set({ certsPerDay }),
 }),
     { name: "certs_per_day" },

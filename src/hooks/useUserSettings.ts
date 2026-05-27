@@ -22,6 +22,7 @@ export function useUserSettings(): UserSettings {
     const { startingResources } = useStartingResources()
     const { certsPerDay } = useCertsPerDayStore()
     const { spendOp } = useSpendOpStore()
+
     return {
         startingOrundum: startingResources.orundum,
         startingTickets: startingResources.tickets,

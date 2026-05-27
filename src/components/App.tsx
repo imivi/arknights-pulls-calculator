@@ -19,6 +19,7 @@ import { CalendarRow } from "../types"
 import { useUserSettings } from "../hooks/useUserSettings"
 import { useSpendOpStore } from "../stores/useSpendOpStore"
 import { useShowDailyResourceChangeStore } from "../stores/useShowDailyResourceChangeStore"
+import CertsPerDay from "./CertsPerDay"
 
 
 
@@ -93,6 +94,9 @@ export default function App() {
                         &nbsp;Spend <Icon type="op" size={24} />for pulls
                     </label>
                     {/* <Button>Customize resource income</Button> */}
+
+                    <CertsPerDay />
+
                 </fieldset>
 
                 <fieldset className={s.message_box} data-dark={darkMode}>

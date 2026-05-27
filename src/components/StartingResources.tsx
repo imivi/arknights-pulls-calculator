@@ -6,6 +6,7 @@ import { useStartingResourcesStore } from "../stores/useStartingResourcesStore"
 import { useStartingResources } from "../hooks/useStartingResources"
 import { useRef, useState } from "react"
 import { BasicResources, Resource } from "../types"
+import { useCertsPerDayStore } from "../stores/useCertsPerDayStore"
 
 
 

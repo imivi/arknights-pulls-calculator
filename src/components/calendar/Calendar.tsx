@@ -17,6 +17,7 @@ import { useResourceAdjustments } from '../../hooks/useResourceAdjustments'
 import PullsMenu from './PullsMenu'
 import { useStartingResourcesStore } from '../../stores/useStartingResourcesStore'
 import { useShowDailyResourceChangeStore } from '../../stores/useShowDailyResourceChangeStore'
+import { useShowResourcesStore } from '../../stores/useShowResourcesStore'
 
 
 type Props = {
@@ -66,6 +67,8 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
     const { showDailyResourceChange } = useShowDailyResourceChangeStore()
 
+    const showResourceColumns = useShowResourcesStore(store => store.showResources)
+
     return (
         <div className={s.Calendar} data-dark={darkMode}>
             <table>
@@ -91,10 +94,10 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                         <th>Free<br />pulls</th>
 
-                        <th>Orundum</th>
-                        <th>Tickets</th>
-                        <th>OP</th>
-                        <th>Certs</th>
+                        <th data-show={showResourceColumns}>Orundum</th>
+                        <th data-show={showResourceColumns}>Tickets</th>
+                        <th data-show={showResourceColumns}>OP</th>
+                        <th data-show={showResourceColumns}>Certs</th>
                     </tr>
                 </thead>
 
@@ -172,7 +175,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             </td>
 
                             {/* Orundum */}
-                            < td className={s.ProgressCell} >
+                            < td className={s.ProgressCell} data-show={showResourceColumns} >
 
                                 <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} resource="orundum">
 
@@ -210,7 +213,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                             </td>
 
-                            <td className={s.ProgressCell}>
+                            <td className={s.ProgressCell} data-show={showResourceColumns} >
 
                                 <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} resource="tickets">
 
@@ -249,9 +252,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             </td>
 
                             {/* OP */}
-                            <td className={s.ProgressCell}
-                            // title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}
-                            >
+                            <td className={s.ProgressCell} data-show={showResourceColumns} >
 
                                 <ProgressBar value={row.op_leftover} max={row.max_op_leftover} resource="op">
 
@@ -297,9 +298,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             </td>
 
                             {/* Certificates */}
-                            <td className={s.ProgressCell}
-                            // title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 1), null, 4)}
-                            >
+                            <td className={s.ProgressCell} data-show={showResourceColumns} >
 
                                 <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} resource="certs">
 

@@ -27,9 +27,9 @@ import CertsPerDay from "./CertsPerDay"
 function addFreePulls(row: CalendarRow): CalendarRow {
 
     if (row.is_collab)
-        row.free_pulls = (row.day_of_event === 1 || row.day_of_event === 8) ? 11 : 1
+        row.free_pulls = (row.day_of_event === 1 || row.day_of_event === 8) ? 10 : 0
 
-    if (row.is_limited && !row.is_rerun)
+    else if (row.is_limited && !row.is_rerun)
         row.free_pulls = row.day_of_event === 1 ? 11 : 1
 
     return row

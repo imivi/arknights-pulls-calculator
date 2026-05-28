@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "fetch-daily-resources": "tsx src/scripts/fetch-daily-resources.ts",
-    "create-row-styles": "tsx src/scripts/create-row-styles.ts",
-    "_prebuild": "pnpm fetch-daily-resources",
+    "fetch-data": "tsx src/scripts/fetch-daily-resources.ts",
+    "prebuild": "pnpm fetch-data",
     "build": "tsc -b && vite build",
     "count-loc": "node-sloc src",
     "cleanup": "ts-unused-exports ./tsconfig.app.json",

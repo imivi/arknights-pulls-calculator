@@ -26,11 +26,6 @@ export type ResourceGained = {
     // enabled: boolean // This is a toggle used to ignore OP from event stages and orundum from purple certs
 }
 
-export type ResourcesGainedInfo = {
-    orundum: ResourceGained[]
-    tickets: ResourceGained[]
-    op: ResourceGained[]
-}
 
 
 export type Settings = {

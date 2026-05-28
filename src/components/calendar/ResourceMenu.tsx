@@ -3,10 +3,8 @@ import buttonStyle from "../Button.module.scss"
 
 import { ReactNode, useEffect, useState } from "react";
 import { Popover } from "radix-ui";
-import { Tooltip } from "react-tooltip";
 import { useDarkModeStore } from "../../stores/useDarkModeStore";
 import { CalendarRow, Resource } from "../../types";
-import { formatOrundum } from "../../utils/utils";
 import Button from "../Button";
 import Icon from "../Icon";
 import { useResourceAdjustments } from "../../hooks/useResourceAdjustments";

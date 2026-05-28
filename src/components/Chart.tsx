@@ -6,15 +6,15 @@ import { type LineSeries, ResponsiveLine } from '@nivo/line'
 import { CalendarRow } from "../types"
 
 
-
 type Props = {
-    days: CalendarRow[]
+    rows: CalendarRow[]
     show: boolean
 }
 
-export default function Chart({ days, show }: Props) {
 
-    const { data, labels } = useMemo(() => getData(days), [days])
+export default function Chart({ rows, show }: Props) {
+
+    const { data, labels } = useMemo(() => getData(rows), [rows])
 
     const { darkMode } = useDarkModeStore()
 

@@ -133,7 +133,7 @@ export default function App() {
                 </Button>
             </div>
 
-            {/* <Chart days={days} show={showChart} /> */}
+            <Chart rows={calendarRows} show={showChart} />
 
             <Footer />
 

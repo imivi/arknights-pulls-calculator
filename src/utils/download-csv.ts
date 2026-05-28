@@ -2,54 +2,52 @@ import { generateCsv, download, mkConfig } from "export-to-csv"
 
 import { CalendarRow, ResourceGained } from "../types"
 import { resourceLabels } from "../labels"
+import { ResourceChange } from "./pipeline"
 
 
-export function downloadCsv(rows: CalendarRow[]) {
-    console.log(rows)
+type AllResourceChanges = Record<string, ResourceChange[]>
 
-    // const csvRows = rows.map(day => {
+export function downloadCsv(rows: CalendarRow[], resourcesGainedOrSpentByDay: AllResourceChanges) {
 
-    //     const orundum_sources = formatSources(day.activeResourcesInfo.orundum)
-    //     const tickets_sources = formatSources(day.activeResourcesInfo.tickets)
-    //     const op_sources = formatSources(day.activeResourcesInfo.op)
+    function getResourceChanges(allResourceChanges: AllResourceChanges, day: string, resource: number) {
+        if (!allResourceChanges.hasOwnProperty(day))
+            return ""
 
-    //     const { date, event_name, free_monthly_card } = day
+        const resources = allResourceChanges[day].filter(change => change.resource === resource)
 
-    //     return {
-    //         date,
-    //         event_name,
-    //         free_pulls: day.freePulls,
-    //         free_monthly_card,
-    //         pulls_spent: day.pullsSpent,
-    //         event_ops: day.event_ops.join("; "),
+        if (resources.length === 0)
+            return ""
 
-    //         resources_gained_orundum: day.resourcesGainedToday.orundum,
-    //         resources_gained_tickets: day.resourcesGainedToday.tickets,
-    //         resources_gained_op: day.resourcesGainedToday.op,
+        const formatted = resources.map(info => (
+            `${info.amount} ${resourceLabels[info.source]}`
+        ))
 
-    //         resources_spendable_orundum: day.cumulativeSpendableResources.orundum,
-    //         resources_spendable_tickets: day.cumulativeSpendableResources.tickets,
-    //         resources_spendable_op: day.cumulativeSpendableResources.op,
+        return formatted.join("; ")
+    }
 
-    //         resources_total_orundum: day.cumulativeResources.orundum,
-    //         resources_total_tickets: day.cumulativeResources.tickets,
-    //         resources_total_op: day.cumulativeResources.op,
+    const csvRows = rows.map(row => {
 
-    //         op_sources,
-    //         orundum_sources,
-    //         tickets_sources,
+        const { day } = row
 
-    //         pulls_total: day.pullsAvailableTotal,
-    //         pulls_no_op: day.pullsAvailableWithoutOP,
-    //         pulls_with_op: day.pullsAvailableFromOP,
-    //     }
-    // })
+        const orundum_changes = getResourceChanges(resourcesGainedOrSpentByDay, day, 1)
+        const tickets_changes = getResourceChanges(resourcesGainedOrSpentByDay, day, 2)
+        const op_changes = getResourceChanges(resourcesGainedOrSpentByDay, day, 3)
+        const certs_changes = getResourceChanges(resourcesGainedOrSpentByDay, day, 4)
 
-    // const config = mkConfig({ useKeysAsHeaders: true, filename: "arknights_pulls" })
+        return {
+            ...row,
+            orundum_changes,
+            tickets_changes,
+            op_changes,
+            certs_changes,
+        }
+    })
 
-    // const csv = generateCsv(config)(csvRows)
+    const config = mkConfig({ useKeysAsHeaders: true, filename: "arknights_pulls" })
 
-    // download(config)(csv)
+    const csv = generateCsv(config)(csvRows)
+
+    download(config)(csv)
 }
 
 function formatSources(res: ResourceGained[]): string {

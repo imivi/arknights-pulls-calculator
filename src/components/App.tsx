@@ -122,10 +122,10 @@ export default function App() {
             />
 
             <div className={s.buttons}>
-                {/* <Button onClick={() => downloadCsv(days)}>
+                <Button onClick={() => downloadCsv(calendarRows, all_resources_gained_or_spent_by_day)}>
                     <FaDownload />&nbsp;
                     Download table (.csv)
-                </Button> */}
+                </Button>
 
                 <Button onClick={() => setShowChart(!showChart)}>
                     {showChart ? <FaChevronUp /> : <FaChevronRight />}&nbsp;

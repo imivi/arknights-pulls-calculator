@@ -15,11 +15,10 @@ import { useResourceAdjustments } from "../../hooks/useResourceAdjustments";
 
 const allValueShortcuts = {
     orundum: [],
-    tickets: [0, 38],
+    tickets: [0, 3, 8, 18, 38],
     op: [0, -15, -18, -21, -24],
-    certs: [0, -258],
+    certs: [0, -10, -28, -68, -138, -258],
 }
-
 
 
 type Props = {
@@ -55,6 +54,10 @@ export default function ResourceMenu({ row, resource, children }: Props) {
             deleteResourceAdjustment(date, resource)
         else
             setResourceAdjustment(date, resource, amountAsNumber, description)
+    }
+
+    function reset() {
+        deleteResourceAdjustment(date, resource)
     }
 
     const { darkMode } = useDarkModeStore()
@@ -101,9 +104,15 @@ export default function ResourceMenu({ row, resource, children }: Props) {
                                 placeholder="Custom note"
                             />
 
+                            {
+                                resource === "certs" &&
+                                <CertsToTicketsTable />
+                            }
+
                         </main>
 
                         <footer>
+                            {resourceAdjustment && <Popover.Close aria-label="Reset" type="button" className={buttonStyle.Button} onClick={reset}>reset</Popover.Close>}
                             <Popover.Close aria-label="Close" type="button" className={buttonStyle.Button}>
                                 cancel
                             </Popover.Close>
@@ -116,5 +125,40 @@ export default function ResourceMenu({ row, resource, children }: Props) {
                 </Popover.Content>
             </Popover.Portal>
         </Popover.Root >
+    )
+}
+
+
+
+
+const certsToTicketsConversion: Record<number, number> = {
+    10: 1,
+    28: 3,
+    68: 8,
+    138: 18,
+    258: 38,
+}
+
+
+function CertsToTicketsTable() {
+    return (
+        <table className={s.CertsToTicketsTable}>
+            <thead>
+                <tr>
+                    <th>Certs</th>
+                    <th>Tickets</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    Object.entries(certsToTicketsConversion).map(([certs, tickets]) => (
+                        <tr key={certs}>
+                            <td><Icon type="certs" size={20} /> {certs}</td>
+                            <td><Icon type="tickets" size={20} /> {tickets}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
     )
 }

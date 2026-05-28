@@ -254,3 +254,26 @@
         transform: translateX(0);
     }
 }
+
+
+.CertsToTicketsTable {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 300px;
+    max-height: 200px;
+    overflow: scroll;
+    margin: 0 auto;
+
+    table,
+    th,
+    td {
+        border: 1px solid #ccc;
+        padding: .2em .4em;
+    }
+
+    // Alternating row color
+    tr:nth-child(odd) td {
+        background-color: #f2f2f2;
+    }
+}

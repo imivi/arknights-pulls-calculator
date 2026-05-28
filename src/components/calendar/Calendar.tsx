@@ -176,7 +176,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             <Details
                                                 value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
                                                 highlight={false}
-                                                showUnhighlighted={true}
+                                                showUnhighlighted={false}
                                                 show={spendOp}
                                             // highlight={opSpentByDay[row.day]}
                                             />

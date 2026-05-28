@@ -121,10 +121,13 @@ export default function PullsMenu({ row, children }: Props) {
                                 <Button type="button" dark={false} onClick={() => increment(-10)}>-10</Button>
                                 <Button type="button" dark={false} onClick={() => increment(+10)}>+10</Button>
                             </fieldset>
-                            <fieldset>
-                                <Button type="button" dark={false} onClick={() => setInputValue(row.pulls_available_excl_op.toFixed())}>Max, no OP ({row.pulls_available_excl_op})</Button>
-                                <Button type="button" dark={false} onClick={() => setInputValue(row.pulls_available_incl_op.toFixed())}>Max ({row.pulls_available_incl_op})</Button>
-                            </fieldset>
+                            {
+                                bannerType !== "collab" &&
+                                <fieldset>
+                                    <Button type="button" dark={false} onClick={() => setInputValue(row.pulls_available_excl_op.toFixed())}>Max, no OP ({row.pulls_available_excl_op})</Button>
+                                    <Button type="button" dark={false} onClick={() => setInputValue(row.pulls_available_incl_op.toFixed())}>Max ({row.pulls_available_incl_op})</Button>
+                                </fieldset>
+                            }
 
                             {
                                 inputValueAsNumber >= 0 &&
@@ -217,15 +220,15 @@ function getBannerType(row: CalendarRow): BannerType {
     if (!row.event_id || row.event_id === "")
         return "none"
 
+    if (row.is_collab)
+        return "collab"
+
     const ops = row.event_id.split(",")
     if (ops.length === 1)
         return "debut"
 
     if (row.is_limited)
         return "limited"
-
-    if (row.is_collab)
-        return "collab"
 
     return "none"
 }

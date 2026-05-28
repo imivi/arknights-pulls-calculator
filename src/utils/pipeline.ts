@@ -178,12 +178,12 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             // Set spent resources for pulls
             row['orundum_spent'] = spent.orundum
             row['tickets_spent'] = spent.tickets
-            row['op_spent'] = spent.op
+            row['op_spent'] = userSettings.spendOp ? spent.op : 0
 
             // Save leftover resources after pulling
             row['orundum_leftover'] = remaining.orundum
             row['tickets_leftover'] = remaining.tickets
-            row['op_leftover'] = remaining.op
+            row['op_leftover'] = userSettings.spendOp ? remaining.op : row['op_spendable']
         }
         // No pulls spent, so no resources spent
         else {

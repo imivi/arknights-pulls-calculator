@@ -39,24 +39,16 @@ function addFreePulls(row: CalendarRow): CalendarRow {
 export default function App() {
 
     const { darkMode } = useDarkModeStore()
-
     const { showResources, setShowResources } = useShowResourcesStore()
+    const userSettings = useUserSettings()
+    const { spendOp, setSpendOp } = useSpendOpStore()
+    const { showDailyResourceChange, setShowDailyResourceChange } = useShowDailyResourceChangeStore()
 
     const [showChart, setShowChart] = useState(window.innerWidth > 600)
 
-    const userSettings = useUserSettings()
-
-    const { showDailyResourceChange, setShowDailyResourceChange } = useShowDailyResourceChangeStore()
-
-    // return <pre>{JSON.stringify(userSettings, null, 4)}</pre>
-
-    // console.log(userSettings)
-
     const { dt_final_calendar, all_resources_gained_or_spent_by_day } = useMemo(() => runPipeline(userSettings, tables), [userSettings])
-
     const calendarRows = useMemo(() => dt_final_calendar.objects().map(row => addFreePulls(row as CalendarRow)), [dt_final_calendar])
 
-    const { spendOp, setSpendOp } = useSpendOpStore()
 
     return (
         <main className={s.App} data-dark={darkMode}>

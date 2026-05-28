@@ -10,7 +10,7 @@ export function getPullOdds(pulls: number, bannerType: "debut" | "limited" | "co
     // Collab banner (one rate-up, 50%, 120 pulls hard pity)
     if (bannerType === "collab") {
         return {
-            "Pull odds:": pulls >= 120 ? 1 : pullOdds.debut[pulls],
+            "Pull odds:": pulls >= 120 ? 100 : pullOdds.debut[pulls],
         }
     }
 

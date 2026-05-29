@@ -264,7 +264,8 @@ button.btn_open_menu {
 td.date_cell {
     position: relative;
     border: none;
-    overflow: hidden;
+    padding-left: .5em;
+    padding-right: 0;
 
     &>span {
         position: relative;

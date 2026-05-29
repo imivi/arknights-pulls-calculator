@@ -123,7 +123,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                 title={import.meta.env.DEV ? JSON.stringify(row, null, 4) : undefined}
                             >
                                 {/* {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />} */}
-                                <span data-interactive={i === 0}>
+                                <span data-interactive={i === 0} data-tooltip-id={row.day}>
                                     {
                                         i === 0 &&
                                         <input
@@ -134,20 +134,13 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                             id="checkbox-today-cleared"
                                         />
                                     }
-                                    <label
-                                        data-tooltip-id={i === 0 ? 'already-cleared-tooltip' : undefined}
-                                        htmlFor={i === 0 ? "checkbox-today-cleared" : undefined}
-                                    >
+                                    <label htmlFor={i === 0 ? 'checkbox-today-cleared' : undefined}>
                                         {formatDate(row.day, row.weekday)}
                                     </label>
-
-                                    {
-                                        // i === 0 &&
-                                        // <Tooltip id='already-cleared-tooltip' style={{ zIndex: 9 }} place="bottom">
-                                        //     Already cleared?
-                                        // </Tooltip>
-                                    }
                                 </span>
+                                {/* <Tooltip id={row.day} style={{ zIndex: 2 }} place="bottom">
+                                    {row.day}
+                                </Tooltip> */}
                             </td>
 
                             {
@@ -166,7 +159,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             }
 
                             {/* Pulls */}
-                            <td className={s.ProgressCell} data-column="pulls"                            >
+                            <td className={s.ProgressCell} data-column="pulls" data-tooltip-id={row.day + "-pulls"}>
                                 {/* <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)"> */}
                                 <PullsMenu row={row}>
                                     <button className={s.btn_open_menu} aria-label="Spend pulls" ref={(el) => { pullButtonsRef.current[row.day] = el }}>
@@ -188,7 +181,11 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                     </button>
                                 </PullsMenu>
 
-                                {/* </ProgressBar> */}
+                                <Tooltip id={row.day + "-pulls"} style={{ zIndex: 2 }} place="bottom">
+                                    {row.pulls_available_excl_op} pulls from {formatOrundum(row.orundum_spendable)} orundum and {row.tickets_spendable} tickets
+                                    <br />
+                                    {row.pulls_available_incl_op - row.pulls_available_excl_op} pulls from converting up to {row.op_spendable} OP
+                                </Tooltip>
                             </td>
 
                             {/* Free pulls */}

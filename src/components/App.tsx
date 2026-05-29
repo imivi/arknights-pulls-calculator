@@ -76,10 +76,13 @@ export default function App() {
                         <Icon type="op" size={24} />
                         <Icon type="certs" size={24} />
                     </label>
-                    <label>
-                        <input type="checkbox" checked={showDailyResourceChange} onChange={e => setShowDailyResourceChange(e.target.checked)} />
-                        &nbsp;Show daily resources gained
-                    </label>
+                    {
+                        showResources &&
+                        <label>
+                            <input type="checkbox" checked={showDailyResourceChange} onChange={e => setShowDailyResourceChange(e.target.checked)} />
+                            &nbsp;Show daily resources gained
+                        </label>
+                    }
                     <label>
                         <input type="checkbox" checked={spendOp} onChange={e => setSpendOp(e.target.checked)} />
                         &nbsp;Spend <Icon type="op" size={24} />for pulls

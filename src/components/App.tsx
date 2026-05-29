@@ -20,6 +20,7 @@ import { useUserSettings } from "../hooks/useUserSettings"
 import { useSpendOpStore } from "../stores/useSpendOpStore"
 import { useShowDailyResourceChangeStore } from "../stores/useShowDailyResourceChangeStore"
 import CertsPerDay from "./CertsPerDay"
+import OrundumPerDay from "./OrundumPerDay"
 
 
 
@@ -79,15 +80,15 @@ export default function App() {
                     </label>
                     <label>
                         <input type="checkbox" checked={showDailyResourceChange} onChange={e => setShowDailyResourceChange(e.target.checked)} />
-                        &nbsp;Show daily resources gained/spent
+                        &nbsp;Show daily resources gained
                     </label>
                     <label>
                         <input type="checkbox" checked={spendOp} onChange={e => setSpendOp(e.target.checked)} />
                         &nbsp;Spend <Icon type="op" size={24} />for pulls
                     </label>
-                    {/* <Button>Customize resource income</Button> */}
 
                     <CertsPerDay />
+                    <OrundumPerDay />
 
                 </fieldset>
 

@@ -104,6 +104,7 @@ export type UserSettings = {
     monthlyCard: boolean
     claimedDay: string | null
     certsPerDay: number
+    orundumPerDay: number // from farming
     clearedReruns: string[]
     maxPullsToSpend: Record<Day, number>
     spendOp: boolean

@@ -1,14 +1,21 @@
-.CertsPerDay {
+.OrundumPerDay {
     display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: flex-start;
     gap: .5em;
 
-    input {
-        max-width: 3rem;
+    input[type="text"] {
+        width: 100%;
         text-align: center;
         border-radius: 2px;
         border: none;
         outline: none;
         padding: .2em;
         border: 1px solid rgba($color: black, $alpha: 0.2);
+    }
+
+    label {
+        display: grid;
+        gap: .5em;
     }
 }

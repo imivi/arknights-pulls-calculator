@@ -13,12 +13,12 @@ export default function OrundumPerDay() {
     // For debouncing
     const timeoutIdRef = useRef(0)
 
-    function onInputChange(inputValue: string) {
-        setInputValue(inputValue)
+    function onInputChange(inputValueString: string) {
+        setInputValue(inputValueString)
         window.clearTimeout(timeoutIdRef.current)
         timeoutIdRef.current = window.setTimeout(() => {
-            const number = Number(inputValue)
-            if (number && !(Number.isNaN(number) || number < 0 || number > 100))
+            const number = Number(inputValueString)
+            if (number && number > 0)
                 setOrundumPerDay(number)
             else
                 setOrundumPerDay(0)
@@ -28,19 +28,31 @@ export default function OrundumPerDay() {
 
     return (
         <div className={s.OrundumPerDay}>
-            <input
-                type="text"
-                inputMode="decimal"
-                pattern="^\d*\.\d+|\d+$"
-                min={0}
-                step={1}
-                value={inputValue}
-                onChange={(e) => onInputChange(e.target.value)}
-            />
             <label>
+                <input
+                    type="text"
+                    inputMode="decimal"
+                    pattern="^\d*\.\d+|\d+$"
+                    min={0}
+                    step={1}
+                    value={inputValue}
+                    onChange={(e) => onInputChange(e.target.value)}
+                />
                 <span><Icon type="orundum" size={24} /> Daily orundum from farming</span>
-                <span><input type="checkbox" checked={everyday} onChange={e => setEveryday(e.target.checked)} />&nbsp;Farm everyday</span>
             </label>
+            {
+                orundumPerDay > 0 &&
+                <div className={s.radioButtons}>
+                    <label className={everyday ? s.active : ""}>
+                        <input type="radio" checked={everyday} onChange={() => setEveryday(true)} />
+                        Every day
+                    </label>
+                    <label className={!everyday ? s.active : ""}>
+                        <input type="radio" checked={!everyday} onChange={() => setEveryday(false)} />
+                        Outside events
+                    </label>
+                </div>
+            }
         </div>
     )
 }

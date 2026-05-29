@@ -1,8 +1,20 @@
 .OrundumPerDay {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
     gap: .5em;
+
+    &>label {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        align-items: center;
+        gap: 1em;
+
+        &>span {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+        }
+    }
 
     input[type="text"] {
         width: 100%;
@@ -11,11 +23,45 @@
         border: none;
         outline: none;
         padding: .2em;
-        border: 1px solid rgba($color: black, $alpha: 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.2);
     }
 
-    label {
-        display: grid;
-        gap: .5em;
+    .radioButtons {
+        grid-column: 2;
+        display: flex;
+        gap: 0;
+        width: 100%;
+
+        label {
+            flex: 1;
+            padding: 5px 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: block; // overrides the label grid display
+            background-color: transparent;
+            transition: background-color 0.2s, color 0.2s;
+            margin: 0;
+
+            &:first-child {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                border-right: none;
+            }
+
+            &:last-child {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            &.active {
+                background-color: rgba(78, 146, 202, 0.8);
+                color: white;
+            }
+
+            input {
+                display: none;
+            }
+        }
     }
 }

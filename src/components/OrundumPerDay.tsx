@@ -43,13 +43,13 @@ export default function OrundumPerDay() {
             {
                 orundumPerDay > 0 &&
                 <div className={s.radioButtons}>
-                    <label className={everyday ? s.active : ""}>
-                        <input type="radio" checked={everyday} onChange={() => setEveryday(true)} />
-                        Every day
-                    </label>
                     <label className={!everyday ? s.active : ""}>
                         <input type="radio" checked={!everyday} onChange={() => setEveryday(false)} />
                         Outside events
+                    </label>
+                    <label className={everyday ? s.active : ""}>
+                        <input type="radio" checked={everyday} onChange={() => setEveryday(true)} />
+                        Every day
                     </label>
                 </div>
             }

@@ -14,7 +14,7 @@ export const useFarmingStore = create(persist<Store>((set) => ({
     orundumPerDay: 0,
     setOrundumPerDay: (orundumPerDay: number) => set({ orundumPerDay }),
 
-    everyday: true,
+    everyday: false,
     setEveryday: (everyday: boolean) => set({ everyday }),
 }),
     { name: "orundum_per_day" },

@@ -49,21 +49,37 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     const dt_event_days = aq.table(tables.eventDays)
 
     const dt_resources = aq.table(tables.resources)
-    // console.log(getDailyCertsResources(1.5))
     const dt_certs = aq.from(getDailyCertsResources(userSettings.certsPerDay, dt_days.objects().map((d: any) => d.day)))
     const dt_res_adjustments = aq.from(getDailyUserResources(userSettings.resourceAdjustments))
-    const dt_res_farming = aq.from({
-        day: dt_days.objects().map((d: any) => d.day),
-        orundum: Array(dt_days.count()).fill(userSettings.orundumPerDay), // make array
-    })
+
+
+    // Add orundum from farming
+    function getFarmingDays(farmEveryday: boolean) {
+        if (farmEveryday)
+            return new Set(tables.days.day)
+        else {
+            const eventDays = new Set(tables.eventDays.day)
+            return new Set(tables.days.day.filter(d => !eventDays.has(d)))
+        }
+    }
+
+    const farmingDays = getFarmingDays(userSettings.farmEveryday)
+    const farmedResources: ResourceChange[] = dt_days.objects()
+        .filter((d: any) => farmingDays.has(d.day))
+        .map((d: any) => ({ day: d.day, resource: 1, amount: userSettings.orundumPerDay, source: "farm" }))
+    const dt_res_farming = aq.from(farmedResources)
+
+
+    // Merge all resources gained
     const dt_all_resources = dt_resources
         .concat(dt_certs)
         .params({ claimedDay: userSettings.claimedDay })
         .filter((d: any, params: any) => !params.claimedDay || d.day !== params.claimedDay)
         .concat(dt_res_adjustments)
+        .concat(dt_res_farming)
 
-    // console.log(dt_all_resources.filter(row => row.resource === 4).objects())
 
+    // Create calendar rows
     const dt_merged = dt_days
         .join_left(dt_event_days, 'day')
         .join_left(dt_events, 'event_id')

@@ -15,4 +15,5 @@ export const resourceLabels: Record<string, string> = {
     "intel": "from intelligence certificate store",
     "tokens": "from duplicate welfare operator tokens",
     "recruitment": "from daily recruitment",
+    "farm": "from farming",
 }

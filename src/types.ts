@@ -108,6 +108,7 @@ export type UserSettings = {
     clearedReruns: string[]
     maxPullsToSpend: Record<Day, number>
     spendOp: boolean
+    farmEveryday: boolean
     resourceAdjustments: Record<string, {
         amount: number
         description: string

@@ -76,7 +76,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                         <th>Event</th>
                         <th>Day</th>
 
-                        {userSpentPulls && <th className={s.pulls_spent}>Pulls<br />spent</th>}
+                        {userSpentPulls && <th>Pulls<br />spent</th>}
 
                         <th>
                             Pulls available
@@ -154,7 +154,11 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                 userSpentPulls &&
                                 <td className={s.pulls_spent_cell}>
                                     {row.pulls_spent > 0 &&
-                                        <button className={s.pulls_spent} onClick={() => { onSpentPullsClick(row.day); console.log(row.day) }}>
+                                        <button
+                                            className={s.pulls_spent}
+                                            data-dark={darkMode}
+                                            onClick={() => { onSpentPullsClick(row.day); console.log(row.day) }}
+                                        >
                                             {row.pulls_spent}
                                         </button>
                                     }

@@ -288,21 +288,23 @@ button.pulls_spent {
 
     display: inline-flex;
     align-items: center;
-    background-color: var(--pulls-progress);
+    background-color: var(--orundum-progress-light);
+    color: brown;
     transition: background-color 100ms;
 
-    &:hover {
-        background-color: var(--pulls-progress-light);
+    &[data-dark=true] {
+        color: white;
     }
 
-    // max-height: 1.2em;
-    /* Set your desired background color */
-    color: rgb(227, 233, 242);
+    &:hover {
+        background-color: var(--orundum-progress-lighter);
+    }
+
+    // color: rgb(227, 233, 242);
     /* Text color */
     padding: 2px 18px;
     padding-left: 8px;
     /* Extra padding on the right to clear the triangle */
-    font-weight: bold;
     font-family: sans-serif;
     border-radius: 4px;
     box-shadow: 2px 2px 8px rgba($color: black, $alpha: 0.3);

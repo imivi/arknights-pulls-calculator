@@ -1,7 +1,7 @@
 import s from "./App.module.scss"
 
 import { useDarkModeStore } from "../stores/useDarkModeStore"
-import Settings from "./StartingResources"
+import StartingResources from "./StartingResources"
 import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Footer from "./Footer"
 import Chart from "./Chart"
@@ -60,7 +60,7 @@ export default function App() {
                 <main>
                     <img src={import.meta.env.VITE_ASSETS_BASE_URL + "bg/closure.png"} alt="logo" />
                     <h1 data-dark={darkMode}>Arknights Pulls Calculator</h1>
-                    <Settings />
+                    <StartingResources />
                 </main>
 
             </header>

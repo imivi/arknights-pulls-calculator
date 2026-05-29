@@ -412,9 +412,7 @@ function ProgressBar({ value, max, resource, children }: { value: number, max: n
             {/* The progress bar background */}
             <div className={s.Bar} style={{ width: `${percentage}%` }} />
             {/* The cell content */}
-            <span className={s.Content}>
-                {children}
-            </span>
+            <span className={s.Content}>{children}</span>
         </div>
     )
 }

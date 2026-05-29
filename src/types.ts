@@ -76,9 +76,9 @@ export type CalendarRow = {
     event_id: string | undefined
     day_of_event: number | undefined
     date_confirmed: number | undefined
-    is_limited: number | undefined
-    is_rerun: number | undefined
-    is_collab: number | undefined
+    is_limited: number
+    is_rerun: number
+    is_collab: number
     title: string | undefined
     event_ops: string | undefined
     event_link: string | undefined

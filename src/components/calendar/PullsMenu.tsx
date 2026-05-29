@@ -29,6 +29,8 @@ export default function PullsMenu({ row, children }: Props) {
     const { spendablePulls, setSpendablePulls } = useSpendablePullsStore()
     // const spendablePullsToday = row.pulls_available_incl_op
 
+    const operators = row.event_ops?.split(",").map(op => op.trim()) || []
+
     const [inputValue, setInputValue] = useState("0")
     const inputValueAsNumber = Number(inputValue) || 0
 
@@ -41,8 +43,10 @@ export default function PullsMenu({ row, children }: Props) {
     const maxSpendablePulls = Math.min(inputValueAsNumber, row.pulls_available_incl_op)
     const { spent: resourcesSpent } = convertPullsToResources(cumulativeSpendableResources, maxSpendablePulls)
 
-    const bannerType = getBannerType(row)
+    const bannerType = getBannerType(row.event_id, row.is_collab === 1, row.is_limited === 1, operators)
 
+    // Example: one rate-up, 50% chance
+    // two rate-ups, 35% each, 70% for either
     let pullOdds: Record<string, number> = {}
     if (bannerType !== "none")
         pullOdds = getPullOdds(inputValueAsNumber, bannerType)
@@ -180,7 +184,20 @@ export default function PullsMenu({ row, children }: Props) {
                                     <tbody>
                                         {Object.entries(pullOdds).map(([key, chance]) => (
                                             <tr key={key}>
-                                                <td>{key}</td>
+                                                <td>
+                                                    <span>
+                                                        {
+                                                            operators.length === 1 &&
+                                                            <img
+                                                                src={`/operators/${operators}.webp`}
+                                                                alt={key}
+                                                                width={24}
+                                                                height={24}
+                                                            />
+                                                        }
+                                                        {key}
+                                                    </span>
+                                                </td>
                                                 <td>{formatProbability(chance)} %</td>
                                             </tr>
                                         ))}
@@ -215,26 +232,27 @@ export default function PullsMenu({ row, children }: Props) {
 
 type BannerType = "debut" | "limited" | "collab" | "none"
 
-function getBannerType(row: CalendarRow): BannerType {
+function getBannerType(event_id: string | undefined, is_collab: boolean, is_limited: boolean, operators: string[]): BannerType {
 
-    if (!row.event_id || row.event_id === "")
+    if (!event_id || event_id === "")
         return "none"
 
-    if (row.is_collab)
+    if (is_collab)
         return "collab"
 
-    const ops = row.event_id.split(",")
-    if (ops.length === 1)
-        return "debut"
-
-    if (row.is_limited)
+    if (is_limited)
         return "limited"
+
+    if (operators.length === 1)
+        return "debut"
 
     return "none"
 }
 
 
 function formatProbability(value: number): string {
-    if (value < 0.99) return Math.round(value)?.toFixed(0)
-    return value?.toFixed(1)
+    if (value === 0) return "0"
+    if (value === 1) return "100"
+    if (value < 0.99) return (value * 100).toFixed(1)
+    return (value * 100)?.toFixed(2)
 }

@@ -10,6 +10,7 @@ import { useMemo, useState } from "react"
 import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-icons/fa"
 import Button from "./Button"
 import Icon from "./Icon"
+import MessageBox from "./MessageBox"
 import { FaGear } from "react-icons/fa6"
 import { IconOnlyResourceBadge } from "./table/ResourceBadge"
 import Calendar from "./calendar/Calendar"
@@ -66,10 +67,7 @@ export default function App() {
 
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "center", gap: 20 }}>
 
-                <fieldset className={s.message_box} data-dark={darkMode}>
-                    <legend>
-                        <FaGear size={16} />&nbsp;settings
-                    </legend>
+                <MessageBox legend={<><FaGear size={16} />&nbsp;settings</>}>
                     <label>
                         <input type="checkbox" checked={showResources} onChange={e => setShowResources(e.target.checked)} />
                         &nbsp;Show resources
@@ -89,13 +87,9 @@ export default function App() {
 
                     <CertsPerDay />
                     <OrundumPerDay />
+                </MessageBox>
 
-                </fieldset>
-
-                <fieldset className={s.message_box} data-dark={darkMode}>
-                    <legend>
-                        <FaInfoCircle size={16} />&nbsp;tips
-                    </legend>
+                <MessageBox legend={<><FaInfoCircle size={16} />&nbsp;tips</>}>
                     <ul>
                         <li>Click on a <strong data-dark={darkMode}>pull count</strong> to spend pulls</li>
                         <li>Click on today's date to claim resources</li>
@@ -113,7 +107,7 @@ export default function App() {
                             </>
                         }
                     </ul>
-                </fieldset>
+                </MessageBox>
 
             </div>
 

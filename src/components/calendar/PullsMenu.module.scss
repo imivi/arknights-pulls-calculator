@@ -138,6 +138,12 @@ button.btn_open_menu {
         font-weight: bold;
         color: darkgreen;
     }
+
+    td>span {
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
 }
 
 .Arrow {

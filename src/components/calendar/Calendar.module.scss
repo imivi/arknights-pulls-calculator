@@ -18,14 +18,23 @@
     // Light theme progress colors (semi-transparent badges)
     --pulls-progress: rgba(181, 199, 236, 0.8);
     --pulls-progress-light: rgba(181, 199, 236, 0.9);
+    --pulls-progress-lighter: rgba(181, 199, 236, 0.95);
+
     --orundum-progress: rgba(236, 181, 181, 0.8);
     --orundum-progress-light: rgba(236, 181, 181, 0.9);
+    --orundum-progress-lighter: rgba(236, 181, 181, 0.95);
+
     --ticket-progress: rgba(171, 220, 138, 0.8);
     --ticket-progress-light: rgba(171, 220, 138, 0.9);
+    --ticket-progress-lighter: rgba(171, 220, 138, 0.95);
+
     --op-progress: rgba(232, 218, 154, 0.8);
     --op-progress-light: rgba(232, 218, 154, 0.9);
+    --op-progress-lighter: rgba(232, 218, 154, 0.95);
+
     --cert-progress: rgba(230, 210, 189, 0.8);
     --cert-progress-light: rgba(230, 210, 189, 0.9);
+    --cert-progress-lighter: rgba(230, 210, 189, 0.95);
 
     table {
         border-collapse: collapse;
@@ -95,14 +104,23 @@
         // Dark theme progress colors
         --pulls-progress: rgba(78, 146, 202, 0.8);
         --pulls-progress-light: rgba(78, 146, 202, 1);
+        --pulls-progress-lighter: rgba(78, 146, 202, 1);
+
         --orundum-progress: rgba(151, 37, 29, 0.8);
         --orundum-progress-light: rgba(151, 37, 29, 1);
+        --orundum-progress-lighter: rgba(151, 37, 29, 1);
+
         --ticket-progress: rgba(95, 149, 37, 0.8);
         --ticket-progress-light: rgba(95, 149, 37, 1);
+        --ticket-progress-lighter: rgba(95, 149, 37, 1);
+
         --op-progress: rgba(188, 160, 68, 0.8);
         --op-progress-light: rgba(188, 160, 68, 1);
+        --op-progress-lighter: rgba(188, 160, 68, 1);
+
         --cert-progress: rgba(173, 97, 46, 0.8);
         --cert-progress-light: rgba(173, 97, 46, 1);
+        --cert-progress-lighter: rgba(173, 97, 46, 1);
 
         th {
             background-color: colors.$table-header-bg-dark;
@@ -138,7 +156,7 @@
     }
 
     &[data-resource="orundum"]:hover .Bar {
-        background-color: var(--orundum-progress-light);
+        background-color: var(--orundum-progress-lighter);
     }
 
     &[data-resource="tickets"] .Bar {
@@ -146,7 +164,7 @@
     }
 
     &[data-resource="tickets"]:hover .Bar {
-        background-color: var(--ticket-progress-light);
+        background-color: var(--ticket-progress-lighter);
     }
 
     &[data-resource="op"] .Bar {
@@ -154,7 +172,7 @@
     }
 
     &[data-resource="op"]:hover .Bar {
-        background-color: var(--op-progress-light);
+        background-color: var(--op-progress-lighter);
     }
 
     &[data-resource="certs"] .Bar {
@@ -162,7 +180,7 @@
     }
 
     &[data-resource="certs"]:hover .Bar {
-        background-color: var(--cert-progress-light);
+        background-color: var(--cert-progress-lighter);
     }
 
 

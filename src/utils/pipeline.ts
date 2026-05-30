@@ -42,19 +42,26 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         user_max_pulls: Object.values(userSettings.maxPullsToSpend),
     })
 
+    // List of all valid days
     const dt_days = aq.table(tables.days)
         .params({ today: todayStr })
         .filter((d: any, params: any) => d.day >= params.today) // Only include days from today onwards
+
+    // Data on each event
     const dt_events = aq.table(tables.events)
+
+    // List of days with their event
     const dt_event_days = aq.table(tables.eventDays)
 
+    // Resources gained naturally
     const dt_resources = aq.table(tables.resources)
+
+    // Resources gained manually by the user
     const dt_certs = aq.from(getDailyCertsResources(userSettings.certsPerDay, dt_days.objects().map((d: any) => d.day)))
     const dt_res_adjustments = aq.from(getDailyUserResources(userSettings.resourceAdjustments))
 
-
     // Merge all resources gained
-    let dt_all_resources = dt_resources
+    let dt_all_resources_gained = dt_resources
         .concat(dt_certs)
         .params({ claimedDay: userSettings.claimedDay })
         .filter((d: any, params: any) => !params.claimedDay || d.day !== params.claimedDay)
@@ -72,23 +79,22 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     }
 
     if (userSettings.orundumPerDay > 0) {
-
         const farmingDays = getFarmingDays(userSettings.farmEveryday)
         const farmedResources: ResourceChange[] = dt_days.objects()
             .filter((d: any) => farmingDays.has(d.day))
             .map((d: any) => ({ day: d.day, resource: 1, amount: userSettings.orundumPerDay, source: "farm" }))
         const dt_res_farming = aq.from(farmedResources)
 
-        dt_all_resources = dt_all_resources.concat(dt_res_farming)
+        dt_all_resources_gained = dt_all_resources_gained.concat(dt_res_farming)
     }
 
 
     // Create calendar rows
-    const dt_merged = dt_days
+    const dt_calendar_rows = dt_days
         .join_left(dt_event_days, 'day')
         .join_left(dt_events, 'event_id')
         .join_left(dt_cleared_reruns, 'event_id')
-        .join_left(dt_all_resources, 'day')
+        .join_left(dt_all_resources_gained, 'day')
         .derive({
             // Fill missing values with 0
             cleared_rerun: (d: any) => d.cleared_rerun ?? 0,
@@ -98,7 +104,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         .orderby('day')
 
 
-    const dt_filtered = dt_merged
+    const dt_filtered_resources = dt_calendar_rows
         // If user is F2P, exclude resources from monthly cards
         .filter((row: any) => row.source !== 'monthly_card' || row.has_monthly_card === 1)
         // If user cleared reruns, exclude resources from those days
@@ -108,8 +114,10 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         // If user did not clear a rerun, exclude the certs from welfare tokens
         .filter((row: any) => !(row.source === "tokens" && row.cleared_rerun === 0))
 
+    // console.log({ dt_filtered_resources: dt_filtered_resources.objects().filter(row => row['day'] === '2026-08-30' && row['resource'] === 4) })
 
-    const dt_res_gained_by_day = dt_filtered
+
+    const dt_res_gained_by_day = dt_filtered_resources
         .select(['day', 'resource', 'amount'])
         // Sum the same resources for each day
         .groupby('day', 'resource')
@@ -140,15 +148,140 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         })
         .orderby('day')
 
-    // loop over each day to calculate spent resources and cumulative total resources
-    // (insert resource spending values into resources_gained table)
+
+    const { res_gained_by_day, resourcesSpentFromPulling } = getResGainedByDay(dt_res_gained_by_day, userSettings)
+
+    // console.log({ res_gained_by_day: res_gained_by_day.filter(row => row['day'] === '2026-08-30') })
+
+    const dt_resources_spent_from_pulling = aq.from(resourcesSpentFromPulling)
+    const dt_all_resources_incl_pulls = dt_filtered_resources.concat(dt_resources_spent_from_pulling).orderby('day') // fixed
+
+    // console.log({ dt_all_resources_incl_pulls: dt_all_resources_incl_pulls.objects().filter(row => row.day === '2026-08-30') })
+
+    // Group resources gained/spent by day
+    const all_resources_gained_or_spent_by_day: Record<string, ResourceChange[]> = {}
+    dt_all_resources_incl_pulls.objects().forEach((row: any) => {
+        if (!all_resources_gained_or_spent_by_day[row.day]) {
+            all_resources_gained_or_spent_by_day[row.day] = []
+        }
+        all_resources_gained_or_spent_by_day[row.day].push({
+            amount: row.amount,
+            confirmed: row.confirmed,
+            day: row.day,
+            resource: row.resource,
+            source: row.source,
+        })
+    })
+
+    // console.log({ all_resources_gained_or_spent_by_day: all_resources_gained_or_spent_by_day['2026-08-30'] })
+
+    const dt_final_calendar = aq.from(res_gained_by_day)
+        .join_left(dt_days, 'day')
+        .join_left(dt_event_days, 'day')
+        .join_left(dt_events, 'event_id')
+        .orderby('day')
+        .derive({
+            max_pulls_leftover: (d: any) => aq.op.max(d.pulls_available_incl_op),
+            max_orundum_leftover: (d: any) => aq.op.max(d.orundum_leftover),
+            max_tickets_leftover: (d: any) => aq.op.max(d.tickets_leftover),
+            max_op_leftover: (d: any) => aq.op.max(d.op_leftover),
+            max_certs_leftover: (d: any) => aq.op.max(d.certs_leftover),
+            max_pulls_spent: (d: any) => aq.op.max(d.pulls_spent),
+            free_pulls: 0,
+        })
+
+    return {
+        dt_final_calendar,
+        all_resources_gained_or_spent_by_day,
+    }
+}
 
 
-    // console.log(dt_res_gained_by_day.objects())
-    // throw new Error('debug')
+
+
+export type ResourceChange = {
+    amount: number
+    confirmed: number
+    day: string
+    resource: number
+    source: string
+}
+
+function getDailyCertsResources(certsPerDay: number, days: string[]): ResourceChange[] {
+
+    // Add certs from daily recruitment
+    if (certsPerDay === 0)
+        return []
+
+    const dailyCerts: ResourceChange[] = []
+    for (const day of days) {
+        dailyCerts.push({
+            amount: certsPerDay,
+            confirmed: 1,
+            day,
+            resource: 4, // Gold certs
+            source: 'recruitment',
+        })
+    }
+
+    return dailyCerts
+}
+
+
+function getDailyUserResources(userResources: ResourceAdjustments): ResourceChange[] {
+    const dailyUserResources: ResourceChange[] = []
+    Object.entries(userResources).forEach(([key, adjustment]) => {
+        if (!key.includes(':')) {
+            throw new Error(`Invalid resource adjustment key: ${key}`)
+        }
+        const [day, resource] = key.split(':')
+        const { amount, description } = adjustment
+
+        // console.log({ day, resource, amount, description })
+
+        if (resource == "orundum") {
+            dailyUserResources.push({
+                amount,
+                confirmed: 1,
+                day,
+                resource: 1, // Orundum
+                source: description,
+            })
+        }
+        else if (resource == "tickets") {
+            dailyUserResources.push({
+                amount,
+                confirmed: 1,
+                day,
+                resource: 2, // Tickets
+                source: description,
+            })
+        }
+        else if (resource == "op") {
+            dailyUserResources.push({
+                amount,
+                confirmed: 1,
+                day,
+                resource: 3, // OP
+                source: description,
+            })
+        }
+        else if (resource == "certs") {
+            dailyUserResources.push({
+                amount,
+                confirmed: 1,
+                day,
+                resource: 4, // Gold certs
+                source: description,
+            })
+        }
+    })
+    return dailyUserResources
+}
 
 
 
+function getResGainedByDay(dt_res_gained_by_day: any, userSettings: UserSettings) {
 
     const res_gained_by_day = dt_res_gained_by_day.objects()
 
@@ -250,137 +383,8 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
         }
     })
 
-    const dt_resources_spent_from_pulling = aq.from(resourcesSpentFromPulling)
-    const dt_all_resources_incl_pulls = dt_all_resources.concat(dt_resources_spent_from_pulling).orderby('day')
-
-    // Group resources gained/spentby day
-    const all_resources_gained_or_spent_by_day: Record<string, ResourceChange[]> = {}
-    dt_all_resources_incl_pulls.objects().forEach((row: any) => {
-        if (!all_resources_gained_or_spent_by_day[row.day]) {
-            all_resources_gained_or_spent_by_day[row.day] = []
-        }
-        all_resources_gained_or_spent_by_day[row.day].push({
-            amount: row.amount,
-            confirmed: row.confirmed,
-            day: row.day,
-            resource: row.resource,
-            source: row.source,
-        })
-    })
-
-    const dt_final_calendar = aq.from(res_gained_by_day)
-        .join_left(dt_days, 'day')
-        .join_left(dt_event_days, 'day')
-        .join_left(dt_events, 'event_id')
-        .orderby('day')
-        .derive({
-            max_pulls_leftover: (d: any) => aq.op.max(d.pulls_available_incl_op),
-            max_orundum_leftover: (d: any) => aq.op.max(d.orundum_leftover),
-            max_tickets_leftover: (d: any) => aq.op.max(d.tickets_leftover),
-            max_op_leftover: (d: any) => aq.op.max(d.op_leftover),
-            max_certs_leftover: (d: any) => aq.op.max(d.certs_leftover),
-            max_pulls_spent: (d: any) => aq.op.max(d.pulls_spent),
-            free_pulls: 0,
-        })
-
     return {
-        dt_merged,
-        dt_filtered,
-        dt_certs,
-        dt_res_adjustments,
-        dt_all_resources,
-        dt_final_calendar,
-        dt_all_resources_incl_pulls,
-        dt_res_gained_by_day,
         res_gained_by_day,
-        dt_days,
-        dt_events,
-        dt_event_days,
-        dt_resources,
-        dt_resources_spent_from_pulling,
-        all_resources_gained_or_spent_by_day,
+        resourcesSpentFromPulling,
     }
-}
-
-
-
-
-export type ResourceChange = {
-    amount: number
-    confirmed: number
-    day: string
-    resource: number
-    source: string
-}
-
-function getDailyCertsResources(certsPerDay: number, days: string[]): ResourceChange[] {
-
-    // Add certs from daily recruitment
-    if (certsPerDay === 0)
-        return []
-
-    const dailyCerts: ResourceChange[] = []
-    for (const day of days) {
-        dailyCerts.push({
-            amount: certsPerDay,
-            confirmed: 1,
-            day,
-            resource: 4, // Gold certs
-            source: 'recruitment',
-        })
-    }
-
-    return dailyCerts
-}
-
-
-function getDailyUserResources(userResources: ResourceAdjustments): ResourceChange[] {
-    const dailyUserResources: ResourceChange[] = []
-    Object.entries(userResources).forEach(([key, adjustment]) => {
-        if (!key.includes(':')) {
-            throw new Error(`Invalid resource adjustment key: ${key}`)
-        }
-        const [day, resource] = key.split(':')
-        const { amount, description } = adjustment
-
-        // console.log({ day, resource, amount, description })
-
-        if (resource == "orundum") {
-            dailyUserResources.push({
-                amount,
-                confirmed: 1,
-                day,
-                resource: 1, // Orundum
-                source: description,
-            })
-        }
-        else if (resource == "tickets") {
-            dailyUserResources.push({
-                amount,
-                confirmed: 1,
-                day,
-                resource: 2, // Tickets
-                source: description,
-            })
-        }
-        else if (resource == "op") {
-            dailyUserResources.push({
-                amount,
-                confirmed: 1,
-                day,
-                resource: 3, // OP
-                source: description,
-            })
-        }
-        else if (resource == "certs") {
-            dailyUserResources.push({
-                amount,
-                confirmed: 1,
-                day,
-                resource: 4, // Gold certs
-                source: description,
-            })
-        }
-    })
-    return dailyUserResources
 }

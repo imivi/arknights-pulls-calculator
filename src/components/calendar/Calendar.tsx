@@ -121,6 +121,11 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             {/* Date */}
                             <td className={s.date_cell} style={getDateCellStyle(row, i % 2 === 0, darkMode)}
                                 title={import.meta.env.DEV ? JSON.stringify(row, null, 4) : undefined}
+                                onClick={() => {
+                                    // For debug
+                                    if (import.meta.env.DEV)
+                                        console.log({ row, resources: resourcesGainedOrSpentByDay[row.day] })
+                                }}
                             >
                                 {/* {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />} */}
                                 <span data-interactive={i === 0} data-tooltip-id={row.day}>

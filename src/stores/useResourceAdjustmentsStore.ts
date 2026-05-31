@@ -18,24 +18,24 @@ type Store = {
 /** Allows the user to manually gain/spend resources, 
  * for example OP for skins, from packs, or tickets from the shop */
 export const useResourceAdjustmentsStore = create(persist<Store>((set) => ({
-    // DEBUG
     resourceAdjustments: {
-        '2026-06-02:orundum': {
-            amount: 1_000,
-            description: 'random reward'
-        },
-        '2026-06-02:tickets': {
-            amount: 12,
-            description: 'buy tickets in store'
-        },
-        '2026-07-16:op': {
-            amount: -18,
-            description: 'skin purchase'
-        },
-        '2026-07-16:certs': {
-            amount: -50,
-            description: 'buy tickets in store'
-        },
+        // Example:
+        //     '2026-06-02:orundum': {
+        //         amount: 1_000,
+        //         description: 'random reward'
+        //     },
+        //     '2026-06-02:tickets': {
+        //         amount: 12,
+        //         description: 'buy tickets in store'
+        //     },
+        //     '2026-07-16:op': {
+        //         amount: -18,
+        //         description: 'skin purchase'
+        //     },
+        //     '2026-07-16:certs': {
+        //         amount: -50,
+        //         description: 'buy tickets in store'
+        //     },
     },
     setResourceAdjustments: (resourceAdjustments) => set({ resourceAdjustments }),
 }),

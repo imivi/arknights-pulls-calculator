@@ -7,7 +7,7 @@ import { useShowResourcesStore } from "../stores/useShowResourcesStore"
 import Footer from "./Footer"
 import Chart from "./Chart"
 import { downloadCsv } from "../utils/download-csv"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaChevronRight, FaChevronUp, FaDownload, FaInfoCircle } from "react-icons/fa"
 import Button from "./Button"
 import Icon from "./Icon"
@@ -19,6 +19,12 @@ import Table from "./table/Table"
 
 
 export default function App() {
+
+    useEffect(() => {
+        if (window.location.search.includes("preview=true")) {
+            window.location.href = "https://ak-pull-calc-dev.netlify.app/"
+        }
+    }, [])
 
     const days = useCalendar()
 

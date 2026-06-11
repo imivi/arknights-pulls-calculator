@@ -8,7 +8,7 @@ type Store = {
 }
 
 export const useShowDailyResourceChangeStore = create(persist<Store>((set) => ({
-    showDailyResourceChange: true,
+    showDailyResourceChange: false,
     setShowDailyResourceChange: (showDailyResourceChange) => set({ showDailyResourceChange }),
 }),
     { name: "show_daily_resource_change" },

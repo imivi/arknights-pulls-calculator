@@ -51,7 +51,6 @@ export default function App() {
     const { dt_final_calendar, all_resources_gained_or_spent_by_day } = useMemo(() => runPipeline(userSettings, tables), [userSettings])
     const calendarRows = useMemo(() => dt_final_calendar.objects().map(row => addFreePulls(row as CalendarRow)), [dt_final_calendar])
 
-
     return (
         <main className={s.App} data-dark={darkMode}>
 

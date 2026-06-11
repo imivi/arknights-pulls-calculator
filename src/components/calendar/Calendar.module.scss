@@ -73,6 +73,9 @@
 
     td.ProgressCell {
         padding: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+
         position: relative;
         padding-bottom: 1px;
         // transform: scaleY(0.98);
@@ -143,7 +146,8 @@
 .ProgressBar {
     position: relative;
     width: 100%;
-    height: 100%;
+    // height: 100%;
+    height: calc(100% - 5px);
     // padding: 8px 14px;
     padding: .2em .4em;
     box-sizing: border-box;
@@ -155,6 +159,7 @@
         background-color: var(--orundum-progress);
     }
 
+    // &[data-resource="orundum"][data-odd=true] .Bar,
     &[data-resource="orundum"]:hover .Bar {
         background-color: var(--orundum-progress-lighter);
     }
@@ -163,6 +168,7 @@
         background-color: var(--ticket-progress);
     }
 
+    // &[data-resource="tickets"][data-odd=true] .Bar,
     &[data-resource="tickets"]:hover .Bar {
         background-color: var(--ticket-progress-lighter);
     }
@@ -171,6 +177,7 @@
         background-color: var(--op-progress);
     }
 
+    // &[data-resource="op"][data-odd=true] .Bar,
     &[data-resource="op"]:hover .Bar {
         background-color: var(--op-progress-lighter);
     }
@@ -179,6 +186,7 @@
         background-color: var(--cert-progress);
     }
 
+    // &[data-resource="certs"][data-odd=true] .Bar,
     &[data-resource="certs"]:hover .Bar {
         background-color: var(--cert-progress-lighter);
     }
@@ -192,6 +200,10 @@
         z-index: 0;
         transition: width 0.5s ease;
 
+        border-radius: 3px;
+        // border-top-right-radius: 3px;
+        // border-bottom-right-radius: 3px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     .Content {
@@ -199,21 +211,20 @@
         z-index: 1;
         width: 100%;
     }
-
-    span {
-        // display: inline-grid;
-        // grid-template-columns: auto 1fr auto;
-    }
 }
 
 .Details {
     background-color: rgba($color: white, $alpha: 0.15);
     // border: 1px solid rgba($color: #000000, $alpha: 0.3);
+    margin-left: .5em;
+
     padding: .2em .6em;
+    padding-bottom: .1em;
     height: .8rem;
     border-radius: .8rem;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     &[data-show="false"] {
         display: none;
@@ -231,7 +242,7 @@ button.btn_open_menu {
     border: none;
     background: none;
     margin: 0;
-    // width: 100%;
+    width: 100%;
     height: 100%;
     padding: 0;
     font-size: inherit;

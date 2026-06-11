@@ -79,6 +79,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                         {userSpentPulls && <th>Pulls<br />spent</th>}
 
                         <th>
+                            {/* <IconOnlyResourceBadge resource="pulls" /> */}
                             Pulls available
                             <br />
                             <IconOnlyResourceBadge resource="orundum" />
@@ -93,280 +94,295 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                         <th>Free<br />pulls</th>
 
-                        <th data-show={showResourceColumns}>Orundum</th>
-                        <th data-show={showResourceColumns}>Tickets</th>
-                        <th data-show={showResourceColumns}>OP</th>
-                        <th data-show={showResourceColumns}>Certs</th>
+                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="orundum" /> Orundum</th>
+                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="tickets" /> Tickets</th>
+                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="op" /> OP</th>
+                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="certs" /> Certs</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    {rows.map((row, i) => (
-                        <tr key={row.day}>
+                    {rows.map((row, i) => {
 
-                            {/* Event banner or empty cell */}
-                            {
-                                row.event_id &&
-                                (row.day_of_event === 1 || i === 0) && // first row or day 1 of event
-                                <EventCell
-                                    day={row}
-                                    rowSpan={row.duration_days! - row.day_of_event! + 1}
-                                />
-                            }
-                            {
-                                !row.event_id &&
-                                <td></td>
-                            }
+                        const yesterday = rows[i - 1]
 
-                            {/* Date */}
-                            <td className={s.date_cell} style={getDateCellStyle(row, i % 2 === 0, darkMode)}
-                                title={import.meta.env.DEV ? JSON.stringify(row, null, 4) : undefined}
-                                onClick={() => {
-                                    // For debug
-                                    if (import.meta.env.DEV)
-                                        console.log({ row, resources: resourcesGainedOrSpentByDay[row.day] })
-                                }}
-                            >
-                                {/* {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />} */}
-                                <span data-interactive={i === 0} data-tooltip-id={row.day}>
-                                    {
-                                        i === 0 &&
-                                        <input
-                                            type="checkbox"
-                                            checked={dayCleared === TODAY}
-                                            onChange={() => setDayCleared(dayCleared ? null : TODAY)}
-                                            name='checkbox-today-cleared'
-                                            id="checkbox-today-cleared"
-                                        />
-                                    }
-                                    <label htmlFor={i === 0 ? 'checkbox-today-cleared' : undefined}>
-                                        {formatDate(row.day, row.weekday)}
-                                    </label>
-                                </span>
-                                {/* <Tooltip id={row.day} style={{ zIndex: 2 }} place="bottom">
+                        return (
+                            <tr key={row.day}>
+
+                                {/* Event banner or empty cell */}
+                                {
+                                    row.event_id &&
+                                    (row.day_of_event === 1 || i === 0) && // first row or day 1 of event
+                                    <EventCell
+                                        day={row}
+                                        rowSpan={row.duration_days! - row.day_of_event! + 1}
+                                    />
+                                }
+                                {
+                                    !row.event_id &&
+                                    <td></td>
+                                }
+
+                                {/* Date */}
+                                <td className={s.date_cell} style={getDateCellStyle(row, i % 2 === 0, darkMode)}
+                                    title={import.meta.env.DEV ? JSON.stringify(row, null, 4) : undefined}
+                                    onClick={() => {
+                                        // For debug
+                                        if (import.meta.env.DEV)
+                                            console.log({ row, resources: resourcesGainedOrSpentByDay[row.day] })
+                                    }}
+                                >
+                                    {/* {!row.date_confirmed && <Stripes color={row.color_dark_hex!} />} */}
+                                    <span data-interactive={i === 0} data-tooltip-id={row.day}>
+                                        {
+                                            i === 0 &&
+                                            <input
+                                                type="checkbox"
+                                                checked={dayCleared === TODAY}
+                                                onChange={() => setDayCleared(dayCleared ? null : TODAY)}
+                                                name='checkbox-today-cleared'
+                                                id="checkbox-today-cleared"
+                                            />
+                                        }
+                                        <label htmlFor={i === 0 ? 'checkbox-today-cleared' : undefined}>
+                                            {formatDate(row.day, row.weekday)}
+                                        </label>
+                                    </span>
+                                    {/* <Tooltip id={row.day} style={{ zIndex: 2 }} place="bottom">
                                     {row.day}
                                 </Tooltip> */}
-                            </td>
+                                </td>
 
-                            {
-                                userSpentPulls &&
-                                <td className={s.pulls_spent_cell}>
-                                    {row.pulls_spent > 0 &&
-                                        <button
-                                            className={s.pulls_spent}
-                                            data-dark={darkMode}
-                                            onClick={() => { onSpentPullsClick(row.day); console.log(row.day) }}
-                                        >
-                                            {row.pulls_spent}
+                                {
+                                    userSpentPulls &&
+                                    <td className={s.pulls_spent_cell}>
+                                        {row.pulls_spent > 0 &&
+                                            <button
+                                                className={s.pulls_spent}
+                                                data-dark={darkMode}
+                                                onClick={() => { import.meta.env.DEV && onSpentPullsClick(row.day); console.log(row.day) }}
+                                            >
+                                                {row.pulls_spent}
+                                            </button>
+                                        }
+                                    </td>
+                                }
+
+                                {/* Pulls */}
+                                <td className={s.ProgressCell} data-column="pulls" data-tooltip-id={row.day + "-pulls"}>
+                                    {/* <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)"> */}
+                                    <PullsMenu row={row}>
+                                        <button className={s.btn_open_menu} aria-label="Spend pulls" ref={(el) => { pullButtonsRef.current[row.day] = el }}>
+                                            <DualProgressBar
+                                                value1={row.pulls_available_excl_op}
+                                                value2={row.pulls_available_incl_op - row.pulls_available_excl_op}
+                                                max={row.max_pulls_leftover}
+                                            >
+                                                {/* <IconOnlyResourceBadge resource="pulls" /> */}
+                                                <span>{row.pulls_available_incl_op}&nbsp;pull{row.pulls_available_incl_op > 1 && 's'}&nbsp;</span>
+                                                <Details
+                                                    value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
+                                                    highlight={false}
+                                                    showUnhighlighted={false}
+                                                    show={spendOp}
+                                                // highlight={opSpentByDay[row.day]}
+                                                />
+                                            </DualProgressBar>
                                         </button>
+                                    </PullsMenu>
+
+                                    <Tooltip id={row.day + "-pulls"} style={{ zIndex: 2 }} place="bottom">
+                                        {row.pulls_available_excl_op} pulls from {formatOrundum(row.orundum_spendable)} orundum and {row.tickets_spendable} tickets
+                                        <br />
+                                        {row.pulls_available_incl_op - row.pulls_available_excl_op} pulls from converting up to {row.op_spendable} OP
+                                    </Tooltip>
+                                </td>
+
+                                {/* Free pulls */}
+                                <td>
+                                    {
+                                        row.free_pulls > 0 &&
+                                        <small className={s.free_pulls}>
+                                            +{row.free_pulls}&nbsp;free
+                                        </small>
                                     }
                                 </td>
-                            }
 
-                            {/* Pulls */}
-                            <td className={s.ProgressCell} data-column="pulls" data-tooltip-id={row.day + "-pulls"}>
-                                {/* <ProgressBar value={row.pulls_available_incl_op} max={row.max_pulls_leftover} color="var(--pulls-progress)"> */}
-                                <PullsMenu row={row}>
-                                    <button className={s.btn_open_menu} aria-label="Spend pulls" ref={(el) => { pullButtonsRef.current[row.day] = el }}>
-                                        <DualProgressBar
-                                            value1={row.pulls_available_excl_op}
-                                            value2={row.pulls_available_incl_op - row.pulls_available_excl_op}
-                                            max={row.max_pulls_leftover}
-                                        >
-                                            <IconOnlyResourceBadge resource="pulls" />
-                                            <span>{row.pulls_available_incl_op}&nbsp;pulls&nbsp;</span>
-                                            <Details
-                                                value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
-                                                highlight={false}
-                                                showUnhighlighted={false}
-                                                show={spendOp}
-                                            // highlight={opSpentByDay[row.day]}
-                                            />
-                                        </DualProgressBar>
-                                    </button>
-                                </PullsMenu>
+                                {/* Orundum */}
+                                < td className={s.ProgressCell} data-show={showResourceColumns} >
 
-                                <Tooltip id={row.day + "-pulls"} style={{ zIndex: 2 }} place="bottom">
-                                    {row.pulls_available_excl_op} pulls from {formatOrundum(row.orundum_spendable)} orundum and {row.tickets_spendable} tickets
-                                    <br />
-                                    {row.pulls_available_incl_op - row.pulls_available_excl_op} pulls from converting up to {row.op_spendable} OP
-                                </Tooltip>
-                            </td>
+                                    <ProgressBar
+                                        value={row.orundum_leftover}
+                                        max={row.max_orundum_leftover}
+                                        resource="orundum" odd={i % 2 === 1}
+                                        show={yesterday?.orundum_leftover !== row.orundum_leftover}
+                                    >
 
-                            {/* Free pulls */}
-                            <td>
-                                {
-                                    row.free_pulls > 0 &&
-                                    <small className={s.free_pulls}>
-                                        +{row.free_pulls}&nbsp;free
-                                    </small>
-                                }
-                            </td>
+                                        <ResourceMenu row={row} resource="orundum">
+                                            <button
+                                                className={s.btn_open_menu}
+                                                aria-label="Spend or gain resources"
+                                                data-tooltip-id={row.day + ':' + 'orundum'}
+                                            >
+                                                {/* <IconOnlyResourceBadge resource="orundum" /> */}
+                                                {formatOrundum(row.orundum_leftover)}
+                                                <Details
+                                                    value={row.orundum_gained - row.orundum_spent}
+                                                    highlight={!!getResourceAdjustment(row.day, 'orundum')}
+                                                    showUnhighlighted={showDailyResourceChange}
+                                                    show={showDailyResourceChange}
+                                                />
+                                            </button>
+                                        </ResourceMenu>
 
-                            {/* Orundum */}
-                            < td className={s.ProgressCell} data-show={showResourceColumns} >
+                                    </ProgressBar>
 
-                                <ProgressBar value={row.orundum_leftover} max={row.max_orundum_leftover} resource="orundum">
+                                    <div className={s.tooltip}>
+                                        <Tooltip id={row.day + ':' + 'orundum'} place="bottom">
+                                            <p>Click to add or deduct orundum</p>
+                                            <ul>
+                                                {
+                                                    orundumSpentByDay[row.day] &&
+                                                    Object.values(orundumSpentByDay[row.day])
+                                                        .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
+                                                }
+                                            </ul>
+                                        </Tooltip>
+                                    </div>
 
-                                    <ResourceMenu row={row} resource="orundum">
-                                        <button
-                                            className={s.btn_open_menu}
-                                            aria-label="Spend or gain resources"
-                                            data-tooltip-id={row.day + ':' + 'orundum'}
-                                        >
-                                            <IconOnlyResourceBadge resource="orundum" />
-                                            {formatOrundum(row.orundum_leftover)}
-                                            <Details
-                                                value={row.orundum_gained - row.orundum_spent}
-                                                highlight={!!getResourceAdjustment(row.day, 'orundum')}
-                                                showUnhighlighted={showDailyResourceChange}
-                                                show={showDailyResourceChange}
-                                            />
-                                        </button>
-                                    </ResourceMenu>
+                                </td>
 
-                                </ProgressBar>
+                                <td className={s.ProgressCell} data-show={showResourceColumns} >
 
-                                <div className={s.tooltip}>
-                                    <Tooltip id={row.day + ':' + 'orundum'} place="bottom">
-                                        <p>Click to add or deduct orundum</p>
-                                        <ul>
-                                            {
-                                                orundumSpentByDay[row.day] &&
-                                                Object.values(orundumSpentByDay[row.day])
-                                                    .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
-                                            }
-                                        </ul>
-                                    </Tooltip>
-                                </div>
+                                    <ProgressBar
+                                        value={row.tickets_leftover}
+                                        max={row.max_tickets_leftover}
+                                        resource="tickets" odd={i % 2 === 1}
+                                        show={yesterday?.tickets_leftover !== row.tickets_leftover}
+                                    >
 
-                            </td>
+                                        <ResourceMenu row={row} resource="tickets">
+                                            <button
+                                                className={s.btn_open_menu}
+                                                aria-label="Spend or gain resources"
+                                                data-tooltip-id={row.day + ':' + 'tickets'}
+                                            >
+                                                {/* <IconOnlyResourceBadge resource="tickets" /> */}
+                                                {row.tickets_leftover}
+                                                <Details
+                                                    value={row.tickets_gained - row.tickets_spent}
+                                                    highlight={!!getResourceAdjustment(row.day, 'tickets')}
+                                                    showUnhighlighted={showDailyResourceChange}
+                                                    show={showDailyResourceChange}
+                                                />
+                                            </button>
+                                        </ResourceMenu>
 
-                            <td className={s.ProgressCell} data-show={showResourceColumns} >
+                                    </ProgressBar>
 
-                                <ProgressBar value={row.tickets_leftover} max={row.max_tickets_leftover} resource="tickets">
+                                    <div className={s.tooltip}>
+                                        <Tooltip id={row.day + ':' + 'tickets'} place="bottom">
+                                            <p>Click to add or deduct tickets</p>
+                                            <ul>
+                                                {
+                                                    ticketsSpentByDay[row.day] &&
+                                                    Object.values(ticketsSpentByDay[row.day])
+                                                        .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
+                                                }
+                                            </ul>
+                                        </Tooltip>
+                                    </div>
 
-                                    <ResourceMenu row={row} resource="tickets">
-                                        <button
-                                            className={s.btn_open_menu}
-                                            aria-label="Spend or gain resources"
-                                            data-tooltip-id={row.day + ':' + 'tickets'}
-                                        >
-                                            <IconOnlyResourceBadge resource="tickets" />
-                                            {row.tickets_leftover}
-                                            <Details
-                                                value={row.tickets_gained - row.tickets_spent}
-                                                highlight={!!getResourceAdjustment(row.day, 'tickets')}
-                                                showUnhighlighted={showDailyResourceChange}
-                                                show={showDailyResourceChange}
-                                            />
-                                        </button>
-                                    </ResourceMenu>
+                                </td>
 
-                                </ProgressBar>
+                                {/* OP */}
+                                <td className={s.ProgressCell} data-show={showResourceColumns} >
 
-                                <div className={s.tooltip}>
-                                    <Tooltip id={row.day + ':' + 'tickets'} place="bottom">
-                                        <p>Click to add or deduct tickets</p>
-                                        <ul>
-                                            {
-                                                ticketsSpentByDay[row.day] &&
-                                                Object.values(ticketsSpentByDay[row.day])
-                                                    .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
-                                            }
-                                        </ul>
-                                    </Tooltip>
-                                </div>
+                                    <ProgressBar value={row.op_leftover} max={row.max_op_leftover} resource="op" odd={i % 2 === 1} show={yesterday?.op_leftover !== row.op_leftover}>
 
-                            </td>
+                                        <ResourceMenu row={row} resource="op">
+                                            <button
+                                                className={s.btn_open_menu}
+                                                aria-label="Spend or gain resources"
+                                                data-tooltip-id={row.day + ':' + 'op'}
+                                            >
+                                                {/* <IconOnlyResourceBadge resource="op" /> */}
+                                                {row.op_leftover}
+                                                <Details
+                                                    value={row.op_gained - row.op_spent}
+                                                    highlight={!!getResourceAdjustment(row.day, 'op')}
+                                                    showUnhighlighted={showDailyResourceChange}
+                                                    show={showDailyResourceChange}
+                                                />
+                                            </button>
+                                        </ResourceMenu>
 
-                            {/* OP */}
-                            <td className={s.ProgressCell} data-show={showResourceColumns} >
+                                    </ProgressBar>
 
-                                <ProgressBar value={row.op_leftover} max={row.max_op_leftover} resource="op">
+                                    <div className={s.tooltip}>
+                                        <Tooltip id={row.day + ':' + 'op'} place="bottom">
+                                            <p>Click to add or deduct op</p>
+                                            <ul>
+                                                {
+                                                    opSpentByDay[row.day] &&
+                                                    Object.values(opSpentByDay[row.day])
+                                                        .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
+                                                }
+                                            </ul>
+                                        </Tooltip>
+                                    </div>
 
-                                    <ResourceMenu row={row} resource="op">
-                                        <button
-                                            className={s.btn_open_menu}
-                                            aria-label="Spend or gain resources"
-                                            data-tooltip-id={row.day + ':' + 'op'}
-                                        >
-                                            <IconOnlyResourceBadge resource="op" />
-                                            {row.op_leftover}
-                                            <Details
-                                                value={row.op_gained - row.op_spent}
-                                                highlight={!!getResourceAdjustment(row.day, 'op')}
-                                                showUnhighlighted={showDailyResourceChange}
-                                                show={showDailyResourceChange}
-                                            />
-                                        </button>
-                                    </ResourceMenu>
-
-                                </ProgressBar>
-
-                                <div className={s.tooltip}>
-                                    <Tooltip id={row.day + ':' + 'op'} place="bottom">
-                                        <p>Click to add or deduct op</p>
-                                        <ul>
-                                            {
-                                                opSpentByDay[row.day] &&
-                                                Object.values(opSpentByDay[row.day])
-                                                    .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
-                                            }
-                                        </ul>
-                                    </Tooltip>
-                                </div>
-
-                                {/* <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 3), null, 4)}>
+                                    {/* <td className={s.ProgressCell} title={JSON.stringify(resourcesGainedOrSpentByDay[row.day].filter(res => res.resource === 3), null, 4)}>
                                 <ProgressBar value={row.op_leftover} max={row.max_op_leftover} color="var(--op-progress)">
                                     <IconOnlyResourceBadge resource="op" />
                                     {row.op_leftover} <Details value={row.op_gained - row.op_spent} />
                                 </ProgressBar>
                             </td> */}
 
-                            </td>
+                                </td>
 
-                            {/* Certificates */}
-                            <td className={s.ProgressCell} data-show={showResourceColumns} >
+                                {/* Certificates */}
+                                <td className={s.ProgressCell} data-show={showResourceColumns} >
 
-                                <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} resource="certs">
+                                    <ProgressBar value={row.certs_leftover} max={row.max_certs_leftover} resource="certs" odd={i % 2 === 1} show={yesterday?.certs_leftover !== row.certs_leftover}>
 
-                                    <ResourceMenu row={row} resource="certs">
-                                        <button
-                                            className={s.btn_open_menu}
-                                            aria-label="Spend or gain resources"
-                                            data-tooltip-id={row.day + ':' + 'certs'}
-                                        >
-                                            <IconOnlyResourceBadge resource="certs" />
-                                            {Math.floor(row.certs_leftover)}
-                                            <Details
-                                                value={row.certs_gained}
-                                                highlight={!!getResourceAdjustment(row.day, 'certs')}
-                                                showUnhighlighted={showDailyResourceChange}
-                                                show={showDailyResourceChange}
-                                            />
-                                        </button>
-                                    </ResourceMenu>
+                                        <ResourceMenu row={row} resource="certs">
+                                            <button
+                                                className={s.btn_open_menu}
+                                                aria-label="Spend or gain resources"
+                                                data-tooltip-id={row.day + ':' + 'certs'}
+                                            >
+                                                {/* <IconOnlyResourceBadge resource="certs" /> */}
+                                                {Math.floor(row.certs_leftover)}
+                                                <Details
+                                                    value={row.certs_gained}
+                                                    highlight={!!getResourceAdjustment(row.day, 'certs')}
+                                                    showUnhighlighted={showDailyResourceChange}
+                                                    show={showDailyResourceChange}
+                                                />
+                                            </button>
+                                        </ResourceMenu>
 
-                                </ProgressBar>
+                                    </ProgressBar>
 
-                                <div className={s.tooltip}>
-                                    <Tooltip id={row.day + ':' + 'certs'} place="bottom">
-                                        <p>Click to add or deduct certs</p>
-                                        <ul>
-                                            {
-                                                certsSpentByDay[row.day] &&
-                                                Object.values(certsSpentByDay[row.day])
-                                                    .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
-                                            }
-                                        </ul>
-                                    </Tooltip>
-                                </div>
+                                    <div className={s.tooltip}>
+                                        <Tooltip id={row.day + ':' + 'certs'} place="bottom">
+                                            <p>Click to add or deduct certs</p>
+                                            <ul>
+                                                {
+                                                    certsSpentByDay[row.day] &&
+                                                    Object.values(certsSpentByDay[row.day])
+                                                        .map((res, i) => <li key={i}>{res.amount} {resourceLabels[res.source] || res.source}</li>)
+                                                }
+                                            </ul>
+                                        </Tooltip>
+                                    </div>
 
-                            </td>
+                                </td>
 
-                        </tr>
-                    ))}
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table >
         </div >
@@ -411,11 +427,12 @@ function formatDate(dateStr: string, dayofweek: number): string {
 }
 
 
-function ProgressBar({ value, max, resource, children }: { value: number, max: number, resource: "orundum" | "tickets" | "op" | "certs", children: ReactNode }) {
+function ProgressBar({ value, max, resource, odd, children, show }: { value: number, max: number, resource: "orundum" | "tickets" | "op" | "certs", odd: boolean, children: ReactNode, show: boolean }) {
     const percentage = max > 0 ? Math.max(0, Math.min(100, Math.round((value / max) * 100))) : 0
     return (
-        <div className={s.ProgressBar} data-resource={resource}>
+        <div className={s.ProgressBar} data-resource={resource} data-odd={odd}>
             {/* The progress bar background */}
+            {/* {show && <div className={s.Bar} style={{ width: `${percentage}%` }} />} */}
             <div className={s.Bar} style={{ width: `${percentage}%` }} />
             {/* The cell content */}
             <span className={s.Content}>{children}</span>

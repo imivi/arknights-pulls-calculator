@@ -6,7 +6,7 @@ import { ResourceChange } from '../../utils/pipeline'
 import { IconOnlyResourceBadge } from '../table/ResourceBadge'
 import { CalendarRow } from '../../types'
 import { formatOrundum, TODAY } from '../../utils/utils'
-import Stripes from '../table/Stripes'
+// import Stripes from '../table/Stripes'
 import { CSSProperties, ReactNode, useRef } from 'react'
 import { DualProgressBar } from './DualProgressBar'
 import { useSpendOpStore } from '../../stores/useSpendOpStore'
@@ -433,7 +433,7 @@ function ProgressBar({ value, max, resource, odd, children, show }: { value: num
         <div className={s.ProgressBar} data-resource={resource} data-odd={odd}>
             {/* The progress bar background */}
             {/* {show && <div className={s.Bar} style={{ width: `${percentage}%` }} />} */}
-            <div className={s.Bar} style={{ width: `${percentage}%` }} />
+            <div className={s.Bar} style={{ width: `${percentage}%` }} data-show={show} />
             {/* The cell content */}
             <span className={s.Content}>{children}</span>
         </div>

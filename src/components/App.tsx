@@ -28,7 +28,7 @@ import OrundumPerDay from "./OrundumPerDay"
 
 function addFreePulls(row: CalendarRow): CalendarRow {
 
-    if (row.is_collab)
+    if (row.is_collab && !row.is_rerun)
         row.free_pulls = (row.day_of_event === 1 || row.day_of_event === 8) ? 10 : 0
 
     else if (row.is_limited && !row.is_rerun)
@@ -87,8 +87,9 @@ export default function App() {
                         &nbsp;Spend <Icon type="op" size={24} />for pulls
                     </label>
 
-                    <CertsPerDay />
                     <OrundumPerDay />
+                    <CertsPerDay />
+
                 </MessageBox>
 
                 <MessageBox legend={<><FaInfoCircle size={16} />&nbsp;tips</>}>

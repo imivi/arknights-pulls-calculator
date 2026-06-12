@@ -3,6 +3,7 @@ import s from "./CertsPerDay.module.scss"
 import { useRef, useState } from "react"
 import { useCertsPerDayStore } from "../stores/useCertsPerDayStore"
 import Icon from "./Icon"
+import { FaInfoCircle } from "react-icons/fa"
 
 
 export default function CertsPerDay() {
@@ -42,6 +43,9 @@ export default function CertsPerDay() {
                 <Icon type="certs" size={24} />
                 Certificates per day
             </label>
+            <small>
+                <FaInfoCircle size={16} /> 1Y+ account: around 1.5 certs/day from recruitment
+            </small>
         </div>
     )
 }

@@ -37,7 +37,7 @@ export function checkDailyResources(events: Event[]) {
     // Make sure that every event lasts exactly 7, 10 or 14 days
     const validDurations = [7, 10, 14]
     for (const event of events) {
-        if (event.is_rerun && event.duration_days !== 10)
+        if (event.is_rerun && event.duration_days !== 10 && !event.is_collab)
             throw Error(`${event.event_id} event should have 10-day duration but has ${event.duration_days}`)
         else if (!validDurations.includes(event.duration_days))
             throw Error(`Invalid event duration for ${event.event_id}: ${event.duration_days}`)

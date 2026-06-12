@@ -10,9 +10,10 @@ import { CalendarRow } from "../../types"
 type Props = {
     day: CalendarRow
     rowSpan: number
+    showBannerOperators: boolean
 }
 
-export default function EventCell({ day, rowSpan }: Props) {
+export default function EventCell({ day, rowSpan, showBannerOperators }: Props) {
 
     const { clearedReruns, toggleClearedRerun } = useClearedReruns()
 
@@ -47,13 +48,17 @@ export default function EventCell({ day, rowSpan }: Props) {
                     <FaArrowUpRightFromSquare size={12} />
                 </a>
 
-                <ul className={s.warnings}>
-                    {dateTBD && <li><Warning borderColor={day.color_dark_hex!} >Date TBD</Warning></li>}
-                    {noBanner && <li><Warning borderColor={day.color_dark_hex!}>No banner</Warning></li>}
-                </ul>
+                {
+                    (dateTBD || noBanner) &&
+                    <ul className={s.warnings}>
+                        {dateTBD && <li><Warning borderColor={day.color_dark_hex!} >Date TBD</Warning></li>}
+                        {noBanner && <li><Warning borderColor={day.color_dark_hex!}>No banner</Warning></li>}
+                    </ul>
+                }
 
                 {
                     eventOps.length > 0 &&
+                    showBannerOperators &&
                     <Operators ops={eventOps} />
                 }
 

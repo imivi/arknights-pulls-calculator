@@ -106,6 +106,11 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
 
                         const yesterday = rows[i - 1]
 
+                        // If there is an event currently running, and there are 3 or fewer days left,
+                        // hide the list of banner operators so that the first few rows don't get too tall.
+                        const daysLeft = row.event_id ? (row.duration_days! - row.day_of_event!) : null
+                        const hideBannerOperators = daysLeft !== null && daysLeft <= 3
+
                         return (
                             <tr key={row.day}>
 
@@ -116,6 +121,7 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                     <EventCell
                                         day={row}
                                         rowSpan={row.duration_days! - row.day_of_event! + 1}
+                                        showBannerOperators={!hideBannerOperators}
                                     />
                                 }
                                 {

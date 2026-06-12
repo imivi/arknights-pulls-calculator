@@ -25,10 +25,13 @@ export function DualProgressBar({
     const pct1 = Math.max(0, Math.min(100, Math.round(rawPct1)))
     const pct2 = Math.max(0, Math.min(100 - pct1, Math.round(rawPct2)))
 
+    // If there is no OP bar, round the pull bar's right corners
+    const roundedRightPullsBar = value2 === 0
+
     return (
         <div className={s.DualProgressBar}>
             {/* First segment (Left) */}
-            <div className={s.bar1} style={{
+            <div className={s.bar1} data-right-rounded-corners={roundedRightPullsBar} style={{
                 width: `${pct1}%`,
             }} />
 

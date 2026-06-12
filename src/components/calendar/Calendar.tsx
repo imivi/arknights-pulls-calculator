@@ -181,7 +181,9 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                                                 {/* <IconOnlyResourceBadge resource="pulls" /> */}
                                                 <span>{row.pulls_available_incl_op}&nbsp;pull{row.pulls_available_incl_op > 1 && 's'}&nbsp;</span>
                                                 <Details
-                                                    value={<>{row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}</>}
+                                                    value={<>
+                                                        {row.pulls_available_excl_op}&nbsp;+&nbsp;{row.pulls_available_incl_op - row.pulls_available_excl_op}
+                                                    </>}
                                                     highlight={false}
                                                     showUnhighlighted={false}
                                                     show={spendOp}

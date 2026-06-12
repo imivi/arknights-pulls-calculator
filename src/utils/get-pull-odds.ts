@@ -8,7 +8,7 @@ type PullOdds = Record<string, number>
 /** Returns the pull probability as 0-1 */
 export function getPullOdds(pulls: number, bannerType: "debut" | "limited" | "collab"): PullOdds {
 
-    pulls = Math.min(299, pulls) // cap at 300 pulls (no data beyond 300)
+    pulls = Math.min(300, pulls) // cap at 300 pulls (no data beyond 300)
 
     // Collab banner (one rate-up, 50%, 120 pulls hard pity)
     if (bannerType === "collab") {

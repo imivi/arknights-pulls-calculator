@@ -25,5 +25,16 @@ export const useStartingResourcesStore = create(persist<Store>((set) => ({
     setStartingResources: (res: BasicResources) => set({ startingResources: res }),
 
 }),
-    { name: "settings" },
+    {
+        name: "settings",
+        version: 1,
+        migrate: (persistedState: any, version: number) => {
+            if (version === 0) {
+                if (persistedState.startingResources && typeof persistedState.startingResources.certs === 'undefined') {
+                    persistedState.startingResources.certs = 0;
+                }
+            }
+            return persistedState as Store;
+        }
+    },
 ))

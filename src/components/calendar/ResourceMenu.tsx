@@ -1,35 +1,33 @@
 import s from "./ResourceMenu.module.scss"
 import buttonStyle from "../Button.module.scss"
 
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Popover } from "radix-ui";
-import { Tooltip } from "react-tooltip";
-import { useUserResources } from "../../hooks/useUserResources";
 import { useDarkModeStore } from "../../stores/useDarkModeStore";
-import { UserResource } from "../../stores/useUserResourcesStore";
-import { Day, Resource } from "../../types";
-import { formatOrundum } from "../../utils/utils";
+import { CalendarRow, Resource } from "../../types";
 import Button from "../Button";
 import Icon from "../Icon";
+import { useResourceAdjustments } from "../../hooks/useResourceAdjustments";
 
 
 
 const allValueShortcuts = {
     orundum: [],
-    tickets: [0, 38],
+    tickets: [0, 3, 8, 18, 38],
     op: [0, -15, -18, -21, -24],
+    certs: [0, -10, -28, -68, -138, -258],
 }
-
 
 
 type Props = {
-    day: Day
+    row: CalendarRow
     resource: Resource
+    children: ReactNode
 }
 
-export default function ResourceMenu({ day, resource }: Props) {
+export default function ResourceMenu({ row, resource, children }: Props) {
 
-    const { date } = day
+    const date = row.day
 
     const [showMenu, setShowMenu] = useState(false)
 
@@ -37,70 +35,37 @@ export default function ResourceMenu({ day, resource }: Props) {
     const amountAsNumber = Number(inputValue) || 0
     const [description, setDescription] = useState("")
 
-    const { userResources, setResource, deleteResource } = useUserResources()
-
-    const isActive = (date in userResources) && (resource in userResources[date]) && userResources[date][resource].value !== 0
-
-    const amount = isActive ? userResources[date][resource].value : 0
-
-    function getResources(): UserResource {
-        if (date in userResources && resource in userResources[date]) {
-            return userResources[date][resource]
-        }
-        return {
-            value: 0,
-            description: "",
-        }
-    }
+    const { getResourceAdjustment, setResourceAdjustment, deleteResourceAdjustment } = useResourceAdjustments()
+    const resourceAdjustment = getResourceAdjustment(date, resource)
 
     // Make sure the input fields are always showing the latest values
     useEffect(() => {
         if (showMenu) {
-            const res = getResources()
-            setInputValue(res.value)
-            setDescription(res.description)
+            setInputValue(resourceAdjustment?.amount || 0)
+            setDescription(resourceAdjustment?.description || "")
         }
     }, [showMenu])
 
     function onSubmit() {
         setShowMenu(false)
         if (inputValue === 0 && description === "")
-            deleteResource(date, resource)
+            deleteResourceAdjustment(date, resource)
         else
-            setResource(date, resource, amountAsNumber, description)
+            setResourceAdjustment(date, resource, amountAsNumber, description)
+    }
+
+    function reset() {
+        deleteResourceAdjustment(date, resource)
     }
 
     const { darkMode } = useDarkModeStore()
 
     const valueShortcuts = allValueShortcuts[resource]
 
-    const btnTooltipId = `add-resource-${resource}-${day.date}`
-
     return (
         <Popover.Root open={showMenu} onOpenChange={(open) => setShowMenu(open)} >
             <Popover.Trigger asChild>
-                <button
-                    className={s.btn_open_menu}
-                    aria-label="Spend or gain resources"
-                >
-                    {isActive && <span className={s.custom_user_resources}>
-                        {amount > 0 && "+"}{amount}
-                    </span>}
-
-                    <span
-                        className={s.resource_count}
-                        data-resource={resource}
-                        data-dark={darkMode}
-                        data-active={isActive}
-                        data-tooltip-id={btnTooltipId}
-                    >
-                        {resource === "orundum" && formatOrundum(day.cumulativeResources.orundum)}
-                        {resource === "tickets" && day.cumulativeResources.tickets.toFixed()}
-                        {resource === "op" && day.cumulativeResources.op.toFixed()}
-                    </span>
-                    <Tooltip id={btnTooltipId}>Click to add or deduct {resource}</Tooltip>
-
-                </button>
+                {children}
             </Popover.Trigger>
             <Popover.Portal>
                 <Popover.Content className={s.Content} sideOffset={5}>
@@ -137,9 +102,15 @@ export default function ResourceMenu({ day, resource }: Props) {
                                 placeholder="Custom note"
                             />
 
+                            {
+                                resource === "certs" &&
+                                <CertsToTicketsTable />
+                            }
+
                         </main>
 
                         <footer>
+                            {resourceAdjustment && <Popover.Close aria-label="Reset" type="button" className={buttonStyle.Button} onClick={reset}>reset</Popover.Close>}
                             <Popover.Close aria-label="Close" type="button" className={buttonStyle.Button}>
                                 cancel
                             </Popover.Close>
@@ -152,5 +123,40 @@ export default function ResourceMenu({ day, resource }: Props) {
                 </Popover.Content>
             </Popover.Portal>
         </Popover.Root >
+    )
+}
+
+
+
+
+const certsToTicketsConversion: Record<number, number> = {
+    10: 1,
+    28: 3,
+    68: 8,
+    138: 18,
+    258: 38,
+}
+
+
+function CertsToTicketsTable() {
+    return (
+        <table className={s.CertsToTicketsTable}>
+            <thead>
+                <tr>
+                    <th>Certs</th>
+                    <th>Tickets</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    Object.entries(certsToTicketsConversion).map(([certs, tickets]) => (
+                        <tr key={certs}>
+                            <td><Icon type="certs" size={20} /> {certs}</td>
+                            <td><Icon type="tickets" size={20} /> {tickets}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
     )
 }

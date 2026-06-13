@@ -1,10 +1,10 @@
 import dayjs from "dayjs"
-import { BasicResources, ResourceGained } from "../types"
+import { PullResources, ResourceGained } from "../types"
 import { PullCalculator } from "./pull-calculator"
 import { Resources } from "./resources"
 
 
-export function convertResourcesToPulls(res: BasicResources, useOP: boolean): number {
+export function convertResourcesToPulls(res: PullResources, useOP: boolean): number {
     const calc = new PullCalculator(res).spendTickets().spendOrundum()
 
     if (useOP)
@@ -13,7 +13,8 @@ export function convertResourcesToPulls(res: BasicResources, useOP: boolean): nu
     return calc.getPulls()
 }
 
-export function convertPullsToResources(startingResources: BasicResources, pulls: number): { spent: BasicResources, remaining: BasicResources } {
+
+export function convertPullsToResources(startingResources: PullResources, pulls: number): { spent: PullResources, remaining: PullResources } {
 
     const calc = new PullCalculator(startingResources)
     calc.spendTickets(pulls)

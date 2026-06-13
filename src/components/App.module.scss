@@ -18,77 +18,7 @@
 
 }
 
-.message_box {
-    padding: 10px 20px;
-    margin: 0 auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 3px rgba($color: black, $alpha: 0.2);
-    gap: .5em;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
 
-    width: min(26rem, 90vw);
-
-    background-color: colors.$table-header-bg-light;
-
-    &[data-dark=true] {
-        background-color: colors.$table-header-bg-dark;
-    }
-
-    label {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: .5em;
-    }
-
-    legend {
-        display: flex;
-        align-items: center;
-    }
-
-    .tips {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 10px;
-    }
-
-    ul {
-        list-style: disc;
-        padding: 0;
-        padding-left: 1em;
-        margin: 0;
-        line-height: 1.5em;
-        display: grid;
-        row-gap: .5em;
-    }
-
-    li {
-        // display: flex;
-        // align-items: center;
-        // gap: .5em;
-    }
-
-    // Style the bold text like the pull counter
-    strong {
-        padding: .2em .4em;
-        border-radius: 5px;
-
-        &[data-dark=true] {
-            background-color: colors.$table-cell-pulls-bg-even-dark;
-            color: colors.$table-cell-pulls-text-dark;
-        }
-
-        &[data-dark=false] {
-            background-color: colors.$table-cell-pulls-bg-even-light;
-            color: colors.$table-cell-pulls-text-light;
-        }
-    }
-
-
-}
 
 header.Header {
     position: relative;

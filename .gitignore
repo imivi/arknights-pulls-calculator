@@ -27,4 +27,3 @@ README.md.backup
 
 untracked
 .env
-src/data/*.json

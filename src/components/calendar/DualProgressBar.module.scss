@@ -1,0 +1,64 @@
+.DualProgressBar {
+    position: relative;
+    overflow: hidden;
+    // height: calc(100% - 1px);
+    height: calc(100% - 5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    span {
+        margin: 0 .2em;
+    }
+
+    &:hover {
+        .bar1 {
+            background-color: var(--pulls-progress-light);
+        }
+
+        .bar2 {
+            background-color: var(--op-progress-light);
+        }
+    }
+
+    .bar1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: var(--pulls-progress);
+        z-index: 0;
+        transition: width 0.3s ease;
+
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+
+        &[data-right-rounded-corners=true] {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+
+    .bar2 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background-color: var(--op-progress);
+        z-index: 0;
+        transition: left 0.3s ease, width 0.3s ease;
+
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+    }
+}

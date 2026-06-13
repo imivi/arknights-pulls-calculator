@@ -7,7 +7,7 @@ import { useDarkModeStore } from "../../stores/useDarkModeStore"
 import { formatOrundum } from "../../utils/utils"
 
 
-type Resource = "orundum" | "op" | "tickets"
+type Resource = "orundum" | "op" | "tickets" | "certs" | "pulls"
 
 type Props = {
     resource: Resource

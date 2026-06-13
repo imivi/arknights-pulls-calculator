@@ -1,106 +1,10 @@
 import PublicGoogleSheetsParser from 'public-google-sheets-parser'
 import fs from "fs"
-import z from "zod"
 import { env } from '../env'
-import { addEventDays, addFreePulls } from '../utils/prebuild-utils'
+import { extractEvents, extractResourcesGained, getEventDays, getWeekday, partiallyIndentJson, transpose } from '../utils/prebuild-utils'
 import { dataPaths } from '../data-paths'
-
-
-const rowSchema = z.object({
-    "day": z.string(),
-    "weekday": z.number(),
-    "event": z.string().optional(),
-    "event_id": z.string().optional(),
-    "event_link": z.string().optional(),
-    "event_ops": z.string().default(""),
-    "orundum:login_event": z.number().default(0),
-    "orundum:fortune_strip": z.number().default(0),
-    "orundum:anni": z.number().default(0),
-    "orundum:new_anni": z.number().default(0),
-    "orundum:store": z.number().default(0),
-    "orundum:daily_missions": z.number().default(0),
-    "orundum:weekly_missions": z.number().default(0),
-    "orundum:monthly_card": z.number().default(0),
-    "orundum:free_monthly_card": z.number().default(0),
-    "orundum:intel": z.number().default(0),
-    "op:event_stages": z.number().default(0),
-    "op:login_event": z.number().default(0),
-    "op:monthly_card": z.number().default(0),
-    "tickets:login": z.number().default(0),
-    "tickets:store": z.number().default(0),
-    "tickets:event_shop": z.number().default(0),
-})
-
-type Row = z.infer<typeof rowSchema>
-
-const rowsSchema = z.array(rowSchema)
-
-
-type ResourceGained = {
-    value: number,
-    source: string // e.g. "login_event"
-}
-
-function getResourceGained(row: Row, resource: "orundum" | "tickets" | "op"): ResourceGained[] {
-    const resources: ResourceGained[] = []
-
-    for (const [key, value] of Object.entries(row)) {
-        if (!key.includes(":") || value === 0)
-            continue
-
-        const [res, source] = key.split(":")
-
-        if (res !== resource)
-            continue
-
-        // const label = resourceLabels[source]
-        // console.log(key, value, label, source)
-        resources.push({
-            // description: label,
-            value: value as number,
-            source,
-        })
-    }
-
-    return resources.sort((a, b) => b.value - a.value)
-}
-
-
-
-function processRow(row: Row) {
-
-    const orundum = getResourceGained(row, "orundum")
-    const tickets = getResourceGained(row, "tickets")
-    const op = getResourceGained(row, "op")
-
-    const event_ops = row.event_ops === "" ? [] : row.event_ops.split(",").map(s => s.trim())
-
-    const result = {
-        date: row.day,
-        event_name: row.event,
-        event_id: row.event_id,
-        event_link: row.event_link,
-        event_ops,
-        resourcesGained: {
-            orundum,
-            tickets,
-            op,
-        },
-
-        // To be calculated later
-        eventDay: 0,
-        freePulls: 0,
-    }
-
-    return result
-}
-
-function processRows(rows: Row[]) {
-    const days = rows.map(row => processRow(row))
-    addEventDays(days)
-    addFreePulls(days)
-    return days
-}
+import { GoogleSheetRow, rowsSchema } from './types'
+import { checkDailyResources, checkIntelCerts } from './check-daily-resources'
 
 
 
@@ -113,16 +17,67 @@ async function fetchRows(googleSheetId: string) {
 }
 
 
-async function fetchDailyResources() {
-    const googleSheetId = env.GOOGLE_SHEET_ID
-    const rows = await fetchRows(googleSheetId)
-    fs.writeFileSync(dataPaths.rawGoogleSheet, JSON.stringify(rows, null, 4), { encoding: "utf-8" })
-    return processRows(rows)
+
+
+type Day = {
+    day: string
+    weekday: number
 }
 
+function extractDays(rows: GoogleSheetRow[]): Day[] {
+    // Extract and deduplicate
+    const datesStr = new Set(rows.map(row => row.day))
+
+    // Extract weekday
+    const days: Day[] = Array.from(datesStr).map(dayStr => {
+        return {
+            day: dayStr,
+            weekday: getWeekday(dayStr),
+        }
+    })
+
+    return days
+}
+
+
 async function main() {
-    const events = await fetchDailyResources()
-    fs.writeFileSync(dataPaths.dailyResources, JSON.stringify(events, null, 4), { encoding: "utf-8" })
+
+    // Read google sheet as-is
+    const googleSheetId = env.GOOGLE_SHEET_ID
+
+    const USE_CACHE = false // import.meta.env.DEV
+    let rows: GoogleSheetRow[] = []
+    if (USE_CACHE) {
+        console.info("📦 Using google sheet json cache")
+        rows = JSON.parse(fs.readFileSync(dataPaths.rawGoogleSheet, { encoding: "utf-8" }))
+    }
+    else {
+        rows = await fetchRows(googleSheetId)
+        fs.writeFileSync(dataPaths.rawGoogleSheet, JSON.stringify(rows, null, 4), { encoding: "utf-8" })
+    }
+    console.info("✅ (1/4) Fetched sheet data")
+
+    const days = extractDays(rows)
+    const events = await extractEvents(rows)
+    const eventDays = getEventDays(rows)
+    const resources = rows.map(row => extractResourcesGained(row)).flat()
+    console.info("✅ (2/4) Processed sheet data")
+
+    // Split rows into three tables: day, events, resources_gained
+    const tables = {
+        days: transpose(days),
+        events: transpose(events),
+        resources: transpose(resources),
+        eventDays: transpose(eventDays),
+    }
+
+    fs.writeFileSync(dataPaths.tables, partiallyIndentJson(JSON.stringify(tables)), { encoding: "utf-8" })
+    console.info("✅ (3/4) Saved processed sheet data")
+
+    // Run data checks
+    checkDailyResources(events)
+    checkIntelCerts(events, resources)
+    console.info("✅ (4/4) Spreadsheet data validated successfully")
 }
 
 main()

@@ -1,5 +1,5 @@
 import { PullCalculator } from "./pull-calculator"
-import { BasicResources } from "../types"
+import { PullResources } from "../types"
 
 
 export class Resources {
@@ -16,21 +16,21 @@ export class Resources {
         return this
     }
 
-    add(res: BasicResources) {
+    add(res: PullResources) {
         this.orundum += res.orundum
         this.tickets += res.tickets
         this.op += res.op
         return this
     }
 
-    subtract(res: BasicResources) {
+    subtract(res: PullResources) {
         this.orundum -= res.orundum
         this.tickets -= res.tickets
         this.op -= res.op
         return this
     }
 
-    copyFrom(res: BasicResources) {
+    copyFrom(res: PullResources) {
         this.orundum = res.orundum
         this.tickets = res.tickets
         this.op = res.op

@@ -3,7 +3,7 @@ import { PullCalculator } from "./pull-calculator";
 import { BasicResources } from "../types";
 
 test("pull calculator: convert zero resources into pulls", () => {
-    const res: BasicResources = { op: 0, orundum: 0, tickets: 0 }
+    const res: BasicResources = { op: 0, orundum: 0, tickets: 0, certs: 0 }
 
     const calc = new PullCalculator(res)
     const pulls = calc.spendTickets().spendOrundum().convertOP().spendOrundum().getPulls()

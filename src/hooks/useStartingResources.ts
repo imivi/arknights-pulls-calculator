@@ -1,30 +1,28 @@
-import { useMemo } from "react"
-import { Resources } from "../utils/resources"
 import { useStartingResourcesStore } from "../stores/useStartingResourcesStore"
+import { Resource } from "../types"
 
 
 
-type Resource = "orundum" | "op" | "tickets"
 
 export function useStartingResources() {
 
     const { startingResources, setStartingResources } = useStartingResourcesStore()
 
-    const resources = useMemo(() => {
-        const { orundum, tickets, op } = startingResources
-        return new Resources(orundum || 0, tickets || 0, op || 0)
-    }, [startingResources])
+    // const resources = useMemo(() => {
+    //     const { orundum, tickets, op, certs } = startingResources
+    //     return new Resources(orundum || 0, tickets || 0, op || 0)
+    // }, [startingResources])
 
     function setResource(res: Resource, value: number) {
         const newResources = {
-            ...resources,
+            ...startingResources,
             [res]: value,
         }
         setStartingResources(newResources)
     }
 
     return {
-        startingResources: resources,
+        startingResources,
         setResource,
     }
 }

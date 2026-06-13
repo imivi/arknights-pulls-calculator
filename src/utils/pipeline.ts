@@ -117,7 +117,7 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
     // console.log({ dt_filtered_resources: dt_filtered_resources.objects().filter(row => row['day'] === '2026-08-30' && row['resource'] === 4) })
 
 
-    const dt_res_gained_by_day = dt_filtered_resources
+    const dt_pivoted_resources = dt_filtered_resources
         .select(['day', 'resource', 'amount'])
         // Sum the same resources for each day
         .groupby('day', 'resource')
@@ -128,19 +128,22 @@ export function runPipeline(userSettings: UserSettings, tables: Tables) {
             { key: (d: any) => d.resource },
             { value: (d: any) => aq.op.sum(d.amount) }
         )
-        // Rename the columns
-        .rename({
-            '1': 'orundum_gained',
-            '2': 'tickets_gained',
-            '3': 'op_gained',
-            '4': 'certs_gained',
-        })
+
+    const renameMap: Record<string, string> = {}
+    const columns = dt_pivoted_resources.columnNames()
+    if (columns.includes('1')) renameMap['1'] = 'orundum_gained'
+    if (columns.includes('2')) renameMap['2'] = 'tickets_gained'
+    if (columns.includes('3')) renameMap['3'] = 'op_gained'
+    if (columns.includes('4')) renameMap['4'] = 'certs_gained'
+
+    const dt_res_gained_by_day = dt_pivoted_resources
+        .rename(renameMap)
         // Fill missing values with 0
         .derive({
-            orundum_gained: (d: any) => d.orundum_gained ?? 0,
-            tickets_gained: (d: any) => d.tickets_gained ?? 0,
-            op_gained: (d: any) => d.op_gained ?? 0,
-            certs_gained: (d: any) => d.certs_gained ?? 0,
+            orundum_gained: columns.includes('1') ? (d: any) => d.orundum_gained ?? 0 : () => 0,
+            tickets_gained: columns.includes('2') ? (d: any) => d.tickets_gained ?? 0 : () => 0,
+            op_gained: columns.includes('3') ? (d: any) => d.op_gained ?? 0 : () => 0,
+            certs_gained: columns.includes('4') ? (d: any) => d.certs_gained ?? 0 : () => 0,
         })
         .join_left(dt_max_pulls, 'day')
         .derive({

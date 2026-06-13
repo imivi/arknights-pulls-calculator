@@ -23,7 +23,7 @@ export default function StartingResources() {
         orundum: startingResources.orundum.toString(),
         tickets: startingResources.tickets.toString(),
         op: startingResources.op.toString(),
-        certs: startingResources.certs.toString(),
+        certs: (startingResources?.certs || 0).toString(),
     })
 
     const timeoutIdRef = useRef(0)
@@ -98,7 +98,7 @@ export default function StartingResources() {
                     type="text"
                     inputMode="numeric"
                     pattern="[0-9]*"
-                    value={inputValues.certs}
+                    value={inputValues?.certs || 0}
                     onChange={(e) => {
                         if (!Number.isNaN(Number(e.target.value))) {
                             setInputValue("certs", e.target.value)

@@ -189,7 +189,7 @@ export default function PullsMenu({ row, children }: Props) {
                                                         {
                                                             operators.length === 1 &&
                                                             <img
-                                                                src={`/operators/${operators}.webp`}
+                                                                src={import.meta.env.VITE_ASSETS_BASE_URL + `operators/${operators}.webp`}
                                                                 alt={key}
                                                                 width={24}
                                                                 height={24}

@@ -16,9 +16,11 @@ This is an online tool for Arknights players to calculate resource income and fu
 
 * If you have cleared a past event, check "already cleared" on the banner for the rerun (the OP from the rerun will be disregarded), but 2000 orundum will be added from the Intelligence Certification Store.
 
-* Scroll down to the banner you want to pull on, and check the blue column: these are the pulls you will have available **if you convert all of your OP** (the rate is 0.3 pulls/OP). The next two columns list the pulls **without converting OP** and the additional pulls you get from the converted OP.
+* Scroll down to the banner you want to pull on, and check the blue bars: these are the pulls you will have available **if you convert all of your OP** (the rate is 0.3 pulls/OP)
 
-* You can click on a pull count to **spend pulls**. The resources spent will be automatically calculated and deducted.
+* You can click on a blue bar to **spend pulls**. The resources spent will be automatically calculated and deducted.
+
+* Click on any resource count (orundum, tickets, OP, certs) to manually add or deduct resources. You can use this feature to trade gold certificates for headhunting permits (typically 258 certs for 38 permits). Note that you can also add or deduct resources orundum and OP at any date.
 
 * When spending pulls, the chance of pulling the rate-up operator(s) is shown. The data comes from [Krooster's headhunting calculator](https://www.krooster.com/tools/rateup).
 
@@ -28,8 +30,6 @@ This is an online tool for Arknights players to calculate resource income and fu
 * **Distinction Certificates** (gold certs), mostly from recruitment and extra event welfare tokens, you can exchange 258 of them for 38 HH permits.
 * Any orundum from the **Intelligence Certification Store** (purple certs) beyond the 2000 orundum added on each rerun. Note that this orundum does not expire after the rerun ends. Therefore, if you are a new player or you have not cleared past reruns, you can still purchase any remaining orundum.
 * Maintenance compensation and random gifts in the mail.
-
-Note that you can add or deduct resources (orundum/permits/OP) at any date. Simply click on the resource total, and enter the amount gained or spent.
 
 ## Included in the calculations
 

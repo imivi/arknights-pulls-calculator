@@ -1,31 +1,175 @@
+@use "../styles/colors.scss";
+
 .chart_container {
     width: min(1000px, 100vw);
-    height: min(500px, 80vh);
     overflow-x: auto;
     overflow-y: hidden;
     margin: 0 auto;
+    padding-bottom: 2rem;
 
     &[data-show=false] {
         display: none;
     }
 }
 
+.ChartWrapper {
+    width: 1000px;
+    position: relative;
+    margin: 0 auto;
+}
+
 .Chart {
     width: 1000px;
-    height: min(500px, 80vh);
-    margin-bottom: 50px;
+    height: 420px;
+
+    // Series A: Pulls (incl. OP) - Amber / Gold
+    :global(.ct-series-a) {
+        :global(.ct-line) {
+            stroke: #e9b546;
+            stroke-width: 3px;
+        }
+
+        :global(.ct-point) {
+            stroke: #e9b546;
+            stroke-width: 8px;
+            cursor: pointer;
+            transition: stroke-width 0.15s ease;
+
+            &:hover {
+                stroke-width: 12px;
+            }
+        }
+
+        :global(.ct-area) {
+            fill: #e9b546;
+            fill-opacity: 0.35;
+        }
+    }
+
+    // Series B: Pulls (excl. OP) - Blue
+    :global(.ct-series-b) {
+        :global(.ct-line) {
+            stroke: #4090dc;
+            stroke-width: 3px;
+        }
+
+        :global(.ct-point) {
+            stroke: #4090dc;
+            stroke-width: 8px;
+            cursor: pointer;
+            transition: stroke-width 0.15s ease;
+
+            &:hover {
+                stroke-width: 12px;
+            }
+        }
+
+        :global(.ct-area) {
+            fill: #4090dc;
+            fill-opacity: 0.55;
+        }
+    }
+
+    :global(.ct-grid) {
+        stroke: rgba(0, 0, 0, 0.1);
+        stroke-dasharray: 3px;
+    }
+
+    :global(.ct-label) {
+        color: rgba(0, 0, 0, 0.7);
+        fill: rgba(0, 0, 0, 0.7);
+        font-size: 0.8rem;
+    }
+
+    :global(.ct-label.ct-horizontal) {
+        transform: rotate(90deg);
+        transform-origin: left top;
+        justify-content: flex-start;
+        align-items: center;
+        white-space: nowrap;
+        margin-top: 10px;
+        margin-left: 12px;
+    }
+
+    :global([data-dark="true"]) & {
+        :global(.ct-grid) {
+            stroke: rgba(255, 255, 255, 0.15);
+        }
+
+        :global(.ct-label) {
+            color: rgba(255, 255, 255, 0.75);
+            fill: rgba(255, 255, 255, 0.75);
+        }
+    }
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+
+    :global([data-dark="true"]) & {
+        color: #ddd;
+    }
+}
+
+.legend_item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend_marker {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
 }
 
 .Tooltip {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+    margin-top: -12px;
     background: white;
-    padding: 9px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: black;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #111;
+    font-size: 0.85rem;
+    z-index: 100;
+    white-space: nowrap;
 
-    &>div {
-        display: grid;
-        grid-template-columns: 1rem 1fr;
-        justify-content: center;
+    :global([data-dark="true"]) & {
+        background: #25252b;
+        border-color: #444;
+        color: #eee;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip_date {
+        font-weight: 600;
+        margin-bottom: 4px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .tooltip_row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 3px 0;
+    }
+
+    .tooltip_dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
     }
 }

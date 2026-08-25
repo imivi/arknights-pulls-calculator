@@ -1,8 +1,8 @@
 import s from "./Chart.module.scss"
 
-import { useMemo } from "react"
-import { useDarkModeStore } from "../stores/useDarkModeStore"
-import { type LineSeries, ResponsiveLine } from '@nivo/line'
+import { useEffect, useRef, useState } from "react"
+import { LineChart, type LineChartOptions } from "chartist"
+import "chartist/dist/index.css"
 import { CalendarRow } from "../types"
 
 
@@ -11,132 +11,151 @@ type Props = {
     show: boolean
 }
 
+type TooltipData = {
+    x: number
+    y: number
+    date: string
+    pullsInclOp: number
+    pullsExclOp: number
+}
+
 
 export default function Chart({ rows, show }: Props) {
+    const chartContainerRef = useRef<HTMLDivElement>(null)
+    const [tooltip, setTooltip] = useState<TooltipData | null>(null)
 
-    const { data, labels } = useMemo(() => getData(rows), [rows])
+    useEffect(() => {
+        if (!show || !chartContainerRef.current) return
 
-    const { darkMode } = useDarkModeStore()
+        const { data, labels, sampledRows } = getData(rows)
+
+        const options: LineChartOptions = {
+            showArea: true,
+            showPoint: true,
+            fullWidth: true,
+            lineSmooth: false,
+            chartPadding: {
+                top: 20,
+                right: 35,
+                bottom: 60,
+                left: 20,
+            },
+            low: 0,
+            axisY: {
+                onlyInteger: true,
+                offset: 40,
+            },
+            axisX: {
+                offset: 60,
+            },
+        }
+
+        const chart = new LineChart(chartContainerRef.current, data, options)
+
+        chart.on("draw", (context) => {
+            if (context.type === "point") {
+                const pointEl = context.element.getNode() as SVGElement
+                const idx = context.index
+
+                const onMouseEnter = () => {
+                    const rect = chartContainerRef.current?.getBoundingClientRect()
+                    if (!rect) return
+                    const pointRect = pointEl.getBoundingClientRect()
+                    const row = sampledRows[idx]
+                    if (!row) return
+
+                    setTooltip({
+                        x: pointRect.left + pointRect.width / 2 - rect.left,
+                        y: pointRect.top - rect.top,
+                        date: labels[idx],
+                        pullsInclOp: row.pulls_available_incl_op,
+                        pullsExclOp: row.pulls_available_excl_op,
+                    })
+                }
+
+                const onMouseLeave = () => {
+                    setTooltip(null)
+                }
+
+                pointEl.addEventListener("mouseenter", onMouseEnter)
+                pointEl.addEventListener("mouseleave", onMouseLeave)
+            }
+        })
+
+        return () => {
+            chart.detach()
+        }
+    }, [rows, show])
 
     return (
         <div className={s.chart_container} data-show={show}>
-            <div className={s.Chart}>
-                <ResponsiveLine
-                    theme={{
-                        text: {
-                            fill: darkMode ? "#eee" : "black",
-                            fontSize: 15,
-                        },
-                        tooltip: {
-                            container: {
-                                color: "black",
-                            }
-                        }
-                    }}
-                    curve="natural"
-                    data={data}
-                    margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-                    colors={["#4090dcff", "#e9b546ff"]}
-                    animate={true}
-                    axisTop={null}
-                    axisRight={null}
-                    enableTouchCrosshair={true}
-                    useMesh={true}
-                    isInteractive={true}
-                    axisLeft={{
-                        tickSize: 5,
-                        tickPadding: 5,
-                        tickRotation: 0,
-                        legend: "Pulls",
-                        legendPosition: "middle",
-                        legendOffset: -40,
-                    }}
-                    axisBottom={{
-                        tickSize: 10,
-                        format: (value) => labels[value],
-                        tickRotation: 45,
-                    }}
-                    legends={[
-                        {
-                            anchor: 'bottom-right',
-                            direction: 'column',
-                            translateX: -60,
-                            translateY: -10,
-                            itemWidth: 80,
-                            itemHeight: 22,
-                            symbolShape: 'circle'
-                        },
-                    ]}
-                    tooltip={(props) => (
-                        <Tooltip
-                            date={labels[props.point.data.x as number]}
-                            pulls={props.point.data.y as number}
-                            color={props.point.seriesColor}
-                        />
-                    )}
-                />
+            <div className={s.ChartWrapper}>
+                <div ref={chartContainerRef} className={s.Chart} />
+
+                {tooltip && (
+                    <div
+                        className={s.Tooltip}
+                        style={{ left: `${tooltip.x}px`, top: `${tooltip.y}px` }}
+                    >
+                        <div className={s.tooltip_date}>{tooltip.date}</div>
+                        <div className={s.tooltip_row}>
+                            <span className={s.tooltip_dot} style={{ backgroundColor: "#e9b546" }} />
+                            <span>Pulls (incl. OP): {Math.round(tooltip.pullsInclOp)}</span>
+                        </div>
+                        <div className={s.tooltip_row}>
+                            <span className={s.tooltip_dot} style={{ backgroundColor: "#4090dc" }} />
+                            <span>Pulls (excl. OP): {Math.round(tooltip.pullsExclOp)}</span>
+                        </div>
+                    </div>
+                )}
+
+                <div className={s.legend}>
+                    <div className={s.legend_item}>
+                        <span className={s.legend_marker} style={{ backgroundColor: "#4090dc" }} />
+                        <span>Pulls (excl. OP)</span>
+                    </div>
+                    <div className={s.legend_item}>
+                        <span className={s.legend_marker} style={{ backgroundColor: "#e9b546" }} />
+                        <span>Pulls (incl. OP)</span>
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 
-type TooltipProps = {
-    date: string
-    pulls: number
-    color: string
-}
-
-function Tooltip({ date, pulls, color }: TooltipProps) {
-    return (
-        <div className={s.Tooltip}>
-            <div><span style={{ color }}>■</span>{date}</div>
-            <div><span></span>{pulls.toFixed()}&nbsp;pulls</div>
-        </div>
-    )
-}
-
-
-type LabeledPoint = {
-    x: number
-    y: number
-    label: string
-}
-
 function getData(days: CalendarRow[]) {
-    const fewerDays = days.filter((_, i) => i % 5 === 0)
+    const sampledRows = days.filter((_, i) => i % 5 === 0)
 
-    const totalPulls: LabeledPoint[] = []
-    const totalPullsWithoutOP: LabeledPoint[] = []
+    const totalPullsInclOp: number[] = []
+    const totalPullsExclOp: number[] = []
     const labels: string[] = []
 
-    fewerDays.forEach((day, i) => {
+    sampledRows.forEach((day) => {
         const label = formatDate(day.day)
         labels.push(label)
-        totalPulls.push({
-            x: i,
-            y: day.pulls_available_incl_op,
-            label,
-        })
-        totalPullsWithoutOP.push({
-            x: i,
-            y: day.pulls_available_excl_op,
-            label,
-        })
+        totalPullsInclOp.push(day.pulls_available_incl_op)
+        totalPullsExclOp.push(day.pulls_available_excl_op)
     })
-    const data: LineSeries[] = [
-        {
-            id: "Pulls (excl. OP)",
-            data: totalPullsWithoutOP,
-        },
-        {
-            id: "Pulls (incl. OP)",
-            data: totalPulls,
-        },
-    ]
-    return { data, labels }
+
+    const data = {
+        labels,
+        series: [
+            {
+                name: "Pulls (incl. OP)",
+                data: totalPullsInclOp,
+            },
+            {
+                name: "Pulls (excl. OP)",
+                data: totalPullsExclOp,
+            },
+        ],
+    }
+
+    return { data, labels, sampledRows }
 }
 
-const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 function formatDate(date: string): string {
     const [_, month, day] = date.split("-")
     return months[Number(month) - 1] + " " + day

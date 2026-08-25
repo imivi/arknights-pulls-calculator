@@ -34,8 +34,8 @@ export function checkDailyResources(events: Event[]) {
         }
     }
 
-    // Make sure that every event lasts exactly 7 or 14 days
-    const validDurations = [7, 14]
+    // Make sure that every event lasts exactly 7 or 10 or14 days
+    const validDurations = [7, 10, 14]
     for (const event of events) {
         if (!validDurations.includes(event.duration_days))
             throw Error(`Invalid event duration for ${event.event_id}: ${event.duration_days}`)

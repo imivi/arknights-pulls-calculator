@@ -52,7 +52,12 @@ async function main() {
         rows = JSON.parse(fs.readFileSync(dataPaths.rawGoogleSheet, { encoding: "utf-8" }))
     }
     else {
+        console.log(`Fetching rows from google sheets with id ${googleSheetId}...`)
         rows = await fetchRows(googleSheetId)
+        if (rows.length === 0) {
+            throw new Error("Failed to fetch Google Sheet data (0 rows parsed or request timed out).")
+        }
+        console.log(`Fetched ${rows.length} rows from google sheet.`)
         fs.writeFileSync(dataPaths.rawGoogleSheet, JSON.stringify(rows, null, 4), { encoding: "utf-8" })
     }
     console.info("✅ (1/4) Fetched sheet data")

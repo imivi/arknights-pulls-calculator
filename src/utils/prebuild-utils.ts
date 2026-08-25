@@ -163,6 +163,10 @@ export function extractResourcesGained(row: GoogleSheetRow): ResourceGained[] {
 export function transpose(items: Record<string, any>[]): Record<string, any[]> {
     const output: Record<string, any[]> = {}
 
+    if (!items || items.length === 0 || !items[0]) {
+        return output
+    }
+
     // Initialize
     for (const key of Object.keys(items[0])) {
         output[key] = []
@@ -170,6 +174,9 @@ export function transpose(items: Record<string, any>[]): Record<string, any[]> {
 
     for (const item of items) {
         for (const key of Object.keys(item)) {
+            if (!output[key]) {
+                output[key] = []
+            }
             output[key].push(item[key])
         }
     }

@@ -53,6 +53,12 @@
         background-color: colors.$table-header-bg-light;
         color: colors.$table-header-text-light;
         border-bottom: 2px solid colors.$table-header-border-light;
+
+        small {
+            font-size: 0.75em;
+            font-weight: normal;
+            opacity: 0.85;
+        }
     }
 
     td {
@@ -86,6 +92,10 @@
             display: inline-flex;
             align-items: center;
         }
+    }
+
+    th[data-show] {
+        text-align: center;
     }
 
     th[data-show=false],

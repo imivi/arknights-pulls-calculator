@@ -73,7 +73,11 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
             <table>
                 <thead>
                     <tr>
-                        <th>Event</th>
+                        <th>
+                            Event
+                            <br />
+                            <small>(banner duration, not event duration)</small>
+                        </th>
                         <th>Day</th>
 
                         {userSpentPulls && <th>Pulls<br />spent</th>}
@@ -92,12 +96,28 @@ export default function Calendar({ rows, resourcesGainedOrSpentByDay }: Props) {
                             )}
                         </th>
 
-                        <th>Free<br />pulls</th>
+                        <th>Free pulls</th>
 
-                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="orundum" /> Orundum</th>
-                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="tickets" /> Tickets</th>
-                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="op" /> OP</th>
-                        <th data-show={showResourceColumns}><IconOnlyResourceBadge resource="certs" /> Certs</th>
+                        <th data-show={showResourceColumns}>
+                            <IconOnlyResourceBadge resource="orundum" />
+                            <br />
+                            <small>Orundum</small>
+                        </th>
+                        <th data-show={showResourceColumns}>
+                            <IconOnlyResourceBadge resource="tickets" />
+                            <br />
+                            <small>Tickets</small>
+                        </th>
+                        <th data-show={showResourceColumns}>
+                            <IconOnlyResourceBadge resource="op" />
+                            <br />
+                            <small>OP</small>
+                        </th>
+                        <th data-show={showResourceColumns}>
+                            <IconOnlyResourceBadge resource="certs" />
+                            <br />
+                            <small>Certs</small>
+                        </th>
                     </tr>
                 </thead>
 

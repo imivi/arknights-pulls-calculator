@@ -34,6 +34,11 @@ function addFreePulls(row: CalendarRow): CalendarRow {
     else if (row.is_limited && !row.is_rerun)
         row.free_pulls = row.day_of_event === 1 ? 11 : 1
 
+    // Persona 3 event gives out 1 pull a day for the first 10 days (in addition to the usual 2 ten-pull tickets)
+    if (row.event_id === 'persona3_collab' && row.day_of_event! <= 10) {
+        row.free_pulls += 1
+    }
+
     return row
 }
 

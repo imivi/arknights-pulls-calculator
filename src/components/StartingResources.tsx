@@ -47,15 +47,10 @@ export default function StartingResources() {
             <label data-resource="starting-orundum" data-tooltip-id="starting-orundum">
                 <Icon type="orundum" size={32} />
                 <input
-                    type="text"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
+                    type="number"
+                    min="0"
                     value={inputValues.orundum}
-                    onChange={(e) => {
-                        if (!Number.isNaN(Number(e.target.value))) {
-                            setInputValue("orundum", e.target.value)
-                        }
-                    }}
+                    onChange={(e) => setInputValue("orundum", e.target.value)}
                 />
                 <Tooltip id="starting-orundum" content="Your current orundum" defaultIsOpen={startingResources.orundum === 0} />
             </label>
@@ -63,15 +58,10 @@ export default function StartingResources() {
             <label data-resource="starting-tickets" data-tooltip-id="starting-tickets">
                 <Icon type="tickets" size={32} />
                 <input
-                    type="text"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
+                    type="number"
+                    min="0"
                     value={inputValues.tickets}
-                    onChange={(e) => {
-                        if (!Number.isNaN(Number(e.target.value))) {
-                            setInputValue("tickets", e.target.value)
-                        }
-                    }}
+                    onChange={(e) => setInputValue("tickets", e.target.value)}
                 />
                 <Tooltip id="starting-tickets" content="Your current HH permits" />
             </label>
@@ -79,15 +69,10 @@ export default function StartingResources() {
             <label data-resource="starting-op" data-tooltip-id="starting-op">
                 <Icon type="op" size={32} />
                 <input
-                    type="text"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
+                    type="number"
+                    min="0"
                     value={inputValues.op}
-                    onChange={(e) => {
-                        if (!Number.isNaN(Number(e.target.value))) {
-                            setInputValue("op", e.target.value)
-                        }
-                    }}
+                    onChange={(e) => setInputValue("op", e.target.value)}
                 />
                 <Tooltip id="starting-op" content="Your current OP" />
             </label>
@@ -95,15 +80,10 @@ export default function StartingResources() {
             <label data-resource="starting-certs" data-tooltip-id="starting-certs">
                 <Icon type="certs_dark" size={32} />
                 <input
-                    type="text"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
-                    value={inputValues?.certs || 0}
-                    onChange={(e) => {
-                        if (!Number.isNaN(Number(e.target.value))) {
-                            setInputValue("certs", e.target.value)
-                        }
-                    }}
+                    type="number"
+                    min="0"
+                    value={inputValues?.certs || ""}
+                    onChange={(e) => setInputValue("certs", e.target.value)}
                 />
                 <Tooltip id="starting-certs" content="Your current distinction certificates" />
             </label>

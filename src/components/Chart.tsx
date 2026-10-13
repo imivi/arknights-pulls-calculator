@@ -92,22 +92,31 @@ export default function Chart({ rows, show }: Props) {
             <div className={s.ChartWrapper}>
                 <div ref={chartContainerRef} className={s.Chart} />
 
-                {tooltip && (
-                    <div
-                        className={s.Tooltip}
-                        style={{ left: `${tooltip.x}px`, top: `${tooltip.y}px` }}
-                    >
-                        <div className={s.tooltip_date}>{tooltip.date}</div>
-                        <div className={s.tooltip_row}>
-                            <span className={s.tooltip_dot} style={{ backgroundColor: "#e9b546" }} />
-                            <span>Pulls (incl. OP): {Math.round(tooltip.pullsInclOp)}</span>
+                {tooltip && (() => {
+                    const flipX = tooltip.x > 850 ? "-100%" : tooltip.x < 120 ? "0%" : "-50%"
+                    const flipY = tooltip.y < 90
+                    return (
+                        <div
+                            className={s.Tooltip}
+                            style={{
+                                left: `${tooltip.x}px`,
+                                top: `${tooltip.y}px`,
+                                transform: `translate(${flipX}, ${flipY ? "0%" : "-100%"})`,
+                                marginTop: flipY ? "12px" : "-12px",
+                            }}
+                        >
+                            <div className={s.tooltip_date}>{tooltip.date}</div>
+                            <div className={s.tooltip_row}>
+                                <span className={s.tooltip_dot} style={{ backgroundColor: "#e9b546" }} />
+                                <span>Pulls (incl. OP): {Math.round(tooltip.pullsInclOp)}</span>
+                            </div>
+                            <div className={s.tooltip_row}>
+                                <span className={s.tooltip_dot} style={{ backgroundColor: "#4090dc" }} />
+                                <span>Pulls (excl. OP): {Math.round(tooltip.pullsExclOp)}</span>
+                            </div>
                         </div>
-                        <div className={s.tooltip_row}>
-                            <span className={s.tooltip_dot} style={{ backgroundColor: "#4090dc" }} />
-                            <span>Pulls (excl. OP): {Math.round(tooltip.pullsExclOp)}</span>
-                        </div>
-                    </div>
-                )}
+                    )
+                })()}
 
                 <div className={s.legend}>
                     <div className={s.legend_item}>
